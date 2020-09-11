@@ -1,0 +1,95 @@
+---
+title: "Wonderful Wednesdays June 2020"
+description: |
+  Satisfaction data example
+author:
+  - name: VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 06-10-2020
+categories:
+  - Wonderful Wednesdays
+  - Subgroups
+  - Discrete endpoint
+slug: june-2020-ww
+preview: cdf.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014 and [published in 2016](http://dx.doi.org/10.4232/1.12437). The primary endpoint was overall satisfaction with life.
+
+The question posed to the participants was: "How would you rate your satisfaction with your life overall on a scale from 0-10?", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered.
+
+The objective of this survey was to explore the most relevant factors for satisfaction in life. Several factors, such as smoking status, working hours per week or number of doctor visits per year were collected. The dataset and its specification can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-05-13).
+
+We received a variety of submissions and we would like to thank everyone for their contributions. The visualizations that were presented during the June 2020 Wonderful Wednesday webinar are described below, with a few discussion points highlighted. To see the full discussion around each of the visualizations, check out the webinar recording in the [PSI Video-on-Demand library](https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4). The subtitles contain the timestamps of the webinar recording, in case you would like to listen to the discussion around a specific visualization.
+
+
+1. CDF plot (03:10 - 08:50)
+==
+
+![Plot 1](cdf.png "Plot 1")The first submission discussed during this webinar was a cumulative distribution function (CDF) plot with the cumulative proportion of subjects on the vertical axis and the satisfaction with life on the horizontal axis. This horizontal axis has been reversed, ranging from highest satisfaction (10; on the left) to lowest satisfaction (0; on the right). This is also highlighted by the arrow labelled "Less satisified", which is very helpful. The curves show the proportion of subjects reaching a certain level of satisfaction or higher. The difference between non-smokers and smokers can be clearly seen in this graph, with non-smokers being more satisfied with life than smokers. This message is also communicated in the title of the graph.
+
+The graph is very well designed with little to no visual clutter, which helps to focus on the actual data. A suggestion for improvement would be to place the subgroup labels directly next to the lines and to use the same color for the subgroup labels that was used for the lines which would allow removing the legend symbols.
+
+To further highlight the difference between the two groups, it could be helpful to fill the area between the two curves using the color of the more satisfied group (or vice versa). This could even be shown as an additional bar chart below this visualization. This would facilitate comparing subgroup differences at the various cut-offs.
+
+In summary, this graph is very effective for communicating a simple and clear message and could be used in a presentation. It appears that the creator of this graph already went through the process of exploring the data to reach the conclusion that smoking status is a relevant factor for satisfaction of life. Examples for exploratory visualizations that could help with reaching such a conclusion were also submitted and are discussed further below.
+
+
+2. Treeplot (08:50 - 12:10)
+==
+
+![Plot 2](tree.png "Plot 2")The second submission discussed during the webinar was a treeplot. The title contains the question that was posed to the participants and the subtitle describes that the tile sizes are proportional to the subgroup sizes. The mean satisfaction within subgroups is color-coded, as shown in the legend.
+
+This plot gives a quick overview of the subgroups, allowing to see all the data visually in one place, which is great. The use of the font size could be improved. At first glance, it appears that it was coded with the data, but it seems it has more to do with the space constraints and the size of the tiles. For example, the font size for smoking status "N" and "Y" is the same but the size of the tiles indicates that the non-smoker group is much larger compared to the smoker group.
+
+
+3. Bar plots (12:10 - 17:20)
+==
+
+![Plot 3](bar.png "Plot 3")The next visualization was specifically designed for a presentation. It starts of with a question ("How meaningful is a mean difference?") and tries answering that question through a series of bar plots, looking at the data in different ways. This submission focuses on one single factor (smoking status), as already seen in the CDF plot above.
+
+The first bar plot in the top left shows a statistically significant mean difference on an adapted scale from 6 to 8. In the top right we can see a very similar plot but this time on the complete scale from 0 to 10, which makes the magnitude of the difference appear much smaller. The stacked bar plot at the bottom shows a significant difference between the two response distributions instead of only comparing the means. Like the CDF plot, this visualization shows that non-smokers are performing better than smokers, regardless of the cut-off that is chosen.
+
+Interestingly, a divergent color scheme was used in the stacked bar chart. A suggestion to make the comparisons in the stacked bar chart even easier would be to add reference lines connecting the different areas/cut-offs.
+
+In summary, this is a well thought through visualization example.
+
+
+4. Power BI dashboard (17:20 - 26:45)
+==
+
+![Plot 4](powerbi.png "Plot 4")This submission is an interactive Power BI dashboard. The number of participants and overall mean is given in the top left. A stacked bar chart as well as a classic bar plot show the distribution of the satisfaction responses. The factors are shown in supplementary bar plots below. In these bar plots a subgroup can be selected and all the other plots will adapt automatically. Check out the recording of the webinar [here](https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4) (starting at 17:20) to see how the interactivity works in practice.
+
+This can be a very useful and easy tool to explore the data, replacing many tables. The arrangement of the different tiles on the dashboard seems also well thought through, starting with the main results in the top left and finishing with the summary results in the bottom right.
+
+It is not entirely clear why some of the bar plots are vertical while others are horizontal. A horizontal presentation can be useful when labels are long to increase readibility, however, a consistent approach could be chosen.
+
+
+5. Funnel plot (26:45 - 37:20)
+==
+
+![Plot 5](funnel1.png "Plot 5")The next submission is an interactive visualization as well. In this funnel plot, each dot represents a subgroup estimate. This is the first visualization that does not only explore the factors in isolation, but also looks at all possible combination of subgroups. The overall mean with 95% prediction intervals is also shown. The vertical axis represents the average satisfaction ranging from 0 to 10 and the horizontal axis the subgroup size, i.e., larger subgroups are shown more to the right.
+
+The name, the size and the mean of a specific subgroup becomes visible by hovering over a dot. This tool is specifically useful to explore extreme values. Check out the recording of the webinar [here](https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4) (starting at 26:45) to see how the interactivity works in practice.
+
+Most data points are squeezed towards the top left of the plot, given that the full scale is shown on both axes, causing a lot of white space. The visualization does include an interactive zooming option. A couple of other suggestions  to allow zooming in are: 1) the subgroup size could be shown on a logarithmic scale; 2) apply a minimum threshold to the subgroup size because the very small subgroups are usually not of interest.
+
+Additional interesting interactive tools could be: 1) highlight all subgroups related to a certain factor, e.g., all subgroups relevant for smoking status. This would allow quicker identification of relevant factors. 2) when hovering over one subgroup, the complement of this subgroup could be highlighted as well.
+
+In summary, this is a great, innovative idea to explore subgroups.
+
+
+6. Funnel plot (37:20 - 48:45)
+==
+
+![Plot 6](funnel2.png "Plot 6")This submission is similar to the funnel plot seen above but providing additional features, such as:
+
+* Specific subgroups can be highlighted. For example, by selecting the non-smokers, it becomes apparent that most subgroups including non-smokers lie above the mean reference line. 
+* The shading of the dots is linked to the number of subgroup levels. The white dots represent single-level factors while the more transparent dots represent higher level subgroups. The number of subgroup levels displayed can also be controlled (e.g., only 1-factorial subgroups could be displayed).
+* All parent subgroups of a selected subgroup can be highlighted. This could be used to explore the driving factors among a combination of factors forming a subgroup. 
+
+Check out the recording of the webinar [here](https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4) (starting at 37:20) to see more details.

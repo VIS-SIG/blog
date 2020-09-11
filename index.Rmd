@@ -1,0 +1,6 @@
+---
+title: "VIS-SIG Blog"
+site: distill::distill_website
+listing: posts
+---
+<!-- create_post("Wonderful Wednesdays June 2020") -->

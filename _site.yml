@@ -1,0 +1,15 @@
+name: "VIS_SIG_blog_test"
+title: "VIS-SIG Blog"
+description: |
+  The blog of the PSI Visualisation SIG
+output_dir: "."
+navbar:
+  logo: psi_logo.png
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "PSI SIG page"
+      href: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+    - text: "About"
+      href: about.html
+output: distill::distill_article

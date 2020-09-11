@@ -1,0 +1,5 @@
+---
+title: "About this blog"
+description: |
+  This is the blog of our PSI Visualisation special interest group (SIG). We provide a summary of each of our Wonderful Wednesday Webinars and also some additional news about our group.
+---

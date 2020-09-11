@@ -1,0 +1,37 @@
+[
+  {
+    "path": "posts/2020-09-10-wonderful-wednesday-april-2020/",
+    "title": "Wonderful Wednesday April 2020",
+    "description": "Survival dataset",
+    "author": [
+      {
+        "name": "VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-04-09",
+    "categories": [
+      "survival data",
+      "Kaplan-Meier"
+    ],
+    "preview": "posts/2020-09-10-wonderful-wednesday-april-2020/plot01.png",
+    "last_modified": "2020-09-10T22:19:44+02:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2020-09-09-wonderful-wednesdays-overview/",
+    "title": "Wonderful Wednesdays Overview",
+    "description": "This provides a short overview of our Wonderful Wednesdays Webinars.",
+    "author": [
+      {
+        "name": "VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-03-12",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-09-10T22:10:07+02:00",
+    "input_file": {}
+  }
+]
