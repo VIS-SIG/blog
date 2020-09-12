@@ -35,8 +35,8 @@
       "Kaplan-Meier",
       "Wonderful Wednesdays"
     ],
-    "preview": "posts/2020-09-10-wonderful-wednesday-april-2020/plot01.png",
-    "last_modified": "2020-09-11T18:38:44+02:00",
+    "preview": "posts/2020-09-10-wonderful-wednesday-april-2020/plots/plot01.png",
+    "last_modified": "2020-09-12T13:46:47+02:00",
     "input_file": {}
   },
   {
@@ -55,7 +55,7 @@
       "Overview"
     ],
     "preview": {},
-    "last_modified": "2020-09-11T18:39:21+02:00",
+    "last_modified": "2020-09-12T13:18:16+02:00",
     "input_file": {}
   }
 ]
