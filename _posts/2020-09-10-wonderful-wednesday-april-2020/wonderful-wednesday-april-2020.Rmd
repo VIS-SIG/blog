@@ -67,7 +67,7 @@ This is a very flexible tool to display Kaplan-Meier plots that explores the sub
 
 This is a nice way to present the data for exploratory purposes. It would be nice to include sample sizes and confidence intervals within this tool to represent the uncertainty and minimise the risk of making incorrect conclusions.
 
-[Get a high resolution picture.](plots/plot04.png)  
+[Get a high resolution picture.](plots/plot04.PNG)  
 [Get the app code.](code/PSI_April_KM_v1_0_local/app.R)  
 [Get the readme file.](code/PSI_April_KM_v1_0_local/README(Interactive Kaplan Meier).txt)
 
@@ -77,7 +77,7 @@ The use of a heat map to present survival data is a new idea to the group. At fi
 
 As well as a ‘big picture’ message from the changes in colour there is also an interactive element to this plot allowing more detailed information to be provided, as the user hovers over different points on the plot information on the survival function at that time point is displayed. Similarly hovering over the reference lines displays further information.
 
-[Get a high resolution picture.](plots/plot05.png)  
+[Get a high resolution picture.](plots/plot05.PNG)  
 [Get the app code.](code/PSI_April_Heat_map_v1_0/PSI_April_Heat_map_v1_0.R)  
 [Get the html file.](code/PSI_April_Heat_map_v1_0/PSI_April_Heat_map_v1_0.html)  
 [Get the readme file.](code/PSI_April_Heat_map_v1_0/README(HeatMap-Lan Meier).txt)
