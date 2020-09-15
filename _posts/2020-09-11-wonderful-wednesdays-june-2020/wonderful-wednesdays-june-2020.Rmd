@@ -11,7 +11,7 @@ categories:
   - Subgroups
   - Discrete endpoint
 slug: june-2020-ww
-preview: cdf.png
+preview: plots/cdf.png
 output:
   distill::distill_article:
     self_contained: false
