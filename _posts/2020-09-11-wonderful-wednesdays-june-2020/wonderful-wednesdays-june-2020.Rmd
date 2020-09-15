@@ -1,7 +1,7 @@
 ---
 title: "Wonderful Wednesdays June 2020"
 description: |
-  Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life.
+  Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: "How would you rate your satisfaction with your life overall on a scale from 0-10?", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered.
 author:
   - name: Markus Vogler
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
