@@ -16,8 +16,10 @@
       "Discrete endpoint"
     ],
     "preview": "posts/2020-09-11-wonderful-wednesdays-june-2020/plots/cdf.png",
-    "last_modified": "2020-09-15T20:52:53+02:00",
-    "input_file": {}
+    "last_modified": "2020-09-15T20:59:30+02:00",
+    "input_file": {},
+    "preview_width": 4133,
+    "preview_height": 2362
   },
   {
     "path": "posts/2020-09-10-wonderful-wednesday-april-2020/",
@@ -36,8 +38,10 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-09-10-wonderful-wednesday-april-2020/plots/plot01.png",
-    "last_modified": "2020-09-15T20:50:06+02:00",
-    "input_file": {}
+    "last_modified": "2020-09-15T20:59:23+02:00",
+    "input_file": {},
+    "preview_width": 5790,
+    "preview_height": 2700
   },
   {
     "path": "posts/2020-09-09-wonderful-wednesdays-overview/",

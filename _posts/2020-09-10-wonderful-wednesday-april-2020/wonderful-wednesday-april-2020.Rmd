@@ -10,6 +10,7 @@ categories:
   - survival data
   - Kaplan-Meier
   - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
 preview: plots/plot01.png
 output:
   distill::distill_article:
