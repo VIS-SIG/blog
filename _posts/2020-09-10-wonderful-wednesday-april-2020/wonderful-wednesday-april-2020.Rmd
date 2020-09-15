@@ -1,9 +1,9 @@
 ---
 title: "Wonderful Wednesday April 2020"
 description: |
-  Survival dataset
+  Survival dataset. This month’s challenge involved a classic survival dataset example. This simulated example dataset was based on a phase III clinical trial in breast cancer.
 author:
-  - name: VIS SIG
+  - name: Steve Mallett
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 04-09-2020
 categories:

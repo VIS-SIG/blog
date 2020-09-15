@@ -2,10 +2,10 @@
   {
     "path": "posts/2020-09-11-wonderful-wednesdays-june-2020/",
     "title": "Wonderful Wednesdays June 2020",
-    "description": "Satisfaction data example",
+    "description": "Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life.",
     "author": [
       {
-        "name": "VIS SIG",
+        "name": "Markus Vogler",
         "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
       }
     ],
@@ -15,17 +15,17 @@
       "Subgroups",
       "Discrete endpoint"
     ],
-    "preview": "posts/2020-09-11-wonderful-wednesdays-june-2020/cdf.png",
-    "last_modified": "2020-09-11T18:38:30+02:00",
+    "preview": {},
+    "last_modified": "2020-09-15T20:49:53+02:00",
     "input_file": {}
   },
   {
     "path": "posts/2020-09-10-wonderful-wednesday-april-2020/",
     "title": "Wonderful Wednesday April 2020",
-    "description": "Survival dataset",
+    "description": "Survival dataset. This month’s challenge involved a classic survival dataset example. This simulated example dataset was based on a phase III clinical trial in breast cancer.",
     "author": [
       {
-        "name": "VIS SIG",
+        "name": "Steve Mallett",
         "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
       }
     ],
@@ -36,7 +36,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-09-10-wonderful-wednesday-april-2020/plots/plot01.png",
-    "last_modified": "2020-09-14T19:47:30+02:00",
+    "last_modified": "2020-09-15T20:50:06+02:00",
     "input_file": {}
   },
   {
