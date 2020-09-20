@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2020-09-20-wonderful-wednesdays-july-2020/",
+    "title": "Wonderful Wednesdays July 2020",
+    "description": "This month's example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24).",
+    "author": [
+      {
+        "name": "Steve Mallett",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-07-01",
+    "categories": [
+      "Longitudinal",
+      "Continuous data",
+      "Wonderful Wednesdays"
+    ],
+    "preview": "posts/2020-09-20-wonderful-wednesdays-july-2020/./images/June_PSI_AW_v1_0.png",
+    "last_modified": "2020-09-20T12:13:31+02:00",
+    "input_file": {},
+    "preview_width": 1268,
+    "preview_height": 507
+  },
+  {
     "path": "posts/2020-09-11-wonderful-wednesdays-june-2020/",
     "title": "Wonderful Wednesdays June 2020",
     "description": "Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: \"How would you rate your satisfaction with your life overall on a scale from 0-10?\", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered.",
@@ -15,8 +37,8 @@
       "Subgroups",
       "Discrete endpoint"
     ],
-    "preview": "posts/2020-09-11-wonderful-wednesdays-june-2020/plots/cdf.png",
-    "last_modified": "2020-09-15T21:03:07+02:00",
+    "preview": "posts/2020-09-11-wonderful-wednesdays-june-2020/./plots/cdf.png",
+    "last_modified": "2020-09-20T12:13:39+02:00",
     "input_file": {},
     "preview_width": 4133,
     "preview_height": 2362
@@ -38,7 +60,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-09-10-wonderful-wednesday-april-2020/plots/plot01.png",
-    "last_modified": "2020-09-15T21:03:50+02:00",
+    "last_modified": "2020-09-20T12:13:53+02:00",
     "input_file": {},
     "preview_width": 5790,
     "preview_height": 2700

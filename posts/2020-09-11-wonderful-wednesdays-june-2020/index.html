@@ -35,7 +35,7 @@
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Satisfaction data example. The example dataset for this month&#39;s webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: &quot;How would you rate your satisfaction with your life overall on a scale from 0-10?&quot;, where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered."/>
 <meta property="og:url" content="https://vis-sig.github.io/blog/"/>
-<meta property="og:image" content="https://vis-sig.github.io/blog/plots/cdf.png"/>
+<meta property="og:image" content="https://vis-sig.github.io/blog/./plots/cdf.png"/>
 <meta property="og:image:width" content="4133"/>
 <meta property="og:image:height" content="2362"/>
 <meta property="og:locale" content="en_US"/>
@@ -46,7 +46,7 @@
 <meta property="twitter:title" content="VIS-SIG Blog: Wonderful Wednesdays June 2020"/>
 <meta property="twitter:description" content="Satisfaction data example. The example dataset for this month&#39;s webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: &quot;How would you rate your satisfaction with your life overall on a scale from 0-10?&quot;, where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered."/>
 <meta property="twitter:url" content="https://vis-sig.github.io/blog/"/>
-<meta property="twitter:image" content="https://vis-sig.github.io/blog/plots/cdf.png"/>
+<meta property="twitter:image" content="https://vis-sig.github.io/blog/./plots/cdf.png"/>
 <meta property="twitter:image:width" content="4133"/>
 <meta property="twitter:image:height" content="2362"/>
 
@@ -60,7 +60,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","slug","base_url","preview","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Wonderful Wednesdays June 2020"]},{"type":"character","attributes":{},"value":["Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: \"How would you rate your satisfaction with your life overall on a scale from 0-10?\", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Markus Vogler"]},{"type":"character","attributes":{},"value":["https://www.psiweb.org/sigs-special-interest-groups/visualisation"]}]}]},{"type":"character","attributes":{},"value":["06-10-2020"]},{"type":"character","attributes":{},"value":["Wonderful Wednesdays","Subgroups","Discrete endpoint"]},{"type":"character","attributes":{},"value":["june-2020-ww"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog"]},{"type":"character","attributes":{},"value":["plots/cdf.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","slug","base_url","preview","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Wonderful Wednesdays June 2020"]},{"type":"character","attributes":{},"value":["Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: \"How would you rate your satisfaction with your life overall on a scale from 0-10?\", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Markus Vogler"]},{"type":"character","attributes":{},"value":["https://www.psiweb.org/sigs-special-interest-groups/visualisation"]}]}]},{"type":"character","attributes":{},"value":["06-10-2020"]},{"type":"character","attributes":{},"value":["Wonderful Wednesdays","Subgroups","Discrete endpoint"]},{"type":"character","attributes":{},"value":["june-2020-ww"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog"]},{"type":"character","attributes":{},"value":["./plots/cdf.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1346,49 +1346,688 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>The question posed to the participants was: “How would you rate your satisfaction with your life overall on a scale from 0-10?”, where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered.</p>
 <p>The objective of this survey was to explore the most relevant factors for satisfaction in life. Several factors, such as smoking status, working hours per week or number of doctor visits per year were collected. The dataset and its specification can be found <a href="https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-05-13">here</a>.</p>
 <p>We received a variety of submissions and we would like to thank everyone for their contributions. The visualizations that were presented during the June 2020 Wonderful Wednesday webinar are described below, with a few discussion points highlighted. To see the full discussion around each of the visualizations, check out the webinar recording in the <a href="https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4">PSI Video-on-Demand library</a>. The subtitles contain the timestamps of the webinar recording, in case you would like to listen to the discussion around a specific visualization.</p>
-<h1 id="cdf-plot-0310---0850">1. CDF plot (03:10 - 08:50)</h1>
-<p><img src="plots/cdf.png" title="Plot 1" alt="Plot 1" />The first submission discussed during this webinar was a cumulative distribution function (CDF) plot with the cumulative proportion of subjects on the vertical axis and the satisfaction with life on the horizontal axis. This horizontal axis has been reversed, ranging from highest satisfaction (10; on the left) to lowest satisfaction (0; on the right). This is also highlighted by the arrow labelled “Less satisified”, which is very helpful. The curves show the proportion of subjects reaching a certain level of satisfaction or higher. The difference between non-smokers and smokers can be clearly seen in this graph, with non-smokers being more satisfied with life than smokers. This message is also communicated in the title of the graph.</p>
+<p><a id="example1"></a></p>
+<h1 id="example-1.-cdf-plot-0310---0850">Example 1. CDF plot (03:10 - 08:50)</h1>
+<figure>
+<img src="plots/cdf.png" title="Plot 1" alt="Plot 1" /><figcaption>Plot 1</figcaption>
+</figure>
+<p><a href="#example1%20code">link to code</a><br />
+<a href="./plots/cdf.png">high-resolution image</a></p>
+<p>The first submission discussed during this webinar was a cumulative distribution function (CDF) plot with the cumulative proportion of subjects on the vertical axis and the satisfaction with life on the horizontal axis. This horizontal axis has been reversed, ranging from highest satisfaction (10; on the left) to lowest satisfaction (0; on the right). This is also highlighted by the arrow labelled “Less satisified”, which is very helpful. The curves show the proportion of subjects reaching a certain level of satisfaction or higher. The difference between non-smokers and smokers can be clearly seen in this graph, with non-smokers being more satisfied with life than smokers. This message is also communicated in the title of the graph.</p>
 <p>The graph is very well designed with little to no visual clutter, which helps to focus on the actual data. A suggestion for improvement would be to place the subgroup labels directly next to the lines and to use the same color for the subgroup labels that was used for the lines which would allow removing the legend symbols.</p>
 <p>To further highlight the difference between the two groups, it could be helpful to fill the area between the two curves using the color of the more satisfied group (or vice versa). This could even be shown as an additional bar chart below this visualization. This would facilitate comparing subgroup differences at the various cut-offs.</p>
 <p>In summary, this graph is very effective for communicating a simple and clear message and could be used in a presentation. It appears that the creator of this graph already went through the process of exploring the data to reach the conclusion that smoking status is a relevant factor for satisfaction of life. Examples for exploratory visualizations that could help with reaching such a conclusion were also submitted and are discussed further below.</p>
-<p><a href="plots/cdf.png">Get a high resolution picture.</a><br />
-<a href="code/cdf%20-%20Markus%20Vogler.R">Get the R code.</a></p>
-<h1 id="treeplot-0850---1210">2. Treeplot (08:50 - 12:10)</h1>
-<p><img src="plots/tree.png" title="Plot 2" alt="Plot 2" />The second submission discussed during the webinar was a treeplot. The title contains the question that was posed to the participants and the subtitle describes that the tile sizes are proportional to the subgroup sizes. The mean satisfaction within subgroups is color-coded, as shown in the legend.</p>
+<p><a id="example2"></a></p>
+<h1 id="example-2.-treeplot-0850---1210">Example 2. Treeplot (08:50 - 12:10)</h1>
+<figure>
+<img src="plots/tree.png" title="Plot 2" alt="Plot 2" /><figcaption>Plot 2</figcaption>
+</figure>
+<p><a href="#example2%20code">link to code</a><br />
+<a href="./plots/tree.png">high-resolution image</a></p>
+<p>The second submission discussed during the webinar was a treeplot. The title contains the question that was posed to the participants and the subtitle describes that the tile sizes are proportional to the subgroup sizes. The mean satisfaction within subgroups is color-coded, as shown in the legend.</p>
 <p>This plot gives a quick overview of the subgroups, allowing to see all the data visually in one place, which is great. The use of the font size could be improved. At first glance, it appears that it was coded with the data, but it seems it has more to do with the space constraints and the size of the tiles. For example, the font size for smoking status “N” and “Y” is the same but the size of the tiles indicates that the non-smoker group is much larger compared to the smoker group.</p>
-<p><a href="plots/tree.png">Get a high resolution picture.</a><br />
-<a href="code/psi_may2020%20-%20Blin%20Blingineer.R">Get the R code.</a></p>
-<h1 id="bar-plots-1210---1720">3. Bar plots (12:10 - 17:20)</h1>
-<p><img src="plots/bar.png" title="Plot 3" alt="Plot 3" />The next visualization was specifically designed for a presentation. It starts of with a question (“How meaningful is a mean difference?”) and tries answering that question through a series of bar plots, looking at the data in different ways. This submission focuses on one single factor (smoking status), as already seen in the CDF plot above.</p>
+<p><a id="example3"></a></p>
+<h1 id="example-3.-bar-plots-1210---1720">Example 3. Bar plots (12:10 - 17:20)</h1>
+<figure>
+<img src="plots/bar.png" title="Plot 3" alt="Plot 3" /><figcaption>Plot 3</figcaption>
+</figure>
+<p><a href="#example3%20code">link to code</a><br />
+<a href="./plots/bar.png">high-resolution image</a></p>
+<p>The next visualization was specifically designed for a presentation. It starts of with a question (“How meaningful is a mean difference?”) and tries answering that question through a series of bar plots, looking at the data in different ways. This submission focuses on one single factor (smoking status), as already seen in the CDF plot above.</p>
 <p>The first bar plot in the top left shows a statistically significant mean difference on an adapted scale from 6 to 8. In the top right we can see a very similar plot but this time on the complete scale from 0 to 10, which makes the magnitude of the difference appear much smaller. The stacked bar plot at the bottom shows a significant difference between the two response distributions instead of only comparing the means. Like the CDF plot, this visualization shows that non-smokers are performing better than smokers, regardless of the cut-off that is chosen.</p>
 <p>Interestingly, a divergent color scheme was used in the stacked bar chart. A suggestion to make the comparisons in the stacked bar chart even easier would be to add reference lines connecting the different areas/cut-offs.</p>
 <p>In summary, this is a well thought through visualization example.</p>
-<p><a href="plots/bar.png">Get a high resolution picture.</a><br />
-<a href="code/Cohort%201_0%20-%20Philip%20Griffiths.R">Get the R code.</a></p>
-<h1 id="power-bi-dashboard-1720---2645">4. Power BI dashboard (17:20 - 26:45)</h1>
-<p><img src="plots/powerbi.png" title="Plot 4" alt="Plot 4" />This submission is an interactive Power BI dashboard. The number of participants and overall mean is given in the top left. A stacked bar chart as well as a classic bar plot show the distribution of the satisfaction responses. The factors are shown in supplementary bar plots below. In these bar plots a subgroup can be selected and all the other plots will adapt automatically. Check out the recording of the webinar <a href="https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4">here</a> (starting at 17:20) to see how the interactivity works in practice.</p>
+<p><a id="example4"></a></p>
+<h1 id="example-4.-power-bi-dashboard-1720---2645">Example 4. Power BI dashboard (17:20 - 26:45)</h1>
+<figure>
+<img src="plots/powerbi.png" title="Plot 4" alt="Plot 4" /><figcaption>Plot 4</figcaption>
+</figure>
+<p><a href="#example4%20code">link to code</a><br />
+<a href="./plots/powerbi.png">high-resolution image</a></p>
+<p>This submission is an interactive Power BI dashboard. The number of participants and overall mean is given in the top left. A stacked bar chart as well as a classic bar plot show the distribution of the satisfaction responses. The factors are shown in supplementary bar plots below. In these bar plots a subgroup can be selected and all the other plots will adapt automatically. Check out the recording of the webinar <a href="https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4">here</a> (starting at 17:20) to see how the interactivity works in practice.</p>
 <p>This can be a very useful and easy tool to explore the data, replacing many tables. The arrangement of the different tiles on the dashboard seems also well thought through, starting with the main results in the top left and finishing with the summary results in the bottom right.</p>
 <p>It is not entirely clear why some of the bar plots are vertical while others are horizontal. A horizontal presentation can be useful when labels are long to increase readibility, however, a consistent approach could be chosen.</p>
-<p><a href="plots/powerbi.png">Get a high resolution picture.</a><br />
-<a href="code/pbi%20-%20manz352.txt">Get the reamde file.</a></p>
-<h1 id="funnel-plot-2645---3720">5. Funnel plot (26:45 - 37:20)</h1>
-<p><img src="plots/funnel1.png" title="Plot 5" alt="Plot 5" />The next submission is an interactive visualization as well. In this funnel plot, each dot represents a subgroup estimate. This is the first visualization that does not only explore the factors in isolation, but also looks at all possible combination of subgroups. The overall mean with 95% prediction intervals is also shown. The vertical axis represents the average satisfaction ranging from 0 to 10 and the horizontal axis the subgroup size, i.e., larger subgroups are shown more to the right.</p>
+<p><a id="example5"></a></p>
+<h1 id="example-5.-funnel-plot-2645---3720">Example 5. Funnel plot (26:45 - 37:20)</h1>
+<figure>
+<img src="plots/funnel1.png" title="Plot 5" alt="Plot 5" /><figcaption>Plot 5</figcaption>
+</figure>
+<p><a href="#example5%20code">link to code</a><br />
+<a href="./plots/funnel1.png">high-resolution image</a></p>
+<p>The next submission is an interactive visualization as well. In this funnel plot, each dot represents a subgroup estimate. This is the first visualization that does not only explore the factors in isolation, but also looks at all possible combination of subgroups. The overall mean with 95% prediction intervals is also shown. The vertical axis represents the average satisfaction ranging from 0 to 10 and the horizontal axis the subgroup size, i.e., larger subgroups are shown more to the right.</p>
 <p>The name, the size and the mean of a specific subgroup becomes visible by hovering over a dot. This tool is specifically useful to explore extreme values. Check out the recording of the webinar <a href="https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4">here</a> (starting at 26:45) to see how the interactivity works in practice.</p>
 <p>Most data points are squeezed towards the top left of the plot, given that the full scale is shown on both axes, causing a lot of white space. The visualization does include an interactive zooming option. A couple of other suggestions to allow zooming in are: 1) the subgroup size could be shown on a logarithmic scale; 2) apply a minimum threshold to the subgroup size because the very small subgroups are usually not of interest.</p>
 <p>Additional interesting interactive tools could be: 1) highlight all subgroups related to a certain factor, e.g., all subgroups relevant for smoking status. This would allow quicker identification of relevant factors. 2) when hovering over one subgroup, the complement of this subgroup could be highlighted as well.</p>
 <p>In summary, this is a great, innovative idea to explore subgroups.</p>
-<p><a href="plots/funnel1.png">Get a high resolution picture.</a><br />
-<a href="code/code_to_submit.R">Get the R code.</a></p>
-<h1 id="funnel-plot-3720---4845">6. Funnel plot (37:20 - 48:45)</h1>
-<p><img src="plots/funnel2.png" title="Plot 6" alt="Plot 6" />This submission is similar to the funnel plot seen above but providing additional features, such as:</p>
+<p><a id="example6"></a></p>
+<h1 id="example-6.-funnel-plot-3720---4845">Example 6. Funnel plot (37:20 - 48:45)</h1>
+<figure>
+<img src="plots/funnel2.png" title="Plot 6" alt="Plot 6" /><figcaption>Plot 6</figcaption>
+</figure>
+<p><a href="#example6%20code">link to code</a><br />
+<a href="./plots/funnel2.png">high-resolution image</a></p>
+<p>This submission is similar to the funnel plot seen above but providing additional features, such as:</p>
 <ul>
 <li>Specific subgroups can be highlighted. For example, by selecting the non-smokers, it becomes apparent that most subgroups including non-smokers lie above the mean reference line.</li>
 <li>The shading of the dots is linked to the number of subgroup levels. The white dots represent single-level factors while the more transparent dots represent higher level subgroups. The number of subgroup levels displayed can also be controlled (e.g., only 1-factorial subgroups could be displayed).</li>
 <li>All parent subgroups of a selected subgroup can be highlighted. This could be used to explore the driving factors among a combination of factors forming a subgroup.</li>
 </ul>
 <p>Check out the recording of the webinar <a href="https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4">here</a> (starting at 37:20) to see more details.</p>
-<p><a href="plots/funnel2.png">Get a high resolution picture.</a><br />
-<a href="code/subscreen_ww2005.R">Get the R code.</a></p>
+<h1 id="code">Code</h1>
+<p><a id="example1 code"></a></p>
+<h2 id="example-1.-cdf-plot-r">Example 1. CDF plot (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+### Load packages
+library(here)
+library(tidyverse)
+
+### Load data
+data &lt;- data.frame(read_delim(here(&quot;Satisfaction_wW2005.csv&quot;), delim=&#39;;&#39;))
+data$smoker &lt;- ifelse(data$smoker == &quot;Y&quot;, &quot;Smoker&quot;, ifelse(data$smoker == &quot;N&quot;, &quot;Non-smoker&quot;, NA))
+
+### Only keep non-missing data
+data_nonmiss &lt;- na.omit(data[, c(&quot;satisfaction&quot;, &quot;smoker&quot;)])
+
+### Derive number of subjects within subgroups
+n &lt;- data_nonmiss %&gt;% group_by(smoker) %&gt;% summarize(n = n())
+  
+### Create label variable including number of subjects
+data_n &lt;- merge(data_nonmiss, n, by = &quot;smoker&quot;)
+data_n$group &lt;- paste0(data_n$smoker, &quot; (n = &quot;, data_n$n, &quot;)&quot;)
+  
+### Plot
+ggplot(data = data_n, aes(x = satisfaction, colour = group)) +
+  stat_ecdf(size = 1, alpha = 0.5) +
+  theme_minimal(base_size = 15) +
+  scale_x_reverse(name = &quot;Satisfaction with life&quot;, breaks = seq(0, 10, 1), minor_break = NULL) +
+  scale_y_continuous(name = &quot;Cumulative proportion of subjects&quot;, breaks = seq(0, 1, 0.25), minor_break = NULL) +
+  scale_color_manual(name = NULL, values = c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;)) +
+  theme(legend.position = c(0.15, 0.85)) +
+  geom_segment(aes(x = 4.5, y = 0.5, xend = 2.5, yend = 0.5), colour = &quot;black&quot;, size = 1, arrow = arrow(length = unit(0.5, &quot;cm&quot;))) +
+  annotate(&quot;text&quot;, x = 3.5, y = 0.53, label = &quot;Less satisfied&quot;, size = 5, colour = &quot;black&quot;) +
+  ggtitle(&quot;Non-smokers more satisfied with life than smokers&quot;) +
+  NULL
+
+ggsave(file = here(&quot;cdf_smoker.png&quot;), width = 35, height = 20, units = &quot;cm&quot;)</code></pre>
+</div>
+<p><a href="#example1">Back to blog</a></p>
+<p><a id="example2 code"></a></p>
+<h2 id="example-2.-treeplot-r">Example 2. Treeplot (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(ggplot2)
+if (!require(&#39;treemapify&#39;)) install.packages(&#39;treemapify&#39;);
+if (!require(&#39;dplyr&#39;)) install.packages(&#39;dplyr&#39;);
+if (!require(&#39;RColorBrewer&#39;)) install.packages(&#39;RColorBrewer&#39;);
+library(treemapify)
+library(dplyr)
+library(RColorBrewer)
+
+# read data
+data &lt;- read.csv(url(&#39;https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2020/2020-05-13/Satisfaction_wW2005.csv&#39;), na.strings = c(&quot;.&quot;, &quot;&quot;), header = TRUE)
+
+foo_summarize&lt;- function(dat = data, my_var = NULL, group_label = &quot;NA&quot;){
+    
+   suppressWarnings(
+     ans&lt;- dat %&gt;%
+        filter(!is.na(satisfaction)) %&gt;%
+        group_by({{my_var}}) %&gt;%
+        summarize(n = n(), 
+                  mean_satisfaction = mean(satisfaction)) %&gt;%
+        mutate(percent = n / sum(n)*100) %&gt;%
+        mutate(group = group_label) %&gt;%
+        rename(Variable = names(.)[1])
+   )
+  
+   return(ans)
+}
+
+#age
+d_age&lt;- foo_summarize(dat=data, my_var=age, group_label = &quot;Age&quot;)
+d_bmi&lt;- foo_summarize(dat=data, my_var=bmi, group_label = &quot;BMI&quot;)
+d_w_hours&lt;- foo_summarize(dat=data, my_var=w_hours, group_label = &quot;Working hours&quot;)
+d_todoctor&lt;- foo_summarize(dat=data, my_var=todoctor, group_label = &quot;Doctor visits per year&quot;)
+d_income&lt;- foo_summarize(dat=data, my_var=income, group_label = &quot;Net income&quot;)
+d_smoker&lt;- foo_summarize(dat=data, my_var=smoker, group_label = &quot;Smoker&quot;)
+d_gender&lt;- foo_summarize(dat=data, my_var=gender, group_label = &quot;Gender&quot;)
+d_employed&lt;- foo_summarize(dat=data, my_var=employed, group_label = &quot;Employment status&quot;)
+d_graduat&lt;- foo_summarize(dat=data, my_var=graduat, group_label = &quot;Graduation&quot;)
+d_graduat_f&lt;- foo_summarize(dat=data, my_var=graduat_f, group_label = &quot;Graduation of father&quot;)
+d_graduat_m&lt;- foo_summarize(dat=data, my_var=graduat_m, group_label = &quot;Graduation of mother&quot;)
+d_high_grad&lt;- foo_summarize(dat=data, my_var=high_grad, group_label = &quot;Highest educational grade&quot;)
+d_high_grad_f&lt;- foo_summarize(dat=data, my_var=high_grad_f, group_label = &quot;Highest educational grade (father)&quot;)
+d_high_grad_m&lt;- foo_summarize(dat=data, my_var=high_grad_m, group_label = &quot;Highest educational grade (mother)&quot;)
+
+d_all&lt;- do.call(rbind, list(d_age, d_bmi, d_w_hours, d_todoctor, d_income, d_smoker, d_gender, d_employed, d_graduat,
+                            d_graduat_f, d_graduat_m, d_high_grad, d_high_grad_f, d_high_grad_m))
+
+# replace NA with a category: Missing. Only explanatory vars are affected. Response (satisfaction) has no missings
+d_all$Variable&lt;- as.character(d_all$Variable)
+d_all$Variable[which(is.na(d_all$Variable))]&lt;- &quot;Missing&quot;
+
+# create descrete response variable to display colors in the plot better
+d_all$satisfation_categories&lt;- cut(d_all$mean_satisfaction, 
+                                   breaks=seq(round(min(d_all$mean_satisfaction)), round(max(d_all$mean_satisfaction)), 0.5), 
+                                   labels=c(&quot;(6,6.5]&quot;, &quot;(6.5,7]&quot;, &quot;(7,7.5]&quot;, &quot;(7.5,8]&quot;, &quot;(8,8-5]&quot;, &quot;(8.5-9]&quot;), right = TRUE)
+
+# create response with label
+d_all$satisfaction_lab&lt;- paste(d_all$Variable, &quot; (&quot;, round(d_all$mean_satisfaction, 1), &quot;)&quot;, sep = &quot;&quot;)
+
+# colors for plot
+col_palette&lt;- display.brewer.pal(n = 6, name = &#39;RdYlBu&#39;)
+palette&lt;- brewer.pal(n = 6, name = &#39;RdYlBu&#39;)
+
+
+
+# plot
+ggplot(d_all, aes(area=percent, label = Variable, fill = satisfation_categories, subgroup = group)) + 
+            geom_treemap() + 
+            geom_treemap_subgroup_border(size = 1.5, color = &quot;black&quot;) +
+            geom_treemap_text(grow = T, reflow = T, place = &quot;topleft&quot;, layout = &quot;scol&quot;, min.size = 1,
+                              color = &quot;Darkblue&quot;, size = 10) +
+            scale_fill_manual(values = palette) + 
+            facet_wrap( ~ group) + 
+            theme(legend.position = &quot;bottom&quot;, 
+                  legend.text = element_text(color=&quot;black&quot;, size = 18), 
+                  legend.title = element_text(size = 18),
+                  plot.title = element_text(size = 24),
+                  plot.subtitle = element_text(size = 20), 
+                  plot.caption = element_text(size = 14),
+                  strip.text = element_text(size = 14, face = &quot;bold&quot;, color = &quot;Darkblue&quot;)) +
+            labs(title = &#39;How would you rate your satisfaction with your life overall on a scale from 0-10? (10=completely satisfied)&#39;,
+                 subtitle = &#39;Descriptive analysis by subgroup: tiles are proportional to rel. frequencies of the choices within a subgroup&#39;,
+                 caption =&quot;Created with ggplot2-treemapify&quot;,
+                 fill = &quot;Mean Satisfaction&quot;)
+
+
+ggsave(&quot;treeplot_may2020.png&quot;, width = 24, height = 12, units=&quot;in&quot;, dpi = 300)</code></pre>
+</div>
+<p><a href="#example2">Back to blog</a></p>
+<p><a id="example3 code"></a></p>
+<h2 id="example-3.-bar-plots-r">Example 3. Bar plots (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(tidyverse)
+library(Stack)
+library(viridis)
+library(IOHanalyzer)
+library(car)
+library(RColorBrewer)
+display.brewer.all(colorblindFriendly = TRUE)
+library(cowplot)
+library(dgof)
+
+#Colour Scheme
+Orange &lt;- &quot;#EF7F04&quot;
+Green &lt;- &quot;#68B937&quot;
+Blue &lt;- &quot;#00A6CB&quot;
+Grey &lt;- &quot;#4E5053&quot;
+Darkblue &lt;- &quot;#003569&quot;
+Yellow &lt;- &quot;#FFBB2D&quot;
+
+#Load in data and make satisfaction and all other variables a factor. Also make a numeric version of satisfation for use late
+Cohort &lt;- read_csv(&#39;Cohort.csv&#39;) %&gt;%
+  mutate(satisfaction = factor(satisfaction, level=c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10))) %&gt;%
+  mutate_all(factor) %&gt;%
+  mutate(NumSat = as.numeric(satisfaction)) %&gt;%
+  mutate(NumSat = NumSat-1) #To put it back on a 0-10 scale
+
+#Calculate means for the groups
+means &lt;- Cohort %&gt;%
+  group_by(smoker) %&gt;% 
+  summarise(
+    NumSat = mean(NumSat, na.rm = TRUE) 
+  ) %&gt;%
+  filter(!is.na(smoker)) #filter out the means for patients without a value for smoking (some implicit NA&#39;s)
+
+#Significance test of mean differences
+model &lt;- lm(NumSat ~ smoker, data = Cohort)
+summary(model)
+
+#test of distributions
+SmokerSat &lt;- Cohort %&gt;%
+  select(smoker, NumSat) %&gt;%
+  filter(smoker==&quot;Y&quot;)
+
+NonSmokerSat &lt;- Cohort %&gt;%
+  select(smoker, NumSat) %&gt;%
+  filter(smoker==&quot;N&quot;)
+
+KS &lt;- ks.test(SmokerSat$NumSat, NonSmokerSat$NumSat)
+
+
+#Make plot of means, 
+p &lt;- ggplot(means, aes(x=smoker, y=NumSat)) +
+  geom_bar(stat=&quot;identity&quot;, fill=Darkblue, color=&quot;black&quot;, xpd = FALSE) +
+  scale_y_continuous(name = &quot;Satisfaction (0-10)&quot;) +
+  scale_x_discrete(name = &quot;Smoking History&quot;, 
+                   labels=c(&quot;Non-Smoker&quot;,&quot;Current Smoker&quot;))
+
+
+#Fake plot for  aesthetic purporposes (remove the bar going below &quot;6&quot; on the chart with the reduced y axis)
+   #Start with fake dataset
+smoker &lt;- c(&quot;N&quot;, &quot;Y&quot;)
+NumSat &lt;-c(6,6)
+fake.data &lt;- data.frame(smoker,NumSat)
+
+
+# make plot 1 where the scale is changed to emphasize difference
+plot1 &lt;- p+coord_cartesian(ylim=c(6,8.1))+
+  theme_classic() +
+  theme(line = element_blank()) +
+  geom_bar(data=fake.data,stat=&quot;identity&quot;, fill=&quot;white&quot;, color=&quot;white&quot;) +  #Add a white rectangle below the &quot;6.0&quot; line using fake data
+  ggtitle(&quot;A statistically significant difference in Satisfaction between Non-smokers and Smokers \n highlighted by using misleading axis... \n&quot;) +
+  theme (plot.title = element_text(family = &quot;sans&quot;, color=Grey, face=&quot;bold&quot;, size=14, hjust=0.5)) + #Edit font
+  annotate(&quot;segment&quot;, x = &quot;N&quot;, xend = &quot;Y&quot;, y = 8.0, yend = 8.0,
+           colour = &quot;black&quot;) +
+  annotate(&quot;segment&quot;, x = &quot;N&quot;, xend = &quot;N&quot;, y = 8.0, yend = 7.9,
+           colour = &quot;black&quot;) +
+  annotate(&quot;segment&quot;, x = &quot;Y&quot;, xend = &quot;Y&quot;, y = 8.0, yend = 7.9,
+           colour = &quot;black&quot;) + 
+  annotate(&quot;segment&quot;, x = 1.5, xend = 1.58, y = 8.0, yend = 8.1,
+           colour = &quot;black&quot;) +
+  annotate(geom = &quot;text&quot;, x = 1.6, y = 8.05, label = &quot;Significant!&quot;, hjust = &quot;left&quot;, vjust = &quot;bottom&quot;, size = 6) +
+  annotate(geom = &quot;text&quot;, x = 2.0, y = 8.05, label = &quot;(p&lt;0.001)&quot;, hjust = &quot;left&quot;, vjust = &quot;bottom&quot;, size = 2) 
+  
+
+# make plot 2 which uses oringinal 0-10 scale
+plot2 &lt;- p+coord_cartesian(ylim=c(0,10)) +
+  theme_classic() +
+  theme(line = element_blank()) + 
+  ggtitle(&quot;.. But when plotted using the 0-10 scale, the true (small) magnitude of \n this difference is apparent \n &quot;) +
+  theme (plot.title = element_text(family = &quot;sans&quot;, color=Grey, face=&quot;bold&quot;, size=14, hjust=0.5)) + #Edit font
+  annotate(&quot;segment&quot;, x = &quot;N&quot;, xend = &quot;Y&quot;, y = 9.6, yend = 9.6,
+           colour = &quot;black&quot;) +
+  annotate(&quot;segment&quot;, x = &quot;N&quot;, xend = &quot;N&quot;, y = 9.6, yend = 9.1,
+           colour = &quot;black&quot;) +
+  annotate(&quot;segment&quot;, x = &quot;Y&quot;, xend = &quot;Y&quot;, y = 9.6, yend = 9.1,
+           colour = &quot;black&quot;) + 
+  annotate(&quot;segment&quot;, x = 1.5, xend = 1.33, y = 9.6, yend = 10,
+           colour = &quot;black&quot;) +
+  annotate(geom = &quot;text&quot;, x = 1.3, y = 9.8, label = &quot;Meaningful?&quot;, hjust = &quot;right&quot;, vjust = &quot;bottom&quot;, size = 6) 
+
+
+
+# make plot 3 - a staked bar chart to show distributional changes
+Cohort$smoker %&gt;% mutate(fct_reorder(smoker, NumSat, .fun=&quot;mean&quot;))
+
+
+plot3 &lt;- ggplot(data=subset(Cohort, !is.na(smoker)), aes(y = reorder(smoker, NumSat))) +
+  geom_bar(aes(fill = satisfaction), position = position_fill(reverse = TRUE)) +
+  scale_fill_brewer(palette=&quot;BrBG&quot;) +
+  guides(fill = guide_legend(nrow = 1)) +
+  ggtitle(&quot;Significant difference between the two response distributions \n (D=0.14, p&lt;.001)&quot;) +
+  theme_classic() +
+  theme(line = element_blank()) +
+  theme(legend.position = &quot;bottom&quot;, legend.box = &quot;horizontal&quot;)+
+  xlab(&quot;Proportion of participants selecting each &#39;Satisfaction&#39; value&quot;) + 
+  scale_y_discrete(name = &quot;Smoking History&quot;, 
+                   labels=c(&quot;Current Smoker&quot;,&quot;Non-Smoker&quot;)) +
+  scale_x_continuous(breaks = c(0, .25, .50, .75, 1.00))
+  ggtitle(&quot;The response distribution shows that smokers reported lower satisfaction scores (0-5) more often than non-smokers \n and higher satisfaction scores (9-10) less often than non-smokers&quot;) +
+  theme (plot.title = element_text(family = &quot;sans&quot;, color=Grey, face=&quot;bold&quot;, size=18, hjust=0.5))  #Edit font
+  
+#plot3 &lt;- plot3 +  annotate(geom = &quot;curve&quot;, x = 0.50, y = 2.60, xend = 0.65, yend = 2.45, 
+#           curvature = -.25, arrow = arrow(length = unit(3, &quot;mm&quot;))
+#  ) +
+#  annotate(geom = &quot;text&quot;, x = 0.5, y = 2.55, label = &quot;Significant difference in distributions \n (D=0.14, p&lt;.001)&quot;, hjust = &quot;center&quot;, size = 3)
+
+#design layout
+  # Make a title
+title &lt;- ggdraw() + 
+  draw_label(
+    &quot;How Meaningful is a Mean Difference?&quot;,
+    fontface = &#39;bold&#39;,
+    x = 0,
+    hjust = 0,
+    size = 22
+  ) +
+  theme(
+    # add margin on the left of the drawing canvas,
+    # so title is aligned with left edge of first plot
+    plot.margin = margin(0, 0, 0, 7)
+  )
+
+top_row &lt;- plot_grid(plot1, plot2, labels = c(&quot;A&quot;, &quot;B&quot;), align = &quot;h&quot;)
+Faceted_graphs &lt;- plot_grid(top_row, plot3, labels = c(&#39; &#39;, &#39;C&#39;), label_size = 12, ncol = 1)
+
+plot_grid(title, Faceted_graphs,  
+          ncol = 1,
+          # rel_heights values control vertical title margins
+          rel_heights = c(0.1, 1)
+  )</code></pre>
+</div>
+<p><a href="#example3">Back to blog</a></p>
+<p><a id="example4 code"></a></p>
+<h2 id="example-4.-power-bi-dashboard">Example 4. Power BI dashboard</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+PSI survey
+
+https://app.powerbi.com/view?r=eyJrIjoiOTZkOTVkYTEtMzE3OC00YTAzLWIyZGYtODZhZWYwYzM5MzQ1IiwidCI6ImY1NTgwM2MzLTRmYTktNDIzMy1hOGFiLTIxM2I3ZWI3MjEzNCJ9</code></pre>
+</div>
+<p><a href="#example4">Back to blog</a></p>
+<p><a id="example5 code"></a></p>
+<h2 id="example-5.-funnel-plot-r">Example 5. Funnel plot (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+##### code for funnel plot for submittion
+library(doParallel)
+library(data.table)
+library(plotly)
+library(tidyverse)
+
+data_transform &lt;- function(x, 
+                           labels = c(&quot;low&quot;, &quot;high&quot;), 
+                           except = NULL, 
+                           threshold = 0.1, 
+                           explicit_conv = NULL, 
+                           explicit_conv_override = FALSE, 
+                           binary_categories = FALSE, 
+                           n_binary_categories=1, 
+                           verbose = FALSE) {
+  
+  x_new &lt;- x
+  cutoff &lt;- floor(threshold * nrow(x_new)) # if number of unique values is less than 10% of overall dataset size, treat corresponding covariate as categorical
+  if(!is.null(explicit_conv) &amp;&amp; explicit_conv_override){
+    cutoff &lt;- Inf
+  }
+  for (column in colnames(x_new)[!colnames(x_new) %in% except]) {
+    fac &lt;- as.factor(x[, column])
+    if ((nlevels(fac) &gt; cutoff) || column %in% explicit_conv) {
+      if (!binary_categories) {
+        n_quant &lt;- length(labels) # number of quantiles
+        quant &lt;- quantile(x_new[, column], probs = 0:n_quant / n_quant, na.rm = TRUE)
+        if (verbose) {message(sprintf(&quot;Transforming %s to categorical using following quantiles&quot;, column))}
+        if (verbose) {message(paste0(capture.output(quant), collapse = &quot;\n&quot;))}
+        x_new[, column] &lt;- cut(x_new[, column], quant, include.lowest = TRUE, labels = labels)
+      } else {
+        n_quant &lt;- n_binary_categories+1 # number of quantiles
+        quant &lt;- quantile(x_new[, column], probs = 0:n_quant / n_quant, na.rm = TRUE)
+        if (verbose) {message(sprintf(&quot;Transforming %s to binary categorical columns using following quantiles&quot;, column))}
+        if (verbose) {message(paste0(capture.output(quant), collapse = &quot;\n&quot;))}
+        for (j in 2:(length(quant) - 1)) {
+          x_new[, sprintf(&quot;%s_q%s&quot;, column, substr(names(quant)[j], 1, 2))] &lt;-
+            as.factor(cut(x_new[, column], c(quant[1], quant[j], quant[length(quant)]), include.lowest = TRUE, labels = FALSE))
+          levels(x_new[, sprintf(&quot;%s_q%s&quot;, column, substr(names(quant)[j], 1, 2))]) &lt;- c(0, 1)
+        }
+        # remove orignal column
+        x_new[, column] &lt;- NULL
+      }
+    }
+    else if (typeof(x[, column]) != &quot;integer&quot;) {
+      if (verbose) {message(sprintf(&quot;Convert %s to factors&quot;, column))}
+      x_new[, column] &lt;- as.factor(x[, column])
+    }
+  }
+  
+  return(x_new)
+}
+
+
+
+
+return_subgroups &lt;- function(x, 
+                             eval_fun, 
+                             covs, 
+                             packages=NULL, 
+                             comb = 3, 
+                             comb_lowerbound = 1, 
+                             n_cores = 1, 
+                             first_N = Inf, 
+                             verbose = !(first_N==Inf)) {
+  
+  
+  
+  data_cov_comb &lt;- function(vec, k, n = length(vec),verbose = FALSE) {
+    # returns all n over k combinations of elements in vec
+    # n should be size of vec and k&lt;=n
+    if(verbose){message(sprintf(&quot;Computing %s combinations out of&quot;,k))}
+    if(verbose){message(paste0(capture.output(vec), collapse = &quot;\n&quot;))}
+    return(gtools::combinations(n, k, vec))
+  }
+  
+  
+  data_level_comb &lt;- function(x, covs) {
+    # takes a dataframe x where every column is of type integer/factor and computes all combinations between all the levels of covariates specified in covs
+    return(tidyr::expand(x, x[covs]))
+  }
+  
+  compute_eval &lt;- function(x, covs, eval_fun, first_N_active = FALSE) {
+    # computes the evaluation function on all subgroup combination of given covariates in covs (vector of strings)
+    # returns a list with number of entrys equal to the number of possible covariate level combinations.
+    # Each entry consits of two elements:
+    # first entry contains the filtered dataset containing only subgroup datapoints
+    # second entry contains single line dataframe output of eval_func augmented by subgroup labels
+    comb &lt;- data_level_comb(x, covs)
+    
+    if (first_N_active) {
+      if (first_N_count &lt;= nrow(comb)) {
+        comb &lt;- comb[1:first_N_count, ]
+        first_N_count &lt;&lt;- 0
+      } else {
+        first_N_count &lt;&lt;- first_N_count - nrow(comb)
+      }
+    }
+    
+    subframes &lt;- foreach(i = 1:nrow(comb)) %do% {
+      x_filtered &lt;- x
+      for (j in 1:length(covs)) {
+        x_filtered &lt;- dplyr::filter(x_filtered, x_filtered[covs[j]] == as.character(unlist(comb[i, j])))
+      }
+      result &lt;- eval_fun(x_filtered)
+      result[covs] &lt;- comb[i, ]
+      
+      return(result)
+    }
+    return(subframes)
+  }
+  
+  #check if provided covs are contained in x
+  for (name in covs) {
+    if (!(name %in% colnames(x))) {
+      stop(sprintf(&quot;Variable %s was not found in %s&quot;, name, toString(substitute(x))))
+    }
+  }
+  
+  #turn on verbose if first_N != Inf 
+  if (first_N!=Inf){verbose &lt;- TRUE} 
+  
+  cl &lt;- makeCluster(n_cores)
+  registerDoParallel(cl)
+  
+  if(verbose){message(sprintf(&quot;Number of cores: %s&quot;, getDoParWorkers()))}
+  
+  # computes the evaluation function on all subgroup combination of given covariates in covs (vector of strings) for 1,2 and 3 combinations(general: comb_lowerbound:comb)
+  if (first_N == Inf) {
+    results &lt;- foreach(i = comb_lowerbound:comb, .combine = c) %do% {
+      covs_comb &lt;- data_cov_comb(covs, i,verbose=verbose)
+      track_time &lt;- system.time({
+        result &lt;- foreach(j = lapply(as.list(1:dim(covs_comb)[1]), function(x) covs_comb[x[1],]), .combine = c, .packages = c(&quot;foreach&quot;, packages)) %dopar% {
+          compute_eval(x, j, eval_fun)
+        }
+      })
+      if(verbose){message(paste0(capture.output(track_time), collapse = &quot;\n&quot;))}
+      return(result)
+    }
+  } else {
+    if(verbose){message(sprintf(&quot;Computing first %d subgroups using single core&quot;, first_N))}
+    first_N_count &lt;&lt;- first_N
+    results &lt;- foreach(i = comb_lowerbound:comb, .combine = c) %do% {
+      covs_comb &lt;- data_cov_comb(covs, i,verbose=verbose)
+      track_time &lt;- system.time({
+        result &lt;- foreach(j = 1:min(nrow(covs_comb), first_N), .combine = c, .packages=c(packages)) %do% {
+          if (first_N_count == 0) {
+            return()
+          }
+          res &lt;- compute_eval(x, covs_comb[j, ], eval_fun, first_N_active = TRUE)
+        }
+      })
+      if(verbose){message(paste0(capture.output(track_time), collapse = &quot;\n&quot;))}
+      return(result)
+    }
+  }
+  
+  stopCluster(cl)
+  
+  return(dplyr::bind_rows(results))
+}
+
+############################################################################################
+############# read data
+dat &lt;- read.csv(&quot;./Satisfaction_wW2005.csv&quot;) %&gt;%
+  as.data.frame() %&gt;% dplyr::select(-X, -ID) 
+
+### global mean and se
+dat_mean &lt;- mean(dat$satisfaction)
+dat_se &lt;- sd(dat$satisfaction)/sqrt(nrow(dat))
+dat_sd &lt;- sd(dat$satisfaction)
+
+fit &lt;- function(x) {
+  cf1 &lt;- tryCatch({
+    cf &lt;- mean(x$satisfaction)
+    se &lt;- sd(x$satisfaction)/sqrt(nrow(x))
+    c(cf, se,nrow(x))
+  },
+  warning = function(w) { #warning handling
+    NA
+  }, error = function(w) { #error handling
+    c(dat_mean,dat_se,0)
+  }
+  )
+  return(data.frame(av = cf1[1], se = cf1[2], N = cf1[3]))
+}
+
+subgroups &lt;- return_subgroups(dat, 
+                              fit,
+                              comb = 3, 
+                              comb_lowerbound = 1,
+                              covs = colnames(dat)[1:14],
+                              # first_N = 100, 
+                              n_cores = 4,
+                              verbose = TRUE)
+# head(subgroups)
+
+nams &lt;- names(subgroups)[-c(1:3)]
+subgroups$text &lt;- NULL
+subgroups$text &lt;- apply(subgroups, 1, function(x){
+  covs &lt;- x[-c(1:3)]
+  ind &lt;- which(!is.na(covs))
+  p1 &lt;- NULL
+  for(i in 1:length(ind)){
+    p1 &lt;- c(p1, sprintf(&quot;%s=%s&quot;, nams[ind[i]], covs[ind[i]]))
+  }
+  p1 &lt;- paste(p1, collapse=&quot;,&quot;)
+  p2 &lt;- sprintf(&quot;|satisfaction=%.1f, N=%d&quot;, as.numeric(x[1]),as.numeric(x[3]))
+  paste0(p1, p2)
+})
+
+
+## calculate dfs (assuming balance)
+n_start &lt;- 2
+N &lt;- n_start:nrow(dat)
+q95 &lt;- qt(0.975, df= N - 1)
+ci &lt;- data.frame(N = N,
+                 lb = dat_mean - q95*dat_sd/sqrt(N),
+                 ub = dat_mean + q95*dat_sd/sqrt(N))
+
+fig &lt;- subgroups %&gt;% filter(N &gt;= n_start) %&gt;% 
+  plot_ly(x = ~ N, y = ~av) %&gt;%
+  add_markers(name = &#39;Subgroup Estimates&#39;,text = ~text, hoverinfo = &quot;text&quot;,
+              color = I(&quot;blue&quot;), alpha=0.2)%&gt;%
+  add_markers(x = nrow(dat), y = dat_mean,
+              name = &#39;Overall Estimates&#39;,text = I(paste0(&quot;satisfaction = &quot;,round(dat_mean,2))), 
+              hoverinfo = &quot;text&quot;,color = I(&quot;red&quot;),alpha=0.2)%&gt;%
+  add_lines(x = ~ ci$N, y = ~ ci$lb, name = &#39;Lower 95% PI&#39;, hoverinfo = &#39;skip&#39;, 
+            color = I(&quot;black&quot;), alpha=0.5) %&gt;%
+  add_lines(x = ~ ci$N, y = ~ ci$ub, name = &#39;Upper 95% PI&#39;, hoverinfo = &#39;skip&#39;, 
+            color = I(&quot;black&quot;), alpha=0.5) %&gt;%
+  add_lines(x = I(n_start:nrow(dat)), y = dat_mean, 
+            name = &quot;Overall mean&quot;,hoverinfo = &#39;skip&#39;, color = I(&quot;red&quot;),alpha=0.5) %&gt;%
+  layout(xaxis = list(range = c(n_start,(nrow(dat)+4)),title = &quot;Subgroup size&quot;),
+         yaxis = list(range = c(1, 10),title = &quot;Average satisfication&quot;))
+fig
+htmlwidgets::saveWidget(fig, &quot;./funnel_satisfaction.html&quot;)</code></pre>
+</div>
+<p><a href="#example5">Back to blog</a></p>
+<p><a id="example6 code"></a></p>
+<h2 id="example-6.-funnel-plot-r">Example 6. Funnel plot (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+###############################################################################
+# Bayer AG
+# Study            :
+# Proj/Subst/GIAD  :
+###############################################################################
+# Name of program #############################################################
+# Name             : SGS_WW2005.R
+#
+# Purpose          : Run subgroup screening  
+# Programming Spec :
+# Validation Level : 1 - Verification by Review
+# R Version        : 4.0.0 (64 bit) on simulation server
+###############################################################################
+# Pre-conditions   : data source: ALLBUS dataset 2014/subset
+# Post-conditions  :
+# Comments         :
+###############################################################################
+# Author(s)        : Bodo Kirsch  03JUN2020
+# Reference prog   : SGS
+###############################################################################
+# Changed by       : 
+# Reason           :
+###############################################################################
+
+
+
+### delete workspace
+rm(list=ls())
+
+
+### AutoSub and load libraries
+#setwd(&quot;c:/temp&quot;)
+
+
+library(shiny)
+library(subscreen)
+
+
+### import data
+D=read.csv2(file=&quot;Data_wW2005.csv&quot;, sep=&quot;,&quot;, dec=&quot;.&quot;, header=TRUE)
+
+
+auwe &lt;- function(D){
+  
+    # --- satisfaction mean ----------------------------------------------------------------
+  
+      satisfact  &lt;- round(mean(D$satisfaction, na.rm = TRUE), 2)   # TRUE:  NA values stripped before the computation proceeds
+      
+      number.of.subjects     &lt;- sum(!is.na(D$satisfaction))
+  
+    return(data.frame(number.of.subjects, satisfact))
+}
+
+
+HH &lt;- subscreencalc(data=D,
+           eval_function = auwe,
+           endpoints   = &quot;satisfaction&quot;,  
+           treat       = &quot;&quot;,            
+           subjectid   = &quot;ID&quot;,
+           factors     = c(&quot;gender&quot;, &quot;employed&quot;, &quot;smoker&quot;, &quot;graduat&quot;, &quot;graduat_f&quot;, &quot;graduat_m&quot;, 
+                           &quot;high_grad&quot;, &quot;high_grad_f&quot;, &quot;high_grad_m&quot;, &quot;age&quot;, &quot;w_hours&quot;, &quot;todoctor&quot;, &quot;bmi&quot;, &quot;income&quot;) ,
+           min_comb    = 1,
+           max_comb    = 3,
+           verbose     = T)
+
+
+
+#write.csv(HH$sge, file = &quot;Data_H.csv&quot;, na=&quot;&quot;)    
+
+subscreenshow(HH, 
+              host = &quot;0.0.0.0&quot;, port = 1234)</code></pre>
+</div>
+<p><a href="#example6">Back to blog</a></p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

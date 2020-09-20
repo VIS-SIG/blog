@@ -3,4 +3,4 @@ title: "VIS-SIG Blog"
 site: distill::distill_website
 listing: posts
 ---
-<!-- create_post("Wonderful Wednesdays June 2020") -->
+<!-- library(distill); create_post("Wonderful Wednesdays July 2020") -->

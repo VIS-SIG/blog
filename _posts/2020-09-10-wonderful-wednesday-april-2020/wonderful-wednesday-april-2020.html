@@ -981,20 +981,34 @@
 <div class="d-article">
 <p>This month’s challenge involved a classic survival dataset example. You can download the dataset <a href="https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-04-08">here</a>. This simulated example dataset was based on a phase III clinical trial in breast cancer, you can read more about this study <a href="https://ascopubs.org/doi/pdf/10.1200/JCO.2015.62.1797">here</a>. To summarise, this was a four-arm study, where participants were randomised to receive either one of two monotherapies or one of two combination therapies for 1 year with 4 years post treatment follow-up. The primary outcome was progression free survival and we wanted you to explore different ways of visualising this time-to-event outcome. The dataset contained information that allowed you to explore subgroups, patterns of events and individual patient profiles. More information on the dataset is available <a href="https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-04-08">here</a>.</p>
 <p>We received a variety of submissions in this round including both static and interactive plots and we would like to thank everyone for their contributions. In the webinar members of the VIS SIG discussed the merits of each and picked out key elements they felt would make the ‘ultimate plot’. We summarise the discussions for each submission below.</p>
-<h1 id="section">1.</h1>
-<p><img src="plots/plot01.png" title="Plot 1" alt="Plot 1" /> On the left this plot displays the proportion of participants that are event free over time by treatment arm and on the right we can see the cumulative number of events over time by treatment arm. Inclusion of both of these figures into one image gives a view of the data which we don’t often see. Inclusion of uncertainty is also not often seen in Kaplan-Meier plots (but has been advocated in this recent publication from <a href="https://bmjopen.bmj.com/content/9/9/e030215">Morris et al.</a>) but is extremely useful and the clutter from the overlap of the confidence bands is perhaps less problematic with inclusion of the cumulative plot on the right. The team liked the inclusion of the tables of numbers at risk and the cumulative number of events at the bottom of each plot, this is important information, and we felt this approach didn’t overload or create a cluttered image. We thought there was a nice use of colour.</p>
+<p><a id="example1"></a></p>
+<h1 id="example-1">Example 1</h1>
+<figure>
+<img src="plots/plot01.png" title="Plot 1" alt="Plot 1" /><figcaption>Plot 1</figcaption>
+</figure>
+<p><a href="#example1%20code">link to code</a><br />
+<a href="./plots/plot01.png" title="Plot 1">high-resolution image</a></p>
+<p>On the left this plot displays the proportion of participants that are event free over time by treatment arm and on the right we can see the cumulative number of events over time by treatment arm. Inclusion of both of these figures into one image gives a view of the data which we don’t often see. Inclusion of uncertainty is also not often seen in Kaplan-Meier plots (but has been advocated in this recent publication from <a href="https://bmjopen.bmj.com/content/9/9/e030215">Morris et al.</a>) but is extremely useful and the clutter from the overlap of the confidence bands is perhaps less problematic with inclusion of the cumulative plot on the right. The team liked the inclusion of the tables of numbers at risk and the cumulative number of events at the bottom of each plot, this is important information, and we felt this approach didn’t overload or create a cluttered image. We thought there was a nice use of colour.</p>
 <p>Whilst there is clear labelling of the axis and the inclusion of a common legend ensures clarity this image would benefit from inclusion of some extra details to allow it to stand-alone, for example it would benefit from inclusion of a title. In terms of creating a clearer image we also felt that the dashes to indicate censoring in the image on the left could be omitted given the information on numbers at risk are available at the bottom of the plot.</p>
 <p>This is a nice example of an exploratory type plot that statisticians can use to understand the data but if the aim is to communicate a message to stakeholders then we would suggest presenting less information in a simpler graphic.</p>
-<p><a href="plots/plot01.png">Get a high resolution picture.</a><br />
-<a href="code/2020-04-08-markusv_km.R">Get the R code.</a></p>
-<h1 id="section-1">2.</h1>
-<p><img src="plots/plot02.png" title="Plot 2" alt="Plot 2" /> This presentation of the data displays the cumulative proportion of participants experiencing an event. It includes a separate plot for each treatment arm and the inclusion of subtitles ensures clarity. This plot is being used to tell a story, which the title guides us towards. Inclusion of a reference line at an important time point is helpful to guide the audience’s attention. Labelling the x and y-axis only once prevents clutter and in combination with the inclusion of the reference lines makes this a clear presentation of the data. This demonstrates an effective use of graduation of saturation and clear annotation.</p>
+<p><a id="example2"></a></p>
+<h1 id="example-2">Example 2</h1>
+<figure>
+<img src="plots/plot02.png" title="Plot 2" alt="Plot 2" /><figcaption>Plot 2</figcaption>
+</figure>
+<p><a href="#example2%20code">link to code</a><br />
+<a href="./plots/plot02.png" title="Plot 2">high-resolution image</a></p>
+<p>This presentation of the data displays the cumulative proportion of participants experiencing an event. It includes a separate plot for each treatment arm and the inclusion of subtitles ensures clarity. This plot is being used to tell a story, which the title guides us towards. Inclusion of a reference line at an important time point is helpful to guide the audience’s attention. Labelling the x and y-axis only once prevents clutter and in combination with the inclusion of the reference lines makes this a clear presentation of the data. This demonstrates an effective use of graduation of saturation and clear annotation.</p>
 <p>The team noted that there are six colours of grey in the legend but that it was difficult to pick out all six groups in the image. This was because one of the groups is very small. However, it’s tricky to pick out which group this is so we caution potential users to be mindful of this in their own plots.</p>
 <p>This is an original, well thought through presentation of survival data which we commend and think would work well where the is a natural ordering of the groups.</p>
-<p><a href="plots/plot02.png">Get a high resolution picture.</a><br />
-<a href="code/2020-04-08-markusv_area.R">Get the R code.</a></p>
-<h1 id="section-2">3.</h1>
-<p><img src="plots/plot03.PNG" title="Plot 3" alt="Plot 3" /> This is a very nice, interactive visual presentation of a growing or developing Kaplan-Meier plot link. This image included some really nice design points that update as the image progresses that can help to tell a story. These included:</p>
+<p><a id="example3"></a></p>
+<h1 id="example-3">Example 3</h1>
+<figure>
+<img src="plots/plot03.PNG" title="Plot 3" alt="Plot 3" /><figcaption>Plot 3</figcaption>
+</figure>
+<p><a href="#example3%20code">link to code</a><br />
+<a href="./plots/plot03.PNG" title="Plot 3">high-resolution image</a></p>
+<p>This is a very nice, interactive visual presentation of a growing or developing Kaplan-Meier plot link. This image included some really nice design points that update as the image progresses that can help to tell a story. These included:</p>
 <ul>
 <li>The percentages on right y-axis changing as the video plays,</li>
 <li>The inclusion of an additional x-axis at the top of the plot that is populated as it progresses,</li>
@@ -1002,26 +1016,1098 @@
 </ul>
 <p>The team felt that this interactive approach could help understanding and interpretation amongst those not so familiar with Kaplan-Meier plots. It’s a potentially useful way to force the viewer to take the entire time period into consideration and not just the final time point when there is often the most uncertainty.</p>
 <p>With some additional information on the right y-axis such as estimates of treatment effects this could be a really powerful design choice. A minor point was that it would be nice to include treatment labels with the numbers on the right y-axis so the audience do not have to keep referring back to the legend as the image progresses.</p>
-<p><a href="plots/plot03.png">Get a high resolution picture.</a><br />
-<a href="code/PSI_KM_2020_05_04%20-%20manz352.sas">Get the sas code.</a></p>
-<h1 id="section-3">4.</h1>
-<p><img src="plots/plot04.PNG" title="Plot 4" alt="Plot 4" /> This is a very flexible tool to display Kaplan-Meier plots that explores the subgroup element of the challenge link. It allows the user to change what is presented e.g. displaying information on different treatment groups, different subgroups, or restricting information presented by the age range of participants. Including the legend within the plot and use of grid lines both help audiences to interpret this image.</p>
+<p><a id="example4"></a></p>
+<h1 id="example-4">Example 4</h1>
+<figure>
+<img src="plots/plot04.PNG" title="Plot 4" alt="Plot 4" /><figcaption>Plot 4</figcaption>
+</figure>
+<p><a href="#example4%20code">link to code</a><br />
+<a href="./plots/plot04.PNG" title="Plot 4">high-resolution image</a></p>
+<p>This is a very flexible tool to display Kaplan-Meier plots that explores the subgroup element of the challenge link. It allows the user to change what is presented e.g. displaying information on different treatment groups, different subgroups, or restricting information presented by the age range of participants. Including the legend within the plot and use of grid lines both help audiences to interpret this image.</p>
 <p>This is a nice way to present the data for exploratory purposes. It would be nice to include sample sizes and confidence intervals within this tool to represent the uncertainty and minimise the risk of making incorrect conclusions.</p>
-<p><a href="plots/plot04.PNG">Get a high resolution picture.</a><br />
-<a href="code/PSI_April_KM_v1_0_local/app.R">Get the app code.</a><br />
-<a href="code/PSI_April_KM_v1_0_local/README(Interactive%20Kaplan%20Meier).txt">Get the readme file.</a></p>
-<h1 id="section-4">5.</h1>
-<p><img src="plots/plot05.PNG" title="Plot 5" alt="Plot 5" /> The use of a heat map to present survival data is a new idea to the group. At first some of us found it difficult to understand but with some thought it definitely becomes clearer. Given the novelty of this plot it probably needs more information to explain what is going on but could be very useful to help deliver a message to audiences. Inclusion of a clear message in the title and the ordering of the data in a way that the image portrays this really helps i.e. the white stripe representing the median helps show differences between treatment arms.</p>
+<p><a id="example5"></a></p>
+<h1 id="example-5">Example 5</h1>
+<figure>
+<img src="plots/plot05.PNG" title="Plot 5" alt="Plot 5" /><figcaption>Plot 5</figcaption>
+</figure>
+<p><a href="#example5%20code">link to code</a><br />
+<a href="./code/PSI_April_Heat_map_v1_0/PSI_April_Heat_map_v1_0.html">link to html file</a><br />
+<a href="./plots/plot05.PNG" title="Plot 5">high-resolution image</a></p>
+<p>The use of a heat map to present survival data is a new idea to the group. At first some of us found it difficult to understand but with some thought it definitely becomes clearer. Given the novelty of this plot it probably needs more information to explain what is going on but could be very useful to help deliver a message to audiences. Inclusion of a clear message in the title and the ordering of the data in a way that the image portrays this really helps i.e. the white stripe representing the median helps show differences between treatment arms.</p>
 <p>As well as a ‘big picture’ message from the changes in colour there is also an interactive element to this plot allowing more detailed information to be provided, as the user hovers over different points on the plot information on the survival function at that time point is displayed. Similarly hovering over the reference lines displays further information.</p>
-<p><a href="plots/plot05.PNG">Get a high resolution picture.</a><br />
-<a href="code/PSI_April_Heat_map_v1_0/PSI_April_Heat_map_v1_0.R">Get the app code.</a><br />
-<a href="code/PSI_April_Heat_map_v1_0/PSI_April_Heat_map_v1_0.html">Get the html file.</a><br />
-<a href="code/PSI_April_Heat_map_v1_0/README(HeatMap-Lan%20Meier).txt">Get the readme file.</a></p>
-<h1 id="section-5">6.</h1>
-<p><img src="plots/plot06.png" title="Plot 6" alt="Plot 6" /> This image displays a Kaplan-Meier plot for each treatment arm with accompanying confidence bands with inclusion of other treatment arms in grey for comparison. This is simple, clear plot exhibiting use of good data visualisation principles. We liked the clear message in the title, inclusion of numbers at risk for each plot rather than in a table and the use of grid lines. The team felt that this plot would be good for communicating a message.</p>
+<p><a id="example6"></a></p>
+<h1 id="example-6">Example 6</h1>
+<figure>
+<img src="plots/plot06.png" title="Plot 6" alt="Plot 6" /><figcaption>Plot 6</figcaption>
+</figure>
+<p><a href="#example6%20code">link to code</a><br />
+<a href="./plots/plot06.png" title="Plot 6">high-resolution image</a></p>
+<p>This image displays a Kaplan-Meier plot for each treatment arm with accompanying confidence bands with inclusion of other treatment arms in grey for comparison. This is simple, clear plot exhibiting use of good data visualisation principles. We liked the clear message in the title, inclusion of numbers at risk for each plot rather than in a table and the use of grid lines. The team felt that this plot would be good for communicating a message.</p>
 <p>Minor adjustments we recommend are: including a more prominent grid line at 52 weeks, including a legend clearly explaining what the red line and reference bands are and changing the scale from days to weeks or months.</p>
-<p><a href="plots/plot06.png">Get a high resolution picture.</a><br />
-<a href="code/km-plot%20-%20Mark%20Baillie.R">Get the R code.</a></p>
+<h1 id="code">Code</h1>
+<p><a id="example1 code"></a></p>
+<h2 id="example-1-r">Example 1 (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+### Purpose: create TTE KM plots
+
+### Load packages
+library(readr)
+library(survival)
+library(survminer)
+library(stringr)
+
+### Load data
+setwd(&#39;C:/Users/XXXXXXXXXXXXX&#39;)
+ADTTE &lt;- read_delim(&#39;2020-04-08-psi-vissig-adtte.csv&#39;, delim=&#39;;&#39;)
+
+### AVAL is given in days; transform into weeks
+ADTTE$AVAL_wk = ADTTE$AVAL / 7
+
+### Create survival curves
+surv_curve &lt;- survfit(Surv(AVAL_wk, CNSR == 0) ~ TRT01P, data = ADTTE)
+
+### Adjust treatment group labels in surv_curve
+names(surv_curve$strata) &lt;- str_remove(names(surv_curve$strata), &quot;TRT01P=&quot;) 
+
+### Theme for plots
+theme_table &lt;- theme_minimal(base_size = 18) %+replace% 
+  theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),  # remove vertical gridlines
+        panel.grid.major.y = element_blank(),  # remove horizontal gridlines
+        axis.title.y = element_blank(), axis.title.x = element_blank(),  # remove axis titles
+        axis.text.x = element_blank(), axis.ticks.x = element_blank())  # remove x-axis text and ticks
+
+theme_gg &lt;- theme_minimal(base_size = 18) %+replace% 
+  theme(panel.grid.minor.y = element_blank(), panel.grid.minor.x = element_blank(),  # remove minor gridlines
+        legend.title = element_blank())  # remove legend title
+
+### Plot 
+plots &lt;- list()
+# Proportion event-free
+plots[[1]] &lt;- ggsurvplot(fit = surv_curve,  # survfit object
+                         data = ADTTE,  # data used to fit survival curves. 
+                         break.y.by = 0.2,  # y-axis breaks
+                         risk.table = T,  # show risk table.
+                         conf.int = T,  # show confidence intervals
+                         xlim = c(0, 160),  # present narrower X axis
+                         break.time.by = 20,  # x-axis breaks
+                         ggtheme = theme_gg,  # use theme defined above
+                         risk.table.y.text = F, # show bars instead of names in text annotations in legend of risk table
+                         xlab = &quot;Week&quot;,
+                         ylab = &quot;Proportion event-free&quot;,
+                         legend = c(0.7, 0.15),  # legend position
+                         tables.theme = theme_table)  # use them defined above for risk table
+
+# Cumulative proportion with event
+plots[[2]] &lt;- ggsurvplot(fit = surv_curve,
+                         data = ADTTE,
+                         fun = &quot;event&quot;,  # show event probability instead of survival probability
+                         ylim = c(0, 0.6),  # do not include full scale (0-1) to allow to better discriminate between treatments
+                         break.y.by = 0.1,
+                         cumevents = T,  # show cumulative number of events
+                         conf.int = F,
+                         xlim = c(0, 160),
+                         break.time.by = 20,
+                         ggtheme = theme_gg,
+                         cumevents.y.text = FALSE,
+                         xlab = &quot;Week&quot;,
+                         ylab = &quot;Cumulative proportion with event&quot;,
+                         legend = &quot;none&quot;,
+                         tables.theme = theme_table)
+
+# Save plot
+ggsave(filename = &quot;2020-04-08-markusv_km.png&quot;,
+       plot = arrange_ggsurvplots(plots, print = T, ncol = 2, nrow = 1),
+       width = 19.3, height = 9, units = &quot;in&quot;)</code></pre>
+</div>
+<p><a href="#example1">Back to blog</a></p>
+<p><a id="example2 code"></a></p>
+<h2 id="example-2-r">Example 2 (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+### Purpose: create TTE area plot
+
+### Load packages
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(zoo)
+
+### Load data
+setwd(&#39;C:/Users/XXXXXXX&#39;)
+ADTTE &lt;- read_delim(&#39;2020-04-08-psi-vissig-adtte.csv&#39;, delim=&#39;;&#39;)
+
+### AVAL is given in days; transform into weeks
+ADTTE$AVAL_wk = ADTTE$AVAL / 7
+
+### Derive number of subjects per treatment group
+ADTTE_ntrt &lt;- ADTTE %&gt;% group_by(TRT01PN, TRT01P) %&gt;% mutate(N=n())
+
+### Derive cumulative number (percentage) of subjects with event / censoring
+ADTTE_cum &lt;- ADTTE_ntrt %&gt;% group_by(TRT01PN, TRT01P, N, EVNTDESC, AVAL_wk) %&gt;% 
+  summarise(n = n()) %&gt;% mutate(n = cumsum(n), pct = n / N)
+
+### Create grid to ensure all groups have a value at each timepoint (necessary for geom_area())
+grid &lt;- with(ADTTE_cum, expand.grid(TRT01PN = unique(TRT01PN), EVNTDESC = unique(EVNTDESC), 
+                                    AVAL_wk = unique(AVAL_wk)))
+ADTTE_grid &lt;- merge(grid, ADTTE_cum, by = c(&quot;TRT01PN&quot;, &quot;EVNTDESC&quot;, &quot;AVAL_wk&quot;), all = T)
+
+### Fill in NA values with last non-NA value and remove leading NA rows
+ADTTE_locf &lt;- ADTTE_grid %&gt;% group_by(TRT01PN, EVNTDESC) %&gt;% do(na.locf(.))
+
+### Control order (show events at bottom and censoring above)
+ADTTE_locf$EVNTDESC &lt;- factor(ADTTE_locf$EVNTDESC, levels = c(&quot;Lost to follow-up&quot;, &quot;No next-line therapy initiated&quot;,
+                                                              &quot;Second next-line therapy initiated&quot;,
+                                                              &quot;Ongoing on first next-line therapy&quot;, &quot;PD&quot;, &quot;Death&quot;))
+
+### Add N to treatment label and order by TRT01PN
+ADTTE_locf$TRT01P_label &lt;- with(ADTTE_locf, paste0(TRT01P, &quot; (N=&quot;, N, &quot;)&quot;))
+ADTTE_locf$TRT01P_label &lt;- reorder(ADTTE_locf$TRT01P_label, ADTTE_locf$TRT01PN)
+
+### Stacked area chart
+ggplot(data = ADTTE_locf, aes(x = AVAL_wk, y = pct, fill = EVNTDESC)) +
+  geom_area(alpha = 0.6) +
+  facet_wrap(TRT01P_label ~ .) +
+  scale_x_continuous(limits = c(0, 160), breaks = seq(0, 160, by = 20), name = &quot;Week&quot;) +
+  scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, by = 0.2), 
+                     name = &quot;Cumulative proportion with event / censoring&quot;, expand = c(0, 0)) +
+  geom_vline(xintercept = 52, alpha = 0.3) +
+  theme_minimal(base_size = 18) +
+  scale_fill_grey(start = 0.8, end = 0.2) +
+  theme(legend.position = c(0.15, 0.85), legend.title = element_blank(),  # remove legend title and set legend position
+        panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),  # remove vertical gridlines
+        panel.grid.minor.y = element_blank()) +  # remove horizontal minor gridlines
+  ggtitle(&quot;Combination of tablemab + vismab leads to less deaths during first 52 weeks of study treatment&quot;)
+
+ggsave(filename = &quot;2020-04-08-markusv_area.png&quot;, width = 19.3, height = 9, units = &quot;in&quot;)</code></pre>
+</div>
+<p><a href="#example2">Back to blog</a></p>
+<p><a id="example3 code"></a></p>
+<h2 id="example-3-sas">Example 3 (SAS)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+filename urlFile url &#39;https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2020/2020-04-08/2020-04-08-psi-vissig-adtte.csv&#39;;
+*--------------------------------
+Import Procedure
+---------------------------------;
+
+
+data ADTTE 
+    (label=&#39;Time-to-Event&#39;
+     compress=yes
+);
+
+infile urlFile 
+  delimiter = &#39;,&#39; 
+  missover 
+  dsd 
+  lrecl=32767 
+  firstobs=2;
+attrib 
+    STUDYID length=$20 format=$20. informat=$20. label=&#39;the study identifier&#39;
+    SUBJID length=8 format=8. informat=8. label=&#39;subject identifier&#39;
+    USUBJID length=$40 format=$40. informat=$40. label=&#39;unique subject iddentifier&#39;
+    AGE length=8 format=8. informat=8. label=&#39;age at randomisation (years)&#39;
+    STR01 length=$8 format=$8. informat=8. label=&#39;Hormone receptor status at randomisation&#39;
+    STR01N length=3 format=3. informat=3. label=&#39;Hormone receptor positive (Numeric)&#39;
+    STR01L length=$30 format=$30. informat=$30. label=&#39;Hormone receptor positive (Long format)&#39;
+    STR02 length=$30 format=$30. informat=$30. label=&#39;Prior Radiotherapy at randomisation&#39;
+    STR02N length=3 format=3. informat=3. label=&#39;Prior Radiotherapy at randomisation (Numeric)&#39;
+    STR02L length=$40 format=$40. informat=$40. label=&#39;Prior Radiotherapy at randomisation (Long format)&#39;
+    TRT01P length=$40 format=$40. informat=$40. label=&#39;Planned treatment assigned at randomisation&#39;
+    TRT01PN length=8 format=8. informat=8. label=&#39;Planned treatment assigned at randomisation (Numeric)&#39;
+    PARAM length=$40 format=$40. informat=40. label=&#39;Analysis parameter - Progression free survival&#39;
+    PARAMCD length=$10 format=$10. informat=$10. label=&#39;Analysis parameter code&#39;
+    AVAL length=8 format=8. informat=8. label=&#39;Analysis value (time to event [days])&#39;
+    CNSR length=3 format=3. informat=3. label=&#39;Censoring (0 = Event, 1 = censored)&#39;
+    EVNTDESC length= $34 format=$34. informat=$34. label=&#39;Event description&#39;
+    CNSDTDSC length=$33 format=$33. informat=$34. label=&#39;Censoring description&#39;
+    DCTREAS length=$25 format=$25. informat=34. label=&#39;Discontinuation from study reason&#39;
+;
+input
+  STUDYID SUBJID USUBJID AGE STR01 STR01N STR01L    
+  STR02 STR02N STR02L   TRT01P TRT01PN PARAM PARAMCD    
+  AVAL CNSR EVNTDESC CNSDTDSC DCTREAS;
+run;
+
+
+data TIME_TO_EVENT
+( keep =  Patient Age_at_Start Age_Group Age_at_End Survival_Days Survival_Weeks
+          Full_Years Hormone_Receptor_Status Prior_Radiotherapy
+        Treatment_No Treatment Censoring Death Discontinuation Discontinuation_Reason
+);
+
+attrib
+    Patient length=8 
+    Age_at_Start length=8
+    Age_Group length=$5
+    Age_at_End length=8
+    Survival_Days length=8 label=&#39;Survival Days&#39;
+    Full_Years length=8
+    Hormone_Receptor_Status length=$8 
+    Prior_Radiotherapy length=$1
+    Treatment_No length=8
+    Treatment length=$40
+    Censoring length=8
+    Death length=8
+    Discontinuation length=$1
+    Discontinuation_Reason length=$25 
+;
+set RECD.ADTTE;
+
+    Patient = SUBJID;
+    Age_at_Start = AGE;
+    Survival_Days = AVAL;
+    Survival_Weeks = int(Survival_Days/7);
+    Full_Years = int(Survival_Days/365.25);
+    Age_at_End = Age_at_Start + Full_Years;
+    Hormone_Receptor_Status = STR01;
+    Prior_Radiotherapy = ifc(STR02N=1,&#39;Y&#39;,&#39;N&#39;);
+    Treatment_No = TRT01PN;
+    Treatment = TRT01P;
+    Censoring = CNSR;
+    Death = ifc(EVNTDESC = &#39;Death&#39;,1,0);
+    Discontinuation = ifc(DCTREAS = &#39;NA&#39;,&#39;N&#39;,&#39;Y&#39;);
+    Discontinuation_Reason = propcase(DCTREAS);
+
+    if Discontinuation = &#39;N&#39; then Discontinuation_Reason = &#39;Not applicable&#39;;
+
+    if Age_at_Start &lt;= 50 then Age_Group = &#39;25-50&#39;;
+    else if 51 &lt;= Age_at_Start &lt;= 60 then Age_Group = &#39;51-60&#39; ;
+    else if 61 &lt;= Age_at_Start &lt;= 70 then Age_Group = &#39;61-70&#39; ;
+    else if 71 &lt;= Age_at_Start &lt;= 80 then Age_Group = &#39;71-80&#39; ;
+    else  Age_Group = &#39;81+&#39; ;
+run;
+
+
+ods _all_ close;
+ods graphics on;
+
+ods output Survivalplot=SurvivalPlotData;
+proc lifetest data=TIME_TO_EVENT plots=survival(atrisk=0 to 2000 by 10); 
+    time Survival_Days * Death(0);
+    strata Treatment/ test=logrank adjust=sidak;
+run; 
+
+
+
+
+
+
+proc sql;
+create table time
+as
+select distinct time
+from SurvivalPlotData;
+quit;
+
+
+data time;
+set time end=eof;
+i=_n_;
+if eof then call symput(&#39;n&#39;,_n_);
+run;
+
+
+%macro km;
+%do i=1 %to &amp;n+10;
+
+proc sql noprint;
+select max(Time) into: Time
+from Time
+where i &lt;= &amp;i.;
+quit;
+
+data SPD;
+set SurvivalPlotData (where=(Time le &amp;Time.));
+run;
+
+proc sql;
+create table Survival_Pct
+as
+select      StratumNum,
+            min(Survival) as Survival,
+            compress(put(min(Survival),percent8.1)) as Survival_txt
+from        SPD 
+where       Survival not=.
+group by    StratumNum;
+quit;
+
+data _null_;
+set Survival_Pct;
+if StratumNum = 1 then do;
+    call symput(&#39;Trt_val_1&#39;,Survival);
+    call symputx(&#39;Trt_txt_1&#39;,Survival_txt);
+end;
+if StratumNum = 2 then do;
+    call symput(&#39;Trt_val_2&#39;,Survival);
+    call symputx(&#39;Trt_txt_2&#39;,Survival_txt);
+end;
+if StratumNum = 3 then do;
+    call symput(&#39;Trt_val_3&#39;,Survival);
+    call symputx(&#39;Trt_txt_3&#39;,Survival_txt);
+end;
+if StratumNum = 4 then do;
+    call symput(&#39;Trt_val_4&#39;,Survival);
+    call symputx(&#39;Trt_txt_4&#39;,Survival_txt);
+end;
+run;
+
+title j=center font=calibri height=10pt &quot;Survival Day = &amp;Time&quot;;
+proc sgplot data=SPD noborder nowall;
+ styleattrs datacontrastcolors=(CX003469 CX69b937 CXef7d04 CX00a6cb);
+ step x=time y=survival / group=stratum name=&#39;s&#39;;
+  scatter x=time y=censored / markerattrs=(symbol=plus) name=&#39;c&#39;;
+  scatter x=time y=censored / markerattrs=(symbol=plus) GROUP=stratum;
+
+  keylegend &#39;c&#39; / location=inside position=topright valueattrs = (family=calibri size=10pt);
+  keylegend &#39;s&#39; / linelength=20 valueattrs = (family=calibri size=10pt);
+  xaxis
+    values = (0 to 2000 by 30)
+    valueattrs = (family=calibri size=10pt) 
+    labelattrs = (family=calibri size=10pt) 
+    label = &#39;x - Survival Days / y - *Survival Probability&#39;
+  ;
+  yaxis 
+    valueattrs = (family=calibri size=10pt) 
+    labelattrs = (family=calibri size=10pt) 
+    values = (0 to 1 by 0.1)
+    labelpos = top
+    label=&#39;*&#39;
+  ;
+
+%if &amp;Time. ge 84 %then %do;
+refline 84 / axis=x 
+    lineattrs=(pattern=dash color=lightgrey) label=&#39;12 Weeks&#39; labelattrs=(family=calibri size=10pt);
+%end;
+
+%if &amp;Time. ge 365 %then %do;
+refline 365 / axis=x 
+    lineattrs=(pattern=dash color=lightgrey) label=&#39;52 Weeks / 1 Year&#39; labelattrs=(family=calibri size=10pt);
+%end;
+
+%if &amp;Time. ge 730 %then %do;
+refline 730 / axis=x  
+    lineattrs=(pattern=dash color=lightgrey) label=&#39;2 Years&#39; labelattrs=(family=calibri size=10pt);
+%end;
+
+%if &amp;Time. ge 1095 %then %do;
+refline 1095 / axis=x 
+    lineattrs=(pattern=dash color=lightgrey) label=&#39;3 Years&#39; labelattrs=(family=calibri size=10pt)  ;
+%end;
+
+%if &amp;Time. ge 1461 %then %do;
+refline 1461 / axis=x 
+    lineattrs=(pattern=dash color=lightgrey) label=&#39;4 Years&#39; labelattrs=(family=calibri size=10pt)  ;
+%end;
+
+%if &amp;Time. ge 1826 %then %do;
+refline 1826 / axis=x 
+    lineattrs=(pattern=dash color=lightgrey) label=&#39;5 Years&#39; labelattrs=(family=calibri size=10pt)  ;
+%end;
+
+refline &amp;Trt_val_1. / axis=y
+    lineattrs=(pattern=thindot color=CX003469) label=&quot;&amp;Trt_txt_1&quot; labelattrs=(family=calibri size=10pt color=CX003469);
+
+refline &amp;Trt_val_2. / axis=y
+    lineattrs=(pattern=thindot color=CX69b937) label=&quot;&amp;Trt_txt_2&quot; labelattrs=(family=calibri size=10pt color=CX69b937);
+
+refline &amp;Trt_val_3. / axis=y
+    lineattrs=(pattern=thindot color=CXef7d04) label=&quot;&amp;Trt_txt_3&quot; labelattrs=(family=calibri size=10pt color=CXef7d04);
+
+refline &amp;Trt_val_4. / axis=y
+    lineattrs=(pattern=thindot color=CX00a6cb) label=&quot;&amp;Trt_txt_4&quot; labelattrs=(family=calibri size=10pt color=CX00a6cb);
+run;
+
+title;
+
+
+%end;
+%mend;
+
+/* Create the combined graph. */
+
+
+options papersize=a4 printerpath=gif animation=start animduration=0.05 animloop=no noanimoverlay nodate nonumber spool;
+ods printer file=&quot;c:\temp\KM_Treatment.gif&quot;;
+
+ods graphics / width=10in height=10in  scale=on imagefmt=GIF;
+%km;
+
+options printerpath=gif animation=stop;
+ods printer close;</code></pre>
+</div>
+<p><a href="#example3">Back to blog</a></p>
+<p><a id="example4 code"></a></p>
+<h2 id="example-4-r-and-readme.txt">Example 4 (R and readme.txt)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+## PSI_April_KM_v1_0
+
+## load in packages
+library(shiny)
+library(shinyWidgets)
+library(tidyverse)
+library(shinycssloaders)
+library(broom)
+library(survival)
+library(survminer)
+library(plotly)
+
+
+tick &lt;- icon(&quot;check&quot;)
+
+Orange &lt;- &quot;#EF7F04&quot;
+Green &lt;- &quot;#68B937&quot;
+Blue &lt;- &quot;#00A6CB&quot;
+Grey &lt;- &quot;#4E5053&quot;
+Darkblue &lt;- &quot;#003569&quot;
+Yellow &lt;- &quot;#FFBB2D&quot;
+
+ADTTE &lt;- read_csv(&#39;2020-04-08-psi-vissig-adtte_v2.csv&#39;)
+
+ADTTE$EVNTDESC &lt;- as.factor(ADTTE$EVNTDESC)
+ADTTE$STR01L &lt;- as.factor(ADTTE$STR01L)
+ADTTE$STR02L &lt;- as.factor(ADTTE$STR02L)
+ADTTE$TRT01P &lt;- as.factor(ADTTE$TRT01P)
+ADTTE$AGE &lt;- as.integer(ADTTE$AGE)
+
+ADTTE2 &lt;- ADTTE
+# Define UI for app that draws a bar chart in ggplot ----
+
+# Use a fluid Bootstrap layout
+ui &lt;- fluidPage(    
+  
+  # Give the page a title
+  titlePanel(&quot;Interactive Kaplan-Meier Plot&quot;),
+
+  # Generate a row with a sidebar
+  sidebarLayout(
+
+    # Define the sidebar with inputs for each plot separately
+    sidebarPanel(
+      ## Conditional panels- only see first set of filters on first tab
+      conditionalPanel(condition = &quot;input.tabset == &#39;withn&#39;&quot;,
+                       strong(&quot;Filters for Plot:&quot;),
+                       prettyCheckboxGroup(&quot;Strat1&quot;, &quot;Hormone receptor status:&quot;, 
+                                           choices=levels(ADTTE$STR01L), 
+                                           selected = levels(ADTTE$STR01L),
+                                           inline = TRUE, icon = tick),
+                       prettyCheckboxGroup(&quot;Strat2&quot;, &quot;Prior radiotherapy at randomisation:&quot;,
+                                           choices= levels(ADTTE$STR02L),
+                                           selected = levels(ADTTE$STR02L),
+                                           inline = TRUE, icon = tick),
+                       prettyCheckboxGroup(&quot;Trt&quot;, &quot;Treatment Arm:&quot;,
+                                           choices= levels(ADTTE$TRT01P),
+                                           selected = levels(ADTTE$TRT01P),
+                                           inline = TRUE, icon = tick),
+                       sliderInput(&quot;ptAGE&quot;, &quot;Age Range:&quot;,
+                                   min = min(ADTTE$AGE), max = max(ADTTE$AGE),
+                                   value = c(&quot;min&quot;,&quot;max&quot;))),
+      
+      ## Conditional panels- only see second set of filters on second tab
+      conditionalPanel(
+        condition = &quot;input.tabset == &#39;QuantComp&#39;&quot;,
+        strong(&quot;Filters for Plot A:&quot;),
+        prettyCheckboxGroup(&quot;Strat1a&quot;, &quot;Hormone receptor status:&quot;, 
+                            choices=levels(ADTTE$STR01L), 
+                            selected = levels(ADTTE$STR01L),
+                            inline = TRUE, icon = tick),
+        prettyCheckboxGroup(&quot;Strat2a&quot;, &quot;Prior radiotherapy at randomisation:&quot;,
+                            choices= levels(ADTTE$STR02L),
+                            selected = levels(ADTTE$STR02L),
+                            inline = TRUE, icon = tick),
+        prettyCheckboxGroup(&quot;Trta&quot;, &quot;Treatment Arm:&quot;,
+                            choices= levels(ADTTE$TRT01P),
+                            selected = levels(ADTTE$TRT01P),
+                            inline = TRUE, icon = tick),
+        sliderInput(&quot;ptAGEa&quot;, &quot;Age Range:&quot;,
+                    min = min(ADTTE$AGE), max = max(ADTTE$AGE),
+                    value = c(&quot;min&quot;,&quot;max&quot;)),
+        br(),
+        hr(),
+        br(),
+        
+        strong(&quot;Filters for Plot B:&quot;),
+        prettyCheckboxGroup(&quot;Strat1b&quot;, &quot;Hormone receptor status:&quot;, 
+                            choices=levels(ADTTE$STR01L), 
+                            selected = levels(ADTTE2$STR01L),
+                            inline = TRUE, icon = tick),
+        prettyCheckboxGroup(&quot;Strat2b&quot;, &quot;Prior radiotherapy at randomisation:&quot;,
+                            choices= levels(ADTTE$STR02L),
+                            selected = levels(ADTTE$STR02L),
+                            inline = TRUE, icon = tick),
+        prettyCheckboxGroup(&quot;Trtb&quot;, &quot;Treatment Arm:&quot;,
+                            choices= levels(ADTTE$TRT01P),
+                            selected = levels(ADTTE$TRT01P),
+                            inline = TRUE, icon = tick),
+        sliderInput(&quot;ptAGEb&quot;, &quot;Age Range:&quot;,
+                    min = min(ADTTE$AGE), max = max(ADTTE$AGE),
+                    value = c(&quot;min&quot;,&quot;max&quot;)),
+        
+      ),
+      &quot;Events are defined as death or disease progression.&quot;
+    ),
+    
+    
+    
+    
+    
+    # Create a spot for the plot
+    mainPanel(
+      ## Creates two separate panels- one for KM plot and number of patients, one for two KM plots to allow comparisons
+      tabsetPanel(type = &quot;tabs&quot;,
+                  id = &quot;tabset&quot;,
+                  tabPanel(&quot;KM plot with number of patients&quot;, plotOutput(&quot;PlotA&quot;), br(), hr(), br(), plotOutput(&quot;PlotB&quot;), value = &quot;withn&quot;),
+                  
+                  
+                  tabPanel(&quot;KM plots to compare between subgroups&quot;, plotOutput(&quot;PlotC&quot;), br(), hr(), br(), plotOutput(&quot;PlotD&quot;), value = &quot;QuantComp&quot;)
+                  
+                  
+      )
+      
+    )  
+  )
+  
+)  
+
+
+# Define a server for the Shiny app
+
+
+server &lt;- function(input, output) {
+  
+  # Create four separate plots based on inputs
+  
+  ## Fit model and plot KM curve for first tab
+  output$PlotA &lt;- renderPlot({
+    
+    #Filter and Subset Data
+    
+    plotdata &lt;- ADTTE %&gt;% filter(STR01L %in% input$Strat1, STR02L %in% input$Strat2,
+                                 TRT01P %in% input$Trt)
+    plotdata2 &lt;- subset(plotdata,
+                        AGE  &gt;= input$ptAGE[1] &amp; AGE &lt;= input$ptAGE[2])  
+    
+
+    
+    fita &lt;- survfit(Surv(AVAL, CNSR == 0) ~ TRT01P, data = plotdata2)
+    plot &lt;-        ggsurvplot(fita,
+                              risk.table = TRUE,
+                              data = plotdata2,
+                              # size = 0.0001,
+                              censor.shape = &quot;&quot;,
+                              palette = c(&quot;TRT01P=tablemab + vismab 52 weeks&quot; = Darkblue,&quot;TRT01P=tablemab x 12 week -&gt; vismab 34 weeks&quot; = Green, 
+                                          &quot;TRT01P=tablemab x 52 weeks&quot; = Blue, &quot;TRT01P=vismab x 52 weeks&quot; = Orange),
+                              # risk.table = &#39;nrisk_cumcensor&#39;,
+                              # tables.theme = theme_cleantable(),
+                              # risk.table.col = &quot;strata&quot;,
+                              # # cumevents = TRUE,
+                              title = &quot;Interactive Kaplan-Meier plot: Explore time to event across 4 treatment arms&quot;,
+                              xlab = &quot;Time (days)&quot;,
+                              ylab = &quot;Event free survival&quot;,
+                              legend = c(.18,.25),
+                              legend.title = &quot;Treatment Group&quot;,
+                              
+                              # legend.labs = c(&quot;Control&quot;, &quot;Treatment&quot;),
+                              break.x.by = 90,
+                              xlim = c(0, 1980),
+                              ggtheme = theme_classic()) 
+    plot$plot + ggplot2::geom_vline(xintercept=365, linetype=&#39;dotted&#39;, col = &quot;black&quot;) +
+      ggplot2::geom_vline(xintercept=1095, linetype=&#39;dashed&#39;, col = &quot;black&quot;) +
+      ggplot2::geom_vline(xintercept=1825, linetype=&#39;solid&#39;, col = &quot;black&quot;) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 375, y = 0, label = &quot;Year 1&quot;, hjust = &quot;left&quot;, size = 4.5) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 1105, y = 0, label = &quot;Year 3&quot;, hjust = &quot;left&quot;, size = 4.5) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 1835, y = 0, label = &quot;Year 5&quot;, hjust = &quot;left&quot;, size = 4.5) 
+    
+  })
+  
+  ## Filter data and pull out number of patients for n&#39;s at bottom of first tab
+  output$PlotB &lt;- renderPlot({
+    plotdata &lt;- ADTTE %&gt;% filter(STR01L %in% input$Strat1, STR02L %in% input$Strat2,
+                                 TRT01P %in% input$Trt)
+    plotdata2 &lt;- subset(plotdata,
+                        AGE  &gt;= input$ptAGE[1] &amp; AGE &lt;= input$ptAGE[2])  
+    
+    
+    
+    fita &lt;- survfit(Surv(AVAL, CNSR == 0) ~ TRT01P, data = plotdata2)
+    plot2 &lt;-        ggsurvplot(fita,
+                               data = plotdata2,
+                               # size = 0.0001,
+                               censor.shape = &quot;&quot;,
+                               palette = c(&quot;TRT01P=tablemab + vismab 52 weeks&quot; = Darkblue,&quot;TRT01P=tablemab x 12 week -&gt; vismab 34 weeks&quot; = Green, 
+                                           &quot;TRT01P=tablemab x 52 weeks&quot; = Blue, &quot;TRT01P=vismab x 52 weeks&quot; = Orange),
+                               # risk.table = &#39;nrisk_cumcensor&#39;,
+                               # tables.theme = theme_cleantable(),
+                               # risk.table.col = &quot;strata&quot;,
+                               # # cumevents = TRUE,
+                               #title = &quot;Interactive Kaplan-Meier plot: Explore time to event across 4 treatment arms&quot;,
+                               title = &quot;Interactive Kaplan-Meier plot: Explore time to event across 4 treatment arms&quot;,
+                               xlab = &quot;Time (days)&quot;,
+                               ylab = &quot;Event free survival&quot;,
+                               legend = c(.18,.25),
+                               legend.title = &quot;Treatment Group&quot;,
+                               break.x.by = 180,
+                               xlim = c(0, 1980),
+                               ggtheme = theme_classic(),
+                               risk.table = TRUE, 
+                               risk.table.col = &quot;strata&quot;,  
+                               risk.table.title=&quot;Patients remaining in study&quot;
+    ) 
+    plot2$table + theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      legend.position = &quot;none&quot;
+    )
+    
+  })  
+## Filter data and create KM plot for top of second tab
+  output$PlotC &lt;- renderPlot({
+    
+    #Filter and Subset Data
+    
+    plotdatc &lt;- ADTTE %&gt;% filter(STR01L %in% input$Strat1a, STR02L %in% input$Strat2a,
+                                 TRT01P %in% input$Trta)
+    plotdata2c &lt;- subset(plotdatc,
+                         AGE  &gt;= input$ptAGEa[1] &amp; AGE &lt;= input$ptAGEa[2])  
+    
+    
+    
+    fitc &lt;- survfit(Surv(AVAL, CNSR == 0) ~ TRT01P, data = plotdata2c)
+    plotb &lt;-        ggsurvplot(fitc,
+                               risk.table = TRUE,
+                               data = plotdata2c,
+                               # size = 0.0001,
+                               censor.shape = &quot;&quot;,
+                               censor = FALSE,
+                               palette = c(&quot;TRT01P=tablemab + vismab 52 weeks&quot; = Darkblue,&quot;TRT01P=tablemab x 12 week -&gt; vismab 34 weeks&quot; = Green, 
+                                           &quot;TRT01P=tablemab x 52 weeks&quot; = Blue, &quot;TRT01P=vismab x 52 weeks&quot; = Orange),
+                               # risk.table = &#39;nrisk_cumcensor&#39;,
+                               # tables.theme = theme_cleantable(),
+                               # risk.table.col = &quot;strata&quot;,
+                               # # cumevents = TRUE,
+                               title = &quot;Plot A:&quot;,
+                               xlab = &quot;Time (days)&quot;,
+                               ylab = &quot;Event free survival&quot;,
+                               legend = c(.18,.25),
+                               legend.title = &quot;Treatment Group&quot;,
+                               
+                               # legend.labs = c(&quot;Control&quot;, &quot;Treatment&quot;),
+                               break.x.by = 90,
+                               xlim = c(0, 1980),
+                               ggtheme = theme_classic()) 
+    plotb$plot + ggplot2::geom_vline(xintercept=365, linetype=&#39;dotted&#39;, col = &quot;black&quot;) +
+      ggplot2::geom_vline(xintercept=1095, linetype=&#39;dashed&#39;, col = &quot;black&quot;) +
+      ggplot2::geom_vline(xintercept=1825, linetype=&#39;solid&#39;, col = &quot;black&quot;) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 375, y = 0, label = &quot;Year 1&quot;, hjust = &quot;left&quot;, size = 4.5) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 1105, y = 0, label = &quot;Year 3&quot;, hjust = &quot;left&quot;, size = 4.5) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 1835, y = 0, label = &quot;Year 5&quot;, hjust = &quot;left&quot;, size = 4.5)
+    
+  })
+  
+  
+## Filter data and create KM plot for bottom of second tab  
+  output$PlotD &lt;- renderPlot({
+    
+    #Filter and Subset Data
+    
+    plotdatad &lt;- ADTTE %&gt;% filter(STR01L %in% input$Strat1b, STR02L %in% input$Strat2b,
+                                  TRT01P %in% input$Trtb)
+    plotdata2d &lt;- subset(plotdatad,
+                         AGE  &gt;= input$ptAGEb[1] &amp; AGE &lt;= input$ptAGEb[2])  
+    
+    
+    
+    fitd &lt;- survfit(Surv(AVAL, CNSR == 0) ~ TRT01P, data = plotdata2d)
+    plotd &lt;-        ggsurvplot(fitd,
+                               risk.table = TRUE,
+                               data = plotdata2d,
+                               censor = FALSE,
+                               # size = 0.0001,
+                               censor.shape = FALSE,
+                               palette = c(&quot;TRT01P=tablemab + vismab 52 weeks&quot; = Darkblue,&quot;TRT01P=tablemab x 12 week -&gt; vismab 34 weeks&quot; = Green, 
+                                           &quot;TRT01P=tablemab x 52 weeks&quot; = Blue, &quot;TRT01P=vismab x 52 weeks&quot; = Orange),
+                               # risk.table = &#39;nrisk_cumcensor&#39;,
+                               # tables.theme = theme_cleantable(),
+                               # risk.table.col = &quot;strata&quot;,
+                               # # cumevents = TRUE,
+                               title = &quot;Plot B:&quot;,
+                               xlab = &quot;Time (days)&quot;,
+                               ylab = &quot;Event free survival&quot;,
+                               legend = c(.18,.25),
+                               legend.title = &quot;Treatment Group&quot;,
+                               # legend.labs = c(&quot;Control&quot;, &quot;Treatment&quot;),
+                               break.x.by = 90,
+                               xlim = c(0, 1980),
+                               ggtheme = theme_classic()) 
+    plotd$plot +  ggplot2::geom_vline(xintercept=365, linetype=&#39;dotted&#39;, col = &quot;black&quot;) +
+      ggplot2::geom_vline(xintercept=1095, linetype=&#39;dashed&#39;, col = &quot;black&quot;) +
+      ggplot2::geom_vline(xintercept=1825, linetype=&#39;solid&#39;, col = &quot;black&quot;) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 375, y = 0, label = &quot;Year 1&quot;, hjust = &quot;left&quot;, size = 4.5) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 1105, y = 0, label = &quot;Year 3&quot;, hjust = &quot;left&quot;, size = 4.5) +
+      ggplot2::annotate(geom = &quot;text&quot;, x = 1835, y = 0, label = &quot;Year 5&quot;, hjust = &quot;left&quot;, size = 4.5)
+    
+    
+    
+    
+  })
+}    
+
+
+
+
+
+# Create Shiny app ----
+shinyApp(ui = ui, server = server)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+Interactive Kaplan Meier
+
+- Overall, this app produces a standard Kaplan Meier curve and associated data table 
+- The app contains two tabs:
+    - &quot;KM Plot with number of patients&quot;
+    - This tab displays a standard plot and data table. The options in the left hand bar allow for updates to the chart in real time.
+    - the data table is colour coded to match the legend in the chart
+    - Labels not presented on the Y-axis so that the chart and the table align
+    - &quot;KM Plots to compare between subgroups&quot;
+    - two plots are displayed vertically
+    - use options on the left hand panel to compare information between different scenarios
+    - future improvements include:
+        - Displaying N at start of treatment on the chart for the selected scenarios
+        - adding a &quot;hover&quot; to indicate the N remaining at each timepoint for the selected scenarios
+
+Online file
+Opens as a webpage/hosted shiny app from shortcut or link- https://avpco.shinyapps.io/PSI_April_KM_v1_0
+
+R file
+1. Click &quot;run app&quot; (with data saved as 2020-04-08-psi-vissig-adtte_v2.csv in the same folder/working directory)
+
+Video file
+Video demonstration of the Rshiny app</code></pre>
+</div>
+<p><a href="#example4">Back to blog</a></p>
+<p><a id="example4 code"></a></p>
+<h2 id="example-5-r-and-readme.txt">Example 5 (R and readme.txt)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+## Heatmap for PSI Wonderful Wednesday - April
+
+## Load required packages ====
+
+library(tidyverse)
+library(plotly)
+library(survival)
+
+## Read in data and assign colours ====
+
+Orange &lt;- &quot;#EF7F04&quot;
+Green &lt;- &quot;#68B937&quot;
+Blue &lt;- &quot;#00A6CB&quot;
+Grey &lt;- &quot;#4E5053&quot;
+Darkblue &lt;- &quot;#003569&quot;
+Yellow &lt;- &quot;#FFBB2D&quot;
+
+## Assumes data saved in same working directory
+ADTTE &lt;- read_csv(&#39;2020-04-08-psi-vissig-adtte_v2.csv&#39;)
+
+## change variable types as necessary
+ADTTE$STR01L &lt;- as.factor(ADTTE$STR01L)
+ADTTE$STR02L &lt;- as.factor(ADTTE$STR02L)
+ADTTE$TRT01P &lt;- as.factor(ADTTE$TRT01P)
+ADTTE$DCTREAS &lt;- as.factor(ADTTE$DCTREAS)
+ADTTE$EVNTDESC &lt;- as.factor(ADTTE$EVNTDESC)
+
+
+## Fit survival model and reformat ====
+fita &lt;- survfit(Surv(AVAL, CNSR == 0) ~ TRT01P, data = ADTTE)
+
+## Pull out survival function data
+surv &lt;- as.data.frame(fita$surv)
+
+## Add treatment to survival data
+treatment &lt;- c(rep(&quot;TMB+VMB 52wks&quot;, times = 433), 
+               rep(&quot;TMB 12wks,VMB 34wks&quot;, times = 454), 
+               rep(&quot;TMB 52wks&quot;, times = 427), 
+               rep(&quot;VMB 52wks&quot;, times = 445))
+
+## Combine survival function data, treatment arm and time
+surv_time &lt;- surv %&gt;%
+  add_column(Days=fita$time) %&gt;%
+  add_column(Treatment_Arm=treatment) %&gt;%
+  rename(survival=`fita$surv`) %&gt;%
+  arrange(Days)
+
+## create shell with all possible days in
+
+shell &lt;- tibble(Days = rep(1:1944, times = 4),
+                Treatment_Arm = c(rep(&quot;TMB+VMB 52wks&quot;, times = 1944), 
+                                  rep(&quot;TMB 12wks,VMB 34wks&quot;, times = 1944), 
+                                  rep(&quot;TMB 52wks&quot;, times = 1944), 
+                                  rep(&quot;VMB 52wks&quot;, times = 1944)))
+
+## merge on from surv time for when we have a survival value
+## Add 1 for first day at each (nobody&#39;s dead yet)
+## Copy survival function values down into empty rows to replicate KM curve horizontal line
+
+full_surv &lt;- shell %&gt;% 
+  left_join(surv_time) %&gt;% 
+  mutate(survival = if_else(Days == 1, 1, survival)) %&gt;% ## add 1 for first day as all alive
+  group_by(Treatment_Arm) %&gt;%  ## make sure we don&#39;t copy from one trt to the next
+  arrange(Days, .by_group = TRUE) %&gt;%  ## make sure in correct analysis day order
+  fill(survival) %&gt;%  ## fills in empty survival function values
+  ungroup()
+
+testdf &lt;- full_surv %&gt;% 
+  pivot_wider(id_cols = Days, names_from = Treatment_Arm, values_from = survival)
+
+Flag &lt;-  case_when(
+  testdf$`TMB 12wks,VMB 34wks`&gt; testdf$`TMB 52wks` &amp; 
+    testdf$`TMB 12wks,VMB 34wks`&gt; testdf$`TMB+VMB 52wks` &amp; 
+    testdf$`TMB 12wks,VMB 34wks`&gt; testdf$`VMB 52wks` ~ 3,
+  
+  testdf$`TMB 52wks`&gt; testdf$`TMB 12wks,VMB 34wks` &amp; 
+    testdf$`TMB 52wks`&gt; testdf$`TMB+VMB 52wks` &amp; 
+    testdf$`TMB 52wks`&gt; testdf$`VMB 52wks` ~ 1,
+  
+  testdf$`TMB+VMB 52wks`&gt; testdf$`TMB 12wks,VMB 34wks` &amp; 
+    testdf$`TMB+VMB 52wks`&gt; testdf$`TMB 52wks` &amp; 
+    testdf$`TMB+VMB 52wks`&gt; testdf$`VMB 52wks` ~ 4,
+  
+  testdf$`VMB 52wks`&gt; testdf$`TMB 12wks,VMB 34wks` &amp; 
+    testdf$`VMB 52wks`&gt; testdf$`TMB 52wks` &amp; 
+    testdf$`VMB 52wks`&gt; testdf$`TMB+VMB 52wks` ~ 2
+)
+
+
+
+## Creating text labels for hover functionality ====
+## Add in text for labels, adding extra blank space for alignment
+full_surv2 &lt;- full_surv %&gt;% 
+  mutate(text1 = paste(Treatment_Arm, round(survival, digits = 4), sep = &quot;: &quot;)) %&gt;% 
+  mutate(text2 = if_else(condition = Treatment_Arm == &quot;TMB 12wks,VMB 34wks&quot;, paste(Treatment_Arm, round(survival, digits = 4), sep = &quot;:&quot;),
+                         false = if_else(condition = Treatment_Arm == &quot;TMB+VMB 52wks&quot;, paste(Treatment_Arm, round(survival, digits = 4), sep = &quot;:          &quot;),
+                                         false = if_else(Treatment_Arm == &quot;VMB 52wks&quot;, paste(Treatment_Arm, round(survival, digits = 4), sep = &quot;:                   &quot;),
+                                                         false = paste(Treatment_Arm, round(survival, digits = 4), sep = &quot;:                   &quot;)))))
+
+
+## Remove survival values (now in text2) and reformat data to wide format
+full_surv3 &lt;- full_surv2 %&gt;% 
+  select(-survival) %&gt;% 
+  pivot_wider(id_cols = Days, names_from = Treatment_Arm, values_from = text2) 
+
+full_surv3$Flag &lt;- Flag
+
+full_surv3 &lt;- full_surv3 %&gt;% 
+  mutate(Flag = replace_na(Flag, 99))
+
+## Merge formatted labels (full_surv3) back to data with survival values (so all labels for each observation) 
+## Combines label with /n separator to ensure each on different line
+## Makes the value that is hovered over bold
+
+full_surv4 &lt;- full_surv2 %&gt;% 
+  left_join(full_surv3) %&gt;% 
+  mutate(text2 = paste(`TMB 52wks`,`VMB 52wks`,`TMB 12wks,VMB 34wks`,  `TMB+VMB 52wks`, sep = &quot;\n&quot;)) %&gt;% 
+  mutate(boldtrt = paste(&quot;&lt;b&gt;&quot;, if_else(Flag ==1, `TMB 52wks`, 
+                                        false = if_else(Flag==2, `VMB 52wks`, 
+                                                        false = if_else(Flag==3, `TMB 12wks,VMB 34wks`,
+                                                                        false = if_else(Flag==4,`TMB+VMB 52wks`,
+                                                                                        false = &quot;&quot;)))),&quot;&lt;/b&gt;&quot;, sep = &quot;&quot;)) %&gt;% 
+  mutate(text3 = if_else(Flag == 1, paste(boldtrt, `VMB 52wks`,`TMB 12wks,VMB 34wks`,  `TMB+VMB 52wks`, sep = &quot;\n&quot;),
+                         false = if_else(Flag == 2, paste(`TMB 52wks`,boldtrt,`TMB 12wks,VMB 34wks`,  `TMB+VMB 52wks`, sep = &quot;\n&quot;),
+                                         false = if_else(Flag == 3, paste(`TMB 52wks`,`VMB 52wks`,boldtrt,  `TMB+VMB 52wks`, sep = &quot;\n&quot;),
+                                                         false = if_else(Flag == 4, paste(`TMB 52wks`, `VMB 52wks`,`TMB 12wks,VMB 34wks`,  boldtrt, sep = &quot;\n&quot;),
+                                                                         false = paste(`TMB 52wks`,`VMB 52wks`,`TMB 12wks,VMB 34wks`, `TMB+VMB 52wks`, sep = &quot;\n&quot;))))))
+
+## Reorder factors so that axis will match with label order ====
+full_surv4$Treatment_Arm &lt;- as.factor(full_surv4$Treatment_Arm)
+
+full_surv4$Treatment_Arm &lt;- fct_relevel(full_surv4$Treatment_Arm, &quot;TMB+VMB 52wks&quot;, &quot;TMB 12wks,VMB 34wks&quot;, &quot;VMB 52wks&quot;,&quot;TMB 52wks&quot;)
+
+## Create plot ====
+
+## Create ggplot object
+plot &lt;- ggplot(data = full_surv4, aes(x = Days, y = Treatment_Arm, text = text3)) +
+  ggplot2::scale_fill_gradient2(
+    low = Darkblue,
+    high = Green,
+    mid = &#39;white&#39;, 
+    midpoint = 0.5,
+    limits = c(0, 1),
+    name = &quot;Survival\nFunction&quot;) +
+  labs(y = &quot;Treatment Arm&quot;) +
+  theme_minimal() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+## Create static heatmap and add titles
+plot &lt;- plot + geom_tile(aes(fill = survival))
+
+plot &lt;-  plot + 
+  annotate(geom = &quot;text&quot;, x = 1000, y = 5.2, label = &quot; &quot;, hjust = &quot;centered&quot;, vjust = &quot;top&quot;, size=7) + 
+  annotate(geom = &quot;text&quot;, x = 1000, y = 5.05, label = &quot;Combining therapies leads to better outcomes after one year&quot;, hjust = &quot;centered&quot;, vjust = &quot;top&quot;, size=7) +
+  annotate(geom = &quot;text&quot;, x = 1000, y = 4.6, label = &quot;...but simultaneous treatment has a better overall median survival&quot;, hjust = &quot;centered&quot;, vjust = &quot;top&quot;, size=6) +
+  geom_segment(x=365, xend=365, y=0.5, yend=4.5, linetype=&#39;dotted&#39;, col = &quot;black&quot;) +
+  geom_segment(x=1095, xend=1095, y=0.5, yend=4.5, linetype=&#39;dashed&#39;, col = &quot;black&quot;) +
+  geom_segment(x=1825, xend=1825, y=0.5, yend=4.5, linetype=&#39;solid&#39;, col = &quot;black&quot;) +
+  annotate(geom = &quot;text&quot;, x = 375, y = 0.4, label = &quot;Year 1&quot;, hjust = &quot;left&quot;, vjust = &quot;bottom&quot;, size = 3) +
+  annotate(geom = &quot;text&quot;, x = 1105, y = 0.4, label = &quot;Year 3&quot;, hjust = &quot;left&quot;, vjust = &quot;bottom&quot;, size = 3) +
+  annotate(geom = &quot;text&quot;, x = 1835, y = 0.4, label = &quot;Year 5&quot;, hjust = &quot;left&quot;, vjust = &quot;bottom&quot;, size = 3) +
+  annotate(geom = &quot;text&quot;, x = 1835, y = 0.3, label = &quot; &quot;, hjust = &quot;left&quot;, vjust = &quot;bottom&quot;, size = 3) 
+
+
+## Transform to plotly to add hover text
+
+ggplotly(plot, tooltip = c(&quot;text3&quot;)) %&gt;% layout(hoverlabel = list(align = &quot;left&quot;))</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+HeatMap-Lan Meier
+
+- The HeatMap-Lan Meier uses survival functions from a Kaplan Mier curve to show the transition in the proportion of events. 
+- The benefit of the KM information in this format is that it &quot;separates&quot; the curves while supplying the same information. Overlaps which obsure data are now not an issue
+- The &quot;proportion&quot; with events is not as intuitive using a colour coded heat map. As such we have included a hover function. 
+    - Placing the mouse over any element of the chart will show the survival function for all treatment arms.
+    - The treatment arm and associated survival function in _BOLD_ represent the most favourable condition at the selected timepoint.  
+
+HTML File
+Opens heat map as a webpage
+
+R file
+1. Save dataset (as 2020-04-08-psi-vissig-adtte_v2.csv) in same folder/working directory as code
+
+2. Install associated packages
+
+3. Run the R code</code></pre>
+</div>
+<p><a href="#example5">Back to blog</a></p>
+<p><a id="example5 code"></a></p>
+<h2 id="example-5-r">Example 5 (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(tidyverse)    
+library(broom)
+library(survival)
+library(here)
+
+# load data
+ADTTE &lt;- read_csv(here(&quot;data&quot;, &#39;2020-04-08-psi-vissig-adtte.csv&#39;))
+
+
+# Set up meta data for the report
+#-------------------------------------------------
+title &lt;- &quot;Evidence of improved progression-free survival for combo over monotherapy&quot;
+subtitle &lt;- &quot;Kaplan-Meier estimates over time including 95% uncertainty interval&quot;
+source &lt;- &quot;*The number of patients at risk (and events) are displayed the time point reference.
+Data source: https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-04-08&quot;
+y_axis &lt;- &quot;Progression free survival&quot;
+x_axis &lt;- &quot;Time [days]*&quot;
+
+
+############################################
+## Survival model for KM and risk set
+############################################
+
+fit &lt;- survfit(Surv(AVAL, CNSR == 0) ~ TRT01P, data = ADTTE, conf.type = &#39;log-log&#39; ) 
+sumfit &lt;- summary(fit, times = c(0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000)) 
+
+
+# tidy KM curve by treatment for plotting
+#-------------------------------------------
+km &lt;-
+  survfit(Surv(AVAL, CNSR == 0) ~ TRT01P,
+          data = ADTTE,
+          conf.type = &#39;log-log&#39;)  %&gt;%
+  broom::tidy(fit) %&gt;%
+  dplyr::mutate(group = stringr::str_remove(strata, &quot;TRT01P=&quot;)) %&gt;%
+  dplyr::mutate(group = factor(
+    group,
+    levels = c(
+      &quot;tablemab + vismab 52 weeks&quot;,
+      &quot;tablemab x 12 week -&gt; vismab 34 weeks&quot;,
+      &quot;vismab x 52 weeks&quot;,
+      &quot;tablemab x 52 weeks&quot;
+    )
+  ))
+
+# tidy KM curve by treatment for small multiples
+# this is a second data set to pass in for plotting
+# ghost lines of each treatment 
+#-------------------------------------------
+km_sm &lt;- km %&gt;%
+  mutate(group2 = group)
+
+
+# Calculate risk set for annotations
+#------------------------------------------
+risk_data &lt;-
+  tibble(
+    time =  sumfit$time,
+    group = sumfit$strata,
+    n.risk =   sumfit$n.risk,
+    n.events = sumfit$n.event
+  ) %&gt;%
+  dplyr::mutate(
+    group = stringr::str_remove(group, &quot;TRT01P=&quot;),
+    label = paste0(n.risk, &quot; (&quot;, n.events, &quot;)&quot;),
+    y_pos = 0.01
+  )
+
+
+############################################
+## Create the plot
+############################################
+
+plot &lt;-
+  km %&gt;% ggplot(aes(x = time, y = estimate, group = group)) +
+  ## draw the ghost lines of each treatment by facet. Force the group facet to null
+  geom_step(
+    data = transform(td2, group = NULL),
+    aes(time, estimate, group = group2),
+    size = 0.75,
+    color = &quot;#000000&quot;,
+    alpha = 0.15
+  ) +
+  
+  ## draw km lines
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1, fill = &quot;red&quot;) +
+  geom_step(color = &quot;red&quot;) +
+  
+  ## draw risk set
+  geom_text(data = risk_data, mapping = aes(x = time, y = y_pos, label = label, group = group, fill = NULL), size = 2.5) +
+  
+  ## asthetics of the plot
+  scale_x_continuous(breaks = c(0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000)) +
+  scale_y_continuous(breaks = c(0, 0.25, 0.50, 0.75, 1), limits = c(0, 1)) +
+
+  ## annotations
+  labs(title = title,
+       subtitle = subtitle,
+       caption = source) +
+  xlab(x_axis) +
+  ylab(y_axis) +
+  
+  # set up basic theme 
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.title.y = element_blank(),
+    legend.position = &quot;none&quot;
+  ) +
+  
+  # Set the entire chart region to a light gray color
+  theme(panel.background = element_rect(fill = color_background, color = color_background)) +
+  theme(plot.background = element_rect(fill = color_background, color = color_background)) +
+  theme(panel.border = element_rect(color = &quot;grey&quot;, fill = NA, size = 0.35)) +
+  facet_wrap(~ group, scales = &#39;free&#39;, ncol = 2) 
+
+# Save plot to file
+#-----------------------------------------
+ggsave(
+  file = here(&quot;figs&quot;, &quot;ww-km-plot.png&quot;),
+  width = 35, height = 20, units = &quot;cm&quot;)</code></pre>
+</div>
+<p><a href="#example6">Back to blog</a></p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

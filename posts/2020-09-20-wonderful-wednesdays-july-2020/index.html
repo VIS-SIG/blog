@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>VIS-SIG Blog: Wonderful Wednesdays July 2020</title>
+
+<meta property="description" itemprop="description" content="This month&#39;s example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24)."/>
+
+<link rel="canonical" href="https://vis-sig.github.io/blog/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-07-01"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-07-01"/>
+<meta name="article:author" content="Steve Mallett"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="VIS-SIG Blog: Wonderful Wednesdays July 2020"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="This month&#39;s example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24)."/>
+<meta property="og:url" content="https://vis-sig.github.io/blog/"/>
+<meta property="og:image" content="https://vis-sig.github.io/blog/./images/June_PSI_AW_v1_0.png"/>
+<meta property="og:image:width" content="1268"/>
+<meta property="og:image:height" content="507"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="VIS-SIG Blog"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="VIS-SIG Blog: Wonderful Wednesdays July 2020"/>
+<meta property="twitter:description" content="This month&#39;s example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24)."/>
+<meta property="twitter:url" content="https://vis-sig.github.io/blog/"/>
+<meta property="twitter:image" content="https://vis-sig.github.io/blog/./images/June_PSI_AW_v1_0.png"/>
+<meta property="twitter:image:width" content="1268"/>
+<meta property="twitter:image:height" content="507"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="VIS-SIG Blog: Wonderful Wednesdays July 2020"/>
+<meta name="citation_fulltext_html_url" content="https://vis-sig.github.io/blog/"/>
+<meta name="citation_online_date" content="2020/07/01"/>
+<meta name="citation_publication_date" content="2020/07/01"/>
+<meta name="citation_author" content="Steve Mallett"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","base_url","preview","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Wonderful Wednesdays July 2020"]},{"type":"character","attributes":{},"value":["This month's example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24)."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Steve Mallett"]},{"type":"character","attributes":{},"value":["https://www.psiweb.org/sigs-special-interest-groups/visualisation"]}]}]},{"type":"character","attributes":{},"value":["07-01-2020"]},{"type":"character","attributes":{},"value":["Longitudinal","Continuous data","Wonderful Wednesdays"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog"]},{"type":"character","attributes":{},"value":["./images/June_PSI_AW_v1_0.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["code/hgb_lasagna_f.R","code/hgb_quantiles_f.R","code/Mean_plots_AW_v1_0 - Abi Williams.R","code/SankeyPlot.R","images/hgb_lasagna_plot.png","images/hgb_plot_quantiles.png","images/June_PSI_AW_v1_0.png","images/Sankey Plot.png","wonderful-wednesdays-july-2020_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-july-2020_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-july-2020_files/jquery-1.11.3/jquery.min.js","wonderful-wednesdays-july-2020_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Wonderful Wednesdays July 2020","description":"This month's example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24).","authors":[{"author":"Steve Mallett","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-07-01T00:00:00.000+02:00","citationText":"Mallett, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<span class="logo">
+<img src="../../psi_logo.png"/>
+</span>
+<a href="../../index.html" class="title">VIS-SIG Blog</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation">PSI SIG page</a>
+<a href="../../about.html">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Wonderful Wednesdays July 2020</h1>
+<p>This month’s example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24).</p>
+</div>
+
+<div class="d-byline">
+  Steve Mallett <a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation" class="uri">https://www.psiweb.org/sigs-special-interest-groups/visualisation</a> 
+  
+<br/>07-01-2020
+</div>
+
+<div class="d-article">
+<h1 id="haemoglobin-in-anaemia">Haemoglobin in Anaemia</h1>
+<p>This month’s example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24). However anaemia treatments have a known safety issue in that large or rapid increases in hgb levels are associated with increased cardiovascular risk. Therefore a successful treatment should also demonstrate stability and control in hgb levels, with increases in hgb over a 4 week period being ideally limited to &lt;1 g/dl, with increases &gt;2 g/dl being considered a safety risk. The challenge was to produce data visualizations that provide insights into the variability of hgb in addition to the efficacy.</p>
+<p>A more detailed description and link to the data can be found <a href="https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-06-10">here</a>.</p>
+<p><a id="example1"></a></p>
+<h2 id="example-1.-trellis-plot">Example 1. Trellis Plot</h2>
+<p><img src="images/June_PSI_AW_v1_0.png" /></p>
+<p><a href="#example1%20code">link to code</a><br />
+<a href="./images/June_PSI_AW_v1_0.png">high-resolution image</a></p>
+<p>This is a good example of a Trellis plot; in this example the left and right panels represent subgroups of patients with high and low hgb variability, respectively. High and low hgb variability in this case has been defined in terms of whether each subject had a change in hbg level of &gt;2 g/dl between any two consecutive visits. The legend includes the number of patients in each treatment group (n), and before even considering the plot itself, the values of ‘n’ tell a story in that more patients with high hgb variability can be found in the control group, and more patients with lower hgb variability were in the experimental treatment group. The title plot clearly tells us the ‘story’ behind the plot in that the mean hgb in the control group did not achieve the target range in the low variability panel. In the left (high variability) panel, control group patients did achieve the target range, but at the expense of increased hgb variability (and therefore cardiovascular safety risk).</p>
+<p>Some good graphics principles were used, i.e. consistent use of colour across different areas of the graph to represent treatment group (although having the treatment labels closer to the line graphs would be an improvement). The target range was clearly labeled, although a band of light colour or grey may have provided further emphasis. Removing some of the <a href="https://en.wikipedia.org/wiki/Chartjunk">unnecssary elements</a> may have improved the visual impact of the graph, i.e. removing the non-inferiority boundary line, and simplifying the X-axis labels.</p>
+<p>There were some ideas for further enhancements: in representing variability in a data visualisation, it’s often more meaningful to show the distribution of the data (for example error bars representing standard deviation rather than standard error of the mean). The plot may also have worked better by stacking the display panel vertically rather than horizontally. (These latter two points are adequately addressed in <a href="#example4">Example 4</a>.)</p>
+<p><a id="example2"></a></p>
+<h2 id="example-2.-sankey-plot">Example 2. Sankey Plot</h2>
+<p><img src="images/Sankey%20Plot.png" /></p>
+<p><a href="#example2%20code">link to code</a><br />
+<a href="./images/Sankey%20Plot.png">high-resolution image</a></p>
+<p>Unlike the previous example, this graph is entirely focused on showing us the relative changes in hgb levels rather than absolute values. Each panel in the graph includes a series of stacked bars charts over time, with categories defined in terms of change in hgb since the previous visit. The title has a clear message, and the higher variability in the control group is readily observed, with the bars in left panel (control group) showing more patients in the higher variability (2-3 g/dl and &gt;3 g/dl) categories, and fewer patients in the low variability (&lt;1 g/dl and 1-2 g/dl) categories. The <a href="https://www.r-graph-gallery.com/sankey-diagram.html">Sankey plot</a> includes the additional feature of enabling the viewer to visualise the shifting of patients from one category to another (or remaining in the same category) across visits.</p>
+<p>A few issues with the plot were discussed. A Sankey plot might be easier to interpret if the categories represented absolute hgb levels, so that the graph is showing shifts between different hbg levels. The graph is much harder to interpret when the categories themselves are representing hgb changes. Another issue is that increased versus decreased hgb levels have a different clinical interpretation, i.e. large decreases in hgb represent lack of efficacy, while increases are associated with a safety concern. For this reason, it would have been better to separate out the increases and decreases in hgb, i.e. defining separate categories for decrease &gt;3 g/dl and increase &gt;3 g/dl etc.</p>
+<p>Another drawback is that it’s not possible to follow individual patients across the study (e.g. how many patients with good hbg control at week 4 also maintained good control at week 12, 16 …?). An alternative approach might be to define categories in terms of patients who were “stable” (e.g. defined as change in hgb &lt;1 g/dl) at each visit and all preceding visits (versus patients with hgb change in hgb &gt;= 1 g/dl at that visit or any preceding visit). This would address the question of whether patients achieved and sustained hgb control.</p>
+<p><a id="example3"></a></p>
+<h2 id="example-3.-lasagna-plot">Example 3. Lasagna Plot</h2>
+<p><img src="images/hgb_lasagna_plot.png" /></p>
+<p><a href="#example3%20code">link to code</a> <a href="./images/hgb_lasagna_plot.png">high-resolution image</a></p>
+<p>A <a href="https://journals.lww.com/epidem/Fulltext/2010/09000/Lasagna_Plots__A_Saucy_Alternative_to_Spaghetti.15.aspx">lasagna plot</a> can be a useful means for visualising longitudinal data with a continuous endpoint. Like its pasta-related cousin the spaghetti plot, data for each individual patient are shown with time represented on the X-axis. The main difference is that the spaghetti plot represents the continuous outcome variable on the Y-axis, while the lasagna plot uses a fixed point on the Y-axis for each patient, with values at different time points being mapped to a colour scale. The lasagna plot overcomes a drawback of the spaghetti plot where overlapping of the different patient “trajectories” can lose information, and the plot can be difficult to interpret if there are more than a small number of patients.</p>
+<p>A traditional lasagna plot uses solid areas of colour to represent outcomes at different time points for each patient, but the variation shown here has added some interpolation or blending, which gives a more blurred effect. Assuming the audience has received some instruction on how to interpret the graph, the overall message is quite obvious as the lower panel (control group) is clearly showing more areas of blue (representing decreases in hbg) and red (increases in hgb) since the previous visit, compared to the experimental treatment. Unlike the previous Sankey plot, the colour scheme makes a distinction between decreases and increases in hgb. Although colour hue or intensity is not the most effective attribute for encoding numeric values (see this <a href="https://github.com/GraphicsPrinciples/CheatSheet/blob/master/NVSCheatSheet.pdf">link</a>), this graph works quite well in providing an overall, qualitative impression of trends in the data where there is a strong and clearly defined effect.</p>
+<p>A possible improvement to the graph would be to sort the patients in a meaningful way, for example ordering by time to first increase in hgb (and even superimposing a survivor function curve), or ordering the patients by the length of time hgb stability was achieved at the end of the study.</p>
+<p><a id="example4"></a></p>
+<h2 id="example-4.-plot-of-hgb-distribution-over-time">Example 4. Plot of Hgb Distribution Over Time</h2>
+<p><img src="images/hgb_plot_quantiles.png" /></p>
+<p><a href="#example4%20code">link to code</a><br />
+<a href="./images/hgb_plot_quantiles.png">high-resolution image</a></p>
+<p>This plot shows the efficacy of each treatment (i.e. hgb levels compared to the target range) and additionally includes information on the distribution of the data. The median value is plotted along with a series of bands representing different percentages around the median, i.e. +/- 5%, 10% etc. This is more relevant information, in terms of showing the variability of individual patient outcomes, compared to a standard plot showing means and 95% confidence intervals. The title is telling a clear story, which is supported by the data visualisation showing that more patients in the control group were outside the hgb target range for long periods during the study. The plot is showing within-group variability, in contrast to the lasagna plot which was displaying within-patient variability. There is a natural trade-off between these two measures, and it would be challenging to show them both in the same plot; the choice of graph would depend on the clinical question of interest.</p>
+<p>Finally, the vertical stacking of the last two graphs was viewed as a good design choice, as in both cases this enables a simplified and clearer design by removing redundant X-axis labels.</p>
+<h1 id="code">Code</h1>
+<p><a id="example1 code"></a></p>
+<h2 id="example-1.-trellis-plot-r">Example 1. Trellis Plot (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+## PSI Wonderful Wednesday June 
+## Mean plots by change &gt; 2 v1_0
+## Abi Williams
+
+## Load packages
+
+library(tidyverse)
+library(plotly)
+library(plotrix)
+library(metR) 
+
+## Add chosen colours
+
+Orange &lt;- &quot;#EF7F04&quot;
+Green &lt;- &quot;#68B937&quot;
+Blue &lt;- &quot;#00A6CB&quot;
+Grey &lt;- &quot;#4E5053&quot;
+Darkblue &lt;- &quot;#003569&quot;
+Yellow &lt;- &quot;#FFBB2D&quot;
+
+# Read in data ====
+
+rawdat &lt;- read_csv(&quot;hgb_data.csv&quot;)
+sankdat &lt;- read_csv(&quot;Sankey.csv&quot;)
+
+## add visit and treatment names to sankey data
+
+sankdat2 &lt;- sankdat %&gt;% 
+  left_join(rawdat) %&gt;% 
+  replace_na(list(CHG = 0, CHG_FROM_BL = 0))
+
+sankdat2$TRT01P &lt;- as.factor(sankdat2$TRT01P)
+sankdat2$AVISIT &lt;- as.factor(sankdat2$AVISIT)
+
+sankdat2$AVISIT &lt;- fct_relevel(sankdat2$AVISIT, &quot;Week 4&quot;, &quot;Week 8&quot;, after = 1)
+
+
+## Create flag for patients who have change &gt;2 at any point =====
+
+patsub1 &lt;- sankdat2 %&gt;% 
+  filter(CHG &gt; 2) %&gt;% 
+  select(USUBJID) %&gt;% 
+  distinct() %&gt;% 
+  mutate(anychg2FLN = 1) %&gt;% 
+  mutate(anychg2FLC = &quot;Change &gt; 2 between any two consecutive visits&quot;)
+
+
+flagged_dat &lt;- sankdat2 %&gt;% 
+  left_join(patsub1) %&gt;% 
+  replace_na(list(anychg2FLN = 0, anychg2FLC = &quot;No change &gt; 2 between any two consecutive visits&quot;))
+
+
+
+summary_flagged &lt;- flagged_dat %&gt;%
+  group_by(AVISIT, TRT01P, anychg2FLC) %&gt;% 
+  summarise(mean_chg_BL = mean(CHG_FROM_BL),
+            mean_chg_BL_ci   = std.error(CHG_FROM_BL),
+            mean_chg_vis = mean(CHG),
+            mean_chg_vis_ci = std.error(CHG),
+            mean_raw = mean(AVAL),
+            mean_raw_ci = std.error(AVAL),
+            n = n())
+
+
+ref &lt;- summary_flagged %&gt;% 
+  filter(TRT01P == &quot;Treatment C&quot;) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(mean_raw = mean_raw - 0.75) %&gt;% 
+  mutate(TRT01P = &quot;Non-inferiority boundary&quot;) %&gt;% 
+  mutate(mean_raw_ci = 0)
+
+
+data &lt;- summary_flagged %&gt;% 
+  ungroup() %&gt;% 
+  add_row(ref)
+
+data$TRT01P &lt;- as.factor(data$TRT01P) 
+
+data$TRT01P &lt;- fct_relevel(data$TRT01P, &quot;Non-inferiority boundary&quot;, after = Inf)
+
+## Make base plot ====
+
+meanplot &lt;- ggplot(data = data, aes(x = AVISIT, y = mean_raw, group = TRT01P, color = TRT01P)) ## plot object
+
+pd &lt;- position_dodge(width = 0.1) ## position adjustment to use
+
+plota &lt;- meanplot +
+  # Line plot and error bars
+  geom_line(aes(linetype = TRT01P), show.legend = FALSE, position = pd) +
+  geom_errorbar(aes(ymin = mean_raw - mean_raw_ci, ymax = mean_raw + mean_raw_ci),
+                width = .1, linetype = 1, position = pd) +
+  geom_point(position = pd) +
+  
+  facet_wrap(vars(anychg2FLC)) +
+  # Add chosen colours
+  scale_color_manual(name = &quot;Treatment&quot;, values = c(Blue, Green, Grey)) +
+  scale_linetype_manual(name = &quot;Treatment 2&quot;, values = c(1,1,2)) +
+  
+  
+  # Title and labels
+  ggtitle(&quot;Target Haemoglobin level is (on average) not reached on Treatment C without concerning (&gt;2 Hgb g/dL) level of change between visits&quot;) +
+  ylab(&quot;Mean (Standard Error) haemoglobin level [g/dL]&quot;) +
+  xlab(&quot;Visit&quot;) +
+  
+  # Add lines/text for target range
+  geom_hline(yintercept = c(10, 11.5), colour = Darkblue, linetype = 2, size = .5) +
+  annotate(geom = &quot;text&quot;, x = c(1.5), y = c(10.75), colour = Darkblue, label = &quot;Target Range&quot;, fontface = 2) +
+  
+  # Add interpretation arrows (https://stackoverflow.com/questions/17032393/how-to-draw-arrow-in-ggplot2-with-annotation)
+  annotate(geom = &quot;segment&quot;, x = 1.2, y = c(10.6, 10.9), xend = 1.2, yend = c(10.2, 11.3), colour = Darkblue, size = 1.25,
+           arrow = arrow(length = unit(0.4, &quot;cm&quot;))) +
+  
+  # Specify theme
+  theme_bw()
+# theme(plot.margin = unit(c(1,3,7,5), &quot;lines&quot;)) 
+
+## Add some n labels =====
+dat_text &lt;- data.frame(
+  label = c(&quot;\n\n  Treatment C (n = 91)&quot;, &quot;\n  Treatment E (n = 12)&quot;, &quot;Non-inferiority boundary (Control - 0.75)&quot;, &quot;\n\nTreatment C (n = 59)&quot;, &quot;\nTreatment E (n = 138)&quot;),
+  anychg2FLC   = c(rep(&quot;Change &gt; 2 between any two consecutive visits&quot;, times = 3), rep(&quot;No change &gt; 2 between any two consecutive visits&quot;, times=2)),
+  TRT01P = c(&quot;Treatment C&quot;, &quot;Treatment E&quot;, &quot;Non-inferiority boundary&quot;, &quot;Treatment C&quot;, &quot;Treatment E&quot;),
+  xx = rep(3.5, times =5),
+  yy = rep(8.5, times = 5)
+)
+
+## Combine plot with text ====
+plota + geom_text(
+  data    = dat_text,
+  mapping = aes(x = xx, y = yy, label = label, colour = TRT01P),
+  hjust   = -0.1,
+  vjust   = -1,
+  inherit.aes = FALSE,
+  show.legend = FALSE
+) +
+  guides(colour = &quot;none&quot;)</code></pre>
+</div>
+<p><a href="#example1">Back to blog</a></p>
+<p><a id="example2 code"></a></p>
+<h2 id="example-2.-sankey-plot-r">Example 2. Sankey Plot (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(ggalluvial)
+library(ggplot2)
+library(tidyverse)
+library(RColorBrewer)
+
+Orange &lt;- &quot;#EF7F04&quot;
+Green &lt;- &quot;#68B937&quot;
+Blue &lt;- &quot;#00A6CB&quot;
+Grey &lt;- &quot;#4E5053&quot;
+Darkblue &lt;- &quot;#003569&quot;
+Yellow &lt;- &quot;#FFBB2D&quot;
+
+
+sankey &lt;- read.csv(&#39;Sankey.csv&#39;)
+sankey$CHG_CAT &lt;- as.factor(sankey$CHG_CAT)
+sankey$BROAD_CHG_CAT &lt;- as.factor(sankey$BROAD_CHG_CAT)
+sankey$AVISITN &lt;- as.factor(sankey$AVISITN)
+sankey$TRT01P &lt;- as.factor(sankey$TRT01P)
+sankey$TARGET &lt;- as.factor(sankey$TARGET)
+
+p &lt;- sankey %&gt;%
+#  filter(TRT01PN==1) %&gt;%
+ ggplot(aes(x = AVISITN, stratum = CHG_CAT, alluvium=USUBJID, fill = CHG_CAT)) +
+  scale_fill_brewer(type = &quot;qual&quot;, palette = &quot;Set2&quot;) +
+  geom_flow(color = &quot;darkgray&quot;, aes.flow = &quot;backward&quot;) +
+  geom_stratum() +
+  theme(legend.position = &quot;bottom&quot;) 
+
+
+
+p + scale_fill_manual(values = c(&quot;white&quot;, &quot;#3FFDBE&quot;, &quot;#39E3DA&quot;, &quot;#4AD5FA&quot;, &quot;#3991E3&quot;), limits=c(&quot;1. Baseline&quot;, &quot;2. &lt;1g/dl&quot;, &quot;3. 1-2g/dl&quot;, &quot;4. 2-3g/dl&quot;,&quot;5. &gt;3g/dl&quot;), name=&quot;Change in Hemoglobin \n since previous visit&quot;) + 
+  scale_x_discrete(&quot;Visit&quot;, labels = c(&quot;10&quot; = &quot;Baseline&quot;,
+                                       &quot;20&quot; = &quot;Week 4&quot;,
+                                       &quot;30&quot; = &quot;Week 8&quot;,
+                                       &quot;40&quot; = &quot;Week 12&quot;,
+                                       &quot;50&quot; = &quot;Week 16&quot;,
+                                       &quot;60&quot; = &quot;Week 20&quot;,
+                                       &quot;70&quot; = &quot;Week 24&quot;
+)) +
+  scale_y_continuous(&quot;Number of patients&quot;) +
+  facet_grid(.~ TRT01P) +
+  ggtitle(label = &quot;Hemoglobin change across observation period was more variable in the control group&quot;, subtitle = &quot;often fluctuating by more than 2g/dl&quot;) +
+  theme(
+    plot.title = element_text(size = 28, face = &quot;bold&quot;),
+    plot.subtitle = element_text(size = 20, face = &quot;bold&quot;),
+    legend.title = element_text(size = 18),
+    legend.text = element_text(size = 18),
+    legend.key.size = unit(3, &quot;line&quot;))</code></pre>
+</div>
+<p><a href="#example2">Back to blog</a></p>
+<p><a id="example3 code"></a></p>
+<h2 id="example-3.-lasagna-plot-r">Example 3. Lasagna Plot (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+####################################################################
+# Program name: hgb_lasagna_f.R
+# Purpose: To produce lasagna plot individual Hgb values at each
+#         visit (for Wonderful Wednesdays July 2020)
+# Written by: Steve Mallett
+# Date: 12-Jun-2020
+####################################################################
+
+library(haven)
+library(stringr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(cowplot)
+
+# flag variables for Hgb changes since previous visit were added prior to import (using SAS)
+
+hgb1 &lt;- read_sas(&quot;hgb_sim2.sas7bdat&quot;) %&gt;%
+  filter(TRT01PN == 1 &amp; AVISITN != 10) %&gt;%
+  mutate(id = as.numeric(str_extract(USUBJID, &quot;[^.]+$&quot;)))
+
+plot01 &lt;- ggplot() +
+  geom_raster(data = hgb1, aes(x=AVISITN, y=id, fill=factor(flag)),  interpolate = TRUE, hjust = 0, vjust = 0) +
+  scale_x_continuous(&quot; &quot;,
+                     breaks=c(20, 30, 40, 50, 60, 70),
+                     labels=c(&quot;4&quot;, &quot;8&quot;, &quot;12&quot;, &quot;16&quot;, &quot;20&quot;, &quot;24&quot;),
+                     limits=c(10, 70)) +
+  scale_y_continuous(&quot; &quot;) +
+  scale_fill_manual(
+    values=c(&quot;#0066CC&quot;, &quot;#99CCFF&quot;, &quot;#E0E0E0&quot;, &quot;#FF9999&quot;, &quot;#CC0000&quot;), 
+    name=&quot;Hgb \nExcursion\ng/dL&quot;,
+    breaks=c(&quot;-2&quot;, &quot;-1&quot;, &quot;0&quot;, &quot;1&quot;, &quot;2&quot;),
+    labels=c(&quot;&lt;-2&quot;, &quot;&lt;-1&quot;, &quot;None&quot;, &quot;&gt;1&quot;, &quot;&gt;2&quot;)
+    ) +
+  theme_minimal() +
+  theme(legend.position=&quot;none&quot;,
+        text = element_text(size = 15),
+        axis.ticks.x = element_blank(),
+        axis.text.x =  element_text(size = 15),  
+        axis.text.y =  element_blank(),        
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(size = 15),
+        plot.title = element_text(hjust = 0.5, size = 25),
+        panel.border = element_rect(colour = &quot;black&quot;, fill=NA, size=0.25),
+        panel.grid = element_blank(),
+        plot.margin=unit(c(0,0,0,0),&quot;cm&quot;)) +
+  ggtitle(label = &quot;Treatment: E&quot;)
+
+hgb2 &lt;- read_sas(&quot;hgb_sim2.sas7bdat&quot;) %&gt;%
+  filter(TRT01PN == 2 &amp; AVISITN != 10) %&gt;%
+  mutate(id = as.numeric(str_extract(USUBJID, &quot;[^.]+$&quot;)))
+
+plot02 &lt;- ggplot() +
+  geom_raster(data = hgb2, aes(x=AVISITN, y=id, fill=factor(flag)),  interpolate = TRUE, hjust = 0, vjust = 0) +
+  scale_x_continuous(&quot;Week&quot;,
+                     breaks=c(20, 30, 40, 50, 60, 70),
+                     labels=c(&quot;4&quot;, &quot;8&quot;, &quot;12&quot;, &quot;16&quot;, &quot;20&quot;, &quot;24&quot;),
+                     limits=c(10, 70)) +
+  scale_y_continuous(&quot; &quot;) +
+  scale_fill_manual(
+    values=c(&quot;#0066CC&quot;, &quot;#99CCFF&quot;, &quot;#E0E0E0&quot;, &quot;#FF9999&quot;, &quot;#CC0000&quot;), 
+    name=&quot;Hgb Change\nSince Last Visit\ng/dL&quot;,
+    breaks=c(&quot;-2&quot;, &quot;-1&quot;, &quot;0&quot;, &quot;1&quot;, &quot;2&quot;),
+    labels=c(&quot;&lt;-2&quot;, &quot;&lt;-1&quot;, &quot;None&quot;, &quot;&gt;1&quot;, &quot;&gt;2&quot;)
+  ) +
+  theme_minimal() +
+  theme(legend.position=&quot;bottom&quot;,
+    text = element_text(size = 15),
+    axis.ticks.x = element_blank(),
+    axis.text.x =  element_text(size = 15),  
+    axis.text.y =  element_blank(),        
+    axis.ticks.y = element_blank(),
+    axis.text = element_text(size = 15),
+    axis.title = element_text(size = 20),
+    plot.title = element_text(hjust = 0.5, size = 25),
+    panel.border = element_rect(colour = &quot;black&quot;, fill=NA, size=0.25),
+    panel.grid = element_blank(),
+    legend.title=element_text(size=15),
+    legend.text=element_text(size=15),
+    plot.margin=unit(c(0,0,0,0),&quot;cm&quot;)) +
+  ggtitle(label = &quot;Treatment: C&quot;)
+
+p &lt;- plot_grid(plot01, plot02, align = &quot;v&quot;, nrow = 2, rel_heights = c(1, 1.19))
+
+title &lt;- ggdraw() + draw_label(&quot;Lasagna Plot of Individual Haemoglobin\n Changes Since Previous Visit\n&quot;, size = 25)
+
+p2 &lt;- plot_grid(title, p, ncol=1, rel_heights = c(1, 10))  
+
+ggsave(&quot;hgb_lasagna_plot.png&quot;, p2, width=12, height=12, dpi=300)</code></pre>
+</div>
+<p><a href="#example3">Back to blog</a></p>
+<p><a id="example4 code"></a></p>
+<h2 id="example-4.-plot-of-hgb-distribution-over-time-r">Example 4. Plot of Hgb Distribution Over Time (R)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+####################################################################
+# Program name: hgb_quantiles_f.R
+# Purpose: To produce plot summarising spread of Hgb values at each
+#         visit (for Wonderful Wednesdays July 2020)
+# Written by: Steve Mallett
+# Date: 12-Jun-2020
+####################################################################
+
+library(haven)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(cowplot)
+
+# Get Hgb data (Group E)
+
+hgb1 &lt;- read_sas(&quot;hgb_data.sas7bdat&quot;) %&gt;%
+  filter(TRT01PN == 1)
+
+quant1 &lt;- hgb1 %&gt;% group_by(AVISITN) %&gt;%
+  do(quant = quantile(.$AVAL, probs = seq(0.2,0.8,.05)), probs = seq(0.2,0.8,.05)) %&gt;%
+  unnest(cols=c(quant, probs)) %&gt;%
+  mutate(delta = 2*round(abs(.5-probs)*100)) %&gt;% 
+  group_by(AVISITN, delta) %&gt;%
+  summarize(quantmin = min(quant), quantmax= max(quant))
+
+# Derive median Hgb
+
+hgb_med1 &lt;- hgb1 %&gt;% 
+  group_by(AVISITN) %&gt;% 
+  summarise(hgb.median = median(AVAL)) 
+
+# Produce plot for group E
+
+plot01 &lt;- ggplot() +
+  geom_ribbon(data = quant1, aes(x = AVISITN, ymin = quantmin, ymax = quantmax,
+                                    group = reorder(delta, -delta), fill = as.numeric(delta)),
+              alpha = .5) +
+  geom_line(data = hgb_med1, aes(x = AVISITN, y = hgb.median, color = &quot;dark blue&quot;), size = 2 ) +  
+  geom_segment(aes(x=10, xend=70, y=10, yend=10), linetype = 2, color = &quot;blue&quot;) +
+  geom_segment(aes(x=10, xend=70, y=11.5, yend=11.5), linetype = 2, color = &quot;blue&quot;) +
+  scale_x_continuous(&quot; &quot;,
+                     breaks=c(10, 20, 30, 40, 50, 60, 70),
+                     limits=c(10, 70)) +
+  scale_y_continuous(&quot;Hgb (g/dL)&quot;,
+                     breaks=c(8, 9, 10, 11, 12),
+                     limits=c(8, 12),
+                     ) +
+   scale_fill_gradient(low = &quot;#000080&quot;,
+                       high = &quot;#87CEFA&quot;,) +
+  scale_color_identity(name = &quot; &quot;,
+                       guide=legend,
+                       labels = &quot; &quot;) + 
+  theme_minimal() +
+  theme(legend.position=&quot;none&quot;,
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.text.y.left =  element_text(color = &#39;blue&#39;),        
+        plot.title = element_text(hjust = 0.5, size = 25),
+        text = element_text(size = 15),
+        axis.text = element_text(size = 20),
+        axis.title = element_text(size = 25),
+        panel.border = element_rect(colour = &quot;black&quot;, fill=NA, size=1),
+        plot.margin=unit(c(1,0,0,0),&quot;cm&quot;)) +
+  ggtitle(label = &quot;Treatment Group: E&quot;)
+
+# Get Hgb data (control)
+
+hgb2 &lt;- read_sas(&quot;hgb_data.sas7bdat&quot;) %&gt;%
+  filter(TRT01PN == 2)
+
+quant2 &lt;- hgb2 %&gt;% group_by(AVISITN) %&gt;%
+  do(quant = quantile(.$AVAL, probs = seq(0.2,0.8,.05)), probs = seq(0.2,0.8,.05)) %&gt;%
+  unnest(cols=c(quant, probs)) %&gt;%
+  mutate(delta = 2*round(abs(.5-probs)*100)) %&gt;% 
+  group_by(AVISITN, delta) %&gt;%
+  summarize(quantmin = min(quant), quantmax= max(quant))
+
+# Derive median Hgb
+
+hgb_med2 &lt;- hgb2 %&gt;% 
+  group_by(AVISITN) %&gt;% 
+  summarise(hgb.median = median(AVAL)) 
+
+plot02 &lt;- ggplot() +
+  geom_ribbon(data = quant2, aes(x = AVISITN, ymin = quantmin, ymax = quantmax,
+                                    group = reorder(delta, -delta), fill = as.numeric(delta)),
+              alpha = .5) +
+  geom_line(data = hgb_med2, aes(x = AVISITN, y = hgb.median, color = &quot;dark blue&quot;), size = 2) + 
+  geom_segment(aes(x=10, xend=70, y=10, yend=10), linetype = 2, color = &quot;blue&quot;) +
+  geom_segment(aes(x=10, xend=70, y=11.5, yend=11.5), linetype = 2, color = &quot;blue&quot;) +
+  scale_x_continuous(&quot;Week&quot;,
+                     breaks=c(10, 20, 30, 40, 50, 60, 70),
+                     labels=c(&quot;0&quot;, &quot;4&quot;, &quot;8&quot;, &quot;12&quot;, &quot;16&quot;, &quot;20&quot;, &quot;24&quot;),
+                     limits=c(10, 70)) +
+  scale_y_continuous(&quot;Hgb (g/dL)&quot;,
+                     breaks=c(8, 9, 10, 11, 12),
+                     limits=c(8, 12),
+                     ) +
+  scale_fill_gradient(
+                      low = &quot;#000080&quot;,
+                      high = &quot;#87CEFA&quot;) +
+  scale_color_identity(name = &quot;Median&quot;,
+                       guide=legend,
+                       labels = &quot; &quot;) + 
+  labs(fill = &quot;Hgb (% patients in band)&quot;) +
+  theme_minimal() +
+  theme(legend.position=&quot;bottom&quot;,
+        plot.title = element_text(hjust = 0.5, size = 25),
+        text = element_text(size = 15),
+        axis.text = element_text(size = 20),
+        axis.title = element_text(size = 25),
+        axis.text.y.left =  element_text(color = &#39;blue&#39;),
+        legend.text=element_text(size=14),
+        legend.title=element_text(size=20),
+        legend.key.size = unit(1.2, &quot;cm&quot;),        
+        panel.border = element_rect(colour = &quot;black&quot;, fill=NA, size=1)) +
+  guides(colour = guide_legend(override.aes = list(size=3))) +
+  ggtitle(label = &quot;Treatment Group: C&quot;)
+
+p &lt;- grid.arrange(arrangeGrob(plot01, ncol=1, nrow=1),
+                  arrangeGrob(plot02, ncol=1, nrow=1),
+                  heights = c(1,1.32))
+
+title &lt;- ggdraw() + draw_label(&quot;Treatment E Stabilises Haemoglobin Within Target Range\n With Reduced Variability&quot;, size = 25)
+
+p2 &lt;- plot_grid(title, p, ncol=1, rel_heights = c(1, 10))  
+
+ggsave(&quot;hgb_plot_quantiles.png&quot;, p2, width=12, height=12, dpi=300)</code></pre>
+</div>
+<p><a href="#example4">Back to blog</a></p>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Mallett (2020, July 1). VIS-SIG Blog: Wonderful Wednesdays July 2020. Retrieved from https://vis-sig.github.io/blog/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{mallett2020wonderful,
+  author = {Mallett, Steve},
+  title = {VIS-SIG Blog: Wonderful Wednesdays July 2020},
+  url = {https://vis-sig.github.io/blog/},
+  year = {2020}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
