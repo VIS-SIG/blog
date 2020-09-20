@@ -23,7 +23,8 @@ The example dataset for this month's webinar was based on a survey of overall sa
 
 The question posed to the participants was: "How would you rate your satisfaction with your life overall on a scale from 0-10?", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered.
 
-The objective of this survey was to explore the most relevant factors for satisfaction in life. Several factors, such as smoking status, working hours per week or number of doctor visits per year were collected. The dataset and its specification can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-05-13).
+The objective of this survey was to explore the most relevant factors for satisfaction in life. Several factors, such as smoking status, working hours per week or number of doctor visits per year were collected. The dataset and its specification can be found here [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-05-13).
+<!-- [![here](Octocat.jpg){width=5%}](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-05-13). -->
 
 We received a variety of submissions and we would like to thank everyone for their contributions. The visualizations that were presented during the June 2020 Wonderful Wednesday webinar are described below, with a few discussion points highlighted. To see the full discussion around each of the visualizations, check out the webinar recording in the [PSI Video-on-Demand library](https://www.psiweb.org/vod/item/psi-vissig-webinar-wonderful-wednesday-4). The subtitles contain the timestamps of the webinar recording, in case you would like to listen to the discussion around a specific visualization.
 

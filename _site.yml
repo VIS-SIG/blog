@@ -4,7 +4,7 @@ description: |
   The blog of the PSI Visualisation SIG
 output_dir: "."
 navbar:
-  logo: psi_logo.png
+  logo: VIS_logo.png
   right:
     - text: "Home"
       href: index.html
