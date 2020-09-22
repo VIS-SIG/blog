@@ -10,6 +10,8 @@ navbar:
       href: index.html
     - text: "PSI SIG page"
       href: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+    - text: "Sign up"
+      href: https://lp.constantcontactpages.com/su/Ea7OsL8
     - text: "About"
       href: about.html
 output: distill::distill_article
