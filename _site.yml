@@ -8,6 +8,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Wonderful Wednesdays"
+      href: https://www.psiweb.org/sigs-special-interest-groups/visualisation/welcome-to-wonderful-wednesdays
     - text: "PSI SIG page"
       href: https://www.psiweb.org/sigs-special-interest-groups/visualisation
     - text: "Sign up"
