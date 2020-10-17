@@ -1,5 +1,26 @@
 [
   {
+    "path": "posts/2020-10-17-wonderful-wednesdays-september-2020/",
+    "title": "WW Webinar: Adverse events",
+    "description": "How to display safety data? This month's challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot.",
+    "author": [
+      {
+        "name": "Lorenz Uhlmann",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-09-10",
+    "categories": [
+      "Adverse events",
+      "Wonderful Wednesdays"
+    ],
+    "preview": "posts/2020-10-17-wonderful-wednesdays-september-2020/./images/volcano BS Phillips.png",
+    "last_modified": "2020-10-17T16:35:22+02:00",
+    "input_file": {},
+    "preview_width": 990,
+    "preview_height": 720
+  },
+  {
     "path": "posts/2020-09-20-wonderful-wednesdays-july-2020/",
     "title": "Wonderful Wednesdays July 2020",
     "description": "This month's example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24).",

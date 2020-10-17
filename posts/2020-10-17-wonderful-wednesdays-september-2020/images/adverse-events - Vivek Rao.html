@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Visualizing eczema trial data</title>
+
+    <!-- Bootstrap CSS/JS/then Popper.js -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <!-- Load D3 -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- load fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Embed Flourish graphics -->
+    <script src="https://public.flourish.studio/resources/embed.js"></script>
+
+    <!-- css -->
+    <style>
+            .path.domain {
+              display: none;
+            }
+            .label {
+              font-size: 10px;
+              font-family: sans-serif;
+              text-anchor: middle;
+            }
+
+          #tooltip  {
+           position: absolute;
+            height: auto;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.7);
+              border-radius: 3px;
+            pointer-events: none;
+          }
+
+          #tooltip.hidden {
+            display: none;
+          }
+
+          #tooltip p  {
+            margin: 0;
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+          #container  {
+            position: inherit;
+          }
+
+          .graph-hed{
+            font-family: 'PT Serif', serif;
+            font-size: 0.90rem;
+            font-weight: 700;
+          }
+
+          .graph-subhed{
+            font-family: 'PT Serif', sans-serif;
+            font-size: 0.80rem;
+            font-weight: 400;
+          }
+
+          .hed  {
+            font-family: 'PT Serif', serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            width: 70%;
+          }
+
+          .byline {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1rem;
+            font-style: italic;
+          }
+
+          .insight  {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-transform: uppercase;
+          }
+
+          .copy {
+            font-family: 'PT Sans', serif;
+            font-size: 1rem;
+            font-weight: 400;
+          }
+
+          .copy-link  {
+            border-bottom: 2px solid black;
+            color: black;
+          }
+
+          .copy-link:hover  {
+            border-bottom: 2px solid #cc0000;
+            color: #cc0000;
+            text-decoration: none;
+          }
+    </style>
+
+    </head>
+
+    <body>
+      <div class="container" style="padding-top: 5%;"></div>
+
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center" style="margin-bottom: 0px;">
+          <p class="hed">Analysis finds intervention treatment arm takes longer, on average, to resolve adverse events</p>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+        <div id="container"></div>
+
+          <!-- place for tooltip -->
+          <div id="tooltip" class="hidden"></div>
+
+          <script>
+                var margin = {top: 100, right: 40, bottom: 250, left: 150},
+                    width = 1440 - margin.left - margin.right,
+                    height = 650 - margin.top - margin.bottom;
+
+                var overlap = 15;
+
+                var x = d3.scaleBand()
+                          .range([0, width])
+                          .padding(0.1);
+                var y = d3.scaleLinear()
+                          .range([height, 2*height/3]);
+
+                var svg = d3.select("#container")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform",
+                          "translate(" + margin.left + "," + margin.top + ")");
+
+                //create labels for each of the horizontal axes, i.e. Mild, Moderate, Severe
+                svg.append("text")
+                   .text("Mild")
+                   .attr("transform",
+                        "translate(" + (-65) + "," + "60)");
+
+                svg.append("text")
+                   .text("Moderate")
+                   .attr("transform",
+                        "translate(" + (-95) + "," + "170)");
+
+                svg.append("text")
+                   .text("Severe")
+                   .attr("transform",
+                        "translate(" + (-70) + "," + "275)");
+
+                //graph-hed
+                svg.append("text")
+                   .text("=> Most adverse events were mild in severity, while severe adverse events were resolved the quickest.")
+                   .attr("x", "0")
+                   .attr("y", 0-2*height/7+25)
+                   .classed("graph-hed", true);
+
+               //graph-hed
+               svg.append("text")
+                  .text("Height of triangle represents duration of adverse event.")
+                  .attr("x", "20")
+                  .attr("y", 0-2*height/7+45)
+                  .classed("graph-subhed", true);
+
+                //create Placebo label
+                svg.append("text")
+                   .text("Placebo")
+                   .attr("x", width-225)
+                   .attr("y", 0-2*height/7+43);
+
+                //create placebo box (red)
+                svg.append("rect")
+                   .attr("x", width-250)
+                   .attr("y", 0-2*height/7+30)
+                   .attr("fill", "rgba(255,0,0,0.2)")
+                   .attr("height", "15px")
+                   .attr("width", "15px");
+
+              //create Intervention label
+               svg.append("text")
+                  .text("Intervention")
+                  .attr("x", width-125)
+                  .attr("y", 0-2*height/7+43);
+
+                //create box for Intervention (black/gray)
+                 svg.append("rect")
+                    .attr("x", width-145)
+                    .attr("y", 0-2*height/7+30)
+                    .attr("fill", "rgba(0,0,0,0.2)")
+                    .attr("height", "15px")
+                    .attr("width", "15px");
+
+                    //load data from GitHub
+                d3.csv("https://raw.githubusercontent.com/vivrao9/Wonderful-Wednesdays/master/data/2020/2020-08-12/cleaned_df.csv", function(error, data) {
+                      if (error) throw error;
+
+                      //format data accordingly
+                      data.forEach(function(d) {
+                        d.severity = +d.severity;
+                        d.aestdat = d3.timeParse("%d/%m/%Y")(d.aestdat);
+                        d.aestdat = d3.timeFormat("%m/%d/%Y")(d.aestdat);
+                        d.dur = +d.dur;
+                        d.armn = +d.armn;
+                      });
+
+                      x.domain(data.map(function(d) { return d.aestdat; }));
+                      y.domain([0, d3.max(data, function(d) { return d.severity; })/3.5]); //divide by 3.5 to add more scale to triangle heights
+
+                      svg.selectAll(".bar")
+                          .data(data)
+                          .enter()
+                          .append("polygon")
+                          .attr("points",function(d) {
+
+                            //create different coordinates for each polygon based on which axis they lie on
+                              if (d.aesevn == 1)  { //if Mild, we'd want to add bar to the first axis
+                                var left = x(d.aestdat) - overlap;
+                                var top = y(d.dur + height/11.25);
+                                var bottom = height/3; //350 = 500 - 100 - 50
+                              } else if (d.aesevn == 2) { //if Moderate, add bar to second axis
+                                var left = x(d.aestdat) - overlap;
+                                var top = y(d.dur + height/22);
+                                var bottom = 2*height/3; //350 = 500 - 100 - 50
+                              } else  { //if Severe, we'd want to add bar to the third axis
+                                var left = x(d.aestdat) - overlap;
+                                var top = y(d.dur);
+                                var bottom = height; //350 = 500 - 100 - 50
+                              }
+
+                              return left + ',' + bottom + ' '
+                                 + (left + x.bandwidth()/2 + overlap) + ',' + top + ' '
+                                 + (left + x.bandwidth() + (2 * overlap)) + ',' + bottom;
+                          })
+                          .attr("fill", function(d) {
+                        if (d.armn == 0)  {
+                          //if event is placebo, then color red
+                          return "#CC0000";
+                        }
+                      })
+                          .style("opacity", "0.2")
+                          //show tooltip on hover
+                          .on("mouseover", function(d)  {
+                        var xPos = d3.event.pageX;
+                        var yPos = d3.event.pageY;
+
+                        //Update the tooltip position and value
+                					d3.select("#tooltip")
+                						.style("left", xPos + "px")
+                						.style("top", yPos + "px")
+                            .html("<p><b>Randomization date: </b>" + d.rando_date + "<br /><p><b>High level event: </b>" + d.aebodsys + "</p><p><b>Low level event: </b>" + d.aept + "</p><p><b>Duration: </b>" + d.dur + " days</p><p>This subject has reported <b>" + (d.repeatnum-1) + "</b> adverse events before this.</p>");
+
+                        //add highlight to active polygon
+                          d3.select(this)
+                            .attr("stroke", "rgba(0,0,0,1)")
+                            .attr("stroke-width", "2px")
+                            .attr("opacity", "0.8");
+
+                					//Show the tooltip
+                					d3.select("#tooltip").classed("hidden", false);
+                      })
+
+                      .on("mouseout", function() {
+                					//Hide the tooltip
+                					d3.select("#tooltip").classed("hidden", true);
+
+                          //remove highlight from active polygon
+                          d3.select(this)
+                            .attr("stroke", "none")
+                            .attr("stroke-width", "0px");
+                			   });
+
+                  //first axis
+                      svg.append("g")
+                          .attr("transform", "translate(-7.5," + 2*height/3 + ")")
+                          .call(d3.axisBottom(x)
+                          .tickValues([]));
+
+                  //second axis
+                      svg.append("g")
+                          .attr("transform", "translate(-7.5," + height/3 + ")")
+                          .call(d3.axisBottom(x)
+                          .tickValues([]));
+
+                  //lowest axis
+                        svg.append("g")
+                          .attr("transform", "translate(-7.5," + height + ")")
+                          .call(d3.axisBottom(x)
+                          .tickValues(x.domain().filter(function(d,i){ return !(i%10)})));
+
+                      svg.append("line")
+                          .attr("x1", 0  - overlap)
+                          .attr("y1", height)
+                          .attr("x2", width  + overlap)
+                          .attr("y2", height)
+                          .attr("stroke-width", "2");
+                    });
+
+              </script>
+            </div>
+
+            <div class="row d-flex justify-content-center" style="margin-top: -180px;">
+              <div class="col-md-6">
+                <p class="byline">By Vivek Rao</p>
+
+                <p class="copy">The above visualization is based on <a href="https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-08-12" target="_blank" class="copy-link">clinical trial data</a> for an active treatment for eczema compared to placebo in adolescents that are unresponsive to standard care.</p>
+
+                <p class="copy">An analysis revealed that more adverse events were recorded for subjects that were assigned to an intervention treatment arm, compared to those assigned to a placebo.</p>
+
+                <p class="copy">See some of the insights below:</p>
+
+                <div class="flourish-embed flourish-hierarchy" data-src="visualisation/3538282"></div>
+                <p class="copy">Of the 61 patients closely followed in the 12-month period, 49 developed adverse effects relating to anemia.</p>
+
+                <div class="flourish-embed flourish-scatter" data-src="visualisation/3538182"></div>
+                <p class="copy">Subjects assigned to placebo treatment arm that reported an adverse event had their event treated in a duration of 6 days, on average. Participants assigned to interevention treatment, on average, saw the end of their adverse event in 8 days.</p>
+
+              </div>
+            </div>
+
+    </body>
+</html>

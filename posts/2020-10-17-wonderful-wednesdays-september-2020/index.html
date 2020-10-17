@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>VIS-SIG Blog: WW Webinar: Adverse events</title>
+
+<meta property="description" itemprop="description" content="How to display safety data? This month&#39;s challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot."/>
+
+<link rel="canonical" href="https://vis-sig.github.io/blog/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-09-10"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-09-10"/>
+<meta name="article:author" content="Lorenz Uhlmann"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="VIS-SIG Blog: WW Webinar: Adverse events"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="How to display safety data? This month&#39;s challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot."/>
+<meta property="og:url" content="https://vis-sig.github.io/blog/"/>
+<meta property="og:image" content="https://vis-sig.github.io/blog/./images/volcano BS Phillips.png"/>
+<meta property="og:image:width" content="990"/>
+<meta property="og:image:height" content="720"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="VIS-SIG Blog"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="VIS-SIG Blog: WW Webinar: Adverse events"/>
+<meta property="twitter:description" content="How to display safety data? This month&#39;s challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot."/>
+<meta property="twitter:url" content="https://vis-sig.github.io/blog/"/>
+<meta property="twitter:image" content="https://vis-sig.github.io/blog/./images/volcano BS Phillips.png"/>
+<meta property="twitter:image:width" content="990"/>
+<meta property="twitter:image:height" content="720"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="VIS-SIG Blog: WW Webinar: Adverse events"/>
+<meta name="citation_fulltext_html_url" content="https://vis-sig.github.io/blog/"/>
+<meta name="citation_online_date" content="2020/09/10"/>
+<meta name="citation_publication_date" content="2020/09/10"/>
+<meta name="citation_author" content="Lorenz Uhlmann"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","base_url","preview","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["WW Webinar: Adverse events"]},{"type":"character","attributes":{},"value":["How to display safety data? This month's challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lorenz Uhlmann"]},{"type":"character","attributes":{},"value":["https://www.psiweb.org/sigs-special-interest-groups/visualisation"]}]}]},{"type":"character","attributes":{},"value":["09-10-2020"]},{"type":"character","attributes":{},"value":["Adverse events","Wonderful Wednesdays"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog"]},{"type":"character","attributes":{},"value":["./images/volcano BS Phillips.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["code/adverse-events - Vivek Rao.html","code/tendril_plot - Agustin Calatroni.r","code/ww-ae-xplorer-Rho.Rmd","images/adverse-events - Vivek Rao.html","images/tendril_plot - Agustin Calatroni.png","images/volcano BS Phillips.png","images/volcano PT Phillips.png","images/ww-ae-xplorer-Rho.html","wonderful-wednesdays-september-2020_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-september-2020_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-september-2020_files/jquery-1.11.3/jquery.min.js","wonderful-wednesdays-september-2020_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"WW Webinar: Adverse events","description":"How to display safety data? This month's challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot.","authors":[{"author":"Lorenz Uhlmann","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-09-10T00:00:00.000+02:00","citationText":"Uhlmann, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<span class="logo">
+<img src="../../WWW_logo_cut.png"/>
+</span>
+<a href="../../index.html" class="title">VIS-SIG Blog</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation/welcome-to-wonderful-wednesdays">Wonderful Wednesdays</a>
+<a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation">PSI SIG page</a>
+<a href="https://lp.constantcontactpages.com/su/Ea7OsL8">Sign up</a>
+<a href="../../about.html">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>WW Webinar: Adverse events</h1>
+<p>How to display safety data? This month’s challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot.</p>
+</div>
+
+<div class="d-byline">
+  Lorenz Uhlmann <a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation" class="uri">https://www.psiweb.org/sigs-special-interest-groups/visualisation</a> 
+  
+<br/>09-10-2020
+</div>
+
+<div class="d-article">
+<h1 id="adverse-event-example-data-set">Adverse event example data set</h1>
+<p>The adverse events (AEs) example data set is based on a clinical trial for treatment of Type II diabetes in adults that cannot manage their blood glucose control with a single oral therapy. The primary outcome was mean HbA1c at 6 months. AEs were monitored and collected for the entire course of the study. A more detailed description and link to the data can be found <a href="https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-09-09">here</a>.</p>
+<p><a id="example1"></a></p>
+<h2 id="example-1.-triangles-pie-chart-boxplots">Example 1. Triangles, pie chart, boxplots</h2>
+<p>This visualisation has been submitted as an html file and can be found <a href="./images/adverse-events%20-%20Vivek%20Rao.html">here</a>. It is a compilation of three different plots. The first one shows a triangle for each AE where the height of the triangle represents the duration of the AE. The x axis, represents a time axis. Furthermore, we the AEs are split into three categories based on the severity: mild, moderate, and severe. Each categories is plotted in a separate line of the plot. The treatment group (placebo vs. intervention) is color-coded. One additional feature is the hover over effect which provides some useful additional information.</p>
+<p>This is a very innovative plot and not common for representing AEs. The title covers the message of the plot and, hence, it is very helpful. Additionally, there is a subtitle which provides some additional useful information even though the second part (saying that severe AEs were resolved the quickest) cannot be seen clearly from the plot.</p>
+<p>Using the height of the triangles to represent the duration is a bit challenging because we already have the x axis representing the time. Having that said, we see that the x axis (date of the AE) is not ordered chronologically. This is a bit surprising and it is not clear what the dates are ordered by. The alpha scaling that has been used in a sensible way to make all triangles visible.</p>
+<p>The second visualisation is similar to a pie chart in its appearance. There is a lot of information included in this plot. We see all AEs represented in categories. it also provides a hover over functionality which gives you some more information.</p>
+<p>The advantage of this plot is that it shows a lot of information in a very compact design. However, since it is a round design, it is a little bit hard to compare the height of the bars. So, it comes with some challenges, but it is definitely eye-catching.</p>
+<p>The third visualisation is a pair of boxplots comparing the two treatment groups in terms of the duration of AEs. It is a rather “simple” or standard plot. It is often a good idea to keep it simple, so there is definitely nothing wrong with it. In addition, there are dots included which are be color-coded and seem to represent the frequency of the events. One comment would be that the type of AEs is not being considered in this plot. So, it might be a good idea to stratify this plot by system organ class.</p>
+<p><a href="#example1%20code">link to code</a></p>
+<p><a id="example2"></a></p>
+<h2 id="example-2.-triangles---updated-version">Example 2. Triangles - updated version</h2>
+<p><a href="#example2%20code">link to code</a><br />
+<!-- [high-resolution image](./images/June_PSI_AW_v1_0.png) --></p>
+<p>This visualisation is ment to be an update of the first visualisation of Example 1. The main update is that the x axis is used as a time axis in chronological order. Now, the width of the triangles is being used to represent the duration of the AEs. The height represents the severity. Furthermore, the treatment group is represented by color and also by the direction the triangle point to. This is not a fully developed plot but rather a quick draft to show what it could look like updated some design features of the original plot.</p>
+<p><a id="example3"></a></p>
+<h2 id="example-3.-tendril-plot">Example 3. Tendril plot</h2>
+<p><img src="images/tendril_plot%20-%20Agustin%20Calatroni.png" /></p>
+<p><a href="#example3%20code">link to code</a><br />
+<a href="./images/tendril_plot%20-%20Agustin%20Calatroni.png">high-resolution image</a></p>
+<p>This is a very innovative visualisation. It is presented in a publication from 2018. You can see branches which represent one AE each. The branch itself represents the time path. Changes to the direction of the path depend on the treatment arm the AE occured in. Thus, it is kind of a car driving experience and it depends on the occurence of AE in each treatment arm where you end up.</p>
+<p>In this plot, the paths are color coded and each branch represents a body system (and not only one single type of AE). Looking at the pink path (representing blood and lymphatic), we see that in the beginning, most of the AEs occur in the placebo, later on we see a lot more AEs occuring in the treatment group and, thus, the path ends up far to the right.</p>
+<p>One comment is some AEs might become very influential if they happen at a rather late point in time. Furthermore, a hover over function (or some other type of interactivity) might make the plot very powerful. Also, the color coding could be used differently, for example, to represent the odds ratio.</p>
+<p><a id="example4"></a></p>
+<h2 id="example-4.-adepro-app">Example 4. AdEPro app</h2>
+<p>This is definitely more than just a visualisation - it’s a tool. You can upload your data and all AEs are represented in the middle pane. Each patient is represented by a circle / pie chart. You can kick it off by pushing the go button and the app will show you the development of AEs over time. Each AE is represented by a “slice of the pie” and the color as well as the location of it will tell you which AE is showing. If an AE disappears, it will still be shown as an “empty slice”. The size of the slice represents the severity. You have several different options you can work with, like changing which AEs will be shown (color coded), stop at a specific point in time, etc. You can even switch to a barplot representation instead of pie charts.</p>
+<p>This is a fully developed app and thus, it is very useful and innovative. Its interactivity brings additional benefits to the user. Furthermore, this is available as an R package called “AdEPro”.</p>
+<p><a href="#example4%20code">link to code</a></p>
+<p><a id="example5"></a></p>
+<h2 id="example-5.-adverse-event-explorer">Example 5. Adverse event explorer</h2>
+<p>This is again an interactive app. It can be found <a href="./images/ww-ae-xplorer-Rho.html">here</a>. It shows a list of categories of AEs. You can see the results in the different treatment groups in different colors. Furthermore, the freqzency and the treatment difference is represented by dots and an treatment effect with a confidence interval, respectively. You can click on the plus sign next to the categories to further assess the AEs in more detail.</p>
+<p>It is a very clear representation of AEs. The coloring is very straightforward and helpful. It is a tool to explore the data and thus, it does not come with a message by itself. However, this is not the aim of this tool. It is made to “play” with the data and assess your AEs in a very efficient way. Something that might be a useful extension would be addition of reference lines to make it easier to see which results correspond to which category or AE.</p>
+<p><a href="#example5%20code">link to code</a></p>
+<p><a id="example6"></a></p>
+<h2 id="example-6.-volcano-plots">Example 6. Volcano plots</h2>
+<p><img src="images/volcano%20BS%20Phillips.png" /></p>
+<p><img src="images/volcano%20PT%20Phillips.png" /></p>
+<p><a href="#example6%20code">link to code</a><br />
+<a href="./images/volcano%20BS%20Phillips.png">high-resolution image</a><br />
+<a href="./images/volcano%20PT%20Phillips.png">high-resolution image</a></p>
+<p>It is an innovative idea to use this plot to visualise AE data. On the x axis we see the risk difference and on the y axis, the p-values are represented. The colors represent the treatment group and the saturation of the color corresponds to the p-value as well. The size of the dots is proportional to the number of events (in both arms). It is a very comprehensive and nice overview over the results.</p>
+<p>One comment is that the colors might be switched, because the red one are might be seen as the more critical ones. However, those correspond to increased risk in the placebo group.</p>
+<p><a href="#example6%20code">link to code</a></p>
+<h1 id="code">Code</h1>
+<p><a id="example1 code"></a></p>
+<h2 id="example-1.-triangles-pie-chart-boxplots-html">Example 1. Triangles, pie chart, boxplots (html)</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;!-- Required meta tags --&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;
+    &lt;title&gt;Visualizing eczema trial data&lt;/title&gt;
+
+    &lt;!-- Bootstrap CSS/JS/then Popper.js --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot; integrity=&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&quot; integrity=&quot;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js&quot; integrity=&quot;sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- Load D3 --&gt;
+    &lt;script src=&quot;https://d3js.org/d3.v4.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- load fonts --&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=PT+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- Embed Flourish graphics --&gt;
+    &lt;script src=&quot;https://public.flourish.studio/resources/embed.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- css --&gt;
+    &lt;style&gt;
+            .path.domain {
+              display: none;
+            }
+            .label {
+              font-size: 10px;
+              font-family: sans-serif;
+              text-anchor: middle;
+            }
+
+          #tooltip  {
+           position: absolute;
+            height: auto;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.7);
+              border-radius: 3px;
+            pointer-events: none;
+          }
+
+          #tooltip.hidden {
+            display: none;
+          }
+
+          #tooltip p  {
+            margin: 0;
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+          #container  {
+            position: inherit;
+          }
+
+          .graph-hed{
+            font-family: &#39;PT Serif&#39;, serif;
+            font-size: 0.90rem;
+            font-weight: 700;
+          }
+
+          .graph-subhed{
+            font-family: &#39;PT Serif&#39;, sans-serif;
+            font-size: 0.80rem;
+            font-weight: 400;
+          }
+
+          .hed  {
+            font-family: &#39;PT Serif&#39;, serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            width: 70%;
+          }
+
+          .byline {
+            font-family: &#39;PT Sans&#39;, sans-serif;
+            font-size: 1rem;
+            font-style: italic;
+          }
+
+          .insight  {
+            font-family: &#39;PT Sans&#39;, sans-serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-transform: uppercase;
+          }
+
+          .copy {
+            font-family: &#39;PT Sans&#39;, serif;
+            font-size: 1rem;
+            font-weight: 400;
+          }
+
+          .copy-link  {
+            border-bottom: 2px solid black;
+            color: black;
+          }
+
+          .copy-link:hover  {
+            border-bottom: 2px solid #cc0000;
+            color: #cc0000;
+            text-decoration: none;
+          }
+    &lt;/style&gt;
+
+    &lt;/head&gt;
+
+    &lt;body&gt;
+      &lt;div class=&quot;container&quot; style=&quot;padding-top: 5%;&quot;&gt;&lt;/div&gt;
+
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;div class=&quot;row d-flex justify-content-center&quot; style=&quot;margin-bottom: 0px;&quot;&gt;
+          &lt;p class=&quot;hed&quot;&gt;Analysis finds intervention treatment arm takes longer, on average, to resolve adverse events&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row d-flex justify-content-center&quot;&gt;
+        &lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+
+          &lt;!-- place for tooltip --&gt;
+          &lt;div id=&quot;tooltip&quot; class=&quot;hidden&quot;&gt;&lt;/div&gt;
+
+          &lt;script&gt;
+                var margin = {top: 100, right: 40, bottom: 250, left: 150},
+                    width = 1440 - margin.left - margin.right,
+                    height = 650 - margin.top - margin.bottom;
+
+                var overlap = 15;
+
+                var x = d3.scaleBand()
+                          .range([0, width])
+                          .padding(0.1);
+                var y = d3.scaleLinear()
+                          .range([height, 2*height/3]);
+
+                var svg = d3.select(&quot;#container&quot;)
+                    .append(&quot;svg&quot;)
+                    .attr(&quot;width&quot;, width + margin.left + margin.right)
+                    .attr(&quot;height&quot;, height + margin.top + margin.bottom)
+                    .append(&quot;g&quot;)
+                    .attr(&quot;transform&quot;,
+                          &quot;translate(&quot; + margin.left + &quot;,&quot; + margin.top + &quot;)&quot;);
+
+                //create labels for each of the horizontal axes, i.e. Mild, Moderate, Severe
+                svg.append(&quot;text&quot;)
+                   .text(&quot;Mild&quot;)
+                   .attr(&quot;transform&quot;,
+                        &quot;translate(&quot; + (-65) + &quot;,&quot; + &quot;60)&quot;);
+
+                svg.append(&quot;text&quot;)
+                   .text(&quot;Moderate&quot;)
+                   .attr(&quot;transform&quot;,
+                        &quot;translate(&quot; + (-95) + &quot;,&quot; + &quot;170)&quot;);
+
+                svg.append(&quot;text&quot;)
+                   .text(&quot;Severe&quot;)
+                   .attr(&quot;transform&quot;,
+                        &quot;translate(&quot; + (-70) + &quot;,&quot; + &quot;275)&quot;);
+
+                //graph-hed
+                svg.append(&quot;text&quot;)
+                   .text(&quot;=&gt; Most adverse events were mild in severity, while severe adverse events were resolved the quickest.&quot;)
+                   .attr(&quot;x&quot;, &quot;0&quot;)
+                   .attr(&quot;y&quot;, 0-2*height/7+25)
+                   .classed(&quot;graph-hed&quot;, true);
+
+               //graph-hed
+               svg.append(&quot;text&quot;)
+                  .text(&quot;Height of triangle represents duration of adverse event.&quot;)
+                  .attr(&quot;x&quot;, &quot;20&quot;)
+                  .attr(&quot;y&quot;, 0-2*height/7+45)
+                  .classed(&quot;graph-subhed&quot;, true);
+
+                //create Placebo label
+                svg.append(&quot;text&quot;)
+                   .text(&quot;Placebo&quot;)
+                   .attr(&quot;x&quot;, width-225)
+                   .attr(&quot;y&quot;, 0-2*height/7+43);
+
+                //create placebo box (red)
+                svg.append(&quot;rect&quot;)
+                   .attr(&quot;x&quot;, width-250)
+                   .attr(&quot;y&quot;, 0-2*height/7+30)
+                   .attr(&quot;fill&quot;, &quot;rgba(255,0,0,0.2)&quot;)
+                   .attr(&quot;height&quot;, &quot;15px&quot;)
+                   .attr(&quot;width&quot;, &quot;15px&quot;);
+
+              //create Intervention label
+               svg.append(&quot;text&quot;)
+                  .text(&quot;Intervention&quot;)
+                  .attr(&quot;x&quot;, width-125)
+                  .attr(&quot;y&quot;, 0-2*height/7+43);
+
+                //create box for Intervention (black/gray)
+                 svg.append(&quot;rect&quot;)
+                    .attr(&quot;x&quot;, width-145)
+                    .attr(&quot;y&quot;, 0-2*height/7+30)
+                    .attr(&quot;fill&quot;, &quot;rgba(0,0,0,0.2)&quot;)
+                    .attr(&quot;height&quot;, &quot;15px&quot;)
+                    .attr(&quot;width&quot;, &quot;15px&quot;);
+
+                    //load data from GitHub
+                d3.csv(&quot;https://raw.githubusercontent.com/vivrao9/Wonderful-Wednesdays/master/data/2020/2020-08-12/cleaned_df.csv&quot;, function(error, data) {
+                      if (error) throw error;
+
+                      //format data accordingly
+                      data.forEach(function(d) {
+                        d.severity = +d.severity;
+                        d.aestdat = d3.timeParse(&quot;%d/%m/%Y&quot;)(d.aestdat);
+                        d.aestdat = d3.timeFormat(&quot;%m/%d/%Y&quot;)(d.aestdat);
+                        d.dur = +d.dur;
+                        d.armn = +d.armn;
+                      });
+
+                      x.domain(data.map(function(d) { return d.aestdat; }));
+                      y.domain([0, d3.max(data, function(d) { return d.severity; })/3.5]); //divide by 3.5 to add more scale to triangle heights
+
+                      svg.selectAll(&quot;.bar&quot;)
+                          .data(data)
+                          .enter()
+                          .append(&quot;polygon&quot;)
+                          .attr(&quot;points&quot;,function(d) {
+
+                            //create different coordinates for each polygon based on which axis they lie on
+                              if (d.aesevn == 1)  { //if Mild, we&#39;d want to add bar to the first axis
+                                var left = x(d.aestdat) - overlap;
+                                var top = y(d.dur + height/11.25);
+                                var bottom = height/3; //350 = 500 - 100 - 50
+                              } else if (d.aesevn == 2) { //if Moderate, add bar to second axis
+                                var left = x(d.aestdat) - overlap;
+                                var top = y(d.dur + height/22);
+                                var bottom = 2*height/3; //350 = 500 - 100 - 50
+                              } else  { //if Severe, we&#39;d want to add bar to the third axis
+                                var left = x(d.aestdat) - overlap;
+                                var top = y(d.dur);
+                                var bottom = height; //350 = 500 - 100 - 50
+                              }
+
+                              return left + &#39;,&#39; + bottom + &#39; &#39;
+                                 + (left + x.bandwidth()/2 + overlap) + &#39;,&#39; + top + &#39; &#39;
+                                 + (left + x.bandwidth() + (2 * overlap)) + &#39;,&#39; + bottom;
+                          })
+                          .attr(&quot;fill&quot;, function(d) {
+                        if (d.armn == 0)  {
+                          //if event is placebo, then color red
+                          return &quot;#CC0000&quot;;
+                        }
+                      })
+                          .style(&quot;opacity&quot;, &quot;0.2&quot;)
+                          //show tooltip on hover
+                          .on(&quot;mouseover&quot;, function(d)  {
+                        var xPos = d3.event.pageX;
+                        var yPos = d3.event.pageY;
+
+                        //Update the tooltip position and value
+                                    d3.select(&quot;#tooltip&quot;)
+                                        .style(&quot;left&quot;, xPos + &quot;px&quot;)
+                                        .style(&quot;top&quot;, yPos + &quot;px&quot;)
+                            .html(&quot;&lt;p&gt;&lt;b&gt;Randomization date: &lt;/b&gt;&quot; + d.rando_date + &quot;&lt;br /&gt;&lt;p&gt;&lt;b&gt;High level event: &lt;/b&gt;&quot; + d.aebodsys + &quot;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Low level event: &lt;/b&gt;&quot; + d.aept + &quot;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Duration: &lt;/b&gt;&quot; + d.dur + &quot; days&lt;/p&gt;&lt;p&gt;This subject has reported &lt;b&gt;&quot; + (d.repeatnum-1) + &quot;&lt;/b&gt; adverse events before this.&lt;/p&gt;&quot;);
+
+                        //add highlight to active polygon
+                          d3.select(this)
+                            .attr(&quot;stroke&quot;, &quot;rgba(0,0,0,1)&quot;)
+                            .attr(&quot;stroke-width&quot;, &quot;2px&quot;)
+                            .attr(&quot;opacity&quot;, &quot;0.8&quot;);
+
+                                    //Show the tooltip
+                                    d3.select(&quot;#tooltip&quot;).classed(&quot;hidden&quot;, false);
+                      })
+
+                      .on(&quot;mouseout&quot;, function() {
+                                    //Hide the tooltip
+                                    d3.select(&quot;#tooltip&quot;).classed(&quot;hidden&quot;, true);
+
+                          //remove highlight from active polygon
+                          d3.select(this)
+                            .attr(&quot;stroke&quot;, &quot;none&quot;)
+                            .attr(&quot;stroke-width&quot;, &quot;0px&quot;);
+                               });
+
+                  //first axis
+                      svg.append(&quot;g&quot;)
+                          .attr(&quot;transform&quot;, &quot;translate(-7.5,&quot; + 2*height/3 + &quot;)&quot;)
+                          .call(d3.axisBottom(x)
+                          .tickValues([]));
+
+                  //second axis
+                      svg.append(&quot;g&quot;)
+                          .attr(&quot;transform&quot;, &quot;translate(-7.5,&quot; + height/3 + &quot;)&quot;)
+                          .call(d3.axisBottom(x)
+                          .tickValues([]));
+
+                  //lowest axis
+                        svg.append(&quot;g&quot;)
+                          .attr(&quot;transform&quot;, &quot;translate(-7.5,&quot; + height + &quot;)&quot;)
+                          .call(d3.axisBottom(x)
+                          .tickValues(x.domain().filter(function(d,i){ return !(i%10)})));
+
+                      svg.append(&quot;line&quot;)
+                          .attr(&quot;x1&quot;, 0  - overlap)
+                          .attr(&quot;y1&quot;, height)
+                          .attr(&quot;x2&quot;, width  + overlap)
+                          .attr(&quot;y2&quot;, height)
+                          .attr(&quot;stroke-width&quot;, &quot;2&quot;);
+                    });
+
+              &lt;/script&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row d-flex justify-content-center&quot; style=&quot;margin-top: -180px;&quot;&gt;
+              &lt;div class=&quot;col-md-6&quot;&gt;
+                &lt;p class=&quot;byline&quot;&gt;By Vivek Rao&lt;/p&gt;
+
+                &lt;p class=&quot;copy&quot;&gt;The above visualization is based on &lt;a href=&quot;https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-08-12&quot; target=&quot;_blank&quot; class=&quot;copy-link&quot;&gt;clinical trial data&lt;/a&gt; for an active treatment for eczema compared to placebo in adolescents that are unresponsive to standard care.&lt;/p&gt;
+
+                &lt;p class=&quot;copy&quot;&gt;An analysis revealed that more adverse events were recorded for subjects that were assigned to an intervention treatment arm, compared to those assigned to a placebo.&lt;/p&gt;
+
+                &lt;p class=&quot;copy&quot;&gt;See some of the insights below:&lt;/p&gt;
+
+                &lt;div class=&quot;flourish-embed flourish-hierarchy&quot; data-src=&quot;visualisation/3538282&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;copy&quot;&gt;Of the 61 patients closely followed in the 12-month period, 49 developed adverse effects relating to anemia.&lt;/p&gt;
+
+                &lt;div class=&quot;flourish-embed flourish-scatter&quot; data-src=&quot;visualisation/3538182&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;copy&quot;&gt;Subjects assigned to placebo treatment arm that reported an adverse event had their event treated in a duration of 6 days, on average. Participants assigned to interevention treatment, on average, saw the end of their adverse event in 8 days.&lt;/p&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<p><a href="#example1">Back to blog</a></p>
+<p><a id="example2 code"></a></p>
+<h2 id="example-2.-triangles---updated-version-1">Example 2. Triangles - updated version</h2>
+<p>No code available</p>
+<p><a href="#example2">Back to blog</a></p>
+<p><a id="example3 code"></a></p>
+<h2 id="example-3.-tendril-plot-1">Example 3. Tendril plot</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# packages
+pacman::p_load(tidyverse, rio)
+pacman::p_load(lubridate)
+pacman::p_load(labelled)
+pacman::p_load(Tendril)
+pacman::p_load(ggtext)
+pacman::p_load(colorspace)
+
+# import
+ae &lt;- import(&quot;https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2020/2020-08-12/2020-08-12_ae_example_dataset.csv&quot;) %&gt;% 
+  mutate(rando_date = ymd(rando_date),
+         aestdat = ymd(aestdat),
+         aeeddat = ymd(aeeddat)) %&gt;% 
+  mutate(day = as.numeric(aestdat - rando_date)) %&gt;% 
+  as.data.frame()
+
+# Fixed mistake in subject 2011
+ae[ae$usubjid == &quot;2011&quot;, &quot;arm&quot;] &lt;- &quot;Intervention&quot;
+
+# add labels
+var_label(ae) &lt;- list(
+  usubjid = &quot;unique subject identifier&quot;,
+  arm = &quot;treatment assignment name&quot;,
+  armn = &quot;treatment assignment numeric (0: placebo; 1:intervention)&quot;,
+  rando_date = &quot;date of randomisation (yyyymmdd)&quot;,
+  repeatnum = &quot;unique event identifier within usubjid&quot;,
+  aept = &quot;adverse event code at preferred term/lower level&quot;,
+  aebodsys = &quot;adverse event code at body system/higher level&quot;,
+  aesev = &quot;adverse event severity grade (mild, moderate, severe)&quot;,
+  aesevn = &quot;adverse event severity grade number (1: mild, 2: moderate, 3: severe)&quot;,
+  aeser = &quot;serious adverse event (no, yes)&quot;,
+  aesern = &quot;serious adverse event (0: no, 1: yes)&quot;,
+  aestdat = &quot;adverse event start date (yyyymmdd)&quot;,
+  aeeddat = &quot;adverse event end date (yyyymmdd)&quot;,
+  dur = &quot;adverse event duration (days)&quot;)
+
+# export
+setwd(&quot;C:/R/Wonderful-Wednesdays/2020-08-12&quot;)
+export(ae, &quot;2020-08-12_ae_example_dataset.rds&quot;)
+
+# Tendril
+subj &lt;- ae %&gt;%
+  count(usubjid, arm) %&gt;% 
+  #add_row(usubjid = 3000, arm = &quot;Intervention&quot;, n = 0) %&gt;% 
+  #add_row(usubjid = 3001, arm = &quot;Placebo&quot;,      n = 0) %&gt;%
+  select(-n) %&gt;% 
+  as.data.frame()
+
+pt &lt;- Tendril(mydata = ae,
+              rotations = rep(3, nrow(ae)),
+              AEfreqThreshold = 5,
+              Tag = &quot;Comment&quot;,
+              Treatments = c(&quot;Intervention&quot;, &quot;Placebo&quot;),
+              Unique.Subject.Identifier = &quot;usubjid&quot;,
+              Terms = &quot;aebodsys&quot;,
+              #Terms = &quot;aept&quot;,
+              Treat = &quot;arm&quot;,
+              StartDay = &quot;day&quot;,
+              # SubjList = subj,
+              # SubjList.subject = &quot;usubjid&quot;,
+              # SubjList.treatment = &quot;arm&quot;,
+              # filter_double_events = TRUE
+)
+
+# working with terms 
+Terms &lt;- pt$data %&gt;% 
+  group_by(Terms) %&gt;% 
+  summarise(n = n(),
+            x = x[n]) %&gt;% 
+  ungroup() %&gt;% 
+  arrange(x) %&gt;% 
+  mutate(text = str_glue(&quot;{Terms} (n={n})&quot;)) 
+
+# Reorder guides
+pt$data$Terms &lt;- fct_relevel(pt$data$Terms,
+                             Terms %&gt;% 
+                               pull(Terms) %&gt;% 
+                               as.vector()
+)
+
+levels(pt$data$Terms) &lt;- Terms %&gt;% pull(text) %&gt;% as.vector()
+
+# plot Results
+plot(pt) +
+  geom_point(alpha = 0.25) +
+  geom_path(alpha = 0.25) +
+  geom_vline(xintercept = 0, color = &#39;gray50&#39;, linetype = &quot;dashed&quot;) +
+  geom_hline(yintercept = 0, color = &#39;gray50&#39;, linetype = &quot;dashed&quot;) +
+  #scale_color_brewer(type = &quot;qual&quot;, palette = &quot;Set1&quot;) +
+  scale_color_discrete_qualitative(palette = &quot;Dark3&quot;)+
+  scale_x_continuous(limits = c(-100, 200)) +
+  labs(title = &quot;**Tendril Plot** of System Organ Class Adverse Events (AE) having at least 5 incidences&quot;,
+       # caption =&quot;The Tendril Plot: a novel visual summary of the incidence, significance and temporal aspects of AE in clinical trials (JAMIA 2018; 25(8): 1069-1073)&quot;
+       caption = 
+       &quot;Each MedDRA adverse event code at body system/higher level is
+       represented by a line (tendril) and each point is an event. Since time runs
+       along each tendril, it is the shape that carries the important information,
+       rather than the x and y coordinates. An event on the Intervention treatment
+       arm will tilt tendril direction to the *right*, and an event on the placebo arm will
+       tilt tendril direction to the *left*.
+       &lt;br&gt;
+       *The Tendril Plot: a novel visual summary of the incidence, significance and temporal aspects of AE in clinical trials (JAMIA 2018; 25(8): 1069-1073)*&quot;
+       ) +
+  guides(color = guide_legend(title = &quot;AE at Body System&quot;)) +
+  theme(aspect.ratio = 0.70,
+        plot.title = element_markdown(),
+        plot.caption = element_textbox_simple(
+          size = 8,
+          lineheight = 1,
+          hjust = 0, vjust = 1,
+          padding = margin(1, 1, 1, 1),
+          margin = margin(1, 1, 1, 1)
+        ),
+        plot.caption.position = &quot;plot&quot;,
+        legend.position       = c(0.99,0.92),
+        legend.justification  = c(1,1),
+        legend.background     = element_rect(fill  = &#39;gray90&#39;),
+        legend.key            = element_rect(fill  = &#39;gray90&#39;))
+
+ggsave(&quot;C:/R/Wonderful-Wednesdays/2020-08-12/tendril_plot.png&quot;,
+       width = 7.5, height = 6, units = &quot;in&quot;)</code></pre>
+</div>
+<p><a href="#example3">Back to blog</a></p>
+<p><a id="example4 code"></a></p>
+<h2 id="example-4.-adepro-app-1">Example 4. AdEPro app</h2>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p><a href="#example4">Back to blog</a></p>
+<p><a id="example5 code"></a></p>
+<h2 id="example-5.-adverse-event-explorer-1">Example 5. Adverse event explorer</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(safetyexploreR)
+library(tidyverse)
+library(readr)
+
+psi_ae &lt;- read_csv(&quot;psi-ae.csv&quot;)
+
+ADAE_PSI &lt;- 
+  psi_ae %&gt;%
+  dplyr::mutate(
+    USUBJID = usubjid,
+    SITEID = 1,
+    RFSTDTC = rando_date,
+    AEDECOD = aept, 
+    AESEQ = repeatnum,
+    ASTDT = aeeddat, 
+    AEBODSYS = aebodsys, 
+    ARM = arm, 
+    AESEV = aesev,
+    AESER = aeser,
+    AEREL = &#39;Y&#39;,
+    AEOUT = dur,
+    SEX = &#39;NA&#39;,
+    RACE = &#39;NA&#39;
+  )
+
+aeExplorer(
+  data = ADAE_PSI,
+  filters_event_col = c(&quot;AESER&quot;, &quot;AESEV&quot;,
+                        &quot;AEREL&quot;),
+  filters_event_label = c(&quot;Serious?&quot;, &quot;Severity&quot;,
+                          &quot;Relationship&quot;)
+)</code></pre>
+</div>
+<p><a href="#example5">Back to blog</a></p>
+<p><a id="example6 code"></a></p>
+<h2 id="example-6.-volcano-plots-1">Example 6. Volcano plots</h2>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p><a href="#example6">Back to blog</a></p>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Uhlmann (2020, Sept. 10). VIS-SIG Blog: WW Webinar: Adverse events. Retrieved from https://vis-sig.github.io/blog/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{uhlmann2020ww,
+  author = {Uhlmann, Lorenz},
+  title = {VIS-SIG Blog: WW Webinar: Adverse events},
+  url = {https://vis-sig.github.io/blog/},
+  year = {2020}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

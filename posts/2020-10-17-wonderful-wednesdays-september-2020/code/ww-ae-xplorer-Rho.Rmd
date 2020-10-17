@@ -1,0 +1,43 @@
+---
+title: "Adverse event explorer"
+output: html_document
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(safetyexploreR)
+library(tidyverse)
+library(readr)
+
+psi_ae <- read_csv("psi-ae.csv")
+
+ADAE_PSI <- 
+  psi_ae %>%
+  dplyr::mutate(
+    USUBJID = usubjid,
+    SITEID = 1,
+    RFSTDTC = rando_date,
+    AEDECOD = aept, 
+    AESEQ = repeatnum,
+    ASTDT = aeeddat, 
+    AEBODSYS = aebodsys, 
+    ARM = arm, 
+    AESEV = aesev,
+    AESER = aeser,
+    AEREL = 'Y',
+    AEOUT = dur,
+    SEX = 'NA',
+    RACE = 'NA'
+  )
+
+```
+
+```{r, echo = FALSE}
+aeExplorer(
+  data = ADAE_PSI,
+  filters_event_col = c("AESER", "AESEV",
+                        "AEREL"),
+  filters_event_label = c("Serious?", "Severity",
+                          "Relationship")
+)
+```
