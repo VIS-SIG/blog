@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2020-10-21-wonderful-wednesdays-october-2020/",
+    "title": "Wonderful Wednesdays October 2020",
+    "description": "This month's challenge was based on a clinical trial for the treatment of Type II diabetes in adults that cannot manage their blood glucose control with a single oral therapy. The primary outcome in the trial was mean HbA1c at 6 months, and adverse events (AEs) were monitored and collected for the entire course of the study.",
+    "author": [
+      {
+        "name": "Steve Mallett",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-10-14",
+    "categories": [
+      "Adverse events",
+      "Co-occurence",
+      "Wonderful Wednesdays"
+    ],
+    "preview": "posts/2020-10-21-wonderful-wednesdays-october-2020/./images/plot01.png",
+    "last_modified": "2020-10-21T20:45:44+02:00",
+    "input_file": {},
+    "preview_width": 4133,
+    "preview_height": 2362
+  },
+  {
     "path": "posts/2020-10-17-wonderful-wednesdays-september-2020/",
     "title": "WW Webinar: Adverse events",
     "description": "How to display safety data? This month's challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot.",
