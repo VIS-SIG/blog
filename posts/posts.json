@@ -109,6 +109,24 @@
     "preview_height": 2700
   },
   {
+    "path": "posts/2020-10-27-wonderful-wednesdays-march-2020/",
+    "title": "Wonderful Wednesdays March 2020",
+    "description": "The VIS SIG is happy to introduce a new initiative called “Wonderful Wednesdays”. This initiative will provide the participants to not only learn theoretically about visualisation principles but also apply them to relevant examples from the field of healthcare and the development of new therapies. This webinar kicks off the webinar series by giving an introduction into principles of visualization and an overview of the process. The first dataset is also introduced.",
+    "author": [
+      {
+        "name": "Daniel Saure",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-03-11",
+    "categories": [
+      "Wonderful Wednesdays"
+    ],
+    "preview": "posts/2020-10-27-wonderful-wednesdays-march-2020/./images/ww1.gif",
+    "last_modified": "2020-10-27T20:58:35+01:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2020-09-09-wonderful-wednesdays-overview/",
     "title": "Wonderful Wednesdays Overview",
     "description": "This provides a short overview of our Wonderful Wednesdays Webinars.",
@@ -118,13 +136,13 @@
         "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
       }
     ],
-    "date": "2020-03-12",
+    "date": "2020-03-04",
     "categories": [
       "Wonderful Wednesdays",
       "Overview"
     ],
     "preview": {},
-    "last_modified": "2020-09-12T13:18:16+02:00",
+    "last_modified": "2020-10-27T20:58:31+01:00",
     "input_file": {}
   }
 ]

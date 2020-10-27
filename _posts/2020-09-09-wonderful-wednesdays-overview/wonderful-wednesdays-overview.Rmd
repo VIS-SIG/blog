@@ -5,7 +5,7 @@ description: |
 author:
   - name: VIS SIG
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
-date: 03-12-2020
+date: 03-04-2020
 categories:
   - Wonderful Wednesdays
   - Overview
