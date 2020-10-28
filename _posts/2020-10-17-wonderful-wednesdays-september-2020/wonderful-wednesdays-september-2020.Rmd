@@ -1,5 +1,5 @@
 ---
-title: "WW Webinar: Adverse events"
+title: "Wonderful Wednesdays September 2020"
 description: |
   How to display safety data? This month's challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot.
 author:

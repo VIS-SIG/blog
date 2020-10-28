@@ -23,7 +23,7 @@
   },
   {
     "path": "posts/2020-10-17-wonderful-wednesdays-september-2020/",
-    "title": "WW Webinar: Adverse events",
+    "title": "Wonderful Wednesdays September 2020",
     "description": "How to display safety data? This month's challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot.",
     "author": [
       {
@@ -37,8 +37,8 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-10-17-wonderful-wednesdays-september-2020/./images/volcano BS Phillips.png",
-    "last_modified": "2020-10-17T16:35:22+02:00",
-    "input_file": {},
+    "last_modified": "2020-10-28T20:32:37+01:00",
+    "input_file": "wonderful-wednesdays-september-2020.utf8.md",
     "preview_width": 990,
     "preview_height": 720
   },
