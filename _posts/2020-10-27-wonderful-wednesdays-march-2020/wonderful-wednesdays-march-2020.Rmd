@@ -15,7 +15,7 @@ output:
     self_contained: false
 ---
 
-The goals of Wonderful Wednesdays comprise to raise awareness about the opportunities in VIS and aims to increase the visualization expertise. Also, a gallery of relevant examples will be created.
+Welcome to the first blog entry of the Wonderful Wednesdays (WW) initiative! The aims of WW comprise to raise awareness about the opportunities in VIS and aims to increase the visualization expertise. Also, a gallery of relevant examples will be created.
 
 # Why is visualization important?
 We presented a couple of (famous) examples which show the importance of visualization. For example, based on summary statistics only, you most likely cannot fully understand the data (
@@ -25,7 +25,7 @@ Anscombe's quartet), but you need a graphical perspective as well. Also, we can 
 See more in the webinar!
 
 # Learn about principles of visualization
-As mentioned, effective visualization is effective visual communication. The following three laws aim to improve visual communication:
+Effective visualization is effective visual communication! The following three laws aim to improve visual communication:
 ![](./images/3lawsvis.GIF)
 
 [high-resolution image](./images/3lawsvis.GIF)  
