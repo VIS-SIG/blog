@@ -24,6 +24,8 @@ The adverse events (AEs) example data set is based on a clinical trial for treat
 
 ## Example 1. Triangles, pie chart, boxplots
 
+![](./images/report_triangle.png)
+
 This visualisation has been submitted as an html file and can be found [here](./images/adverse-events - Vivek Rao.html). It is a compilation of three different plots. The first one shows a triangle for each AE where the height of the triangle represents the duration of the AE. The x axis, represents a time axis. Furthermore, we the AEs are split into three categories based on the severity: mild, moderate, and severe. Each categories is plotted in a separate line of the plot. The treatment group (placebo vs. intervention) is color-coded. One additional feature is the hover over effect which provides some useful additional information.
 
 This is a very innovative plot and not common for representing AEs. The title covers the message of the plot and, hence, it is very helpful. Additionally, there is a subtitle which provides some additional useful information even though the second part (saying that severe AEs were resolved the quickest) cannot be seen clearly from the plot.
@@ -43,12 +45,12 @@ The third visualisation is a pair of boxplots comparing the two treatment groups
 
 ## Example 2. Triangles - updated version
 
-
-[link to code](#example2 code)  
-<!-- [high-resolution image](./images/June_PSI_AW_v1_0.png) -->
+![](./images/plot_triangle_AE.png)
+[high-resolution image](./images/plot_triangle_AE.png)  
 
 This visualisation is ment to be an update of the first visualisation of Example 1. The main update is that the x axis is used as a time axis in chronological order. Now, the width of the triangles is being used to represent the duration of the AEs. The height represents the severity. Furthermore, the treatment group is represented by color and also by the direction the triangle point to. This is not a fully developed plot but rather a quick draft to show what it could look like updated some design features of the original plot.
 
+[link to code](#example2 code)  
 
 <a id="example3"></a>
 
@@ -56,8 +58,8 @@ This visualisation is ment to be an update of the first visualisation of Example
 
 ![](./images/tendril_plot - Agustin Calatroni.png)
 
-[link to code](#example3 code)  
-[high-resolution image](./images/tendril_plot - Agustin Calatroni.png)
+
+[high-resolution image](./images/tendril_plot - Agustin Calatroni.png)  
 
 This is a very innovative visualisation. It is presented in a publication from 2018. You can see branches which represent one AE each. The branch itself represents the time path. Changes to the direction of the path depend on the treatment arm the AE occured in. Thus, it is kind of a car driving experience and it depends on the occurence of AE in each treatment arm where you end up.
 
@@ -65,10 +67,13 @@ In this plot, the paths are color coded and each branch represents a body system
 
 One comment is some AEs might become very influential if they happen at a rather late point in time. Furthermore, a hover over function (or some other type of interactivity) might make the plot very powerful. Also, the color coding could be used differently, for example, to represent the odds ratio.
 
+[link to code](#example3 code)  
 
 <a id="example4"></a>
 
 ## Example 4. AdEPro app
+
+![](./images/AdEPro.jpg)
 
 This is definitely more than just a visualisation - it's a tool. You can upload your data and all AEs are represented in the middle pane. Each patient is represented by a circle / pie chart. You can kick it off by pushing the go button and the app will show you the development of AEs over time. Each AE is represented by a "slice of the pie" and the color as well as the location of it will tell you which AE is showing. If an AE disappears, it will still be shown as an "empty slice". The size of the slice represents the severity. You have several different options you can work with, like changing which AEs will be shown (color coded), stop at a specific point in time, etc. You can even switch to a barplot representation instead of pie charts.
 
