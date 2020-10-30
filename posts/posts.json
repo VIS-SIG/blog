@@ -37,10 +37,31 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-10-17-wonderful-wednesdays-september-2020/./images/volcano BS Phillips.png",
-    "last_modified": "2020-10-30T20:00:58+01:00",
+    "last_modified": "2020-10-30T20:50:16+01:00",
     "input_file": {},
     "preview_width": 990,
     "preview_height": 720
+  },
+  {
+    "path": "posts/2020-10-30-wonderful-wednesdays-august-2020/",
+    "title": "Wonderful Wednesdays August 2020",
+    "description": "In this month’s webinar, we discussed an exacerbation example data set. The data is based on the RISE study for patients with moderate COPD. The primary endpoint is the number of exacerbations during a six month treatment period. Event data – but patients can (and do) have multiple exacerbations. Statistical analysis used a Negative Binomial model. The dataset also included other variables which (may) effect the exacerbation rate: % Predicted Normal of Forced Expiratory Volume in 1 second (FEV1), Exacerbations in previous year, and Region / Gender. The challenge was to produce a data visualisation incorporating the information on the number of exacerbations observed. The discussed visualisations included a straightforward and clear presentation of the number of exacerbations, a Power BI app, longitudinal plots, and a display of patient-level outcomes.",
+    "author": [
+      {
+        "name": "Lorenz Uhlmann",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-08-12",
+    "categories": [
+      "Event data",
+      "Wonderful Wednesdays"
+    ],
+    "preview": "posts/2020-10-30-wonderful-wednesdays-august-2020/./images/dotplot - Markus Vogler.png",
+    "last_modified": "2020-10-30T20:50:21+01:00",
+    "input_file": {},
+    "preview_width": 4133,
+    "preview_height": 2362
   },
   {
     "path": "posts/2020-09-20-wonderful-wednesdays-july-2020/",

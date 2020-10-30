@@ -105,7 +105,7 @@ It is a very clear representation of AEs. The coloring is very straightforward a
 
 ![](./images/volcano PT Phillips.png)
 
-[link to code](#example6 code)  
+
 [high-resolution image](./images/volcano BS Phillips.png)  
 [high-resolution image](./images/volcano PT Phillips.png)
 
@@ -467,7 +467,9 @@ One comment is that the colors might be switched, because the red one are might 
 <a id="example2 code"></a>
 
 ## Example 2. Triangles - updated version
-No code available
+```{r, echo = TRUE, eval=FALSE}
+
+```
 
 [Back to blog](#example2)
 
