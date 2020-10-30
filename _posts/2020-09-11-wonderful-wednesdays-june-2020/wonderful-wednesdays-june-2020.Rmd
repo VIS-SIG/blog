@@ -1,7 +1,7 @@
 ---
 title: "Wonderful Wednesdays June 2020"
 description: |
-  Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: "How would you rate your satisfaction with your life overall on a scale from 0-10?", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered.
+  This month the discussion is about visualizations of the satisfaction data using cumulative distribution functions, a tree plot, staggered bar plots, a power BI dashboard and two interactive funnel plots using plotly and RShiny. These examples nicely demonstrate that different displays support different purposes. Some visualizations are telling a story about the data and others help to explore the data. Presented by Bodo Kirsch.
 author:
   - name: Markus Vogler
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation

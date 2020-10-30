@@ -1,7 +1,7 @@
 ---
 title: "Wonderful Wednesdays July 2020"
 description: |
-  This month's example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24).
+  This month's challenge was to summarise changes in haemoglobin (Hgb) concentration over time in patients with anaemia associated with Chronic Kidney Disease (CKD). An experimental medicine was compared with a control group, but in addition to demonstrating efficacy, there was a special interest in visualising intra-individual variability, as large changes in Hgb are a potential safety concern. The visualisations presented ranged from grouped line plots over time, Sankey-diagrams and line plots with quantile bands for summary views and a lasagna plot for the display of individual data. Some general hints were given on how to define suitable color palettes for graphs depending on the type of data. Presented by Steve Mallett.
 author:
   - name: Steve Mallett
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation

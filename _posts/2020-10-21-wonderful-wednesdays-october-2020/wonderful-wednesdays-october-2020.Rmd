@@ -1,7 +1,7 @@
 ---
 title: "Wonderful Wednesdays October 2020"
 description: |
-  This month's challenge was based on a clinical trial for the treatment of Type II diabetes in adults that cannot manage their blood glucose control with a single oral therapy. The primary outcome in the trial was mean HbA1c at 6 months, and adverse events (AEs) were monitored and collected for the entire course of the study.
+  Abi Williams presented data visualisations on co-occurrence of adverse events. How to display events that occur at the same time in the same patient and highlight differences of treatment or gender? A variety of very different approaches was discussed. The first visualisation was a heatmap for the frequency of co-occurrences. A Lollipop plot combined the frequency with the overlap time. Then a Shiny App made interactive exploration of up to 4 co-occurring events possible. The presentation of an UpSet plot brought up a discussion on the advantages over the vinn diagram. The shiny app AdEPro was referred to as an useful exploration tool for adverse event in general. Another tool for exploring the co-occurrence in particular was the force directed network graph. The final approach was embedded in a PowerBI Dashboard.
 author:
   - name: Steve Mallett
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation

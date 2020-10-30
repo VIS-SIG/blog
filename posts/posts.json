@@ -2,7 +2,7 @@
   {
     "path": "posts/2020-10-21-wonderful-wednesdays-october-2020/",
     "title": "Wonderful Wednesdays October 2020",
-    "description": "This month's challenge was based on a clinical trial for the treatment of Type II diabetes in adults that cannot manage their blood glucose control with a single oral therapy. The primary outcome in the trial was mean HbA1c at 6 months, and adverse events (AEs) were monitored and collected for the entire course of the study.",
+    "description": "Abi Williams presented data visualisations on co-occurrence of adverse events. How to display events that occur at the same time in the same patient and highlight differences of treatment or gender? A variety of very different approaches was discussed. The first visualisation was a heatmap for the frequency of co-occurrences. A Lollipop plot combined the frequency with the overlap time. Then a Shiny App made interactive exploration of up to 4 co-occurring events possible. The presentation of an UpSet plot brought up a discussion on the advantages over the vinn diagram. The shiny app AdEPro was referred to as an useful exploration tool for adverse event in general. Another tool for exploring the co-occurrence in particular was the force directed network graph. The final approach was embedded in a PowerBI Dashboard.",
     "author": [
       {
         "name": "Steve Mallett",
@@ -16,7 +16,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-10-21-wonderful-wednesdays-october-2020/./images/plot01.png",
-    "last_modified": "2020-10-21T20:45:44+02:00",
+    "last_modified": "2020-10-30T20:09:38+01:00",
     "input_file": {},
     "preview_width": 4133,
     "preview_height": 2362
@@ -37,7 +37,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-10-17-wonderful-wednesdays-september-2020/./images/volcano BS Phillips.png",
-    "last_modified": "2020-10-29T22:13:13+01:00",
+    "last_modified": "2020-10-30T20:00:58+01:00",
     "input_file": {},
     "preview_width": 990,
     "preview_height": 720
@@ -45,7 +45,7 @@
   {
     "path": "posts/2020-09-20-wonderful-wednesdays-july-2020/",
     "title": "Wonderful Wednesdays July 2020",
-    "description": "This month's example dataset comprised haemoglobin (hgb) concentrations over time from a simulated randomised trial in anaemia patients, comparing an experimental treatment with an active control group. The main study objective was to demonstrate a mean hgb value within a target range at the end of the study (week 24).",
+    "description": "This month's challenge was to summarise changes in haemoglobin (Hgb) concentration over time in patients with anaemia associated with Chronic Kidney Disease (CKD). An experimental medicine was compared with a control group, but in addition to demonstrating efficacy, there was a special interest in visualising intra-individual variability, as large changes in Hgb are a potential safety concern. The visualisations presented ranged from grouped line plots over time, Sankey-diagrams and line plots with quantile bands for summary views and a lasagna plot for the display of individual data. Some general hints were given on how to define suitable color palettes for graphs depending on the type of data. Presented by Steve Mallett.",
     "author": [
       {
         "name": "Steve Mallett",
@@ -59,7 +59,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-09-20-wonderful-wednesdays-july-2020/./images/June_PSI_AW_v1_0.png",
-    "last_modified": "2020-09-20T12:13:31+02:00",
+    "last_modified": "2020-10-30T20:01:56+01:00",
     "input_file": {},
     "preview_width": 1268,
     "preview_height": 507
@@ -67,7 +67,7 @@
   {
     "path": "posts/2020-09-11-wonderful-wednesdays-june-2020/",
     "title": "Wonderful Wednesdays June 2020",
-    "description": "Satisfaction data example. The example dataset for this month's webinar was based on a survey of overall satisfaction performed in Germany in 2014. The primary endpoint was overall satisfaction with life. The question posed to the participants was: \"How would you rate your satisfaction with your life overall on a scale from 0-10?\", where 10 means completely satisfied. There was only one observation per participant and no treatment groups, as no treatment was administered.",
+    "description": "This month the discussion is about visualizations of the satisfaction data using cumulative distribution functions, a tree plot, staggered bar plots, a power BI dashboard and two interactive funnel plots using plotly and RShiny. These examples nicely demonstrate that different displays support different purposes. Some visualizations are telling a story about the data and others help to explore the data. Presented by Bodo Kirsch.",
     "author": [
       {
         "name": "Markus Vogler",
@@ -81,7 +81,7 @@
       "Discrete endpoint"
     ],
     "preview": "posts/2020-09-11-wonderful-wednesdays-june-2020/./plots/cdf.png",
-    "last_modified": "2020-09-20T12:34:50+02:00",
+    "last_modified": "2020-10-30T20:02:33+01:00",
     "input_file": {},
     "preview_width": 4133,
     "preview_height": 2362
@@ -89,7 +89,7 @@
   {
     "path": "posts/2020-09-10-wonderful-wednesday-april-2020/",
     "title": "Wonderful Wednesday April 2020",
-    "description": "Survival dataset. This month’s challenge involved a classic survival dataset example. This simulated example dataset was based on a phase III clinical trial in breast cancer. The primary outcome was progression free survival and we wanted you to explore different ways of visualising this time-to-event outcome. The dataset contained information that allowed you to explore subgroups, patterns of events and individual patient profiles.",
+    "description": "In this webinar we discuss the first submissions looking at some great ways to visualise a categorical response variable over time. We talk about what the SIG members like about each plot and give some pointers on areas we think could be improved. More specifically, we talk about: the value of a title with conclusions, the use of colour, the benefits of animation to display time, ways to declutter your graph and examples of clean design, enclosure to highlight important parts of the data, the benefits of the sankey diagram, how different charts help to answer different questions, and many more aspects of great visualizations.",
     "author": [
       {
         "name": "Steve Mallett",
@@ -103,7 +103,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-09-10-wonderful-wednesday-april-2020/plots/plot01.png",
-    "last_modified": "2020-09-20T12:13:53+02:00",
+    "last_modified": "2020-10-30T20:08:07+01:00",
     "input_file": {},
     "preview_width": 5790,
     "preview_height": 2700
@@ -123,7 +123,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-10-27-wonderful-wednesdays-march-2020/./images/ww1.gif",
-    "last_modified": "2020-10-28T20:30:04+01:00",
+    "last_modified": "2020-10-30T20:05:49+01:00",
     "input_file": {}
   },
   {

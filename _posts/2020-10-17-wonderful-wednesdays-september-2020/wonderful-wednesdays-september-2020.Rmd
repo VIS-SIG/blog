@@ -88,7 +88,9 @@ This is a fully developed app and thus, it is very useful and innovative. Its in
 
 ## Example 5. Adverse event explorer
 
-This is again an interactive app. It can be found [here](./images/ww-ae-xplorer-Rho.html). It shows a list of categories of AEs. You can see the results in the different treatment groups in different colors. Furthermore, the freqzency and the treatment difference is represented by dots and an treatment effect with a confidence interval, respectively. You can click on the plus sign next to the categories to further assess the AEs in more detail.
+![](./images/AE_explorer.jpg)
+
+This is again an interactive app. It can be found [here](./images/ww-ae-xplorer-Rho.html). It shows a list of categories of AEs. You can see the results in the different treatment groups in different colors. Furthermore, the freqzency and the treatment difference is represented by dots and an treatment effect with a confidence interval, respectively. You can click on the plus sign next to the categories to further assess the AEs in more detail. You can find more details about the AE explorer [here](https://github.com/RhoInc/aeexplorer).
 
 It is a very clear representation of AEs. The coloring is very straightforward and helpful. It is a tool to explore the data and thus, it does not come with a message by itself. However, this is not the aim of this tool. It is made to "play" with the data and assess your AEs in a very efficient way. Something that might be a useful extension would be addition of reference lines to make it easier to see which results correspond to which category or AE.
 
