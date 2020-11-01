@@ -32,7 +32,11 @@ The primary endpoint is the number of exacerbations during a six month treatment
 ![](./images/dotplot - Markus Vogler.png)
 [high-resolution image](./images/dotplot - Markus Vogler.png)  
 
-(A summary of the discussion will be added soon.)
+This is a very clean and clear presentation of the primary endpoint. It is actually a barchart but displayed horizontally. Each group is represented by a different color which makes it very easy to see the differences between the two groups in regards to the primary endpoint. The ICS/LABA group leads to higher values in the category of 0 counts, whereas the LABA group leads to higher percentages in all other categories. Thus, the message becomes very clear and it is easy to communicate the results using this visualization.
+
+Overall, this is a very good visualisation. The use of color is done in a very sensible way. The colors are already used which makes a lot of sense as well. Furthermore, it is a minimalistic design and, therefore, it focus on the relevant aspects while dropping any clutter (minimizing the ink-to-data ratio). There are more helpful details considered in the visualisation: The bars are labeled directly at each bar and the percentage of ICS/LABA are always above the bar while the percentage of LABA is always below.
+
+An altarnative way would have been a waterfall plot. This would emphasize a little more the (change of) differences between the groups over the categories. Another option would have been to add lines between the "bars" in each category to emphasize the difference between the groups. These lines would be color coded to stress the "direction" of the difference.
 
 [link to code](#example1 code)  
 
@@ -42,12 +46,16 @@ The primary endpoint is the number of exacerbations during a six month treatment
 
 ## Example 2. Power BI app
 
-![](./images/plot_triangle_AE.png)
-[high-resolution image](./images/plot_triangle_AE.png)  
+![](./images/PowerBI.png)
+
 
 The app can be found [here](https://app.powerbi.com/view?r=eyJrIjoiYjM1YjBlMDEtYTk2OS00Mjk4LWIzMTMtZWIwYjllMzI0YzcwIiwidCI6ImY1NTgwM2MzLTRmYTktNDIzMy1hOGFiLTIxM2I3ZWI3MjEzNCJ9).
 
-(A summary of the discussion will be added soon.)
+This app provides you with a quick overview over several variables at the same time. It provides you with a lot of contextual information that helps you address the question you want to answer. It also has a nice feature: You can just click on a category of one variable and all other plots and numbers will get updated. This can be even done in combination among different variables. It also offers you a "Clear All filters" button which is often missing in other applications.
+
+Since it is interactive, it is really useful and a nice tool to explore the data. Furthermore, it is nicely organized and it includes several titles and explanations which makes it easy to see what is being displayed. On the top, you have all baseline variables, and on the bottome you see the outcomes. The latter ones are organized in boxed which appear to pop out which is a nice idea to put some emphasis on these variables. Also, the key numbers are being higlighted on the left hand side.
+
+Something that could be improved on would be the use of coloring. It is not entirely clear what they represent and it also seems to change over different plots. The coloring in Figure 2.1 is actually great, because it makes you focus on the treatment of interest. However, this coloring scheme is not kept consisent over all visualisations, for example in Figure 2.2. At the same time, you could argue that it is more important there to be able to compare the categories between the two groups and, therefore, they have to be represented in the same color. A last idea for improvement would be add some random noise (horizontally) to the dots in the boxplots to make it easier to see each single observation. Furthemore, in Figure 2.1, the average number instead of the total number could have been displayed. Also, it is not entirely clear why there are numbers on the bottom left instead of additional visualisations.
 
 [link to code](#example2 code)  
 
@@ -60,7 +68,12 @@ The app can be found [here](https://app.powerbi.com/view?r=eyJrIjoiYjM1YjBlMDEtY
 ![](./images/plot_ww2020_08 - Steve Mallett.png)
 [high-resolution image](./images/plot_ww2020_08 - Steve Mallett.png)  
 
-(A summary of the discussion will be added soon.)
+Here, we are not only focusing on a single endpoint, but we also consider some covariate information. The title helps you to understand right away what this visualisation is showing you. It presents the rate ratio over different age and FEV1 values.
+
+Overall, this is a great visualisation. The design is minimalistic and chosen wisely. The coloring makes it clear that different aspects are being displayed. Also, the reference lines are really helpful. Another important point is the logarithmic scale on the x-axis which is keeps the confidence intervals / bands symmetric.
+
+An aspect that gets not entirely clear is the defintion of the confidence bands. One could argue that we would expect the bands to get wider at both ends. Here the width seems to be absolutely constant. The reason for this is most likely the fact that we only look at overlapping subgroups which is explained in the footnote below the plot. Another point is the interpretation of the rate ratio in the title as a reduction which we could argue about. Furthermore, due to the logarithmic scale on the y axis, it might be a bit challenging to effectively make use of the horizontal grid lines which are not pointing at a specific value on the y axis.
+
 
 [link to code](#example3 code)  
 
@@ -75,7 +88,14 @@ The app can be found [here](https://app.powerbi.com/view?r=eyJrIjoiYjM1YjBlMDEtY
 [high-resolution image](./images/Yearly Adjusted.PNG)  
 [high-resolution image](./images/Probability Adjusted.PNG)  
 
-(A summary of the discussion will be added soon.)
+In these two plots, the individual observations are being displayed which provides you with very detailed information. In addition, the overall effect is shown as median difference.
+
+An advantage of this visualisation is that it shows you that despite of an existing treatment effect, we get reminded that there are indeed some patients who do not seem to benefit from the treatment.
+
+At the same time, it might be a little bit challenging to get the message out of this visualisation right away. Withouth the lines showing the treatment effect, it might be really hard to see any effect at all. So, this plot might be specifically useful, if you have a big treatment effect - and then it has got huge potential in it. Also, the coloring is chosen wisely and the visualisation looks very clean overall.
+
+An alternative way would have been to show the cumulative distribution functions for both groups and then emphasize the difference, for example, by coloring the space in between the two lines (representing the distribution functions). Another option could be Q-Q plots.
+
 
 [link to code](#example4 code)  
 
