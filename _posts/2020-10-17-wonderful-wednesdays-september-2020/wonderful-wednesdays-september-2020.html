@@ -55,7 +55,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["code/adverse-events - Vivek Rao.html","code/tendril_plot - Agustin Calatroni.r","code/ww-ae-xplorer-Rho.Rmd","images/AdEPro.jpg","images/adverse-events - Vivek Rao.html","images/AE_explorer.jpg","images/plot_triangle_AE.png","images/report_triangle.png","images/tendril_plot - Agustin Calatroni.png","images/volcano BS Phillips.png","images/volcano PT Phillips.png","images/ww-ae-xplorer-Rho.html","wonderful-wednesdays-september-2020_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-september-2020_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-september-2020_files/jquery-1.11.3/jquery.min.js","wonderful-wednesdays-september-2020_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["code/adverse-events - Vivek Rao.html","code/AE.R","code/tendril_plot - Agustin Calatroni.r","code/ww-ae-xplorer-Rho.Rmd","images/AdEPro.jpg","images/adverse-events - Vivek Rao.html","images/AE_explorer.jpg","images/plot_triangle_AE.png","images/report_triangle.png","images/tendril_plot - Agustin Calatroni.png","images/volcano BS Phillips.png","images/volcano PT Phillips.png","images/ww-ae-xplorer-Rho.html","wonderful-wednesdays-september-2020_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-september-2020_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-september-2020_files/jquery-1.11.3/jquery.min.js","wonderful-wednesdays-september-2020_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1499,7 +1499,43 @@ ggsave(&quot;C:/R/Wonderful-Wednesdays/2020-08-12/tendril_plot.png&quot;,
 <p><a id="example4 code"></a></p>
 <h2 id="example-4.-adepro-app-1">Example 4. AdEPro app</h2>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(adepro)
+library(tidyverse)
+library(lubridate)
 
+#change to the working directory where the files were extracted
+setwd(&quot;C:/Users/UHLMALO1/OneDrive - Novartis Pharma AG/My_Data/PSI_visualization/Wonderful_Wednesdays_Webinars/2020-09-09/Einreichungen/Final&quot;)
+
+#Run this code to put the variables in the dataset provided into the correct format
+AE &lt;- read.csv(&quot;2020-08-12_ae_example_dataset.csv&quot;)%&gt;%
+  mutate(TRTSDT=ymd(rando_date)) %&gt;%
+  mutate(SUBJIDN = usubjid) %&gt;%
+  mutate(AEDECOD = aept) %&gt;%
+  mutate(TRT01A = arm) %&gt;%
+  mutate(TRT01A = if_else(TRT01A==&quot;Intervention&quot;,&quot;Experimental&quot;,&quot;Control&quot;)) %&gt;%
+  mutate(LVDT = 365) %&gt;%
+  mutate(DTHDT = &quot;NA&quot;) %&gt;%
+  mutate(SAFFN = 1) %&gt;%
+  mutate(AETRTEMN = 1) %&gt;%
+  mutate(AESERN = aesern) %&gt;%
+  mutate(AERELN = 1) %&gt;%
+  mutate(AE_Start = ymd(aestdat)) %&gt;%
+  mutate(AESTDY = AE_Start - TRTSDT + 1)%&gt;%
+  mutate(AEENDY = AESTDY + dur + 1) %&gt;%
+  mutate(AESEVN = aesevn) %&gt;%
+  mutate(TRTSDT=0) %&gt;%
+  mutate(AGE=&quot;NA&quot;) %&gt;%
+  mutate(SEX=&quot;NA&quot;) %&gt;%
+  mutate(REGION=&quot;NA&quot;) %&gt;%
+  select(c(SUBJIDN,AEDECOD,AESTDY, AEENDY,AESEVN,AETRTEMN,AESERN,AERELN, TRT01A, TRTSDT, LVDT, DTHDT,AGE, SEX, REGION, SAFFN))
+
+#write this back to CSV
+write.csv(AE,&quot;AE.csv&quot;,row.names=FALSE)
+
+#Run the following line to run the app.
+#CSV must be loaded into the app
+launch_adepro()</code></pre>
 </div>
 <p><a href="#example4">Back to blog</a></p>
 <p><a id="example5 code"></a></p>
