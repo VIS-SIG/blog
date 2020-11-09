@@ -10,13 +10,6 @@ Inspired by 'Makeover Monday' and 'Tidy Tuesday', we will present on a monthly b
 
 Now the audience can share how they would visually communicate the objectives of the data set and submit the visualisation (along with the code) to receive feedback from the SIG members. Both, the presentation of the dataset and the visualisation as well as the feedback will be given in webinars. These 60 minutes webinars will occur every 2nd Wednesday of the month at 5pm CET. 
 
-In the first webinar you will learn about visualization principles by visualization experts being active in the SIG. In addition, we will discuss the first visualization to improve on. 
-
-Please find below the timelines for the next cycle:
-* Webinar to present the case study: July 8th
-* Timeline to submit improved visualizations: August 5th
-* Webinar to provide feedback on the submitted visualizations: August 12th 
-
 You will be able to submit your improvements for feedback via a Google Form on the homepage of the SIG after the webinar. These submissions need to include code (which is well documented and executable) as well as the file of the visualization itself.
 
 ## Data Submission
