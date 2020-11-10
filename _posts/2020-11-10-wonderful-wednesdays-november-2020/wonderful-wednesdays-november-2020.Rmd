@@ -36,7 +36,7 @@ The purpose of this exercise is to develop data visualization techniques to illu
 
 ## Example 2. Bayesian model
 
-![](./images/mediation_brms.png)
+![](./images/medation_brms.png)
 
 The html file can be found [here](./images/mediation_brms - Agustin Calatroni.html).
 
