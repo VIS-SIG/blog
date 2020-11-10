@@ -1,5 +1,26 @@
 [
   {
+    "path": "posts/2020-11-10-wonderful-wednesdays-november-2020/",
+    "title": "Wonderful Wednesdays November 2020",
+    "description": "This month's challenge was to visualize a mediator effect. The presented visualizations can already be found in this entry. A summary of the discussion will be added, soon.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2020-11-11",
+    "categories": [
+      "Mediation analysis",
+      "Wonderful Wednesdays"
+    ],
+    "preview": "posts/2020-11-10-wonderful-wednesdays-november-2020/./images/DLQI_mediation_mallett2 - Steve Mallett.png",
+    "last_modified": "2020-11-10T21:14:53+01:00",
+    "input_file": {},
+    "preview_width": 3600,
+    "preview_height": 3600
+  },
+  {
     "path": "posts/2020-10-21-wonderful-wednesdays-october-2020/",
     "title": "Wonderful Wednesdays October 2020",
     "description": "Abi Williams presented data visualisations on co-occurrence of adverse events. How to display events that occur at the same time in the same patient and highlight differences of treatment or gender? A variety of very different approaches was discussed. The first visualisation was a heatmap for the frequency of co-occurrences. A Lollipop plot combined the frequency with the overlap time. Then a Shiny App made interactive exploration of up to 4 co-occurring events possible. The presentation of an UpSet plot brought up a discussion on the advantages over the vinn diagram. The shiny app AdEPro was referred to as an useful exploration tool for adverse event in general. Another tool for exploring the co-occurrence in particular was the force directed network graph. The final approach was embedded in a PowerBI Dashboard.",
