@@ -25,7 +25,7 @@ The purpose of this exercise is to develop data visualization techniques to illu
 ## Example 1. Mediation on treatment effect
 
 ![](./images/DLQI_mediation_mallett2 - Steve Mallett.png)
-[high-resolution image](./images/DLQI_mediation_mallett2 - Steve Mallett.png  
+[high-resolution image](./images/DLQI_mediation_mallett2 - Steve Mallett.png)  
 
 (A summary of the discussion will be added, soon.)
 
