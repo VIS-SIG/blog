@@ -258,7 +258,12 @@ ggsave("/shared/175/arenv/arwork/gsk1278863/mid209676/present_2020_01/code/media
 <a id="example2 code"></a>
 
 ## Example 2. Bayesian model
-The code can be found [here](./code/mediation_brms - Agustin Calatroni.rmd).
+
+
+The code can be found [here](./code/mediation_brms - Agustin Calatroni.rmd).  
+Note that this is an R markdown file and you might need a proper editor to open it.
+
+A txt file with the code can be found [here](./code/mediation_brms - Agustin Calatroni.txt).
 
 [Back to blog](#example2)
 

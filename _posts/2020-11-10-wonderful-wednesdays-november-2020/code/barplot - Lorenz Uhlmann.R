@@ -45,9 +45,9 @@ par(xpd = T, cex.main = 0.9)
 barplot(t.val.diff, horiz = T, col = c("darkcyan", "blue"), xlim = c(0, 5),
         space = rep(c(0.25, 0), 3),
         main = "Adjusting for itch leads to the greatest reduction
-        in the absolute standardized treatment effect on DLQI (unadjusted effect: 4.7).
+        in the standardized treatment effect on DLQI.
         Removing the LOCF imputed data diminishes the differences.",
-        xlab = "Reduction in the absolute standardized treatment effect")
+        xlab = "Reduction in the standardized treatment effect")
 y.coord <- c(1.25, 3.5, 5.75)
 text(-0.25, y.coord[3], "itch")
 text(-0.25, y.coord[2], "BSA")
@@ -60,5 +60,8 @@ for (i in 1:nrow(t.val.mat)) {
          col = c("darkcyan", "blue")[i])
   }
 }
-legend("topright", legend = c("LOCF", "Observed"), fill = c("blue", "darkcyan"), bty = "n")
+segments(abs(t.val.pure), 0, abs(t.val.pure), 6.75, lty = 2, col = "darkblue")
+text(4.6, -0.5, paste("Unadjusted \n effect:", format(round(abs(t.val.pure), 1), nsmall = 1)),
+     cex = 0.8, col = "darkblue")
+legend(x = 3.25, y = 2.25, legend = c("LOCF", "Observed"), fill = c("blue", "darkcyan"), bty = "n")
 dev.off()
