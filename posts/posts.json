@@ -2,10 +2,10 @@
   {
     "path": "posts/2020-11-10-wonderful-wednesdays-november-2020/",
     "title": "Wonderful Wednesdays November 2020",
-    "description": "This month's challenge was to visualize a mediator effect. The presented visualizations can already be found in this entry. A summary of the discussion will be added, soon.",
+    "description": "Zachary Skrivanek guides through a number of data visualisations explaining a mediated treatment effect on patient reported quality of life. In addition the problem of missing data should be handled within the graphical representation. A Lollipop plot and a bar chart were presented as well as multiplot solutions using correlation plots or a combination of scatter plots, modelling plots and distribution plots. A point of discussion was the usability of a parallel coordinates plot. Another proposal used a Bayesian model displaying the results in an impressive grable – a combination of graphic and table. The last approach used an innovative way of storytelling with data called scrollytelling.",
     "author": [
       {
-        "name": "PSI VIS SIG",
+        "name": "Zachary Skrivanek",
         "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
       }
     ],
@@ -15,7 +15,7 @@
       "Wonderful Wednesdays"
     ],
     "preview": "posts/2020-11-10-wonderful-wednesdays-november-2020/./images/DLQI_mediation_mallett2 - Steve Mallett.png",
-    "last_modified": "2020-11-11T20:28:22+01:00",
+    "last_modified": "2020-11-13T17:21:17+01:00",
     "input_file": {},
     "preview_width": 3600,
     "preview_height": 3600

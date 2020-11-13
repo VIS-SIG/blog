@@ -1,9 +1,9 @@
 ---
 title: "Wonderful Wednesdays November 2020"
 description: |
-  This month's challenge was to visualize a mediator effect. The presented visualizations can already be found in this entry. A summary of the discussion will be added, soon.
+  Zachary Skrivanek guides through a number of data visualisations explaining a mediated treatment effect on patient reported quality of life. In addition the problem of missing data should be handled within the graphical representation. A Lollipop plot and a bar chart were presented as well as multiplot solutions using correlation plots or a combination of scatter plots, modelling plots and distribution plots. A point of discussion was the usability of a parallel coordinates plot. Another proposal used a Bayesian model displaying the results in an impressive grable – a combination of graphic and table. The last approach used an innovative way of storytelling with data called scrollytelling.
 author:
-  - name: PSI VIS SIG
+  - name: Zachary Skrivanek
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 11-11-2020
 categories:
@@ -25,11 +25,10 @@ The purpose of this exercise is to develop data visualization techniques to illu
 ## Example 1. Mediation on treatment effect
 
 ![](./images/DLQI_mediation_mallett2 - Steve Mallett.png)
-[high-resolution image](./images/DLQI_mediation_mallett2 - Steve Mallett.png)  
+[high-resolution image](./images/DLQI_mediation_mallett2 - Steve Mallett.png)
 
-(A summary of the discussion will be added, soon.)
-
-[link to code](#example1 code)  
+This graphic addresses the question of which variable is mediating the treatment effect the most by plotting the reduction in treatment effect after accounting for the variable.  One shortcoming of lollipop charts is that they do not allow for a visulization of uncertainty.
+[link to code](#example1 code)
 
 
 <a id="example2"></a>
@@ -40,10 +39,10 @@ The purpose of this exercise is to develop data visualization techniques to illu
 
 The html file can be found [here](./images/mediation_brms - Agustin Calatroni.html).
 
-(A summary of the discussion will be added, soon.)
+This is a well done "grapple" - a graphic embeded in a table.  This  table summarizes all essential information in the data to address the mediaton effect of all three variables being considered.  The posterior distrubtions are relevant and to the point.  It is well annotated, uses color and bold face judiciously to highlight key findings and is organized to let the reader draw the correct conclusion without having to spell it out in the title.  This graphic is ready for a journal.  The question is:  What type of journal?  If it is a medical journal then the author might want to exclude the sensitivity analysis results (LOCF or completers) and just pick the appropriate method for handling missing data since this is not of interest to a medical audience. On the other hand if this is for a statistics journal this is quite appropriate.  The author is not only showing the key results but the robustness of the results.  (And part of the exercise was to account for missingness, so we cannot really blame the author for including this.)
 
 
-[link to code](#example2 code)  
+[link to code](#example2 code)
 
 <a id="example3"></a>
 
@@ -52,23 +51,26 @@ The html file can be found [here](./images/mediation_brms - Agustin Calatroni.ht
 ![](./images/barplot - Lorenz Uhlmann.png)
 
 
-[high-resolution image](./images/barplot - Lorenz Uhlmann.png)  
+[high-resolution image](./images/barplot - Lorenz Uhlmann.png)
 
-(A summary of the discussion will be added, soon.)
+This graphic is similar to the first one except it uses a barchart instead of a lollipop chart and it includes a completers analysis.  The title explains the results and the reference line for the marginal treatment effect provides a good reference for the reader.
 
-[link to code](#example3 code)  
+[link to code](#example3 code)
 
 <a id="example4"></a>
 
 ## Example 4. Parallel coords
 
 ![](./images/parallel_coords - Mark Baillie.png)
-[high-resolution image](./images/parallel_coords - Mark Baillie.png)  
+[high-resolution image](./images/parallel_coords - Mark Baillie.png)
 
-(A summary of the discussion will be added, soon.)
+The parallel coordinate plot is a classic way to analyze multi-variate data.  The correlation between itch and DLQI is apparent by the fact that there are so many horizontal parallel lines connecting the two axes.  This is a plot where two key parameters have to be fine tuned to bring out any patterns:  the order of the axes and the scaling.  By separating Rx and placebo into two different panels and scaling them separately we lose the treatment effect on DLQI.  They look quite similar in fact, but that is because they were scaled independently.  The author chose to color by LOCF, but this revealed no clear pattern.  It would be interesting to combine the two treatment groups and color by treatment to see if that creates a distinct grouping for Rx vs placebo.
+
+The advantage of this graphic over the barchart and lollipop chart is that we can see the individual variation.  But this can be a downside because it can lead to overplotting.  Making this interactive where the user could select a set of lines and move the axes could make this plot very powerful.
 
 
-[link to code](#example4 code)  
+
+[link to code](#example4 code)
 
 
 
@@ -77,11 +79,11 @@ The html file can be found [here](./images/mediation_brms - Agustin Calatroni.ht
 ## Example 5. Correlation plot
 
 ![](./images/corrplot - Mark Baillie.png)
-[high-resolution image](./images/corrplot - Mark Baillie.png)  
+[high-resolution image](./images/corrplot - Mark Baillie.png)
 
-(A summary of the discussion will be added, soon.)
+This is a succinct summary of the correlations between all of the variables, whether they are based on all data including LOCF imputed or just completers.  The use of color in addition to shave of the ellipses is a nice application of redundancy.  You do not need to read a legend to realize that blue encodes a positive correlation and red encodes a negative correlation and the level of transparency encodes the magnitude of the correlation.
 
-[link to code](#example5 code)  
+[link to code](#example5 code)
 
 
 
@@ -93,13 +95,14 @@ The html file can be found [here](./images/mediation_brms - Agustin Calatroni.ht
 ![](./images/scatter-matrix-locf - Mark Baillie.png)
 ![](./images/scatter-matrix-cc - Mark Baillie.png)
 
-[high-resolution image](./images/scatter-matrix-final.png)  
-[high-resolution image](./images/scatter-matrix-locf - Mark Baillie.png)  
-[high-resolution image](./images/scatter-matrix-cc - Mark Baillie.png)  
+[high-resolution image](./images/scatter-matrix-final.png)
+[high-resolution image](./images/scatter-matrix-locf - Mark Baillie.png)
+[high-resolution image](./images/scatter-matrix-cc - Mark Baillie.png)
 
-(A summary of the discussion will be added, soon.)
+These 3 graphics provide an exhaustive amount of information.  The 3 graphics address the different ways of treating the missing data.  Each graph is a matrix  where the upper triangle models the data by treatment and covariate, the lower triangle shows the individual data and the diagonal shows the marginal distributions.  The title clearly leads the reader to the conclusion the DLQI is highly correlated with itch and when the reader looks at the panel with two splines, one  for each treatment, of DLQI against itch the reader can see that the treatment effect on DLQI is neglible once itch is included in the model.
 
-[link to code](#example6 code)  
+
+[link to code](#example6 code)
 
 
 
