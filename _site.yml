@@ -3,6 +3,7 @@ title: VIS-SIG Blog
 description: |
   The blog of the PSI Visualisation SIG
 output_dir: "."
+theme: theme.css
 navbar:
   logo: WWW_logo_cut.png
   right:
