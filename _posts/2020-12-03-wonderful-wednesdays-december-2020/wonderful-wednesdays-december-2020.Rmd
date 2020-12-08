@@ -52,7 +52,7 @@ The shiny app can be found [here](https://waseem-medhat.shinyapps.io/forest_plot
 ![](./images/meta_app.png)
 
 
-[high-resolution image](./images/meta_app.png)
+[high-resolution image](./images/meta_app.png)  
 The app can be found [here](https://figplot.shinyapps.io/WW20201209/).
 
 (A summary of the discussion will be added, soon.)
