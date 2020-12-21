@@ -74,6 +74,7 @@ The final graph is certainly very effective in telling the audience our data "st
 
 
 <a id="example5"></a>
+
 ## Rudolph Animation
 
 In this visualization, the number of packages (or presents) to be delivered within the last 2.5h before Christmas (midnight) is being presented over time by the region where the packages are supposed to arrive. Note that the local time is shown and, thus, it looks like a simultaneous delivery (due to the different time zones). In fact, this means that the package delivery starts in the Eastern regions and ends in the Western regions. The blue asteriscs seem to have some horizontal movement on their way down to zero. However, this is due to the nature of how the updates are done per time point. If there has been no update in a specific region but in the one next to it, the asterisc seems to be moving horizontically, but in fact it is an update in the near neighborhood.
@@ -90,7 +91,7 @@ This visualization is informative and helps to better understand Rudolph's stres
 
 <a id="example1 code"></a>
 
-## Example 1
+## R Spaghetti Plot
 
 ```{r, echo = TRUE, eval=FALSE}
 library(ggplot2)
@@ -124,7 +125,7 @@ ggsave("/shared/175/arenv/arwork/gsk1278863/mid209676/present_2020_01/code/RPI/R
 
 <a id="example2 code"></a>
 
-## Example 2
+## Decluttered Spaghetti Plot
 
 ```{r, echo = TRUE, eval=FALSE}
 plot02 <- ggplot() +
@@ -150,7 +151,7 @@ ggsave("/shared/175/arenv/arwork/gsk1278863/mid209676/present_2020_01/code/RPI/R
 
 <a id="example3 code"></a>
 
-## Example 3
+## Focussed Spaghetti Plot
 
 ```{r, echo = TRUE, eval=FALSE}
 plot03 <- ggplot() +
@@ -185,7 +186,7 @@ ggsave("/shared/175/arenv/arwork/gsk1278863/mid209676/present_2020_01/code/RPI/R
 
 <a id="example4 code"></a>
 
-## Example 4
+## Completed Graph
 
 ```{r, echo = TRUE, eval=FALSE}
 plot04 <- ggplot() +
@@ -226,7 +227,7 @@ ggsave("/shared/175/arenv/arwork/gsk1278863/mid209676/present_2020_01/code/RPI/R
 ```
 [Back to blog](#example4)
 
-## Example 5
+## Rudolph Animation
 
 <a id="example5 code"></a>
 

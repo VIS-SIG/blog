@@ -2408,14 +2408,15 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p>The final graph is certainly very effective in telling the audience our data “story”. This was achieved by choosing the right chart type (line plot instead of bar chart), removing unnecessary clutter, and using design features (e.g. use of colour for highlighting and muted tones for de-emphasizing) to focus the attention of our viewer.</p>
 <p><img src="images/R_example04.png" /></p>
 <p><a href="#example4%20code">link to code</a></p>
-<p><a id="example5"></a> ## Rudolph Animation</p>
+<p><a id="example5"></a></p>
+<h2 id="rudolph-animation">Rudolph Animation</h2>
 <p>In this visualization, the number of packages (or presents) to be delivered within the last 2.5h before Christmas (midnight) is being presented over time by the region where the packages are supposed to arrive. Note that the local time is shown and, thus, it looks like a simultaneous delivery (due to the different time zones). In fact, this means that the package delivery starts in the Eastern regions and ends in the Western regions. The blue asteriscs seem to have some horizontal movement on their way down to zero. However, this is due to the nature of how the updates are done per time point. If there has been no update in a specific region but in the one next to it, the asterisc seems to be moving horizontically, but in fact it is an update in the near neighborhood.</p>
 <p>This visualization is informative and helps to better understand Rudolph’s stressful time just before Christmas. However, there are some issues which should be fixed. The region on the x axis is lacking some details (which might be due to the need for anonymization of the exact region). Furthermore, the color and the shape of the “dots” are somewhat irritating and you might lose your focus. Simple black dots would have been the better choice to avoid unnecessary clutter. Speaking about clutter: The background picture is certainly distracting and does not add any value to the visualization as it contains no additional information. Overall, it might still serve as an insight into the number of packages arriving just in time.</p>
 <p><img src="images/rudolph.gif" /> (The background picture has been downloaded from <a href="https://pixabay.com/" class="uri">https://pixabay.com/</a> and slightly modified.)</p>
 <p><a href="#example5%20code">link to code</a></p>
 <h1 id="code">Code</h1>
 <p><a id="example1 code"></a></p>
-<h2 id="example-1">Example 1</h2>
+<h2 id="r-spaghetti-plot-1">R Spaghetti Plot</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
@@ -2447,7 +2448,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <p><a href="#example1">Back to blog</a></p>
 <p><a id="example2 code"></a></p>
-<h2 id="example-2">Example 2</h2>
+<h2 id="decluttered-spaghetti-plot-1">Decluttered Spaghetti Plot</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='va'>plot02</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2471,7 +2472,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <p><a href="#example2">Back to blog</a></p>
 <p><a id="example3 code"></a></p>
-<h2 id="example-3">Example 3</h2>
+<h2 id="focussed-spaghetti-plot-1">Focussed Spaghetti Plot</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='va'>plot03</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2504,7 +2505,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <p><a href="#example3">Back to blog</a></p>
 <p><a id="example4 code"></a></p>
-<h2 id="example-4">Example 4</h2>
+<h2 id="completed-graph-1">Completed Graph</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='va'>plot04</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2545,7 +2546,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 </div>
 <p><a href="#example4">Back to blog</a></p>
-<h2 id="example-5">Example 5</h2>
+<h2 id="rudolph-animation-1">Rudolph Animation</h2>
 <p><a id="example5 code"></a></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
