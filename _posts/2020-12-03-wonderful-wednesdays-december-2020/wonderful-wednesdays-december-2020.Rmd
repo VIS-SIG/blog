@@ -1,7 +1,7 @@
 ---
 title: "Wonderful Wednesdays December 2020"
 description: |
-  For this webinar, we introduce the challenge of working with pooled or integrated clinical trial data. This is often referred to as meta-analysis. A summary of the discussions will be added, soon.
+  Mark Baillie guides us through the submissions for the meta-analysis data set. The purpose of the challenge was to explore how data visualisation can be deployed to find insights when faced with big data. Big data in the pharma setting typically means wide data i.e. more variables than observations. We went through a number of interesting submissions from a shiny application of a forest plot, an interactive application to explore relationships between variables, an application that provides a workflow for developing a prognostic model, through to exploratory plots using small multiple ridge and scatter plots. A lesson from the challenge is to always visualise your data to avoid surprises.  
 author:
   - name: PSI VIS SIG
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
@@ -16,11 +16,21 @@ output:
     self_contained: false
 ---
 
+
+
 # Example meta-analysis dataset
 
-The purpose of this webinar is to explore how data visualisation can be deployed to find insights when faced with big data.
+The [meta-analysis data set](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-11-11) introduced some of the challenges faced when working with pooled or integrated clinical trial data. This is often referred to as meta-analysis. 
 
-For this webinar, we introduce the challenge of working with pooled or integrated clinical trial data. This is often referred to as meta-analysis. Further details can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2020/2020-11-11).
+Meta-analyses concerning integrated data throw up a number of challenges typically as the data sets are “found” i.e. not designed by the team performing the analysis or designed for the question of interest. This is often the typical task of a data science project. 
+
+Key issues where data visualisation can help are around the investigation of whether studies can or should be combined due to study heterogeneity among individual trials. This throws up questions such as:
+
+* what graphical tools can be used to assess heterogeneity, describing the fixed and random-effects?
+* what variables are potentially prognostic or predictive of outcome, etc?
+* where can graphical methods provide some general recommendations?
+
+Lets go through the submissions and how they tackled some of these questions. 
 
 <a id="example1"></a>
 
@@ -29,9 +39,16 @@ For this webinar, we introduce the challenge of working with pooled or integrate
 ![](./images/forest_plot_with_bands - Waseem Medhat.png)
 [high-resolution image](./images/forest_plot_with_bands - Waseem Medhat.png)
 
+This is an example of a forest plot displaying the within study results based on two outcomes comparing treatment effect on patient blood pressure response at 1-year using odds ratio and relative risk measures. The treatment effect is displayed as a table and visualisation by study as well as the overall fixed effect size. The size of the study is also encoded in the size of the “point estimate”. The agreement  or overlap between each study is also highlighted through bands.  
+
+There are nice interactive options that allow the switching between odds ratio and relative risk. This can help with comparisons or essentially a sensitivity analysis, comparing different assumptions. Another option is to be able to resize the plot, which is a great feature if the plot has to be presented at different forums or media (i.e. report or powerpoint). 
+
+The banding to display the overlap or agreement between studies is an interesting idea, but is not intuitive. Often banding is used to encode uncertainty.
+
+Another potential addition to this plot would be annotation to indicate the overall random or fixed effect, to help draw comparisons across study with the full model. 
+
 The shiny app can be found [here](https://waseem-medhat.shinyapps.io/forest_plot_with_bands/).
 
-(A summary of the discussion will be added, soon.)
 [link to code](#example1 code)
 
 
@@ -40,14 +57,15 @@ The shiny app can be found [here](https://waseem-medhat.shinyapps.io/forest_plot
 ## Example 2. Explorer app
 
 ![](./images/WW2012_subscreen - Bodo Kirsch.PNG)
-(A summary of the discussion will be added, soon.)
+
+The second submission is an example of the open source [subscreen shiny app](https://cran.r-project.org/web/packages/subscreen/) applied to the problem of exploring integrated data. The application provides a number of options to explore the relationship between explanatory and dependent variables. With wide data, the combinations between variables can become overwhelming. This is where such an application helps with systematically exploring the data to look for potential issues or trends that require further investigation. 
 
 
 [link to code](#example2 code)
 
 <a id="example3"></a>
 
-## Example 3. Meta-analysis shiny app
+## Example 3. Prognostic model workflow shiny app
 
 ![](./images/meta_app.png)
 
@@ -55,7 +73,15 @@ The shiny app can be found [here](https://waseem-medhat.shinyapps.io/forest_plot
 [high-resolution image](./images/meta_app.png)  
 The app can be found [here](https://figplot.shinyapps.io/WW20201209/).
 
-(A summary of the discussion will be added, soon.)
+
+This [submission](https://figplot.shinyapps.io/WW20201209/) was a carefully thought through example of how visualisations can be embedded into the workflow of the development of a model. The app is developed to support a 2-stage meta-analysis approach to detect baseline variables that are predictive of mean systolic blood pressure (mm Hg) measured at 1-year. A number of visualisations are provided to support each phase of the workflow. 
+
+What is nice about this app is that plots such as a ranking of variable importance is placed alongside other supporting visualisations that provide supporting context. In this case a scatter plot of the observed and predictive outcome. This provides an instant overview of the model. 
+
+The second step provides  both the forest plot of within study estimates with a GOSH plot to explore the heterogeneity of each study and the impact of including or not including a study within the model. Again, both plots side by side provide context that support the workflow. 
+
+Please [click on the link](https://figplot.shinyapps.io/WW20201209/) to explore for yourself. 
+
 
 [link to code](#example3 code)
 
@@ -65,11 +91,23 @@ The app can be found [here](https://figplot.shinyapps.io/WW20201209/).
 
 ![](./images/eda-plot1a - Mark Baillie.png)
 
-![](./images/eda-plot1b - Mark Baillie.png)
+This submission is a selection of plots that uses small multiples to explore the within study relationship between key variables related to baseline and outcome. In this case the relationship between blood pressure measured at baseline and 1-year. Small multiples provide an instant overview and a visual check for potential differences. 
+
+The first set of plots use ridge plots to explore the distribution by treatment. This is an example of the outcome variable (BP at 1-year). Ridge plots provide a visual check and comparison. However, the comparison is by treatment, where plotting the treatment difference could be more informative. The ridge plots also create a slight “3d” effect that could be potentially misleading when comparing across treatments. 
+
+
 
 ![](./images/eda-plot2a - Mark Baillie.png)
 
+
+The second set of plots use scatter plots to explore the relationship between baseline and 1-year by treatment. The plots are designed to provide a message. In this case, further expiration is required in studies 1 and 3. 
+
+
 ![](./images/eda-plot2b - Mark Baillie.png)
+
+
+
+Closer examination identifies systematic patterns in the data that may indicate we would want to exclude those studies from a “full model”, or at least query the issue further. This is a good example of why visualisations are important to identify issues with the data, and to identify “insights”. 
 
 
 [high-resolution image](./images/eda-plot1a - Mark Baillie.png)
@@ -77,7 +115,6 @@ The app can be found [here](https://figplot.shinyapps.io/WW20201209/).
 [high-resolution image](./images/eda-plot2a - Mark Baillie.png)
 [high-resolution image](./images/eda-plot2b - Mark Baillie.png)
 
-(A summary of the discussion will be added, soon.)
 
 [link to code](#example4 code)
 
@@ -95,8 +132,7 @@ The app can be found [here](https://figplot.shinyapps.io/WW20201209/).
 [link to code](#example5 code)
 
 
-
-
+The final submission explored the use of ridge plots again to replace the typical “table one” with a visual representation. As a quick overview, this provides an instant overview of the distribution of many continuous variables.  However, the treatment comparisons between ridges also suffer from this “3d” effect. Another potential problem is how to scale the distributions so that comparisons with skewed distributions with data points with extreme values can be displayed. 
 
 
 # Code
