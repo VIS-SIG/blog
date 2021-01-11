@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays December 2020"
 description: |
   Mark Baillie guides us through the submissions for the meta-analysis data set. The purpose of the challenge was to explore how data visualisation can be deployed to find insights when faced with big data. Big data in the pharma setting typically means wide data i.e. more variables than observations. We went through a number of interesting submissions from a shiny application of a forest plot, an interactive application to explore relationships between variables, an application that provides a workflow for developing a prognostic model, through to exploratory plots using small multiple ridge and scatter plots. A lesson from the challenge is to always visualise your data to avoid surprises.  
 author:
-  - name: PSI VIS SIG
+  - name: Mark Baillie
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 12-09-2020
 categories:
