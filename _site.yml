@@ -3,6 +3,8 @@ title: VIS-SIG Blog
 description: |
   The blog of the PSI Visualisation SIG
 output_dir: "."
+base_url: https://graphicsprinciples.github.io
+canonical_url: https://graphicsprinciples.github.io
 theme: theme.css
 navbar:
   logo: WWW_logo_cut.png
@@ -17,4 +19,6 @@ navbar:
       href: https://lp.constantcontactpages.com/su/Ea7OsL8
     - text: "About"
       href: about.html
+    - icon: fab fa-github
+      href: https://github.com/VIS-SIG
 output: distill::distill_article

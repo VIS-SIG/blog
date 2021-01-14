@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>VIS-SIG Blog</title>
+    <link>https://graphicsprinciples.github.io</link>
+    <atom:link href="https://graphicsprinciples.github.io/index.xml" rel="self" type="application/rss+xml"/>
+    <description>The blog of the PSI Visualisation SIG
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Wed, 13 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays January 2021</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-01-11-wonderful-wednesdays-january-2021</link>
+      <description>The data set is about a retrospecitve study on finding "Predictors of Residual Tumor in Breast-Conserving Therapy". There are 500 subjects included. The outcome variable is reexcision and it describes, if there has been a reexcision necessary after the (initial) surgery. In a first step, a prediction model for reexcission needed to be set up. The goal of this exercise was to visualize the results. The audience was intended to be a "non-technical" one.</description>
+      <category>Prediction</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2021-01-11-wonderful-wednesdays-january-2021</guid>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-01-11-wonderful-wednesdays-january-2021/./images/viz_ms_edited - Agustin Calatroni.png" medium="image" type="image/png" width="1011" height="906"/>
+    </item>
+    <item>
+      <title>Festive Reindeer Plots</title>
+      <dc:creator>Steve Mallett</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-12-21-festive-reindeer-plots</link>
+      <description>In this entry, we do a little festive fun. We hope you will enjoy it!</description>
+      <category>Christmas</category>
+      <category>Rudolph</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-12-21-festive-reindeer-plots</guid>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-12-21-festive-reindeer-plots/./images/R_example04.png" medium="image" type="image/png" width="3600" height="2400"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays December 2020</title>
+      <dc:creator>Mark Baillie</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-12-03-wonderful-wednesdays-december-2020</link>
+      <description>Mark Baillie guides us through the submissions for the meta-analysis data set. The purpose of the challenge was to explore how data visualisation can be deployed to find insights when faced with big data. Big data in the pharma setting typically means wide data i.e. more variables than observations. We went through a number of interesting submissions from a shiny application of a forest plot, an interactive application to explore relationships between variables, an application that provides a workflow for developing a prognostic model, through to exploratory plots using small multiple ridge and scatter plots. A lesson from the challenge is to always visualise your data to avoid surprises.</description>
+      <category>Meta-analysis</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-12-03-wonderful-wednesdays-december-2020</guid>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-12-03-wonderful-wednesdays-december-2020/./images/forest_plot_with_bands - Waseem Medhat.png" medium="image" type="image/png" width="872" height="545"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays November 2020</title>
+      <dc:creator>Zachary Skrivanek</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-11-10-wonderful-wednesdays-november-2020</link>
+      <description>Zachary Skrivanek guides through a number of data visualisations explaining a mediated treatment effect on patient reported quality of life. In addition the problem of missing data should be handled within the graphical representation. A Lollipop plot and a bar chart were presented as well as multiplot solutions using correlation plots or a combination of scatter plots, modelling plots and distribution plots. A point of discussion was the usability of a parallel coordinates plot. Another proposal used a Bayesian model displaying the results in an impressive grable – a combination of graphic and table. The last approach used an innovative way of storytelling with data called scrollytelling.</description>
+      <category>Mediation analysis</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-11-10-wonderful-wednesdays-november-2020</guid>
+      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-11-10-wonderful-wednesdays-november-2020/./images/DLQI_mediation_mallett2 - Steve Mallett.png" medium="image" type="image/png" width="3600" height="3600"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays October 2020</title>
+      <dc:creator>Steve Mallett</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-10-21-wonderful-wednesdays-october-2020</link>
+      <description>Abi Williams presented data visualisations on co-occurrence of adverse events. How to display events that occur at the same time in the same patient and highlight differences of treatment or gender? A variety of very different approaches was discussed. The first visualisation was a heatmap for the frequency of co-occurrences. A Lollipop plot combined the frequency with the overlap time. Then a Shiny App made interactive exploration of up to 4 co-occurring events possible. The presentation of an UpSet plot brought up a discussion on the advantages over the vinn diagram. The shiny app AdEPro was referred to as an useful exploration tool for adverse event in general. Another tool for exploring the co-occurrence in particular was the force directed network graph. The final approach was embedded in a PowerBI Dashboard.</description>
+      <category>Adverse events</category>
+      <category>Co-occurence</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-10-21-wonderful-wednesdays-october-2020</guid>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-10-21-wonderful-wednesdays-october-2020/./images/plot01.png" medium="image" type="image/png" width="4133" height="2362"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays September 2020</title>
+      <dc:creator>Lorenz Uhlmann</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-10-17-wonderful-wednesdays-september-2020</link>
+      <description>How to display safety data? This month's challenge has shown there are very different ways to visualize adverse event data. Although the example data set was from a two-arm study and relatively simple, the display of type of AE, frequency, timing, severity and seriousness is not easily combined in one plot.</description>
+      <category>Adverse events</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-10-17-wonderful-wednesdays-september-2020</guid>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-10-17-wonderful-wednesdays-september-2020/./images/volcano BS Phillips.png" medium="image" type="image/png" width="990" height="720"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays August 2020</title>
+      <dc:creator>Lorenz Uhlmann</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-10-30-wonderful-wednesdays-august-2020</link>
+      <description>In this month’s webinar, we discussed an exacerbation example data set. The data is based on the RISE study for patients with moderate COPD. The primary endpoint is the number of exacerbations during a six month treatment period. Event data – but patients can (and do) have multiple exacerbations. Statistical analysis used a Negative Binomial model. The dataset also included other variables which (may) effect the exacerbation rate: % Predicted Normal of Forced Expiratory Volume in 1 second (FEV1), Exacerbations in previous year, and Region / Gender. The challenge was to produce a data visualisation incorporating the information on the number of exacerbations observed. The discussed visualisations included a straightforward and clear presentation of the number of exacerbations, a Power BI app, longitudinal plots, and a display of patient-level outcomes.</description>
+      <category>Event data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-10-30-wonderful-wednesdays-august-2020</guid>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-10-30-wonderful-wednesdays-august-2020/./images/dotplot - Markus Vogler.png" medium="image" type="image/png" width="4133" height="2362"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays July 2020</title>
+      <dc:creator>Steve Mallett</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-09-20-wonderful-wednesdays-july-2020</link>
+      <description>This month's challenge was to summarise changes in haemoglobin (Hgb) concentration over time in patients with anaemia associated with Chronic Kidney Disease (CKD). An experimental medicine was compared with a control group, but in addition to demonstrating efficacy, there was a special interest in visualising intra-individual variability, as large changes in Hgb are a potential safety concern. The visualisations presented ranged from grouped line plots over time, Sankey-diagrams and line plots with quantile bands for summary views and a lasagna plot for the display of individual data. Some general hints were given on how to define suitable color palettes for graphs depending on the type of data. Presented by Steve Mallett.</description>
+      <category>Longitudinal</category>
+      <category>Continuous data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-09-20-wonderful-wednesdays-july-2020</guid>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-09-20-wonderful-wednesdays-july-2020/./images/June_PSI_AW_v1_0.png" medium="image" type="image/png" width="1268" height="507"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays June 2020</title>
+      <dc:creator>Markus Vogler</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-09-11-wonderful-wednesdays-june-2020</link>
+      <description>This month the discussion is about visualizations of the satisfaction data using cumulative distribution functions, a tree plot, staggered bar plots, a power BI dashboard and two interactive funnel plots using plotly and RShiny. These examples nicely demonstrate that different displays support different purposes. Some visualizations are telling a story about the data and others help to explore the data. Presented by Bodo Kirsch.</description>
+      <category>Wonderful Wednesdays</category>
+      <category>Subgroups</category>
+      <category>Discrete endpoint</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-09-11-wonderful-wednesdays-june-2020</guid>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-09-11-wonderful-wednesdays-june-2020/./plots/cdf.png" medium="image" type="image/png" width="4133" height="2362"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesday April 2020</title>
+      <dc:creator>Steve Mallett</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-09-10-wonderful-wednesday-april-2020</link>
+      <description>In this webinar we discuss the first submissions looking at some great ways to visualise a categorical response variable over time. We talk about what the SIG members like about each plot and give some pointers on areas we think could be improved. More specifically, we talk about: the value of a title with conclusions, the use of colour, the benefits of animation to display time, ways to declutter your graph and examples of clean design, enclosure to highlight important parts of the data, the benefits of the sankey diagram, how different charts help to answer different questions, and many more aspects of great visualizations.</description>
+      <category>survival data</category>
+      <category>Kaplan-Meier</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-09-10-wonderful-wednesday-april-2020</guid>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-09-10-wonderful-wednesday-april-2020/plots/plot01.png" medium="image" type="image/png" width="5790" height="2700"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays March 2020</title>
+      <dc:creator>Daniel Saure</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-10-27-wonderful-wednesdays-march-2020</link>
+      <description>The VIS SIG is happy to introduce a new initiative called “Wonderful Wednesdays”. This initiative will provide the participants to not only learn theoretically about visualisation principles but also apply them to relevant examples from the field of healthcare and the development of new therapies. This webinar kicks off the webinar series by giving an introduction into principles of visualization and an overview of the process. The first dataset is also introduced.</description>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-10-27-wonderful-wednesdays-march-2020</guid>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2020-10-27-wonderful-wednesdays-march-2020/./images/ww1.gif" medium="image" type="image/gif"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays Overview</title>
+      <dc:creator>VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2020-09-09-wonderful-wednesdays-overview</link>
+      <description>This provides a short overview of our Wonderful Wednesdays Webinars.</description>
+      <category>Wonderful Wednesdays</category>
+      <category>Overview</category>
+      <guid>https://graphicsprinciples.github.io/posts/2020-09-09-wonderful-wednesdays-overview</guid>
+      <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
