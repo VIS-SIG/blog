@@ -93,14 +93,14 @@ Please [click on the link](https://figplot.shinyapps.io/WW20201209/) to explore 
 
 This submission is a selection of plots that uses small multiples to explore the within study relationship between key variables related to baseline and outcome. In this case the relationship between blood pressure measured at baseline and 1-year. Small multiples provide an instant overview and a visual check for potential differences. 
 
-The first set of plots use ridge plots to explore the distribution by treatment. This is an example of the outcome variable (BP at 1-year). Ridge plots provide a visual check and comparison. However, the comparison is by treatment, where plotting the treatment difference could be more informative. The ridge plots also create a slight “3d” effect that could be potentially misleading when comparing across treatments. 
+The first set of plots use ridge plots to explore the distribution by treatment. This is an example of the outcome variable (BP at 1-year). Ridge plots provide a visual check and comparison. However, the comparison is by treatment, where plotting the treatment difference could be more informative. The ridge plots also create a slight “3d” effect, where the upper placed treatment is "higher" in value compared to the lower; this could be potentially misleading when comparing across treatments. 
 
 
 
 ![](./images/eda-plot2a - Mark Baillie.png)
 
 
-The second set of plots use scatter plots to explore the relationship between baseline and 1-year by treatment. The plots are designed to provide a message. In this case, further expiration is required in studies 1 and 3. 
+The second set of plots use scatter plots to explore the relationship between baseline and 1-year by treatment. The plots are designed to provide a message. In this case, further checking of the data is required for studies 1 and 3. 
 
 
 ![](./images/eda-plot2b - Mark Baillie.png)
@@ -126,8 +126,6 @@ Closer examination identifies systematic patterns in the data that may indicate 
 
 ![](./images/ridge_plot - Mark Baillie.png)
 [high-resolution image](./images/ridge_plot - Mark Baillie.png)
-
-(A summary of the discussion will be added, soon.)
 
 [link to code](#example5 code)
 
