@@ -1,0 +1,521 @@
+---
+title: "Wonderful Wednesdays February 2021"
+description: |
+  The DLQI is the most frequently used method for evaluating quality of life for patients with different skin conditions. There are 10 questions, covering the following topics: symptoms, embarrassment, shopping and home care, clothes, social and leisure, sport, work or study, close relationships, sex, treatment. Each question refers to the impact of the skin disease on the patient’s life over the previous week. In the dataset DLQI has been administered in a phase 3 clinical trial to patients with psoriasis. 150 has been randomized to Placebo (Treatment A) and 450 to the active treatment (Treatment B). The treatment effect in terms of Quality of Life is assessed at Week 16 and the Psoriasis Area and Severity Index is collected at baseline. Some DLQI assessment is missing at Week 16.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 02-10-2021
+categories:
+  - DLQI
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/Condistr - Devan Becker.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# DLQI data set
+<!-- <Add a short description.> -->
+
+
+<a id="example1"></a>
+
+## Example 1. Heatmaps
+
+![](./images/Condistr - Devan Becker.png)  
+[high resolution image](./images/Condistr - Devan Becker.png)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. Mixed models
+
+![](./images/dlqi_mixed - Agustin Calatroni.png)  
+
+The app can be found [here](./dlqi_mixed - Agustin Calatroni.html).  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. Change in mean scores
+
+![](./images/Dumbbell - Samah Abdelaal.jpeg)  
+[high resolution image](./images/Dumbbell - Samah Abdelaal.jpeg)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+## Example 4. Histrograms
+
+![](./images/Histogram - Samah Abdelaal.jpeg)  
+
+[high resolution image](./images/Histogram - Samah Abdelaal.jpeg)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example4 code)
+
+
+
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. Heatmaps
+
+```{r, echo = TRUE, eval=FALSE, python.reticulate = FALSE}
+library(GGally)
+library(dplyr)
+library(tidyr)
+library(patchwork)
+
+qol <- read.csv("Data/2021-01-13-QualityOfLife.csv")
+
+head(qol)
+glimpse(qol)
+
+qol2 <- qol %>% 
+    mutate_if(function(x){length(unique(x)) < 6}, factor)
+
+ggpairs(qol2[qol2$VISIT == "Week 16", c(2, 3, 15)], 
+    mapping = aes(colour = TRT))
+ggpairs(qol[qol$VISIT == "Week 16", 5:14])
+ggpairs(qol2[qol2$VISIT == "Week 16", 5:14])
+ggpairs(qol[qol$VISIT == "Week 16", 5:14], 
+    mapping = aes(colour = qol[qol$VISIT == "Week 16",]$TRT))
+ggpairs(qol2[qol2$VISIT == "Week 16", 5:14], 
+    mapping = aes(colour = qol2[qol2$VISIT == "Week 16",]$TRT))
+
+
+#### Goal 1: Multidimensional nature of DLQI ####
+# As integers, they're all highly correlated
+# As categorical variables, need an intelligent way to summarise
+# Something like PCA or NMF, but for categories?
+# Collection of stacked bar plots?
+# Percent agreement between categories?
+# Compound Poisson model for discrete categories?
+#### Goal 2: Show the effect of treatment, incorporate multidimensionality ####
+
+
+# Attempt 1: Conditional Distributions
+
+dlq <- select(qol, starts_with("DLQI")) %>% 
+    select(-DLQI_SCORE)
+heatmaps <- lapply(0:3, function(w){
+    m1 <- sapply(1:10, function(x){
+        f1 <- filter(dlq, dlq[, x] == w)
+        if(nrow(f1) > 0) {
+            return(apply(f1, 2, function(y) mean(y == w, na.rm = TRUE)))
+        } else {
+            return(rep(NA, 10))
+        }
+    })
+    colnames(m1) <- rownames(m1)
+    m1 <- m1 %>% as.data.frame() %>% 
+        tibble::rownames_to_column(var = "from") %>% 
+        pivot_longer(-from, names_to = "to", values_to = "both_0")
+    return(m1)
+})
+
+
+numwords <- c("Zero", "One", "Two", "Three")
+wrap_plots(lapply(1:4, function(i) {
+    zeros <- apply(dlq, 2, function(x) sum(x == i - 1, na.rm = TRUE))
+    ggplot(heatmaps[[i]]) +
+        aes(x = to, y = from, fill = both_0) + 
+        geom_tile() +
+        labs(x = paste0("...how often is this measure ", i - 1, "?"), 
+            y = paste0("When this measure is ", i - 1, "..."),
+            title = paste0(numwords[i], " Together"),
+            fill = paste0("Both ", numwords[i])) +
+        scale_fill_viridis_c(option = "C") + 
+        annotate("text", x = 1:10, y = 1:10, label = zeros) +
+        theme(aspect.ratio = 1, 
+            axis.text.x = element_text(angle = 90, vjust = 0.5))
+}))
+```
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. Mixed models
+
+The R Markdown file can be found [here](./code/dlqi_mixed - Agustin Calatroni.rmd). 
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. Change in mean scores
+
+```{r, echo = TRUE, eval=FALSE}
+# Load data
+dql <- read.csv("ww2020_dlqi.csv")
+attach(dql)
+View(dql)
+
+# Load library
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(ggcharts)
+library(ggalt)
+
+# Seperate treatment arms
+new_A <- 
+  dql %>% 
+  filter(TRT=="A")
+new_B <- 
+  dql %>% 
+  filter(TRT=="B")
+
+## Treatment A : Placebo
+
+dtA <- new_A %>%
+  # Remove missing data
+  filter(!is.na(new_A)) %>% 
+  # Select relevant variables
+  select(
+    DLQI101, DLQI102, DLQI103, DLQI104, DLQI105,
+    DLQI106, DLQI107, DLQI108, DLQI109, DLQI110,
+    VISIT
+    ) %>%
+  # Summarize mean score for each question grouped by visit
+  # while also renaming variables to indicate the meaning of each score
+  group_by(VISIT) %>%
+  summarise(
+    Symptoms = mean(DLQI101, na.rm = T),
+    Embarrassment = mean(DLQI102, na.rm = T),
+   `Shopping and home care` = mean(DLQI103, na.rm = T),
+    Clothes = mean(DLQI104, na.rm = T),
+   `Social and leisure` = mean(DLQI105, na.rm = T),
+    Sport = mean(DLQI106, na.rm = T),
+    `Work and study` = mean(DLQI107, na.rm = T),
+    `Close relationships` = mean(DLQI108, na.rm = T),
+    Sex = mean(DLQI109, na.rm = T),
+    Treatment = mean(DLQI110, na.rm = T)
+   )
+
+# Tidying data
+dtA <- 
+  dtA %>% 
+  pivot_longer(
+    !VISIT,
+    names_to = "Domain",
+    values_to = "Mean_Score"
+    )
+
+# Seperating the visit variable into baseline and week 16
+dtA <-
+  dtA %>% 
+  pivot_wider(
+    names_from = VISIT,
+    values_from = Mean_Score
+    )
+
+# Ensuring the domain levels are ordered the same
+dtA <-
+  dtA %>% 
+  mutate(
+    Domain = factor(Domain,
+                    levels = c("Symptoms", "Embarrassment",
+                               "Shopping and home care",
+                               "Clothes", "Social and leisure",
+                               "Sport", "Work and study",
+                               "Close relationships",
+                               "Sex", "Treatment"))
+    )
+
+# Constructing a dumbbell plot using ggalt package with a ggchart theme
+
+(a <- 
+  ggplot()+
+  geom_dumbbell(
+    data = dtA,
+    aes(
+      y = Domain,
+      x = Baseline,
+      xend = `Week 16`
+      ),
+    size = 1.5,
+    color = "lightgray",
+    size_x = 3,
+    colour_x = "violetred4",
+    size_xend = 3,
+    colour_xend = "maroon1"
+    )
+  + theme_ggcharts(grid = "Y")
+  + labs(
+    title = "Placebo"
+    )
+  + theme(
+    plot.title = element_text(hjust = 0.5),
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.text.y = element_text(size = 9)
+    ))
+
+## Treatment B : Active Treatment
+
+dtB <- new_B %>%
+  # Remove missing data
+  filter(!is.na(new_B)) %>% 
+  # Select relevant variables
+  select(
+    DLQI101, DLQI102, DLQI103, DLQI104, DLQI105,
+    DLQI106, DLQI107, DLQI108, DLQI109, DLQI110,
+    VISIT
+    ) %>%
+  # Summarize mean score for each question grouped by visit
+  # while also renaming variables to indicate the meaning of each score
+  group_by(VISIT) %>%
+  summarise(
+    Symptoms = mean(DLQI101, na.rm = T),
+    Embarrassment = mean(DLQI102, na.rm = T),
+    `Shopping and home care` = mean(DLQI103, na.rm = T),
+    Clothes = mean(DLQI104, na.rm = T),
+    `Social and leisure` = mean(DLQI105, na.rm = T),
+    Sport = mean(DLQI106, na.rm = T),
+    `Work and study` = mean(DLQI107, na.rm = T),
+    `Close relationships` = mean(DLQI108, na.rm = T),
+    Sex = mean(DLQI109, na.rm = T),
+    Treatment = mean(DLQI110, na.rm = T)
+    )
+
+# Tidying data
+dtB <- 
+  dtB %>% 
+  pivot_longer(
+    !VISIT,
+    names_to = "Domain",
+    values_to = "Mean_Score"
+    )
+
+# Seperating the visit variable into baseline and week 16
+dtB <-
+  dtB %>% 
+  pivot_wider(
+    names_from = VISIT,
+    values_from = Mean_Score
+    )
+
+# Ensuring the domain levels are ordered the same
+dtB <-
+  dtB %>% 
+  mutate(
+    Domain = factor(Domain,
+                    levels = c("Symptoms", "Embarrassment",
+                               "Shopping and home care",
+                               "Clothes", "Social and leisure",
+                               "Sport", "Work and study",
+                               "Close relationships",
+                               "Sex", "Treatment"))
+    )
+
+# Constructing a dumbbell plot using ggalt package with a ggchart theme
+
+(b <- 
+  ggplot()+
+  geom_dumbbell(
+    data = dtB,
+    aes(
+      y = Domain,
+      x = Baseline,
+      xend = `Week 16`
+      ),
+    size = 1.5,
+    color = "lightgray",
+    size_x = 3,
+    colour_x = "violetred4",
+    size_xend = 3,
+    colour_xend = "maroon1")
+  + theme_ggcharts(grid = "Y") 
+  + labs(
+    title = "Active Treatment"
+    ) + theme(
+    plot.title = element_text(hjust = 0.5),
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.text.y = element_text(size = 9)
+        ))
+
+## Mean total score for both treatment arms
+
+totaldt <- 
+  dql %>%
+  # Remove missing data
+  filter(!is.na(dql)) %>%
+  # select and summarizing relevant variables
+  select(DLQI_SCORE, TRT, VISIT) %>%
+  group_by(TRT, VISIT) %>%
+  summarise(
+    qtotal = mean(DLQI_SCORE, na.rm = T)
+    )
+
+# Tidying data
+totaldt <- 
+  totaldt %>% 
+  pivot_wider(
+    names_from = VISIT,
+    values_from = qtotal
+    )
+
+totaldt$TRT[totaldt$TRT=="A"] <- "Placebo"
+totaldt$TRT[totaldt$TRT=="B"] <- "Active Treatment"
+
+# Constructing a dumbbell plot using ggcharts
+
+(c <- 
+  dumbbell_chart(
+    data = totaldt,
+    x = TRT,
+    y1 = Baseline,
+    y2 = `Week 16`,
+    line_color = "lightgray",
+    line_size = 3,
+    point_color = c("violetred4", "maroon1"),
+    point_size = 7
+  ) + labs(
+    x = NULL,
+    y = NULL,
+    title = "Dermatological Life Quality Index DLQI",
+    subtitle = "Change in mean scores from Baseline to Week 16  (Top chart is total score)",
+    caption = "Samah Abdelaal"
+    ) + theme(
+    axis.text.y = element_text(face = "bold"),
+    plot.title = element_text(size = 14,
+                              face = "bold"),
+    plot.subtitle = element_text(size = 12),
+    plot.caption = element_text(size = 11,
+                                face = "italic"),
+    legend.position = "bottom"
+    ))
+
+# Compine all three plots
+library(gridExtra)
+
+grid.arrange(c, arrangeGrob(b, a, ncol = 2), nrow = 2)
+```
+
+[Back to blog](#example3)
+
+
+<a id="example4 code"></a>
+
+## Example 4. Histrograms
+```{r, echo = TRUE, eval=FALSE}
+# Load data
+dql <- read.csv("ww2020_dlqi.csv")
+attach(dql)
+View(dql)
+summary(dql)
+
+# Load Library
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(ggcharts)
+
+# Select relevant variables
+dql_renamed <-
+  dql %>%
+  select(
+    TRT, VISIT, DLQI_SCORE
+    )
+
+# Rename treatment levels
+dql_renamed$TRT[dql_renamed$TRT=="A"] <- "Placebo"
+dql_renamed$TRT[dql_renamed$TRT=="B"] <- "Active Treatment"
+
+# Seperate visits
+
+# Baseline visit
+totalbaseline <- 
+  dql_renamed %>% 
+  filter(VISIT=="Baseline")
+
+# Construct a histogram for each treatment arm at baseline visit
+(d <- 
+  ggplot(
+    data = totalbaseline,
+    aes(
+      x = DLQI_SCORE
+      ))
+  + geom_histogram(
+    binwidth = 1.5,
+    color = "grey",
+    fill = "deeppink3"
+    ) +
+  facet_grid(~ TRT)
+  + theme_ng(grid = "X")
+  + labs(
+    x = "DLQI Score",
+    y = "Count",
+    title = "Total DLQI Score",
+    subtitle = "At Baseline",
+    caption = "Samah Abdelaal")
+  + theme(
+    axis.title.x = element_blank(),
+    plot.title = element_text(size = 20,
+                              face = "bold"),
+    plot.subtitle = element_text(size = 18),
+    plot.caption = element_text(size = 15,
+                                face = "bold.italic")
+    ))
+
+
+# Week 16 visit
+totalweek16 <- 
+  dql_renamed %>% 
+  filter(VISIT=="Week 16")
+
+(e <- 
+  ggplot(
+    data = totalweek16,
+    aes(
+      x = DLQI_SCORE
+      )
+    )
+  + geom_histogram(
+    binwidth = 1.5,
+    color = "grey",
+    fill = "deeppink3"
+    ) +
+  facet_grid(~ TRT)
+  + theme_ng(grid = "X")
+  + labs(
+    x = "DLQI Score",
+    y = "Count",
+    subtitle = "At Week 16"
+    ) +
+  theme(
+    plot.subtitle = element_text(size = 18)
+    ))
+
+# Compine plots
+library(gridExtra)
+
+gridExtra::grid.arrange(d, e, nrow = 2)
+```
+
+[Back to blog](#example4)

@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays February 2021</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-02-07-wonderful-wednesdays-february-2021</link>
+      <description>The DLQI is the most frequently used method for evaluating quality of life for patients with different skin conditions. There are 10 questions, covering the following topics: symptoms, embarrassment, shopping and home care, clothes, social and leisure, sport, work or study, close relationships, sex, treatment. Each question refers to the impact of the skin disease on the patient’s life over the previous week. In the dataset DLQI has been administered in a phase 3 clinical trial to patients with psoriasis. 150 has been randomized to Placebo (Treatment A) and 450 to the active treatment (Treatment B). The treatment effect in terms of Quality of Life is assessed at Week 16 and the Psoriasis Area and Severity Index is collected at baseline. Some DLQI assessment is missing at Week 16.</description>
+      <category>DLQI</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2021-02-07-wonderful-wednesdays-february-2021</guid>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-02-07-wonderful-wednesdays-february-2021/./images/Condistr - Devan Becker.png" medium="image" type="image/png" width="1000" height="1000"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays January 2021</title>
       <dc:creator>PSI VIS SIG</dc:creator>

@@ -147,7 +147,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     var header = $('header').get(0);
     var headerHeight = header.offsetHeight;
     var headroom = new Headroom(header, {
-      tolerance: 5,
       onPin : function() {
         if (window.headroom_prevent_pin) {
           window.headroom_prevent_pin = false;
@@ -470,15 +469,8 @@ d-title {
   top: 0;
 }
 
-/* adjust viewport for navbar height */
-/* helps vertically center bootstrap (non-distill) content */
-.min-vh-100 {
-  min-height: calc(100vh - 100px) !important;
-}
-
 </style>
 
-<script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
 <link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
 <link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
 <script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -502,19 +494,22 @@ function offsetURL(url) {
   return offset ? offset + '/' + url : url;
 }
 
+function createIndex() {
+  var options = {
+    keys: [
+      "title",
+      "categories",
+      "description",
+      "contents"
+    ]
+  };
+  return new window.Fuse([],options);
+}
+
 function createFuseIndex() {
 
   // create fuse index
-  var options = {
-    keys: [
-      { name: 'title', weight: 20 },
-      { name: 'categories', weight: 15 },
-      { name: 'description', weight: 10 },
-      { name: 'contents', weight: 5 },
-    ],
-    ignoreLocation: true,
-    threshold: 0
-  };
+  var options = { keys: ["title", "description", "contents"] };
   var fuse = new window.Fuse([], options);
 
   // fetch the main search.json
@@ -582,25 +577,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             shouldSort: true,
             minMatchCharLength: 2,
             limit: 10,
+            keys: [
+              { name: 'title', weight: 20 },
+              { name: 'categories', weight: 15 },
+              { name: 'description', weight: 10 },
+              { name: 'contents', weight: 5 },
+            ],
           };
           var results = fuse.search(query, searchOptions);
           callback(results
             .map(function(result) { return result.item; })
+            .filter(function(item) { return !!item.description; })
           );
         },
         templates: {
           suggestion: function(suggestion) {
-            var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-              ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-              : '';
             var html = `
               <div class="search-item">
                 <h3>${suggestion.title}</h3>
                 <div class="search-item-description">
-                  ${suggestion.description || ''}
+                  ${suggestion.description}
                 </div>
                 <div class="search-item-preview">
-                  ${img}
+                  <img src="${suggestion.preview ? offsetURL(suggestion.preview) : ''}"</img>
                 </div>
               </div>
             `;
@@ -623,10 +622,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 
 <style type="text/css">
-
-.nav-search {
-  font-size: x-small;
-}
 
 /* Algolioa Autocomplete */
 
@@ -702,7 +697,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 }
 
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-  font-size: 1rem;
   margin-block-start: 0;
   margin-block-end: 5px;
 }
@@ -886,7 +880,7 @@ d-article pre code {
 d-article pre,
 d-article div.sourceCode,
 d-article div.sourceCode pre {
-  overflow: auto;
+  overflow: hidden;
 }
 
 d-article div.sourceCode {
@@ -928,11 +922,6 @@ d-article pre a {
 d-article pre a:hover {
   border-bottom: none;
   text-decoration: underline;
-}
-
-d-article details {
-  grid-column: text;
-  margin-bottom: 0.8em;
 }
 
 @media(min-width: 768px) {
@@ -1089,17 +1078,6 @@ d-article .citation {
 
 div.hanging-indent{
   margin-left: 1em; text-indent: -1em;
-}
-
-/* Citation hover box */
-
-.tippy-box[data-theme~=light-border] {
-  background-color: rgba(250, 250, 250, 0.95);
-}
-
-.tippy-content > p {
-  margin-bottom: 0;
-  padding: 2px;
 }
 
 
@@ -1767,7 +1745,7 @@ function init_distill() {
     var layout = $(this).attr('data-layout');
 
     // apply layout to markdown level block elements
-    var elements = $(this).children().not('details, div.sourceCode, pre, script');
+    var elements = $(this).children().not('div.sourceCode, pre, script');
     elements.each(function(i, el) {
       var layout_div = $('<div class="' + layout + '"></div>');
       if (layout_div.hasClass('shaded')) {
@@ -1882,20 +1860,6 @@ function init_distill() {
     // move appendix-bottom entries to the bottom
     $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
     $('.appendix-bottom').remove();
-
-    // hoverable references
-    $('span.citation[data-cites]').each(function() {
-      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
-      window.tippy(this, {
-        allowHTML: true,
-        content: refHtml,
-        maxWidth: 500,
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'light-border',
-        placement: 'bottom-start'
-      });
-    });
 
     // clear polling timer
     clearInterval(tid);
@@ -2236,7 +2200,7 @@ h1, h2, h3, h4, h5, h6,
 
 d-article div.sourceCode code,
 d-article pre code {
-  font-family: var(--mono-font), var(--mono-default);
+	font-family: var(--mono-font), var(--mono-default);
 }
 
 
@@ -2261,109 +2225,100 @@ d-article h6 {
 }
 
 /*-- BODY --*/
-d-article > p,  /* only text inside of <p> tags */
-d-article > ul, /* lists */
-d-article > ol {
+/* only text inside of <p> tags */
+d-article > p {
   color: var(--body-color, rgba(0, 0, 0, 0.8));
   font-size: var(--body-size, 1.06rem);
 }
 
-
 /*-- CODE --*/
 d-article div.sourceCode code,
 d-article pre code {
-  font-size: var(--code-size, 14px);
+	font-size: var(--code-size, 14px);
 }
 
 /*-- ASIDE --*/
 d-article aside {
-  font-size: var(--aside-size, 12px);
-  color: var(--aside-color, rgba(0, 0, 0, 0.6));
+	font-size: var(--aside-size, 12px);
+	color: var(--aside-color, rgba(0, 0, 0, 0.6));
 }
 
 /*-- FIGURE CAPTIONS --*/
 figure .caption,
 figure figcaption,
 .figure .caption {
-  font-size: var(--fig-cap-size, 13px);
-  color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+	font-size: var(--fig-cap-size, 13px);
+	color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
 }
 
 /*-- METADATA --*/
 d-byline h3 {
-  font-size: var(--heading-size, 0.6rem);
-  color: var(--heading-color, rgba(0, 0, 0, 0.5));
+	font-size: var(--heading-size, 0.6rem);
+	color: var(--heading-color, rgba(0, 0, 0, 0.5));
 }
 
 d-byline {
-  font-size: var(--body-size, 0.8rem);
-  color: var(--body-color, rgba(0, 0, 0, 0.8));
+	font-size: var(--body-size, 0.8rem);
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
 }
 
 d-byline a,
 d-article d-byline a {
-  color: var(--body-color, rgba(0, 0, 0, 0.8));
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
 }
 
 /*-- TABLE OF CONTENTS --*/
 .d-contents nav h3 {
-  font-size: var(--heading-size, 18px);
+	font-size: var(--heading-size, 18px);
 }
 
 .d-contents nav a {
-  font-size: var(--contents-size, 13px);
+	font-size: var(--contents-size, 13px);
 }
 
 /*-- APPENDIX --*/
 d-appendix h3 {
   font-size: var(--heading-size, 15px);
-  color: var(--heading-color, rgba(0, 0, 0, 0.65));
+	color: var(--heading-color, rgba(0, 0, 0, 0.65));
 }
 
 d-appendix {
   font-size: var(--text-size, 0.8em);
-  color: var(--text-color, rgba(0, 0, 0, 0.5));
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
 }
 
 d-appendix d-footnote-list a.footnote-backlink {
-  color: var(--text-color, rgba(0, 0, 0, 0.5));
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
 }
 
 /*-- WEBSITE HEADER + FOOTER --*/
 .distill-site-header .title {
-  font-size: var(--title-size, 18px);
+	font-size: var(--title-size, 18px);
+	font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a {
   font-family: var(--navbar-font), var(--heading-default);
 }
 
-.distill-site-header a,
-.nav-dropdown .nav-dropbtn {
-  font-family: var(--navbar-font), var(--heading-default);
-}
-
-.nav-dropdown .nav-dropbtn {
-  color: var(--text-color, rgba(255, 255, 255, 0.8));
-  font-size: var(--text-size, 15px);
-}
-
-.distill-site-header a:hover,
-.nav-dropdown:hover .nav-dropbtn {
-  color: var(--hover-color, white);
+.distill-site-header a:hover {
+	color: var(--hover-color, white);
 }
 
 .distill-site-header {
-  font-size: var(--text-size, 15px);
-  color: var(--text-color, rgba(255, 255, 255, 0.8));
-  background-color: var(--bkgd-color, #0F2E3D);
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
 }
 
 .distill-site-footer {
-  font-size: var(--text-size, 15px);
-  color: var(--text-color, rgba(255, 255, 255, 0.8));
-  background-color: var(--bkgd-color, #0F2E3D);
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
 }
 
 .distill-site-footer a:hover {
-  color: var(--hover-color, white);
+	color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -2386,7 +2341,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Wonderful Wednesdays December 2020","description":"Mark Baillie guides us through the submissions for the meta-analysis data set. The purpose of the challenge was to explore how data visualisation can be deployed to find insights when faced with big data. Big data in the pharma setting typically means wide data i.e. more variables than observations. We went through a number of interesting submissions from a shiny application of a forest plot, an interactive application to explore relationships between variables, an application that provides a workflow for developing a prognostic model, through to exploratory plots using small multiple ridge and scatter plots. A lesson from the challenge is to always visualise your data to avoid surprises.","authors":[{"author":"Mark Baillie","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-09T00:00:00.000+00:00","citationText":"Baillie, 2020"}
+{"title":"Wonderful Wednesdays December 2020","description":"Mark Baillie guides us through the submissions for the meta-analysis data set. The purpose of the challenge was to explore how data visualisation can be deployed to find insights when faced with big data. Big data in the pharma setting typically means wide data i.e. more variables than observations. We went through a number of interesting submissions from a shiny application of a forest plot, an interactive application to explore relationships between variables, an application that provides a workflow for developing a prognostic model, through to exploratory plots using small multiple ridge and scatter plots. A lesson from the challenge is to always visualise your data to avoid surprises.","authors":[{"author":"Mark Baillie","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-09T00:00:00.000+01:00","citationText":"Baillie, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
