@@ -123,7 +123,7 @@
     </item>
     <item>
       <title>Wonderful Wednesday April 2020</title>
-      <dc:creator>Steve Mallett</dc:creator>
+      <dc:creator>Rachel Phillips, Steve Mallett</dc:creator>
       <link>https://graphicsprinciples.github.io/posts/2020-09-10-wonderful-wednesday-april-2020</link>
       <description>In this webinar we discuss the first submissions looking at some great ways to visualise a categorical response variable over time. We talk about what the SIG members like about each plot and give some pointers on areas we think could be improved. More specifically, we talk about: the value of a title with conclusions, the use of colour, the benefits of animation to display time, ways to declutter your graph and examples of clean design, enclosure to highlight important parts of the data, the benefits of the sankey diagram, how different charts help to answer different questions, and many more aspects of great visualizations.</description>
       <category>survival data</category>
