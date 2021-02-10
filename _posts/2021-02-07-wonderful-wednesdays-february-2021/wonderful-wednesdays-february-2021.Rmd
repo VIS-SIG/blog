@@ -39,7 +39,7 @@ output:
 
 ![](./images/dlqi_mixed - Agustin Calatroni.png)  
 
-The app can be found [here](./dlqi_mixed - Agustin Calatroni.html).  
+The app can be found [here](./images/dlqi_mixed - Agustin Calatroni.html).  
 
 (A summary of the discussion will be added shortly.)
 
