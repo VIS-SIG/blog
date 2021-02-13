@@ -1,0 +1,99 @@
+---
+title: "Stop shouting and turn off the caps lock"
+description: |
+  Simple and practical solutions to tone down your next graph. 
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 02-10-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(janitor)
+
+# READ data from PSI longtidunal data set. 
+mydata <- read_csv("https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2020/2020-06-10/hgb_data.csv")
+
+## clean names and derive id for highlighting first patient
+mydata <- mydata %>% 
+  clean_names() %>%
+  mutate(subjid_highlight = if_else(usubjid == "ABC123456.000001", 1, 0))
+
+## Set global theme for ggplot
+theme_set(theme_minimal())
+```
+
+It’s never nice to be sent a message written in “ALL CAPS”. It’s the internet equivalent of being shouted at. And like that typed email written with the caps lock button on, many graphs generate the same feeling. 
+
+WHEN ALL THE WORDS ARE CAPITALIZED, every word is emphasised. Similarly, when ALL your data is displayed by the same bold visual representation, your graph could be screaming at your readers. 
+
+Spaghetti plots are one of the common offenders. Spaghetti plots often present a collection of bold lines over time. Each line represents an individual patient time course. 
+
+
+```{r}
+mydata %>%
+  dplyr::filter(trt01pn == 1) %>%
+  ggplot(aes(x = avisitn  , y =  aval , group = usubjid )) +
+  geom_line() + 
+  geom_point()
+```
+
+
+You may be lucky and avoid shouting at your graph consumers if you only have a small volume of data to display. But soon enough, you will come across an analysis with more data, and then the shouting begins. 
+
+The graphical solution to switching off the CAPS LOCK is to use lighter colours and tones, thinner lines...
+
+```{r}
+mydata %>%
+  dplyr::filter(trt01pn == 1) %>%
+  ggplot(aes(x = avisitn  , y =  aval , group = usubjid )) +
+  geom_line(alpha = 0.3)
+```
+
+... and the secret weapon: transparency.
+ 
+
+```{r}
+mydata %>%
+  dplyr::filter(trt01pn == 1) %>%
+  ggplot(aes(x = avisitn  , y =  aval , group = usubjid )) +
+  geom_line(alpha = 0.3, size = 0.3)
+```
+
+By changing the patient lines from black to light gray, reducing the width of the line, removing unnecessary symbols, we can dial down the volume from an 11 to a moderate 3 or 4. 
+
+
+```{r}
+mydata %>%
+  dplyr::filter(trt01pn == 1) %>%
+  ggplot(aes(x = avisitn  , y =  aval , group = usubjid )) +
+  geom_line(alpha = 0.3, size = 0.3) +
+  geom_line(
+    data = mydata %>% filter(usubjid == "ABC123456.000001"),
+    aes(x = avisitn  , y =  aval , group = usubjid),
+    size = 1,
+    color = "red",
+    alpha = 0.9
+  ) 
+
+```
+
+And we can quieten down the shouting further by using transparency to push the lines into the background. 
+
+These similar steps give us some breathing space to give a voice to the data we want to emphasise. We may want to highlight a treatment average, a difference or in this example draw attention to a patient of interest. By dialing back the volume, we can then use bolder colours, thicker lines and less transparency to highlight information we want to make louder. 
+
+So next time you are producing a graph, think about keeping your finger off that CAPS LOCK. 
+
+
+```{r}
+sessionInfo()
+```
+
