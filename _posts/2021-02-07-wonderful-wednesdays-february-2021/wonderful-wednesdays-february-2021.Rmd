@@ -1,7 +1,7 @@
 ---
 title: "Wonderful Wednesdays February 2021"
 description: |
-  The DLQI is the most frequently used method for evaluating quality of life for patients with different skin conditions. There are 10 questions, covering the following topics: symptoms, embarrassment, shopping and home care, clothes, social and leisure, sport, work or study, close relationships, sex, treatment. Each question refers to the impact of the skin disease on the patient’s life over the previous week. In the dataset DLQI has been administered in a phase 3 clinical trial to patients with psoriasis. 150 has been randomized to Placebo (Treatment A) and 450 to the active treatment (Treatment B). The treatment effect in terms of Quality of Life is assessed at Week 16 and the Psoriasis Area and Severity Index is collected at baseline. Some DLQI assessment is missing at Week 16.
+  The DLQI is the most frequently used method for evaluating quality of life for patients with different skin conditions. There are 10 questions, covering the following topics: symptoms, embarrassment, shopping and home care, clothes, social and leisure, sport, work or study, close relationships, sex, treatment. Each question refers to the impact of the skin disease over the previous week and is scored from 0 to 3, giving a possible score range from 0 (meaning no impact of skin disease on quality of life) to 30 (meaning maximum impact on quality of life). This month's challenge was to use an effective visualisation to show the effect of treatment on DLQI scores across time points, possibly also reflecting the DLQI's multidimensional nature.
 author:
   - name: PSI VIS SIG
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
@@ -10,7 +10,7 @@ categories:
   - DLQI
   - Wonderful Wednesdays
 base_url: https://vis-sig.github.io/blog
-preview: ./images/Condistr - Devan Becker.png
+preview: ./images/hysto2c.png
 output:
   distill::distill_article:
     self_contained: false
@@ -18,7 +18,7 @@ output:
 
 
 # DLQI data set
-<!-- <Add a short description.> -->
+In this month's dataset, DLQI has been administered in a phase 3 clinical trial to patients with psoriasis. There are two imbalanced treatment groups, with 150 patients randomised to Placebo (Treatment A) and 450 to the active treatment (Treatment B). DLQI responses are recorded at Baseline and Week 16 (although some DLQI assessment is missing at Week 16), allowing the treatment effect in terms of Quality of Life to be assessed. The Psoriasis Area and Severity Index (PASI) is also recorded at baseline. 
 
 
 <a id="example1"></a>
@@ -28,7 +28,11 @@ output:
 ![](./images/Condistr - Devan Becker.png)  
 [high resolution image](./images/Condistr - Devan Becker.png)  
 
-(A summary of the discussion will be added shortly.)
+This example uses a heatmap to display how often each item is assigned a given level of response when each other item has been given that same level of response. The heatmap is coloured according to the proportion of times for which this same level of response is observed, which is always equal to 1 on the diagonal as can be easily seen.
+
+It was immediately noted that this example is extremely colourful which makes it stand out nicely from the white background. However, it was felt that the colour spectrum could be flipped - usually on a white background darker colours represent something 'more' rather than something 'less'. Given that DLQI items are scored on an ordinal scale, it was highlighted that it may better to look at the relationships between item responses in terms of being 'at least' or 'at most' a certain score, rather than 'equal to'.
+
+The main issue with this plot is that it is difficult to know what exactly the author is trying to tell us. We do not see any differentiation between treatments or time points and therefore we are unable to determine the effects which these had on DLQI scores.
 
 [link to code](#example1 code)
 
@@ -39,9 +43,19 @@ output:
 
 ![](./images/dlqi_mixed - Agustin Calatroni.png)  
 
-The app can be found [here](./images/dlqi_mixed - Agustin Calatroni.html).  
+The app can be found [here](./dlqi_mixed - Agustin Calatroni.html).  
 
-(A summary of the discussion will be added shortly.)
+In this next example, we have the results of mixed models visualised in an interactive html document. The figure is split into three columns, allowing us to see all of the effects we may be interested in: treatment by visit; within treatment, between visit differences; between treatment, between treatment differences. 
+
+One of the features that is really nice about this example is that, unlike many other examples, it considers an alternative way to sort the different items using a dendrogram. This allows us to quickly see two clear clusters in the items, although it was felt that total score should not have been included in this clustering. It is also great that the distributions are shown around the estimated effects, allowing us to quickly see the uncertainty in these estimates.
+
+There were mixed feelings around the large amount of white space included in some of the columns. In some ways, this could be seen as unnecessary, but it was pointed out that the white space provides a nice level of consistency, allowing us to get an immediate impression of effect sizes on the upper plots which are quite a way from the labels on the horizontal axis. The vertical reference lines included are also really nice for getting a quick impression of effect sizes and how meaningful these are.
+
+Similarly, there were mixed feelings around the level of complexity of this example, with the conclusion being that its appropriateness would largely depend on how technical the audience was. Whilst it may be slightly difficult for a non-technical audience to understand, it was felt that this example would be great for providing a large amount of information to technical audiences, particularly given that tables of values were provided in additional tabs alongside the figure. The group envisaged many applications where similar figures would be great to have, such as meta-analyses and subgroup analyses.
+
+The final thing discussed at length for this example was the representation of the effect sizes. The group really liked that the colours used correspond to those provided in the above text, allowing us to determine treatment groups without the need for a legend. Similarly, it was great to see the different effect sizes consistently pointing either upwards or downwards for the different treatment groups, although it would be beneficial to have this also described in the text. This would allow the figure to be interpreted without having to be able to distinguish between the colours.
+
+The panel highlighted a really nice tool which allows us to see how easily certain colours are distinguished by individuals with different kinds of colour-blindness. Whilst it was shown that the blue and green used here are not too difficult to distinguish for most individuals, the tool was used to identify colours which could be even easier to differentiate between.
 
 [link to code](#example2 code)
 
@@ -52,25 +66,49 @@ The app can be found [here](./images/dlqi_mixed - Agustin Calatroni.html).
 ![](./images/Dumbbell - Samah Abdelaal.jpeg)  
 [high resolution image](./images/Dumbbell - Samah Abdelaal.jpeg)  
 
-(A summary of the discussion will be added shortly.)
+The dot plot displayed here is a great way to quickly see the effect of treatment on the different DLQI items. For each item and each group, we see mean scores for both Baseline and Week 16, which are coloured differently and consistently to allow patterns to be quickly and easily identified. Whilst it is not something commonly seen, the position of the legend in the middle of the page works really nicely and can be quickly referenced for each plot.
+
+Overall, this is a very clean design and provides a clear message. However, there were some ways in which the panel felt that the layout of this example could be improved. Whilst it is easy to compare within treatment groups, it is not so easy to make comparisons between treatment groups here. The group proposed combining the two treatment groups in a vertical layout, possibly using different colours to differentiate between treatment groups and arrows to indicate the direction of the effect. This would also mean that labels of the different items would not need to be repeated as they currently are. This vertical structure could be accommodated by using less space for the first figure showing effect sizes on overall means. Having this so large is not necessarily a bad thing if it shows key information which needs to be emphasised, but we should be intentional about it when doing things such as this.
+
+Unlike in the previous example, here the items are sorted in the order they appear on the questionnaire. Alternative ways to sort the items could be considered to highlight those which are most interesting, such as sorting by baseline means or by effect size. There are also a few tweaks to the horizontal axes which the group felt should be made. Firstly, it would be better to start from zero on the first dot plot, otherwise the effect size appears to be exaggerated. Further, the horizontal axes and spacing between labels should be made consistent for the two treatment groups, allowing for direct comparison between the two figures.
 
 [link to code](#example3 code)
 
 <a id="example4"></a>
 
-## Example 4. Histrograms
+## Example 4. Histograms
 
 ![](./images/Histogram - Samah Abdelaal.jpeg)  
 
 [high resolution image](./images/Histogram - Samah Abdelaal.jpeg)  
 
-(A summary of the discussion will be added shortly.)
+This example shows four histograms which nicely display the distributions of responses for the different treatment groups and the different time points. Overall it is a very clean design with minimal clutter, no unnecessary tick-marks and the gridlines very much in the background. Again, this example makes it easy to get an impression of the treatment effect, with a clear 'shift' between time points for the active treatment.
+
+Whilst the current layout with the columns corresponding to treatment and rows corresponding to time allows us to easily see this shift, it goes against our intuition which is to think of changes in time happening along the horizontal axis. Switching the rows and columns may be more in line with what we naturally expect to see.
+
+There are a couple of issues with this example that the group felt could be easily addressed. Firstly, given that DLQI scores can only be equal to natural numbers, a bin width of one would be more suitable. Otherwise, as is the case with the current bin width, some bars correspond to only one DLQI score whereas others correspond to more than one. This results in the misleading 'up and down' nature of the histograms. Further, there should be more consistency between the y-axes on the top and bottom panels. The change in axes in the current example gives an impression of 'squashing' for placebo when actually there was not a great deal of change.
+
+Overall, the group felt that this example only needed some easily implemented changes to become a really nice visualisation, and thought this was a great opportunity to highlight how some of these changes may look, as displayed in the next example.
 
 [link to code](#example4 code)
 
+## Example 5. Histograms updated
+
+![](./images/hysto2c.png)  
+
+[high resolution image](./images/hysto2c.png)  
+
+Here we see a really effective visualisation which has been produced with only minimal additional work to the previous example. Firstly, we see that a more appropriate and telling title has been used and a footnote has been added to aid in interpretation for those individuals who are unfamiliar with the DLQI. We also see that the layout has been changed with changes in time occurring horizontally as we expect to see.
+
+Different colours have also been used to allow the two treatment groups to be easily distinguished, and the titles have been coloured accordingly. Consistent spacing has been used on the vertical axes to allow for easy comparisons, and these axes now represent percentages rather than counts to allow for more meaningful comparison between the imbalanced treatment groups. There was some discussion amongst the group regarding the fact that lower panel is shorter, but there were no strong feelings about this given that the spacing on the vertical axes is consistent.
+
+Probably the biggest improvement here, though, is that a bin width of one has now been used. This simple change allows the histograms to be interpreted in a much more meaningful way for a score that can only take values in the natural numbers.
 
 
-## Example 5. Lineplots
+[link to code](#example5 code)
+
+
+## Example 6. Lineplots
 
 ![](./images/DLQI_single_items_210206 - Paolo Eusebi.png)  
 [high resolution image](./images/DLQI_single_items_210206 - Paolo Eusebi.png)  
@@ -78,10 +116,17 @@ The app can be found [here](./images/dlqi_mixed - Agustin Calatroni.html).
 ![](./images/DLQI_multidimensional_210206 - Paolo Eusebi.png)  
 [high resolution image](./images/DLQI_multidimensional_210206 - Paolo Eusebi.png)  
 
+These slope graphs provide a clear and meaningful picture of patient level changes in DLQI scores for the different items and treatment groups. Here, the circles are proportional to the percentage of patients with a given response to that item at that visit, and the strips represents the 'flow' of patients across response levels between the visits. The decision to make the circles proportional to percentages rather than counts is the correct one here and allows for meaningful comparison between the imbalanced treatment groups.
 
-(A summary of the discussion will be added shortly.)
+This is a really nice example of a plot type which we don't often see and tells a good story. The consistent improvement for the active treatment is clear to see and we see that there is not too much happening in terms of a response for placebo. Whilst we do not get the same level of understanding of marginal distributions that we might with a histrogram, we do still get some notion and this is balanced by the additional level of patient understanding which we have.
 
-[link to code](#example5 code)
+The group liked how the flow of patients could easily be seen by the intensity of lines, but felt that either a greater level of 'minimum' intensity or a different colour to blue could be used to still allow even a single patient's movement to be seen, which is currently slightly difficult. However, it was acknowledged that not being able to see a lot within certain items for placebo is in itself meaningful.
+
+The consistent use of colour between plots and titles allows us to easily distinguish between treatment groups, although it was felt that a more telling title may have been used. It is great that item descriptions rather than just numbers are provided, and the panel really liked that we see the effects when certain items are combined together into different domains. Grouping of the ten DLQI items into these six domains is something which is commonly done in clinical practice but is not something which was considered by many of the other examples. It was acknowledged that the inclusion of these additional plots for the six domains justifies keeping the items ordered as they appear on the questionnaire, so we can clearly see which items correspond to which domains. However, there was still some discussion as to whether an alternative ordering of both individual items and domains could be considered.
+
+This example has a long, vertical layout. This would be great for something like a poster, but is maybe less convenient for viewing on screen. There was a feeling that when being presented as a poster, a lighter background may be more suitable.
+
+[link to code](#example6 code)
 
 
 
@@ -537,7 +582,108 @@ gridExtra::grid.arrange(d, e, nrow = 2)
 
 <a id="example5 code"></a>
 
-## Example 5. Lineplots
+## Example 5. Histrograms updated
+
+```{r, echo = TRUE, eval=FALSE, python.reticulate = FALSE}
+# Load data
+dql <- read.csv("O:\\1_Global_Biostatistics\\Biostatistics Innovation Center\\BIC Project - Subgroup Analyses\\Screening\\R-Package\\Supports\\WW\\ww2020_dlqi.csv")
+attach(dql)
+View(dql)
+summary(dql)
+
+# Load Library
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(ggcharts)
+
+# Select relevant variables
+dql_renamed <-
+  dql %>%
+  select(
+    TRT, VISIT, DLQI_SCORE
+    )
+
+# Rename treatment levels
+dql_renamed$TRT[dql_renamed$TRT=="A"] <- "Placebo"
+dql_renamed$TRT[dql_renamed$TRT=="B"] <- "Active Treatment"
+
+# Seperate treatments
+
+# Active
+totalB <- 
+  dql_renamed %>% 
+  filter(TRT=="Active Treatment")
+
+# Construct a histogram for each treatment arm at baseline visit
+(d <- 
+  ggplot(
+    data = totalB,
+    aes(
+      x = DLQI_SCORE
+      ))
+  + geom_histogram(
+    binwidth = 1,
+    color = "grey",
+    fill = "deeppink3"
+    ) +
+  facet_grid(~ VISIT)
+  + theme_ng(grid = "X")
+  + labs(
+    x = "Total DLQI Score",
+    y = "Patients",
+    title = "Improved Quality of life after 16 weeks of treatment",
+    subtitle = "Active Treatment")
+  + theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank(),
+    plot.title = element_text(size = 17,
+                              face = "bold"),
+    plot.subtitle = element_text(size = 15, color = "deeppink3")
+    ))
+
+
+# Week 16 visit
+totalA <- 
+  dql_renamed %>% 
+  filter(TRT=="Placebo")
+
+(e <- 
+  ggplot(
+    data = totalA,
+    aes(
+      x = DLQI_SCORE
+      )
+    )
+  + geom_histogram(
+    binwidth = 1,
+    color = "grey",
+    fill = "green4"
+    ) +
+  facet_grid(~ VISIT)
+  + theme_ng(grid = "X")
+  + labs(
+    x = "Total DLQI Score",
+    y = "Patients",
+    subtitle = "Placebo",
+    caption = "Lower score equals better quality of life"
+    ) +
+  theme(
+    strip.text.x = element_blank(),
+    plot.subtitle = element_text(size = 15, color = "green4"),
+    plot.caption = element_text(size = 12,
+                                face = "italic")
+    ))
+
+# Compine plots
+library(gridExtra)
+
+gridExtra::grid.arrange(d, e, nrow = 2, heights = c(1.5,1))
+```
+
+<a id="example6 code"></a>
+
+## Example 6. Lineplots
 
 ```{r, echo = TRUE, eval=FALSE, python.reticulate = FALSE}
 library(tidyverse)
@@ -761,4 +907,4 @@ o <- plot_grid(t, cols, nrow = 2, rel_heights = c(0.5, 10))
 ggsave(plot = o, filename="o.png", path=("~") , width = 18, height = 32, device = "png")   
 ```
 
-[Back to blog](#example5)
+[Back to blog](#example6)

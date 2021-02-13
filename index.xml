@@ -12,12 +12,12 @@
       <title>Wonderful Wednesdays February 2021</title>
       <dc:creator>PSI VIS SIG</dc:creator>
       <link>https://graphicsprinciples.github.io/posts/2021-02-07-wonderful-wednesdays-february-2021</link>
-      <description>The DLQI is the most frequently used method for evaluating quality of life for patients with different skin conditions. There are 10 questions, covering the following topics: symptoms, embarrassment, shopping and home care, clothes, social and leisure, sport, work or study, close relationships, sex, treatment. Each question refers to the impact of the skin disease on the patient’s life over the previous week. In the dataset DLQI has been administered in a phase 3 clinical trial to patients with psoriasis. 150 has been randomized to Placebo (Treatment A) and 450 to the active treatment (Treatment B). The treatment effect in terms of Quality of Life is assessed at Week 16 and the Psoriasis Area and Severity Index is collected at baseline. Some DLQI assessment is missing at Week 16.</description>
+      <description>The DLQI is the most frequently used method for evaluating quality of life for patients with different skin conditions. There are 10 questions, covering the following topics: symptoms, embarrassment, shopping and home care, clothes, social and leisure, sport, work or study, close relationships, sex, treatment. Each question refers to the impact of the skin disease over the previous week and is scored from 0 to 3, giving a possible score range from 0 (meaning no impact of skin disease on quality of life) to 30 (meaning maximum impact on quality of life). This month's challenge was to use an effective visualisation to show the effect of treatment on DLQI scores across time points, possibly also reflecting the DLQI's multidimensional nature.</description>
       <category>DLQI</category>
       <category>Wonderful Wednesdays</category>
       <guid>https://graphicsprinciples.github.io/posts/2021-02-07-wonderful-wednesdays-february-2021</guid>
       <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://graphicsprinciples.github.io/posts/2021-02-07-wonderful-wednesdays-february-2021/./images/Condistr - Devan Becker.png" medium="image" type="image/png" width="1000" height="1000"/>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-02-07-wonderful-wednesdays-february-2021/./images/hysto2c.png" medium="image" type="image/png" width="688" height="449"/>
     </item>
     <item>
       <title>Wonderful Wednesdays January 2021</title>
