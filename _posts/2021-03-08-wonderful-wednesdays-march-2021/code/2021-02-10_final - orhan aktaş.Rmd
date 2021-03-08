@@ -1,0 +1,88 @@
+---
+title: "Missing data output"
+author: "Orhan"
+date: "04 03 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+
+
+libraries
+```{r}
+library(tidyverse)
+```
+
+import data
+```{r}
+missing_data <- readr::read_csv("https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2021/2021-02-10/missing_data.csv")
+missing_data %>% datatable()
+```
+
+
+tidy data
+```{r}
+data_long <- missing_data %>%
+  select(-starts_with("pain.bin")) %>%  # drop "pain.bin" variables
+  mutate(patient = 1:nrow(data)) %>% # add patient id
+  pivot_longer(                     # convert to long format
+    cols = starts_with("pain."),
+    names_to = "visit",
+    names_prefix = "pain.",
+    values_to = "pain",
+    values_drop_na = FALSE
+  ) %>% 
+  mutate(visit = as.integer(visit)) 
+```
+
+
+
+
+create plot
+```{r}
+hist<-data_long %>%
+  mutate(plus55=ifelse(age>55,"+55","-55")) %>% 
+  group_by(patient,plus55) %>%
+  summarise(sum = sum(is.na(pain))) %>%
+  group_by(sum,plus55) %>%
+  summarise(n = n()) %>% 
+  mutate(n=ifelse(plus55=="-55",n*-1,n)) %>% 
+  ungroup() %>% 
+  complete(sum,plus55) %>% 
+  mutate(n=replace_na(n,0)) %>% 
+  ggplot(aes(x=sum,y=n))+
+    geom_col(aes(group=plus55,fill=plus55)) + 
+    scale_fill_brewer(palette="Dark2")+
+    scale_x_continuous(breaks = seq(0, 11, 1))+
+    scale_y_continuous(breaks = seq(-200, 200, 50), 
+                     labels = abs(seq(-200, 200, 50)),
+                     limits = c(-200,200))+
+    coord_flip()+
+    labs(x = "Number of NA's", 
+         y = "Number of Patients", 
+         title = "Watch Out for the Elderly!",
+         subtitle  = "Number of Patients by total number of NA's for below 55 and above 55 age groups")+ 
+    theme_minimal()+
+    theme(plot.title = element_text(size = 26,hjust = 0.5),
+          plot.subtitle = element_text(size = 10,hjust = 0.5),
+          legend.position = "none")+
+    annotate(geom="text", x=5, y=100, label="+55", colour="black",
+             size=15, family="Courier", fontface="bold",alpha=0.5)+
+    annotate(geom="text", x=5, y=-100, label="-55", colour="black",
+             size=15, family="Courier", fontface="bold",alpha=0.5)
+```
+
+save
+```{r}
+png(file = "./outputs/2021-02-10.png")
+hist
+dev.off()
+```
+
