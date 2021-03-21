@@ -84,6 +84,17 @@ The pdf file can be found [here](./images/Missing Sankey - David Carr.pdf).
 [link to code](#example5 code)
 
 
+<a id="example5"></a>
+
+## Example 6. Scrollytelling
+
+![](./images/scrollytelling - Philip Griffiths.png)  
+
+The scrollitelling website can be found [here](https://wonderful-wednesday-missing-data.webflow.io/).
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example6 code)
 
 # Code
 
@@ -170,3 +181,9 @@ The sas file for the second visualization can be found [here](./code/missing_ani
 The sas file can be found [here](./code/missing_sankey - David Carr.sas).
 
 [Back to blog](#example5)
+
+
+## Example 6. Scrollytelling
+There is no code available (yet).
+
+[Back to blog](#example6)
