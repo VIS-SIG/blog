@@ -10,7 +10,7 @@
     <lastBuildDate>Wed, 10 Mar 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Wonderful Wednesdays March 2021</title>
-      <dc:creator>PSI VIS SIG</dc:creator>
+      <dc:creator>Steve Mallett</dc:creator>
       <link>https://graphicsprinciples.github.io/posts/2021-03-08-wonderful-wednesdays-march-2021</link>
       <description>The current example data set is focusing on missing data. Missing data are present in almost any (clinical) data set. Ways to visualize different patterns of missing values is the topic of this webinar / blog entry.</description>
       <category>Missing values</category>

@@ -94,7 +94,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-03-10"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-03-10"/>
-  <meta name="article:author" content="PSI VIS SIG"/>
+  <meta name="article:author" content="Steve Mallett"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Wonderful Wednesdays March 2021"/>
@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","base_url","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Wonderful Wednesdays March 2021"]},{"type":"character","attributes":{},"value":["The current example data set is focusing on missing data. Missing data are present in almost any (clinical) data set. Ways to visualize different patterns of missing values is the topic of this webinar / blog entry.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["PSI VIS SIG"]},{"type":"character","attributes":{},"value":["https://www.psiweb.org/sigs-special-interest-groups/visualisation"]}]}]},{"type":"character","attributes":{},"value":["03-10-2021"]},{"type":"character","attributes":{},"value":["Missing values","Wonderful Wednesdays"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog"]},{"type":"character","attributes":{},"value":["./images/ch_missing_data - Agustin Calatroni.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","base_url","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Wonderful Wednesdays March 2021"]},{"type":"character","attributes":{},"value":["The current example data set is focusing on missing data. Missing data are present in almost any (clinical) data set. Ways to visualize different patterns of missing values is the topic of this webinar / blog entry.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Steve Mallett"]},{"type":"character","attributes":{},"value":["https://www.psiweb.org/sigs-special-interest-groups/visualisation"]}]}]},{"type":"character","attributes":{},"value":["03-10-2021"]},{"type":"character","attributes":{},"value":["Missing values","Wonderful Wednesdays"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog"]},{"type":"character","attributes":{},"value":["./images/ch_missing_data - Agustin Calatroni.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1461,7 +1461,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Wonderful Wednesdays March 2021","description":"The current example data set is focusing on missing data. Missing data are present in almost any (clinical) data set. Ways to visualize different patterns of missing values is the topic of this webinar / blog entry.","authors":[{"author":"PSI VIS SIG","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-03-10T00:00:00.000+01:00","citationText":"SIG, 2021"}
+{"title":"Wonderful Wednesdays March 2021","description":"The current example data set is focusing on missing data. Missing data are present in almost any (clinical) data set. Ways to visualize different patterns of missing values is the topic of this webinar / blog entry.","authors":[{"author":"Steve Mallett","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-03-10T00:00:00.000+01:00","citationText":"Mallett, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1482,7 +1482,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-byline">
-  PSI VIS SIG <a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation" class="uri">https://www.psiweb.org/sigs-special-interest-groups/visualisation</a> 
+  Steve Mallett <a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation" class="uri">https://www.psiweb.org/sigs-special-interest-groups/visualisation</a> 
   
 <br/>03-10-2021
 </div>
@@ -1491,54 +1491,57 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1 id="missing-data">Missing data</h1>
 <p>Missing data are present in almost any (clinical) data set. For this simulated data set, we assume a clinical phase III trial on Psoriasis. An active treatment arm is compared to a placebo arm. The main interest lies in the comparison of these two arms. (The comparison may be adjusted for age, gender, and BMI). The outcome variable is Pain which was collected on a visual analogue scale (range: 0-100). Greater values mean worse pain. Next to the original values, a dichotomized version of pain is calculated and included in the data set: Pain reduction from baseline of at least 30. Data were collected at baseline and at ten follow-up time points.</p>
 <p><a id="example1"></a></p>
-<h2 id="example-1.-barplot">Example 1. Barplot</h2>
-<p><img src="images/2021-02-10%20-%20orhan%20akta%C5%9F.png" /><br />
-<a href="./images/2021-02-10%20-%20orhan%20aktaş.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
-<p><a href="#example1%20code">link to code</a></p>
-<p><a id="example2"></a></p>
-<h2 id="example-2.-missing-data-pattern">Example 2. Missing data pattern</h2>
-<p><img src="images/ch_missing_data%20-%20Agustin%20Calatroni.png" /><br />
-The app can be found <a href="./images/ch_missing_data%20-%20Agustin%20Calatroni.html">here</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
-<p><a href="#example2%20code">link to code</a></p>
-<p><a id="example3"></a></p>
-<h2 id="example-3.-heatmap">Example 3. Heatmap</h2>
+<h2 id="example-1.-simple-heatmap">Example 1. Simple Heatmap</h2>
 <p><img src="images/heatmap%20-%20Lorenz%20Uhlmann.png" /><br />
 <a href="./images/heatmap%20-%20Lorenz%20Uhlmann.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This graph is focussing on the missingness of the data, with proportions of missing data coded to different hues (colours). Missingness is shown by treatment group and visit, and is quite impactful with a clear message in the title.</p>
+<p>An improved design might be to represent different degrees of missingness by colour value (lightness or darkness), as in general it is not so easy to interpret numeric data represented by different colours. Alternatively the missingness values could be added within the cells. The colour palette used here was colour-blind safe (which can be tested by downloading Oracle Color software).</p>
+<p>It was questioned whether the graph needed to be a heatmap in this case, and whether a line plot might have been sufficient, possibly using colour in another way e.g. treatment. A further improvement might have been to also incorporate the pain score. In general, the “data to ink ratio” is rather low, and this design of graph may be more effective for a dataset with more variables, e.g. large number of treatments, or in a machine learning application.</p>
+<p><a href="#example1%20code">link to code</a></p>
+<p><a id="example2"></a></p>
+<h2 id="example-2.-mirrored-histogram">Example 2. Mirrored Histogram</h2>
+<p><img src="images/2021-02-10%20-%20orhan%20akta%C5%9F.png" /><br />
+<a href="./images/2021-02-10%20-%20orhan%20aktaş.png">high resolution image</a></p>
+<p>This graph certainly has a clear message! The graph has pooled treatment groups and visits, and is focussing on the relationship between missingness and age group. In terms of patients with complete data (zero missing data), there is clearly a large difference between age groups.</p>
+<p>It is not clear why 55 years was used as the threshold value, as this was not specified in the problem description, and there does not seem to be an obvious rationale (e.g. median value). Also, the labelling of the subgroups could have been be improved to show “&lt;55 years” and “&gt;=55 years”. Use of “NA” should also be avoided, as the meaning would not be clear to most audiences, and some panellist thought that a simpler design with fewer gridlines would be a little more effective.</p>
+<p>There was a difference of opinion regarding whether to include the “0” category. The large number of patients in the &lt;55 group distorts the horizontal axis range and creates a lot of white space in the graph overall. However others thought that this was the essential message of the graph. Finally, when showing relative frequency, one should consider using percentages rather than number of subjects.</p>
+<p><a href="#example2%20code">link to code</a></p>
+<p><a id="example3"></a></p>
+<h2 id="example-3.-sankey-diagram">Example 3. Sankey Diagram</h2>
+<p><img src="images/Missing%20Sankey%20-%20David%20Carr.png" /><br />
+The pdf file can be found <a href="./images/Missing%20Sankey%20-%20David%20Carr.pdf">here</a>.</p>
+<p>This was the first plot presented that included the actual pain scores, which have been categorised and summarised over time separately for the two treatment groups. Categorisation allows missing data categories to also be included alongside the efficacy data, with separate categories for single missing visits and monotone missing values (dropouts). A Sankey Diagram is effective in showing shifts between categories at the individual patient level, and in this case a subset of visits has been included to allow the flows to be seen more easily (although this has also created some issues with interpreting the “no subsequent visit” category).</p>
+<p>As well as showing overall trends, the graph provides insights into the pain scores that preceded withdrawal from the study. The results are showing a rapid improvement in both treatment groups at the start of the study, possibly due to regression to the mean resulting from study inclusion criteria selecting a cohort of patients with relatively high baseline pain score.</p>
 <p><a href="#example3%20code">link to code</a></p>
 <p><a id="example4"></a></p>
-<h2 id="example-4.-animated-dot-plots">Example 4. Animated dot plots</h2>
+<h2 id="example-4.-animated-scatter-plot">Example 4. Animated Scatter Plot</h2>
 <p><img src="images/missing_anim_chgfbl_svg%20-%20David%20Carr.png" /></p>
 <p><img src="images/missing_anim_svg%20-%20David%20Carr.png" /></p>
 <p>The first animated visualization can be found <a href="./images/missing_anim_chgfbl_svg%20-%20David%20Carr.svg">here</a>.<br />
 The second animated visualization can be found <a href="./images/missing_anim_svg%20-%20David%20Carr.png">here</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This plot shows an animated representation of pain score in each treatment group, and requires little explanation to the viewer. The plot is effective in showing obvious trends in the data, in this case with patients in the active treatment group showing improved efficacy, particularly after week 24. Also, data were only observed at discrete visits, with data between visits having been derived using linear interpolation.</p>
+<p>The graph could have been improved by representing missingness in the data, for example including imputed data in a different colour. The graph would also benefit from an effective title. Some other possible variations were discussed, including a moving boxplot, or showing the proportions of patients above a set of pain thresholds over time, to more effectively quantify differences between treatment groups. Another idea discussed was for the individual patient trajectories to be shown (i.e. Spaghetti plot), superimposed onto the animation.</p>
 <p><a href="#example4%20code">link to code</a></p>
 <p><a id="example5"></a></p>
-<h2 id="example-5.-sankey-plots">Example 5. Sankey plots</h2>
-<p><img src="images/Missing%20Sankey%20-%20David%20Carr.png" /><br />
-The pdf file can be found <a href="./images/Missing%20Sankey%20-%20David%20Carr.pdf">here</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
-<p><a href="#example5%20code">link to code</a></p>
-<p><a id="example5"></a></p>
+<h2 id="example-5.-complex-heatmap">Example 5. Complex Heatmap</h2>
+<p><img src="images/ch_missing_data%20-%20Agustin%20Calatroni.png" /><br />
+The app can be found <a href="./images/ch_missing_data%20-%20Agustin%20Calatroni.html">here</a></p>
+<p>This graph provides a rich source of information that would be suitable as an exploratory plot, e.g. atdatabase freeze, to gain a deep understanding of the data. There are several components to this graph.The body of the graph is a lasagna plot, showing individual patient data with colour-coded pain scores. The graph is divided into different panels according to treatment group and whether or not patients had some missing data. This design allows obvious differences between the treatment groups to be discerned easily, i.e. that patients in the active treatment group generally showed lower pain scores after visit 4 but with more missing data. In general, lasagne plots (and other graphsshowing individual patient level data) can benefit from sorting. A further design improvement might have been to include the legend closer to the body of the plot. The stacked barchart at the top shows the proportion of patients with missing data, monotone and overall, although the overall message wasn’t clear to some of the panellists. It would be useful to somehow provide more insight into relationship between pain and missingness, e.g. to summarise outcomes that preceded missing data.The line plot at the bottom summarise mean pain score for each of the four groups, and suggests that the missingness pattern is MCAR, as pairs of lines for each treatment group are largely superimposable.The graph included marginal lasagne plots and boxplots, showing the distribution of age and BMI in the different groups. The boxplot confirmed the relationship between age and missingness seen in the mirrored histogram, although it was questioned whether the additional lasagne plots added value to the graph.</p>
+<p><a href="#example6%20code">link to code</a></p>
+<p><a id="example6"></a></p>
 <h2 id="example-6.-scrollytelling">Example 6. Scrollytelling</h2>
 <p><img src="images/scrollytelling%20-%20Philip%20Griffiths.png" /></p>
 <p>The scrollitelling website can be found <a href="https://wonderful-wednesday-missing-data.webflow.io/">here</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>Scrollytelling is a relatively new graphical format, that allows the viewer to scroll through a series of graphs, with a text panel providing a changing commentary on the interpretation of the data. The panellists really appreciated the originality of this format, which provides the ability to present and discuss several different aspects of the data.</p>
+<p>Firstly, a stacked barchart shows the proportion of missing data by visit (not including treatment group). This graph was quite effective, although it was thought that including time on vertical axis is not optimal, and it’d also be useful to include the numbers in the bars. Also the title is highlighting “missing data”, but the left part of the bars is showing non-missing data, which is a little counter-intuitive.</p>
+<p>Scrolling on to the Upset plot, and the graph presents vertical barcharts showing the prevalence of different patterns of missing data. For simplicity, the graph only includes a subset of categories (visit 6 onwards). The graph is effective in telling a clear story that if visit 6 is missed, then subsequent visits are likely to be missing. However the horizontal bars are not so easy to interpret.</p>
+<p>Next up was a lasagna plot, which in this case is sorted. Adding colour-coding for pain score, and including treatment group would have improved the interpretation in terms of efficacy.</p>
+<p>A series of boxplots are provided next, showing the relationship between missingness and covariates(BMI and Age), which clearly shows the higher degree of missingness seen in older patients. However there was some confusion in terms of interpreting the overall horizontal and vertical axes, which would have benefited from clearer labelling.</p>
+<p>Finally, the mean pain scores in the treatment groups are summarised in line plots, which shows the overall trend in terms of efficacy, although may have been easier to interpret if the treatment groupshad been superimposed.</p>
 <p><a href="#example6%20code">link to code</a></p>
 <h1 id="code">Code</h1>
 <p><a id="example1 code"></a></p>
-<h2 id="example-1.-barplot-1">Example 1. Barplot</h2>
-<p>The Rmd file can be found <a href="./code/2021-02-10_final%20-%20orhan%20aktaş.Rmd">here</a></p>
-<p><a href="#example1">Back to blog</a></p>
-<p><a id="example2 code"></a></p>
-<h2 id="example-2.-missing-data-pattern-1">Example 2. Missing data pattern</h2>
-<p>The Rmd file can be found <a href="./code/ch_missing_data%20-%20Agustin%20Calatroni.rmd">here</a></p>
-<p><a href="#example2">Back to blog</a></p>
-<p><a id="example3 code"></a></p>
-<h2 id="example-3.-heatmap-1">Example 3. Heatmap</h2>
+<h2 id="example-1.-simple-heatmap-1">Example 1. Simple Heatmap</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Heatmap:</span>
@@ -1582,16 +1585,25 @@ and is generally higher in the active group"</span><span class='op'>)</span> <sp
 </code></pre>
 </div>
 </div>
+<p><a href="#example1">Back to blog</a></p>
+<p><a id="example2 code"></a></p>
+<h2 id="example-2.-mirrored-histogram-1">Example 2. Mirrored Histogram</h2>
+<p>The Rmd file can be found <a href="./code/2021-02-10_final%20-%20orhan%20aktaş.Rmd">here</a></p>
+<p><a href="#example2">Back to blog</a></p>
+<p><a id="example3 code"></a></p>
+<h2 id="example-3.-sankey-diagram-1">Example 3. Sankey Diagram</h2>
+<p>The sas file can be found <a href="./code/missing_sankey%20-%20David%20Carr.sas">here</a>.</p>
 <p><a href="#example3">Back to blog</a></p>
 <p><a id="example4 code"></a></p>
-<h2 id="example-4.-animated-dot-plot">Example 4. Animated dot plot</h2>
+<h2 id="example-4.-animated-scatter-plot-1">Example 4. Animated Scatter Plot</h2>
 <p>The sas file for the first visualization can be found <a href="./code/missing_anim_chgfbl_svg%20-%20David%20Carr.sas">here</a><br />
 The sas file for the second visualization can be found <a href="./code/missing_anim_svg%20-%20David%20Carr.sas">here</a></p>
 <p><a href="#example4">Back to blog</a></p>
 <p><a id="example5 code"></a></p>
-<h2 id="example-5.-sankey-plots-1">Example 5. Sankey plots</h2>
-<p>The sas file can be found <a href="./code/missing_sankey%20-%20David%20Carr.sas">here</a>.</p>
+<h2 id="example-5.-complex-heatmap-1">Example 5. Complex Heatmap</h2>
+<p>The Rmd file can be found <a href="./code/ch_missing_data%20-%20Agustin%20Calatroni.rmd">here</a></p>
 <p><a href="#example5">Back to blog</a></p>
+<p><a id="example6 code"></a></p>
 <h2 id="example-6.-scrollytelling-1">Example 6. Scrollytelling</h2>
 <p>There is no code available (yet).</p>
 <p><a href="#example6">Back to blog</a></p>
