@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays April 2021"
 description: |
   COPD is a disease that effects adults typically aged 40 years or older. It is a chronic condition that effects the lungs of a patient. The intervention in this study was an self-management app that aimed to improve inhaler use and exercise capacity in individuals with COPD. Users of the intervention could access different videos to educate themselves around different topics to better understand COPD and what steps help improve their condition, such as exercise or smoking cessation. Users could also report other detail such as their medication use, their CAT score and even a daily symptom score on how they are feeling that day. All this information could be shared with their doctor who can then monitor and manage patients to ensure they get the right treatment for them.
 author:
-  - name: PSI VIS SIG
+  - name: Lovemore Gakava
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 04-14-2021
 categories:
@@ -18,7 +18,8 @@ output:
 
 
 # Mobile app data
-This was a 12-week small scale, open-label, parallel-group, randomised controlled trial of the app compared with usual care in people with mild–moderate COPD. The aim of the trial was to establish if the delivery of the self-management app would improve patients COPD impact. For this 60 participants were randomised 1:1 to either the app (N=29) or to usual care (N=31) and were stratified by COPD Severity, the study was not fully powered.
+This was a 12-week small scale, open-label, parallel-group, randomised controlled trial of the app compared with usual care in people with mild-moderate COPD. The aim of the trial was to establish if the delivery of the self-management app would improve patients COPD impact. For this 60 participants were randomised 1:1 to either the app (N=29) or to usual care (N=31) and were stratified by COPD Severity, the study was not fully powered.
+
 
 In the intervention arm:
 
@@ -30,38 +31,105 @@ The challenge was to explore these patterns/relationships visually.
 
 <a id="example1"></a>
 
-## Example 1. Visualization app
+## Example 1. Animation: Dot plot over time
 
-![](./images/ITA_education_video - Irene De la Torre Arenas.png)  
-![](./images/ITA_inhaler - Irene De la Torre Arenas.png)  
-![](./images/ITA_pulmonary_rehab - Irene De la Torre Arenas.png)  
-![](./images/ITA_time_scores - Irene De la Torre Arenas.png)  
-The app can be found [here.](https://observablehq.com/@irenedelatorre/wonderful-wednesday-april-2021-copd-app-data)  
+![](./images/data_viz - Lauren Bell.png)  
+The video can be found [here](./images/data_viz - Lauren Bell.mp4).  
 
-(A summary of the discussion will be added shortly.)
+Pros: This is a more effective replacement to patient profile listings. It's easy at a glance to detect patterns across patients: for example some patients had more data compared to others. You can compare across days if there are different activities for each subject. 
+
+Cons:
+
+- Difficult to see activities that occur on different weeks and at the same week day and time. 
+- Difficult to compare across individuals
+- Use of the inverted y-axis where the bottom is maximum and the top is minimum can be viewed as counter-intuative. It would be great to align to the usual conventions of the minimum being at the bottom and the maximum at the top. 
+- Use of different colours for each patient is ineffective as each patient is shown separately.
+
+Possible improvements: 
+Add an explanation to explain that activities occuring on the same week day for different weeks will be overlaid.
+Jittering could be used to show information where there is an overlay
+Frequency of activities is not visible and the size/area of the symbols could be adjusted to reflect this
+An overall plot showing all patients could be provided to check if there is a pattern over all patients
+A more effective way would be to show all the patients in grey and the patient for that panel in colour. This will help in comparing the patient to all the subjects.
+
 
 [link to code](#example1 code)
 
 
 <a id="example2"></a>
 
-## Example 2. Dot plot over time
+## Example 2. Dashboard/Multiplot: LineUp
 
-![](./images/data_viz - Lauren Bell.png)  
-The video can be found [here](./images/data_viz - Lauren Bell.mp4).  
+![](./images/h_lineup - Agustin Calatroni.png)  
+The app can be found [here](./images/h_lineup - Agustin Calatroni.html).  
 
-(A summary of the discussion will be added shortly.)
+Pros:
+
+- A great exploration tool - with all the information at one glance. 
+- Great exploration functionalities such as sorting, filtering and analysis
+- The explanation video helps to understand the features and functionalities of the dashboard. 
+- An additional benefit of being able to see the distribution of the variables of interest through use of the bar/histogram charts 
+- The visualisation is easily extended to different types of datasets, which for example can be part of an appendix of clinical documents
+
+
+Cons: It might be difficult to view on smaller screens
+
+Possible improvements:
+
+- There was a debate among the panelists on the advantages and disadvantages of the reuse of colour. There was a suggestion that it might be good to use intuitive colors, for example for COPD severity
+- light red or orange or dark red for severity. Another suggestion was to use different shades of grey for baseline characteristics.
+
 
 [link to code](#example2 code)
 
 <a id="example3"></a>
 
-## Example 3. LineUp
+## Example 3. Visualization app
 
-![](./images/h_lineup - Agustin Calatroni.png)  
-The app can be found [here](./images/h_lineup - Agustin Calatroni.html)  
+![](./images/ITA_education_video - Irene De la Torre Arenas.png)  
+![](./images/ITA_inhaler - Irene De la Torre Arenas.png)  
+![](./images/ITA_pulmonary_rehab - Irene De la Torre Arenas.png)  
+![](./images/ITA_time_scores - Irene De la Torre Arenas.png)  
+The app can be found [here](https://observablehq.com/@irenedelatorre/wonderful-wednesday-april-2021-copd-app-data).  
 
-(A summary of the discussion will be added shortly.)
+Pros:
+
+- A great exploration tool - with all the information at one glance. 
+- Great exploration functionalities such as sorting, filtering and analysis
+- The explanation video helps to understand the features and functionalities of the dashboard. 
+- An additional benefit of being able to see the distribution of the variables of interest through use of the bar/histogram charts 
+- The visualisation is easily extended to different types of datasets, which for example can be part of an appendix of clinical documents
+
+
+Cons: It might be difficult to view on smaller screens
+
+Possible improvements:
+
+- There was a debate among the panelists on the advantages and disadvantages of the reuse of colour. There was a suggestion that it might be good to use intuitive colors, for example for COPD severity
+- light red or orange or dark red for severity. Another suggestion was to use different shades of grey for baseline characteristics.
+
+
+## Example 3. Visualization app
+
+Comments for the visualisation with the title: When did users register activities and watch COPD Education Videos on the App?
+
+Pros:
+
+- The overall organisation is great. The layout is crisp, clean and has very limited distractions.
+- It's great to see all patients in one view.
+- The functionality of different sorting by the variable of interest makes it versatile to explore these. 
+- Showing all the other patients data in grey makes it easier to compare the selected patient across all patients.
+- The graph can be extended to other graphs we see in clinical trials
+- The clever use of the right aligning y-axis tick labels on the left makes it easier to connect the words with the horizontal lines.
+
+Cons: The tradeoff of showing all patients in one view is that the lines for some patients will be very small 
+
+Possible improvements:
+There is a great variation in the number videos watched and the scale may benefit from using a logarithmic scale or cut off data (e.g. greater than 10)
+
+Other representations:
+If the aim is to explore within patient patterns it might be best to have a filter to select a patient and the visualisation will show the different types of videos watched by that patient.
+
 
 [link to code](#example3 code)
 
@@ -71,18 +139,7 @@ The app can be found [here](./images/h_lineup - Agustin Calatroni.html)
 
 <a id="example1 code"></a>
 
-## Example 1. Visualization app
-
-The code can be found [here](https://observablehq.com/d/93b698590f9dd7b2).
-
-
-[Back to blog](#example1)
-
-
-
-<a id="example2 code"></a>
-
-## Example 2. Dot plot over time
+## Example 1. Animation: Dot plot over time
 
 ```{r, echo = TRUE, eval=FALSE}
 # Data viz PSI
@@ -172,14 +229,24 @@ final_animation<-animate(p,100,fps = 20,duration = 30, width = 950, height = 750
 anim_save("./data_viz.mp4",animation=final_animation)
 ```
 
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. Dashboard/Multiplot: LineUp
+
+The rmd file can be found [here](./code/f_lineup - Agustin Calatroni.rmd).
+
 
 [Back to blog](#example2)
 
 
 <a id="example3 code"></a>
 
-## Example 3. LineUp
+## Example 3. Visualization app
 
-The rmd file can be found [here](./code/f_lineup - Agustin Calatroni.rmd).
+The code can be found [here](https://observablehq.com/d/93b698590f9dd7b2).
 
 [Back to blog](#example3)
