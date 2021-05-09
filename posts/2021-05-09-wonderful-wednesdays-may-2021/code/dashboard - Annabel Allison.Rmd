@@ -1,0 +1,154 @@
+---
+title: "Response to Psoriasis Treatment"
+output: flexdashboard::flex_dashboard
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(magrittr)
+library(plotly)
+```
+
+
+```{r functions, include=FALSE}
+
+# calculate response status
+resp_fnc <- function(x, a){
+  case_when(is.na(x) ~ "M",
+            x <= -a ~ "R",
+            TRUE ~ "N")
+}
+
+# calculate no. of consecutive visits px is a responder 
+find_max_non_r <- function(r_seq, no_visits){
+  
+  r_seq_week_x <- strsplit(r_seq, "")[[1]][1:no_visits]
+  which_non_r <- which(!(r_seq_week_x == "R"))
+  max_non_r <- ifelse(length(which_non_r) == 0, 0, max(which_non_r))
+  
+  if (max_non_r == no_visits) return("Non-responder")
+  return(paste("Responder: consecutive visits in response =", as.character(no_visits - max_non_r)))
+  
+}
+
+# function for creating hover labels
+create_timepoint_df <- function(df, time_char, TIME_CHAR){
+  
+  time_char = enquo(time_char)
+  
+  df %>% 
+    group_by(TRT, !!time_char) %>% 
+    summarise(freq_week = paste0(round(sum(freq) / 300 * 100, 1), "%")) %>%
+    mutate(cat_resp = paste(!!time_char, freq_week, sep = ": ")) %>% 
+    group_by(TRT) %>% 
+    summarise(label = paste(rev(cat_resp), collapse = "\n")) %>% 
+    mutate(timepoint = TIME_CHAR)
+  
+}
+
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+A responder at each time-point is defined as having a XX% reduction in Psoriasis Area and Severity Index (PASI) relative to baseline.   
+
+```{r}
+
+selectInput("pct", label = "Select % cut-off for response:",
+            choices = c("\u226575" = "75", "\u226590" = "90", "100" = "100"), 
+            selected = "75")
+
+
+```
+
+
+
+Column 
+-----------------------------------------------------------------------
+
+### **Response occurs earlier and is more sustained on active treatment**
+
+```{r}
+
+renderPlotly({
+
+# read in data
+df <- read_csv("WWW_SustainedResponse.csv") %>% as.data.frame
+
+# calculate %change from baseline and response status
+df[, 4:11] <- apply(df[, 4:11], 2, function(x) 100 * (x - df[, 3]) / df[, 3])
+df[, 4:11] <- apply(df[, 4:11], 2, resp_fnc, a = as.numeric(input$pct))
+
+# calculate frequency of each response sequence
+# find no. of consecutive visits px is a "responder"
+df_freq <- df %>%
+           group_by(TRT, WEEK01, WEEK04, WEEK08, 
+                    WEEK16, WEEK24, WEEK32, WEEK40, WEEK52) %>%
+           summarise(freq = n()) %>%
+           ungroup() %>% 
+           mutate(resp_seq = paste0(WEEK01, WEEK04, WEEK08, WEEK16, WEEK24, WEEK32, WEEK40, WEEK52),
+                  week_1   = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 1),
+                  week_4   = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 2),
+                  week_8   = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 3),
+                  week_16  = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 4),
+                  week_24  = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 5),
+                  week_32  = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 6),
+                  week_40  = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 7),
+                  week_52  = purrr::map_chr(resp_seq, find_max_non_r, no_visits = 8))
+
+# create labels for plotting
+df_labels <- rbind(create_timepoint_df(df_freq, week_1, "WEEK01"),
+                   create_timepoint_df(df_freq, week_4, "WEEK04"),
+                   create_timepoint_df(df_freq, week_8, "WEEK08"),
+                   create_timepoint_df(df_freq, week_16, "WEEK16"),
+                   create_timepoint_df(df_freq, week_24, "WEEK24"),
+                   create_timepoint_df(df_freq, week_32, "WEEK32"),
+                   create_timepoint_df(df_freq, week_40, "WEEK40"),
+                   create_timepoint_df(df_freq, week_52, "WEEK52"))           
+
+# convert main dataframe to long format 
+df_long <- gather(df, timepoint, value, WEEK01:WEEK52, factor_key = TRUE)
+
+# calculate % responders at each timepoint by treatment group
+# add numerical timepoint for plotting proportional x-axis
+# merge with labels
+df_sum <- df_long %>%
+          group_by(TRT, timepoint) %>%
+          summarise(resp = 100 * length(which(value == "R")) / n(),) %>%
+          mutate(timepoint_n = c(1, 4, 8, 16, 24, 32, 40, 52)) %>%
+          merge(df_labels, all = TRUE)
+
+# create barchart
+p <- ggplot(df_sum, aes(x = timepoint_n, y = resp, fill = TRT, text = label)) +
+       geom_bar(stat = "identity", position = position_dodge(), colour = "black") +
+       ylab("Percentage of responders") + 
+       ylim(0, 100) +
+       scale_x_continuous("Week",
+                          breaks = unique(df_sum$timepoint_n)) + 
+       scale_fill_manual("",
+                         values = c("#E41A1C", "#377EB8", "lightgrey")) +
+       theme_minimal()
+  
+ggplotly(p, tooltip = "text")
+  
+})
+
+
+```
+
+
+
+
+    
+     
+    
+    
+
+    
+    
+
+    
+    
