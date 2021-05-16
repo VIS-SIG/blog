@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays May 2021"
 description: |
   Psoriasis is a chronic, inflammatory skin disease. For such diseases, it is of interest to not only compare treatments in terms of patients achieving a response, but also in terms of patients sustaining this response once it is achieved. This is the focus of this month’s challenge: produce a visualization to compare treatments with regards to patients sustaining a response. The synthetic data contains PASI (Psoriasis Area and Severity Index) scores for three treatment groups: two receive an active treatment in different doses; the third receives a comparator. The three arms are balanced, with 300 patients in each. The data contains PASI scores at Baseline and eight follow-up visits, spread over the course of a year. PASI scores can range from 0 to 72, with higher scores indicating a worse condition state. The criteriafor response can be chosen, but typical thresholds include a 75%, 90% or 100% reduction in PASI scores relative to Baseline (PASI75/PASI90/PASI100). More than one threshold could also be considered in the same visualization.
 author:
-  - name: PSI VIS SIG
+  - name: Lorenz Uhlmann
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 05-12-2021
 categories:
@@ -18,7 +18,7 @@ output:
 ---
 
 
-# <Overall title of the webinar>
+# Sustained response data
 Different approaches could be considered to define a patient as having sustained their response. A simple definition of sustained response could be that having achieved a response at a given visit, a patient then has that response at all subsequent visits. More complex approaches may explore different methods for interpolating between visits.
 
 The dataset also contains a small amount of missing data. It may be of interest to explore how the approach used to handle this missing data influences the interpretation of sustained response.
@@ -31,7 +31,11 @@ The dataset also contains a small amount of missing data. It may be of interest 
 ![](./images/WWW_May_RhysWarham - Rhys Warham.png)  
 [high resolution image](./images/WWW_May_RhysWarham - Rhys Warham.pdf)  
 
-(A summary of the discussion will be added shortly.)
+This visualization is based on patient level data and shows the PASI response over time. Each patient is represented by one line and the three groups are presented in three different blocks. The title is very clear and provides the reader with the main message. Furthermore, the color coding is presented (in the sub-title) as well as the imputation strategy. Therefore, it is very informative.
+
+The selection of the colors is very reasonable. The colors go from red (no response) to yellow (PASI100) which makes intentionally sense considering that we are dealing with dermatology data. You can clearly see a step function over time and that the two active doses lead to a quicker response. Furthermore, at the right end of the plots, we see more yellow areas with the active doses than with the comparator.
+
+The sorting of the patients is a challenge here. Even though the panelists considered the sorting as reasonable, there might be other options, for example, sorting by PASI100 at week 52. An interactive tool where the user can select the sorting might be an option and brings a lot of flexibility into this visualization.
 
 [link to code](#example1 code)
 
@@ -43,7 +47,11 @@ The dataset also contains a small amount of missing data. It may be of interest 
 ![](./images/pasi_dashboard - Annabel Allison.PNG)  
 [high resolution image](./images/pasi_dashboard - Annabel Allison.PNG)  
 
-(A summary of the discussion will be added shortly.)
+In the main panel, we see a barplot representing the percentage of responders over time. The groups are color-coded and can be easily distinguished due to the nice choice of colors. The (sub)title and the visualization itself have a clear message. Furthermore, the distance between the bars corresponds to the distance in time which is a nice detail.
+
+This visualization has an interactive part: The user can select the percentage cut-off for response (in the left panel). When you select a different cut-off, the dimension of the y-axis remains the same which makes it very easy to compare the results even between the results based on different cut-offs. Furthermore, you can hover over the bars and it will provide you with additional information about the sustainability of the response.
+
+(To use the app, just run the Rmd file in the "Code" section below.)
 
 [link to code](#example2 code)
 
@@ -56,7 +64,17 @@ The dataset also contains a small amount of missing data. It may be of interest 
 
 [Link to app](./images/kml_response - Agustin Calatroni.html)  
 
-(A summary of the discussion will be added shortly.)
+This is a very comprehensive visualization. Actually, it is not only a visualization, but also a presentation of a statistical analysis. A trajectory clustering has been performed to devide the patients into five different clusters with different characteristics in regards to their PASI percentage changes.
+
+The row A presents the trajectories of all patients. This gives you a first overview over the data. In row B, the trajectories of the five clusters are provided. This gives you an overview over the different characteristics of the clusters. The first cluster seems to contain patients with a quick response and a very good sustainability of the response. This seems to be the cluster with the best performing patients. The second cluster is very similar, however, patients take a little longer until they respond and the overall level of the percentage change seems to be a bit worse. The third cluster is again a bit worse. The forth cluster still shows some improvement in PASI, however, quite many patients do not reach a good PASI response even at week 52. The fifth cluster contains patients who do not seem to improve in regards to the PASI score. (Note that there are only very few patients in this cluster.) Row C shows basically the same information as row B. An average trajectory per cluster is presented. Row D visualizes the number of patients per treatment group in each cluster using a "Waffle Chart". And row E presents the percentages of patients per treatment group in each cluster.
+
+The boxes below the plots and the footnote provide additional information about the difference between cluster in their treatment composition. This information is further outlined in the second tab of the app. Using a tree, the differences in the treatment composition between the clusters is visualized.
+
+This is a very interesting and useful analysis and visulization. You can see that the first cluster (which was the best one) contains mainly patients in the two active treatment arms. Thus, we can say that those treatments seem to lead to a quicker and a sustained response compared to the comparator. In the "worse" cluster, we see more patients who were in the comparator arm.
+
+One aspect that could be improved is the coloring in row C. Actually, we do not need any color here, because the colors only seem to be different between the clusters. This information is already given by the structure of the columns, though. Furthermore, the colors are very similar to the colors which are used in row D and E to code the treatment arms.
+
+Overall, this is a very elaborated and advanced visualization which provides the user with a lot of information. At the same time, the structure is very clear which makes it easy to understand the message of the visualization.
 
 [link to code](#example3 code)
 
