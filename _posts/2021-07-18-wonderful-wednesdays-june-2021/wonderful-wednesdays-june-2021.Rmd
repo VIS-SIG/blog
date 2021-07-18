@@ -7,8 +7,8 @@ author:
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 06-09-2021
 categories:
-  - Patient Reported Outcomes
-  - Psychometric
+  - Vasculitis
+  - Rare disease
   - Wonderful Wednesdays
 base_url: https://vis-sig.github.io/blog
 preview: ./images/remission-tte - Mark Baillie.png
