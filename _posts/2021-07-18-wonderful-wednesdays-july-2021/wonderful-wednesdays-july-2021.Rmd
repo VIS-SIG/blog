@@ -84,6 +84,15 @@ The app can be found [here](./images/sdq - Agustin Calatroni.html).
 
 
 
+## Example 6. Wright map
+
+![](./images/Wrightmap - Philip Griffiths.png)  
+[high resolution image](./images/Wrightmap - Philip Griffiths.png).  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example6 code)
+
 # Code
 
 <a id="example1 code"></a>
@@ -257,76 +266,6 @@ Response_Distributions <- annotate_figure(Response_Distributions,
 Response_Distributions
 png(filename = "Response Distributions.png",  width = 920, height = 540, units = "px", pointsize = 10,bg = "white")
 Response_Distributions
-dev.off()
-
-
-###### 4 - Cat Long Form ####### 
-#run the model. remember that for rasch models, these are 1 parameter models and will have the same slope across all items
-GRM_model <- mirt(data=dat_t1, model = 1, itemtype = 'graded', SE=TRUE, verbose=FALSE)
-
-
-#extract the coefficients
-GRM_model_coef <- coef(GRM_model, IRTpars=TRUE, simplify=TRUE)
-
-#save them as a dataframe
-GRM_model_items <- round(as.data.frame(GRM_model_coef$items), 2)
-Items <- rownames(GRM_model_items)
-
-GRM_model_items <- cbind(Items, GRM_model_items) %>%
- 
-#create rasch based scores if this is necessary - are used in the person item map below. 
-Scores <- (fscores(GRM_model, model = 'EAP'))
-
-
-
-#Take threshold (b) parameters
-thresholds <- GRM_model_items[3:5] 
-
-#plot and save
-###USING GGPLOT
-#Data
-thresholds_long <- thresholds %>%
-  rownames_to_column() %>%
-  rename(Item = rowname) %>%
-  arrange(b1) %>%
-  mutate(Item = fct_reorder(Item, b1)) %>%
-  pivot_longer(cols=-Item, names_to = "threshold", values_to = "AVAL")
-#Itemside
-WrightMap_item <- ggplot(data = thresholds_long, aes(x=factor(Item), y=AVAL)) +
-  geom_line(aes(group=factor(Item))) +
-  geom_point(aes(colour=threshold), size=5) +
-  scale_colour_manual(name="Response Threshold", labels = c("Severe/Moderate", "Moderate/Mild", "Mild/None"), values = c(Turquoise100, Blue100, Green100)) +
-  labs( x = "Item", y = "Latent Score")  +
-  theme_bw() + 
-  theme(text = element_text(size=16),
-        axis.text.x=element_text(colour="black"),
-        axis.text.y=element_text(colour="black"))+
-  theme(axis.text = element_text(size = 10)) + 
-  theme(
-    legend.title = element_text(size = 12),
-    legend.text = element_text(size = 10)
-  )+
-  scale_y_continuous(breaks = seq(from = -2.5, to = 2.5, by = 1),limits=c(-2.5,2.5)) +
-  coord_flip() +
-  theme(legend.position="bottom") 
-WrightMap_item
-
-#PersonSide
-Scores <- as.data.frame(Scores)
-WrightMap_person <- ggplot(data = Scores) +
-  geom_bar(aes(x=F1)) +
-  scale_x_binned(breaks = seq(from = -2.5, to = 2.5, by = 0.25),limits=c(-2.5,2.5)) +
-  #theme_bw()
-  theme_void()
-WrightMap_person
-
-WrightMap <- ggarrange(WrightMap_person,WrightMap_item + font("x.text", size = 10),
-                               ncol = 1, nrow = 2, align = "v", heights=c(0.75,2.25))
-
-WrightMap
-
-png(filename = "Wrightmap.png",  width = 920, height = 540, units = "px", pointsize = 10,bg = "white")
-WrightMap
 dev.off()
 ```
 
@@ -517,3 +456,83 @@ qgraph(cor(dat_t1), layout = "spring", labels =
 The rmd file can be found [here](./code/sdq - Agustin Calatroni.rmd).
 
 [Back to blog](#example5)
+
+
+<a id="example6 code"></a>
+
+## Example 6. Wright map
+
+You may need to run (some parts of) the code in Example 1 before you can run the following code.
+
+```{r, echo = TRUE, eval=FALSE}
+###### 4 - Cat Long Form ####### 
+#run the model. remember that for rasch models, these are 1 parameter models and will have the same slope across all items
+GRM_model <- mirt(data=dat_t1, model = 1, itemtype = 'graded', SE=TRUE, verbose=FALSE)
+
+
+#extract the coefficients
+GRM_model_coef <- coef(GRM_model, IRTpars=TRUE, simplify=TRUE)
+
+#save them as a dataframe
+GRM_model_items <- round(as.data.frame(GRM_model_coef$items), 2)
+Items <- rownames(GRM_model_items)
+
+GRM_model_items <- cbind(Items, GRM_model_items) %>%
+ 
+#create rasch based scores if this is necessary - are used in the person item map below. 
+Scores <- (fscores(GRM_model, model = 'EAP'))
+
+
+
+#Take threshold (b) parameters
+thresholds <- GRM_model_items[3:5] 
+
+#plot and save
+###USING GGPLOT
+#Data
+thresholds_long <- thresholds %>%
+  rownames_to_column() %>%
+  rename(Item = rowname) %>%
+  arrange(b1) %>%
+  mutate(Item = fct_reorder(Item, b1)) %>%
+  pivot_longer(cols=-Item, names_to = "threshold", values_to = "AVAL")
+#Itemside
+WrightMap_item <- ggplot(data = thresholds_long, aes(x=factor(Item), y=AVAL)) +
+  geom_line(aes(group=factor(Item))) +
+  geom_point(aes(colour=threshold), size=5) +
+  scale_colour_manual(name="Response Threshold", labels = c("Severe/Moderate", "Moderate/Mild", "Mild/None"), values = c(Turquoise100, Blue100, Green100)) +
+  labs( x = "Item", y = "Latent Score")  +
+  theme_bw() + 
+  theme(text = element_text(size=16),
+        axis.text.x=element_text(colour="black"),
+        axis.text.y=element_text(colour="black"))+
+  theme(axis.text = element_text(size = 10)) + 
+  theme(
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10)
+  )+
+  scale_y_continuous(breaks = seq(from = -2.5, to = 2.5, by = 1),limits=c(-2.5,2.5)) +
+  coord_flip() +
+  theme(legend.position="bottom") 
+WrightMap_item
+
+#PersonSide
+Scores <- as.data.frame(Scores)
+WrightMap_person <- ggplot(data = Scores) +
+  geom_bar(aes(x=F1)) +
+  scale_x_binned(breaks = seq(from = -2.5, to = 2.5, by = 0.25),limits=c(-2.5,2.5)) +
+  #theme_bw()
+  theme_void()
+WrightMap_person
+
+WrightMap <- ggarrange(WrightMap_person,WrightMap_item + font("x.text", size = 10),
+                               ncol = 1, nrow = 2, align = "v", heights=c(0.75,2.25))
+
+WrightMap
+
+png(filename = "Wrightmap.png",  width = 920, height = 540, units = "px", pointsize = 10,bg = "white")
+WrightMap
+dev.off()
+```
+
+[Back to blog](#example6)
