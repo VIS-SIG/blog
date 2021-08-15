@@ -1491,39 +1491,47 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1 id="simulated-disease-questionnaire">Simulated Disease Questionnaire</h1>
 <p>The dataset includes item level data for a 12 item (question) Simulated Disease Questionnaire (SDQ-12) at four different timepoints and for 2000 patients. Each item is scored on a 0-3 scale (0 representing worst possible health state/most severe symptoms, 3 representing best possible health state and no symptoms), and a sum score is also calculated by adding all item responses. Each of the 12 items has been simulated to represent a distinct symptom</p>
 <p><a id="example1"></a></p>
-<h2 id="example-1.-item-response-distribution-plot">Example 1. Item response distribution plot</h2>
+<h2 id="example-1.-item-response-distribution-plot">Example 1. Item Response Distribution Plot</h2>
 <p><img src="images/Response%20Distributions%20-%20Philip%20Griffiths.png" /><br />
 <a href="./images/Response%20Distributions%20-%20Philip%20Griffiths.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This visualization displays the distribution of the individual items over each of the four days available in the data. Each horizontal bar is coloured in varying shades of blue with darker shades indicating higher levels of severity in the corresponding item for that day.</p>
+<p>The visualization allows the viewer to quickly identify the greater severities observed on Day 4, and to compare the individual items on each day. This provides a nice overview of the data which is quick and easy to understand. The use of darker shades to represent darker colours is intuitive.</p>
+<p>The panel did feel that some of the repeated axis labels are unnecessary and could be removed to reduce clutter, and that a more informative item sorting than alphabetical could be used. Whilst the individual items can easily be compared for each day, it is slightly more difficult to see the changes in each item over time.</p>
 <p><a href="#example1%20code">link to code</a></p>
 <p><a id="example2"></a></p>
-<h2 id="example-2.-individual-item-level-plot">Example 2. Individual item level plot</h2>
+<h2 id="example-2.-individual-item-level-plot">Example 2. Individual Item Level Plot</h2>
 <p><img src="images/change-by-symptom-score-ITA%20-%20Irene%20De%20la%20Torre%20Arenas.png" /><br />
 <a href="./images/change-by-symptom-score-ITA%20-%20Irene%20De%20la%20Torre%20Arenas.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This visualization also displays the distribution of the individual items over time, although an alternative layout is considered here which puts greater emphasis on the progression of each item over time. Again, an intuitive colour scheme is used with green shades indicating better outcomes and pink shades indicating worse.</p>
+<p>The individual items are not ordered according to item number, suggesting some ordering has been applied, although it is not the easiest to see what this sorting is. There are also quite large spaces between the individual bars, which makes it slightly more difficult to compare the bars than if they were closer together.</p>
 <p><a href="#example2%20code">link to code</a></p>
 <p><a id="example3"></a></p>
-<h2 id="example-3.-waterfall-plot">Example 3. Waterfall plot</h2>
+<h2 id="example-3.-waterfall-plot">Example 3. Waterfall Plot</h2>
 <p><img src="images/Ability_to_detect_change%20-%20Philip%20Griffiths.png" /><br />
 <a href="./images/Ability_to_detect_change%20-%20Philip%20Griffiths.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This waterfall plot displays the individual change score of each patient. The bars are coloured by the patients’ self-reported conditions, allowing us to easily see the tools’ ability to detect change. This nicely addresses one of the key focuses of this month’s challenge. The plot has a meaningful title and subtitle, and the removal of unnecessary clutter allows the viewer to really focus on what is important.</p>
+<p>Whilst it is easy to see the patterns in the tails of the distribution and thus deduce the general picture, it is slightly harder to distinguish the message towards the middle of the plot where the colours frequently change. This could be somewhat addressed if at a given change score, the individual bars were sorted according to self-reported condition and thus colours were grouped. Without such a sorting, we observe an unusual effect where our eyes pick up some bars which appear to be of different colours than those which are in the legend. Adding a slight jitter or similar may also enhance this plot by allowing us to see the colours of those patients with a change score of zero.</p>
 <p><a href="#example3%20code">link to code</a></p>
 <p><a id="example4"></a></p>
-<h2 id="example-4.-network-plot">Example 4. Network plot</h2>
+<h2 id="example-4.-network-plot">Example 4. Network Plot</h2>
 <p><img src="images/Network%20-%20Philip%20Griffiths.png" /></p>
 <p><a href="./images/Network%20-%20Philip%20Griffiths.png">high resolution image</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This plot overviews relationships between the different items and scores. It displays some interesting connections, although it would benefit from some supplementary information to detail what exactly the connections show, what the colours of the bars represent, etc. The assumption of the panel was that the connections represented correlations, with colour used to indicate whether these are positive or negative. It would be great for this to be clarified on the plot, avoiding any risk of misinterpretation. Given the large number of connections in the network, allowing the user to interactively select which items to investigate would be a nice enhancement.</p>
 <p><a href="#example4%20code">link to code</a></p>
 <p><a id="example5"></a></p>
-<h2 id="example-5.-interactive-plot">Example 5. Interactive plot</h2>
+<h2 id="example-5.-interactive-plot">Example 5. Interactive Plot</h2>
 <p><img src="images/Interactive_plot.png" /><br />
 The app can be found <a href="./images/sdq%20-%20Agustin%20Calatroni.html">here</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This interactive tool has multiple tabs each displaying different information. As well as the visualisation aspects, the final tab provides an overview of the data, allowing the user to deep-dive into the numbers. This is a great feature for an exploratory tool.</p>
+<p>The first tab displays a principal component analysis showing the relationship between the items. Dots closer to the centre have higher correlations with SQD-12, and the relative positions of the dots display indicate relationships between individual items. This nicely allows the user to investigate multiple relationships. There is also the possibility for the user to select individual time points of interest. The plot is slightly difficult to interpret at first and takes a little bit of time to digest, particularly with the position of the items changing. However, the supplementary text is great for providing detail of how to understand the plot. It would be a useful addition if a key outlining the abbreviations for the individual items was always visible to the user.</p>
+<p>The second tab provides a scatterplot matrix displaying item level distributions, correlations between items and distributional relationships between items. Again, the plot takes a little time to understand and dig into but provides a wealth of information that is useful for individuals who want to investigate the data at length.</p>
 <p><a href="#example5%20code">link to code</a></p>
-<h2 id="example-6.-wright-map">Example 6. Wright map</h2>
+<h2 id="example-6.-wright-map">Example 6. Wright Map</h2>
 <p><img src="images/Wrightmap%20-%20Philip%20Griffiths.png" /><br />
 <a href="./images/Wrightmap%20-%20Philip%20Griffiths.png">high resolution image</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This final visualization has two features: a histogram displaying the underlying characteristics of the patient population and a supplementary graph displaying the expected response thresholds for the different severity levels in relation to the underlying latent scores.</p>
+<p>Again, the plot takes a moment to interpret, but once understood provides a message that is easy to understand. It may help the viewer understood more quickly if the vertical gridlines were continued up to the histogram (or alternatively if the x-axis was positioned between the two plots) to make clear that the two aspects of the visual are connected.</p>
+<p>The colouring of the points is generally sensible, although some panellists felt that using the darker blue score for the most severe response may be more intuitive. The bars are logically sorted according to the severe/moderate response threshold. The plot would benefit from an informative title and the use of integer values on the x-axis.</p>
 <p><a href="#example6%20code">link to code</a></p>
 <h1 id="code">Code</h1>
 <p><a id="example1 code"></a></p>
