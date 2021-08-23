@@ -1,9 +1,22 @@
 ---
 title: "Wonderful Wednesdays June 2021"
 description: |
-  Vasculitis is an inflammation of the blood vessels, in many cases caused by the body’s immune system attacking healthy blood vessels, causing them to become swollen and narrow. The symptoms associated with vasculitis are varied, and include asthma, allergic rhinitis (cold-like symptoms), fever, joint pain, tiredness, loss of appetite and weight loss. In serious cases, if left untreated, severe vasculitis can lead to organ failure and death. Vasculitis is treated primarily with oral corticosteroid (OCS) treatment. However long-term usage of OCS therapy at high doses is associated with a number of side-effects which worsen over time, and steroid-dependency is often a concern, so steroid doses need to be reduced if possible. However, some patients have a propensity to relapse, in which the patient experiences an acute flare-up of symptoms, usually requiring immediate treatment with high dose OCS treatment. Patients are considered to be in remission if the symptom score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.
+  Vasculitis is an inflammation of the blood vessels, in many cases caused by
+  the body’s immune system attacking healthy blood vessels, causing them to
+  become swollen and narrow. The symptoms associated with vasculitis are varied,
+  and include asthma, allergic rhinitis (cold-like symptoms), fever, joint pain,
+  tiredness, loss of appetite and weight loss. In serious cases, if left
+  untreated, severe vasculitis can lead to organ failure and death. Vasculitis
+  is treated primarily with oral corticosteroid (OCS) treatment. However
+  long-term usage of OCS therapy at high doses is associated with a number of
+  side-effects which worsen over time, and steroid-dependency is often a
+  concern, so steroid doses need to be reduced if possible. However, some
+  patients have a propensity to relapse, in which the patient experiences an
+  acute flare-up of symptoms, usually requiring immediate treatment with high
+  dose OCS treatment. Patients are considered to be in remission if the symptom
+  score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.
 author:
-  - name: PSI VIS SIG
+  - name: Irene de la Torre Arenas
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 06-09-2021
 categories:
@@ -19,9 +32,18 @@ output:
 
 
 # Vasculitis Data
-This is a study of a new investigational medicine for the treatment of a rare type of vasculitis, with patients randomised to active treatment or placebo, with an on-treatment period of 52 weeks and a subsequent off-treatment follow-up period of up for 8 weeks. An ideal medicine would reduce vasculitis symptoms and/or enable a reduction in OCS dose and/or reduce the risk of relapse. Additional endpoints are defined for total number of days the patient was in remission during the on-treatment period, and a binary endpoint for whether a patients achieved remission within the first 24 weeks and maintained in remission until the end of the on-treatment period. Being a rare disease, there is no established consensus on a single endpoint for demonstrating efficacy.
+This is a study of a new investigational medicine for the treatment of a rare
+type of vasculitis, with patients randomised to active treatment or placebo,
+with an on-treatment period of 52 weeks and a subsequent off-treatment follow-up
+period of up for 8 weeks. An ideal medicine would reduce vasculitis symptoms
+and/or enable a reduction in OCS dose and/or reduce the risk of relapse.
+Additional endpoints are defined for total number of days the patient was in
+remission during the on-treatment period, and a binary endpoint for whether a
+patients achieved remission within the first 24 weeks and maintained in
+remission until the end of the on-treatment period. Being a rare disease, there
+is no established consensus on a single endpoint for demonstrating efficacy.
 
-
+This session 
 <a id="example1"></a>
 
 ## Example 1. Kaplan-Meier plot
@@ -29,7 +51,18 @@ This is a study of a new investigational medicine for the treatment of a rare ty
 ![](./images/remission-tte - Mark Baillie.png)  
 [high resolution image](./images/remission-tte - Mark Baillie.png)  
 
-(A summary of the discussion will be added shortly.)
+This Kaplan-Meier plot goes straight to the point and provides a picture of the
+data. Moreover, the chart makes viewers ask about the factor driving the
+difference between placebo and treatment. In terms of design, some panelists
+indicated that a way to improve it would have been to include the legend labels
+close to the lines. That implementation would have helped to highlight the
+connection between the colors and data.
+
+The informative title produced a bit of a discussion. A panelist asked the
+audience where is the line between describing the result and having a
+promotional title. Another member mentioned the importance of knowing the
+context where the chart will appear. Is it a poster? A Conference? A scientific
+journal?
 
 [link to code](#example1 code)
 
@@ -41,7 +74,18 @@ This is a study of a new investigational medicine for the treatment of a rare ty
 ![](./images/remission-individual - Mark Baillie.png)  
 [high resolution image](./images/remission-individual - Mark Baillie.png)  
 
-(A summary of the discussion will be added shortly.)
+Similar to a lasagna plot or heatmap, this chart shows timelines of the patients
+achieving remissions. The sorting is very helpful for identifying when they
+started their remission, a message also supported by the title. Some panelists
+wondered how the chart would look like with a different type of sorting, such as
+the length to achieve remission. Others asked about relapses, which is something
+that didn't appear in the plot.
+
+Some of the suggestions mentioned were around legends and annotations. It would
+have helped to have information about the circles or annotations that clarified
+the meaning of the dots without lines in the placebo facet. Another
+recommendation was to change the units of the X-axis to more relevant
+measurements, such as years or months.
 
 [link to code](#example2 code)
 
@@ -52,7 +96,20 @@ This is a study of a new investigational medicine for the treatment of a rare ty
 ![](./images/vis_app.png)  
 The app can be found [here](https://agstn.github.io/VAS/).  
 
-(A summary of the discussion will be added shortly.)
+In this session, the Webinar had a special guest as part of the panel: Agustin
+Calatroni, a regular contributor of the Wonderful Wednesdays. The members took
+the opportunity to ask him about his entry, his work process, and how he started
+learning R. His entry for this challenge was an R Shiny App that included
+different filtering and sorting options. His app allowed viewers to see when
+patients entered in remission or relapse, and also the reasons for those events.
+In summary, the app brought up many ways of interacting, exploring, and
+visualizing the data.
+
+Asked about how he builds his apps, Calatroni stated that he always designs his
+apps to organize the information from general to particular views, or
+vice-versa. He also tries to provide as many answers for his stakeholders as
+possible. This is why he always includes a table for them in all his
+applications.
 
 [link to code](#example3 code)
 
