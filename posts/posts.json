@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-09-03-scientific-meeting/",
+    "title": "PSI Scientific meeting",
+    "description": "PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation.\nFind more information and sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation)!",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2021-09-03",
+    "categories": [],
+    "contents": "\nMembers of the PSI Visualisation SIG are hosting The PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation. It is a two-day workshop where you can gain new insights into advanced data visualisations. Speakers are Susan Mayo (FDA), Jeremy Wildfire (Gilead), Sheila Dickinson (Novartis), Matthias Trampisch (Boehringer Ingelheim), Patrick Schloemer (Bayer), Charlotta Fruechtenicht (Roche), and Alexander Schacht (Veramed). We are looking forward to seeing you there. Sign up here.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-09-03T19:41:30+02:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-07-18-wonderful-wednesdays-july-2021/",
     "title": "Wonderful Wednesdays July 2021",
     "description": "Patient Reported Outcomes (PROs) are often used within clinical trials. Prior to use as an endpoint, it is important to establish measurement properties of the instrument in the population of interest. This is conducted on blinded data, with no knowledge of the treatment allocation of each patient. Instead, anchor measures are used and compared to the score that is being evaluated. These anchor measures are usually simple questions that are designed to link conceptually to the overall target of evaluation or can be previously validated measures that assess similar concepts.",

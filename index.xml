@@ -7,7 +7,16 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 14 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>PSI Scientific meeting</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-09-03-scientific-meeting</link>
+      <description>PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation.
+Find more information and sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation)!</description>
+      <guid>https://graphicsprinciples.github.io/posts/2021-09-03-scientific-meeting</guid>
+      <pubDate>Fri, 03 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Wonderful Wednesdays July 2021</title>
       <dc:creator>PSI VIS SIG</dc:creator>
