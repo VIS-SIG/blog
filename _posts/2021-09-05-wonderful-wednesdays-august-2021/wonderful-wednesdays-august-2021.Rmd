@@ -1,0 +1,61 @@
+---
+title: "Wonderful Wednesdays August 2021"
+description: |
+  This time we ask you to share you favourite COVID-19 visualization. This can be one designed by yourself, or one produced by someone else.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 08-12-2021
+categories:
+  - COVID-19
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/FT-covid1 - Mark Baillie.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# COVID-19 data
+We present your submitted COVID-19 visualizations.
+
+
+<a id="example1"></a>
+
+## Example 1. Making the cut
+
+![](./images/Econ-Covid-Vax - Mark Baillie.webp)  
+[high resolution image](./images/Econ-Covid-Vax - Mark Baillie.webp)  
+Source: https://www.economist.com/graphic-detail/2021/04/15/in-clinical-and-real-world-trials-chinas-sinovac-underperforms  
+(visited: 05-Sep-2021)
+
+(A summary of the discussion will be added shortly.)
+
+
+<a id="example2"></a>
+
+## Example 2. Longitudinal plot
+
+![](./images/FT-covid1 - Mark Baillie.png)  
+[high resolution image](./images/FT-covid1 - Mark Baillie.png)  
+
+Source: https://www.ft.com/content/a2901ce8-5eb7-4633-b89c-cbdf5b386938  
+(visited: 05-Sep-2021)
+
+(A summary of the discussion will be added shortly.)
+
+
+<a id="example3"></a>
+
+## Example 3. Death rates
+
+![](./images/FT_ExcessDeaths - Agustin Calatroni.png)  
+[high resolution image](./images/FT_ExcessDeaths - Agustin Calatroni.png)  
+
+Source:  
+Coronavirus tracker: the latest figures as countries fight the Covid-19 resurgence
+https://www.ft.com/content/a2901ce8-5eb7-4633-b89c-cbdf5b386938  
+(visited: 05-Sep-2021)
+
+(A summary of the discussion will be added shortly.)

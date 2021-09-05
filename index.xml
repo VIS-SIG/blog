@@ -7,7 +7,7 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 03 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Sep 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>PSI Scientific Meeting</title>
       <dc:creator>PSI VIS SIG</dc:creator>
@@ -15,7 +15,30 @@
       <description>PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation.
 Find more information and sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation)!</description>
       <guid>https://graphicsprinciples.github.io/posts/2021-09-03-scientific-meeting</guid>
-      <pubDate>Fri, 03 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays September 2021</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-09-05-wonderful-wednesdays-september-2021</link>
+      <description>The goal of the challenge is to produce an explanatory graphics - Visually demonstrate that there is a dose response in glycemic control for Rx (the higher the dose the lower the variability) and that the Rx med and Rx high demonstrate better glycemic control that SOC and these attributes are sustained.</description>
+      <category>CGM</category>
+      <category>Continuous variable</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2021-09-05-wonderful-wednesdays-september-2021</guid>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-09-05-wonderful-wednesdays-september-2021/./images/CGM-trelliscope.png" medium="image" type="image/png" width="1680" height="939"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays August 2021</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-09-05-wonderful-wednesdays-august-2021</link>
+      <description>This time we ask you to share you favourite COVID-19 visualization. This can be one designed by yourself, or one produced by someone else.</description>
+      <category>COVID-19</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2021-09-05-wonderful-wednesdays-august-2021</guid>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-09-05-wonderful-wednesdays-august-2021/./images/FT-covid1 - Mark Baillie.png" medium="image" type="image/png" width="1260" height="1006"/>
     </item>
     <item>
       <title>Wonderful Wednesdays July 2021</title>

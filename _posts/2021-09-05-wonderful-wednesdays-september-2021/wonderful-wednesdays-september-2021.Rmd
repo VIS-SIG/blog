@@ -1,0 +1,139 @@
+---
+title: "Wonderful Wednesdays September 2021"
+description: |
+  The goal of the challenge is to produce an explanatory graphics - Visually demonstrate that there is a dose response in glycemic control for Rx (the higher the dose the lower the variability) and that the Rx med and Rx high demonstrate better glycemic control that SOC and these attributes are sustained.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 09-08-2021
+categories:
+  - CGM
+  - Continuous variable
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/CGM-trelliscope.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Continuous Glucose Monitoring (CGM) data
+Diabetes affects over 463 million people worldwide. Diabetes is a vascular disease that can lead to amputations, blindness, kidney failure and death. Managing patients’ glucose levels is key to managing their disease.
+
+The CGM data allows us to approximate glucose levels every 5 minutes continuously throughout the day. Glucose values with low variability and within clinically relevant ranges of 72 and 140 mg/dL are considered to indicate good glycemic control. More information can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2021/2021-08-11).
+
+
+<a id="example1"></a>
+
+## Example 1. Dashboard Trelliscope
+
+![](./images/CGM-trelliscope.png)  
+The app can be found [here](https://agstn.github.io/CGM/)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. <Add a short title>
+
+![](./images/<filename>)  
+[high resolution image](./images/<filename>)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. <Add a short title>
+
+![](./images/<filename>)  
+[high resolution image](./images/<filename>)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+## Example 4. <Add a short title>
+
+![](./images/<filename>)  
+
+
+
+The html file can be found [here](./<filename>.html).
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example4 code)
+
+
+
+<a id="example5"></a>
+
+## Example 5. <Add a short title>
+
+![](./images/<filename>)  
+[high resolution image](./images/<filename>)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example5 code)
+
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. Dashboard Trelliscope
+
+The Rmd file can be found [here](https://github.com/agstn/CGM/blob/main/index.rmd) and [here](./code/index - Agustin Calatroni.rmd).  
+The full code can be found [here](https://github.com/agstn/CGM).
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. <Same title as above>
+
+```{r, echo = TRUE, eval=FALSE}
+```
+
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. <Same title as above>
+
+```{r, echo = TRUE, eval=FALSE}
+```
+
+[Back to blog](#example3)
+
+
+<a id="example4 code"></a>
+
+## Example 4. <Same title as above>
+```{r, echo = TRUE, eval=FALSE}
+```
+
+[Back to blog](#example4)
+
+
+<a id="example5 code"></a>
+
+## Example 5. <Same title as above>
+The rmd file can be found [here](./code/<filename>).
+
+[Back to blog](#example5)

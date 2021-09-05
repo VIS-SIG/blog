@@ -9,12 +9,57 @@
         "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
       }
     ],
-    "date": "2021-09-03",
+    "date": "2021-09-17",
     "categories": [],
     "contents": "\nMembers of the PSI Visualisation SIG are hosting The PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation. It is a two-day workshop where you can gain new insights into advanced data visualisations. Speakers are Susan Mayo (FDA), Jeremy Wildfire (Gilead), Sheila Dickinson (Novartis), Matthias Trampisch (Boehringer Ingelheim), Patrick Schloemer (Bayer), Charlotta Fruechtenicht (Roche), and Alexander Schacht (Veramed). We are looking forward to seeing you there. Sign up here.\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-09-03T19:42:35+02:00",
+    "last_modified": "2021-09-05T11:10:36+02:00",
     "input_file": {}
+  },
+  {
+    "path": "posts/2021-09-05-wonderful-wednesdays-september-2021/",
+    "title": "Wonderful Wednesdays September 2021",
+    "description": "The goal of the challenge is to produce an explanatory graphics - Visually demonstrate that there is a dose response in glycemic control for Rx (the higher the dose the lower the variability) and that the Rx med and Rx high demonstrate better glycemic control that SOC and these attributes are sustained.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2021-09-08",
+    "categories": [
+      "CGM",
+      "Continuous variable",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nContinuous Glucose Monitoring (CGM) data\nDiabetes affects over 463 million people worldwide. Diabetes is a vascular disease that can lead to amputations, blindness, kidney failure and death. Managing patients’ glucose levels is key to managing their disease.\nThe CGM data allows us to approximate glucose levels every 5 minutes continuously throughout the day. Glucose values with low variability and within clinically relevant ranges of 72 and 140 mg/dL are considered to indicate good glycemic control. More information can be found here.\n\nExample 1. Dashboard Trelliscope\n\nThe app can be found here\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 2. \nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 3. \nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 4. \n\nThe html file can be found here.\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 5. \nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\nCode\n\nExample 1. Dashboard Trelliscope\nThe Rmd file can be found here and here.\nThe full code can be found here.\nBack to blog\n\nExample 2. \n\n\nFALSE\n\n\n\nBack to blog\n\nExample 3. \n\n\nFALSE\n\n\n\nBack to blog\n\nExample 4. \n\n\nFALSE\n\n\n\nBack to blog\n\nExample 5. \nThe rmd file can be found here.\nBack to blog\n\n\n\n",
+    "preview": "posts/2021-09-05-wonderful-wednesdays-september-2021/./images/CGM-trelliscope.png",
+    "last_modified": "2021-09-05T11:08:16+02:00",
+    "input_file": {},
+    "preview_width": 1680,
+    "preview_height": 939
+  },
+  {
+    "path": "posts/2021-09-05-wonderful-wednesdays-august-2021/",
+    "title": "Wonderful Wednesdays August 2021",
+    "description": "This time we ask you to share you favourite COVID-19 visualization. This can be one designed by yourself, or one produced by someone else.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2021-08-12",
+    "categories": [
+      "COVID-19",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nCOVID-19 data\nWe present your submitted COVID-19 visualizations.\n\nExample 1. Making the cut\nhigh resolution image\nSource: https://www.economist.com/graphic-detail/2021/04/15/in-clinical-and-real-world-trials-chinas-sinovac-underperforms\n(visited: 05-Sep-2021)\n(A summary of the discussion will be added shortly.)\n\nExample 2. Longitudinal plot\nhigh resolution image\nSource: https://www.ft.com/content/a2901ce8-5eb7-4633-b89c-cbdf5b386938\n(visited: 05-Sep-2021)\n(A summary of the discussion will be added shortly.)\n\nExample 3. Death rates\nhigh resolution image\nSource:\nCoronavirus tracker: the latest figures as countries fight the Covid-19 resurgence https://www.ft.com/content/a2901ce8-5eb7-4633-b89c-cbdf5b386938\n(visited: 05-Sep-2021)\n(A summary of the discussion will be added shortly.)\n\n\n\n",
+    "preview": "posts/2021-09-05-wonderful-wednesdays-august-2021/./images/FT-covid1 - Mark Baillie.png",
+    "last_modified": "2021-09-05T11:33:24+02:00",
+    "input_file": {},
+    "preview_width": 1260,
+    "preview_height": 1006
   },
   {
     "path": "posts/2021-07-18-wonderful-wednesdays-july-2021/",
