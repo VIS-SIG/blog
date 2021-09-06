@@ -6,7 +6,7 @@ description: |
 author:
   - name: PSI VIS SIG
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
-date: 09-03-2021
+date: 09-17-2021
 output:
   distill::distill_article:
     self_contained: false

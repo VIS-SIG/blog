@@ -1,5 +1,45 @@
 [
   {
+    "path": "posts/2021-09-03-scientific-meeting/",
+    "title": "PSI Scientific Meeting",
+    "description": "PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation.\nFind more information and sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation)!",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2021-09-17",
+    "categories": [],
+    "contents": "\nMembers of the PSI Visualisation SIG are hosting The PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation. It is a two-day workshop where you can gain new insights into advanced data visualisations. Speakers are Susan Mayo (FDA), Jeremy Wildfire (Gilead), Sheila Dickinson (Novartis), Matthias Trampisch (Boehringer Ingelheim), Patrick Schloemer (Bayer), Charlotta Fruechtenicht (Roche), and Alexander Schacht (Veramed). We are looking forward to seeing you there. Sign up here.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-09-06T21:06:03+02:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-09-06-wonderful-wednesdays-september-2021/",
+    "title": "Wonderful Wednesdays September 2021",
+    "description": "The goal of the challenge is to produce an explanatory graphics - Visually demonstrate that there is a dose response in glycemic control for Rx (the higher the dose the lower the variability) and that the Rx med and Rx high demonstrate better glycemic control that SOC and these attributes are sustained.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2021-09-08",
+    "categories": [
+      "CGM",
+      "Continuous variable",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nContinuous Glucose Monitoring (CGM) data\nDiabetes affects over 463 million people worldwide. Diabetes is a vascular disease that can lead to amputations, blindness, kidney failure and death. Managing patients’ glucose levels is key to managing their disease.\nThe CGM data allows us to approximate glucose levels every 5 minutes continuously throughout the day. Glucose values with low variability and within clinically relevant ranges of 72 and 140 mg/dL are considered to indicate good glycemic control. More information can be found here.\n\nExample 1. Dashboard Trelliscope\n\nThe app can be found here\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 2. \nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 3. \nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 4. \n\nThe html file can be found here.\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 5. \nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\nCode\n\nExample 1. Dashboard Trelliscope\nThe Rmd file can be found here and here.\nThe full code can be found here.\nBack to blog\n\nExample 2. \n\n\nFALSE\n\n\n\nBack to blog\n\nExample 3. \n\n\nFALSE\n\n\n\nBack to blog\n\nExample 4. \n\n\nFALSE\n\n\n\nBack to blog\n\nExample 5. \nThe rmd file can be found here.\nBack to blog\n\n\n\n",
+    "preview": "posts/2021-09-06-wonderful-wednesdays-september-2021/./images/CGM-trelliscope.png",
+    "last_modified": "2021-09-06T21:06:14+02:00",
+    "input_file": {},
+    "preview_width": 1680,
+    "preview_height": 939
+  },
+  {
     "path": "posts/2021-09-06-wonderful-wednesdays-august-2021/",
     "title": "Wonderful Wednesdays August 2021",
     "description": "For this edition of the Wonderful Wednesdays, the audience was asked to send examples of visualizations representing coronavirus data. The webinar was a showcase og the different types of visualizations, such as area graphs, forest plots, streamgraphs, or network analysis.",
@@ -15,29 +55,12 @@
       "Wonderful wednesdays",
       "COVID-19"
     ],
-    "contents": "\r\nThe first example was a UK governmental COVID dashboard. Clean and straight to the point, the UK site provides information about the pandemic in the country. It includes numbers and texts that answer the main questions that users might have: are cases rising? What are the vaccinations rates? By clicking each of the topics, users can see specific information in the form of interactive charts.\r\nUK gov COVID dashboardIn contrast a more do it yourself dashboard was presented implemented in SAS.\r\nCOVID dashboard implemented in SASThe next visualization, by the Financial Times, represents the excess of deaths caused by the Coronavirus pandemic. It shows a set of small multiples -one per country- highlighting when the number of deaths was higher than the average in recent years. Although the information is impressive, the chart is very crowded with data and annotations which makes understanding it a bit difficult. A similar project, done by The Economist, included interactivity to avoid this problem. Their implementation of tooltips to extract information is very well done.\r\nExcess Covid deaths - FT. Coronavirus tracker: the latest figures as countries fight the Covid-19 resurgenceThe following visualization is an unusual chart done again by The Financial Times: a streamgraph. This type of plot is a stacked area chart displaced around a central axis. Its organic shapes and different looks might make them unconventional and attractive. However, with this type of chart is difficult to compare the size of the areas. And users who are not familiarized with them might have a hard time understanding them.\r\nA streamgraph - FT. Coronavirus tracker: Daily death rates by regionBut visualizing the coronavirus pandemic doesn’t mean using rare charts, or interactive projects. One forest plot from The Economist shows how this traditional chart can be extremely successful at highlighting stories. The key is to include labels and annotations to make the information accessible and declutter the axis to make the data be the main protagonist.\r\nForest plot of COVID vaccine trials. Economist news report: In clinical and real world trials, China’s Sinovac underperformsMany of the projects around COVID used gamification and interactivity to explain complex scientific terms to the general audience. The webinar highlighted two that explained how the virus can expand slower or faster depending on people staying or not at home. Users can understand better how simulations and models work by interacting with the different variables that feed the interactive visualizations.\r\nInteractive explainations of epidemiology concepts - What Happens Next?COVID-19 Futures, Explained With Playable Simulations - Marcel Salathé (epidemiologist) & Nicky Case (art/code)The last example is a network analysis of how the virus moved in Hong Kong during the different waves.\r\nCOVID transmission networks in Hong Kong. Uncovering transmission patterns of COVID-19 outbreaks: A region-wide comprehensive retrospective study in Hong Kong: Liu et al\r\n\r\n\r\n",
+    "contents": "\nThe first example was a UK governmental COVID dashboard. Clean and straight to the point, the UK site provides information about the pandemic in the country. It includes numbers and texts that answer the main questions that users might have: are cases rising? What are the vaccinations rates? By clicking each of the topics, users can see specific information in the form of interactive charts.\nUK gov COVID dashboardIn contrast a more do it yourself dashboard was presented implemented in SAS.\nCOVID dashboard implemented in SASThe next visualization, by the Financial Times, represents the excess of deaths caused by the Coronavirus pandemic. It shows a set of small multiples -one per country- highlighting when the number of deaths was higher than the average in recent years. Although the information is impressive, the chart is very crowded with data and annotations which makes understanding it a bit difficult. A similar project, done by The Economist, included interactivity to avoid this problem. Their implementation of tooltips to extract information is very well done.\nExcess Covid deaths - FT. Coronavirus tracker: the latest figures as countries fight the Covid-19 resurgenceThe following visualization is an unusual chart done again by The Financial Times: a streamgraph. This type of plot is a stacked area chart displaced around a central axis. Its organic shapes and different looks might make them unconventional and attractive. However, with this type of chart is difficult to compare the size of the areas. And users who are not familiarized with them might have a hard time understanding them.\nA streamgraph - FT. Coronavirus tracker: Daily death rates by regionBut visualizing the coronavirus pandemic doesn’t mean using rare charts, or interactive projects. One forest plot from The Economist shows how this traditional chart can be extremely successful at highlighting stories. The key is to include labels and annotations to make the information accessible and declutter the axis to make the data be the main protagonist.\nForest plot of COVID vaccine trials. Economist news report: In clinical and real world trials, China’s Sinovac underperformsMany of the projects around COVID used gamification and interactivity to explain complex scientific terms to the general audience. The webinar highlighted two that explained how the virus can expand slower or faster depending on people staying or not at home. Users can understand better how simulations and models work by interacting with the different variables that feed the interactive visualizations.\nInteractive explainations of epidemiology concepts - What Happens Next?COVID-19 Futures, Explained With Playable Simulations - Marcel Salathé (epidemiologist) & Nicky Case (art/code)The last example is a network analysis of how the virus moved in Hong Kong during the different waves.\nCOVID transmission networks in Hong Kong. Uncovering transmission patterns of COVID-19 outbreaks: A region-wide comprehensive retrospective study in Hong Kong: Liu et al\n\n\n",
     "preview": "posts/2021-09-06-wonderful-wednesdays-august-2021/./images/Picture1.png",
-    "last_modified": "2021-09-06T12:34:15+02:00",
-    "input_file": "wonderful-wednesdays-august-2021.knit.md",
+    "last_modified": "2021-09-06T21:01:42+02:00",
+    "input_file": {},
     "preview_width": 745,
     "preview_height": 408
-  },
-  {
-    "path": "posts/2021-09-03-scientific-meeting/",
-    "title": "PSI Scientific Meeting",
-    "description": "PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation.\nFind more information and sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation)!",
-    "author": [
-      {
-        "name": "PSI VIS SIG",
-        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
-      }
-    ],
-    "date": "2021-09-03",
-    "categories": [],
-    "contents": "\nMembers of the PSI Visualisation SIG are hosting The PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation. It is a two-day workshop where you can gain new insights into advanced data visualisations. Speakers are Susan Mayo (FDA), Jeremy Wildfire (Gilead), Sheila Dickinson (Novartis), Matthias Trampisch (Boehringer Ingelheim), Patrick Schloemer (Bayer), Charlotta Fruechtenicht (Roche), and Alexander Schacht (Veramed). We are looking forward to seeing you there. Sign up here.\n\n\n\n",
-    "preview": {},
-    "last_modified": "2021-09-03T19:42:35+02:00",
-    "input_file": {}
   },
   {
     "path": "posts/2021-07-18-wonderful-wednesdays-july-2021/",
