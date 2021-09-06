@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 03 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays August 2021</title>
+      <dc:creator>Mark Baillie</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-09-06-wonderful-wednesdays-august-2021</link>
+      <description>For this edition of the Wonderful Wednesdays, the audience was asked to send examples of visualizations representing coronavirus data. The webinar was a showcase og the different types of visualizations, such as area graphs, forest plots, streamgraphs, or network analysis.</description>
+      <category>Data journalism</category>
+      <category>Wonderful wednesdays</category>
+      <category>COVID-19</category>
+      <guid>https://graphicsprinciples.github.io/posts/2021-09-06-wonderful-wednesdays-august-2021</guid>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-09-06-wonderful-wednesdays-august-2021/./images/Picture1.png" medium="image" type="image/png" width="745" height="408"/>
+    </item>
     <item>
       <title>PSI Scientific Meeting</title>
       <dc:creator>PSI VIS SIG</dc:creator>

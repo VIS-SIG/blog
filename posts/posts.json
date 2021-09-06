@@ -1,5 +1,28 @@
 [
   {
+    "path": "posts/2021-09-06-wonderful-wednesdays-august-2021/",
+    "title": "Wonderful Wednesdays August 2021",
+    "description": "For this edition of the Wonderful Wednesdays, the audience was asked to send examples of visualizations representing coronavirus data. The webinar was a showcase og the different types of visualizations, such as area graphs, forest plots, streamgraphs, or network analysis.",
+    "author": [
+      {
+        "name": "Mark Baillie",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2021-09-06",
+    "categories": [
+      "Data journalism",
+      "Wonderful wednesdays",
+      "COVID-19"
+    ],
+    "contents": "\r\nThe first example was a UK governmental COVID dashboard. Clean and straight to the point, the UK site provides information about the pandemic in the country. It includes numbers and texts that answer the main questions that users might have: are cases rising? What are the vaccinations rates? By clicking each of the topics, users can see specific information in the form of interactive charts.\r\nUK gov COVID dashboardIn contrast a more do it yourself dashboard was presented implemented in SAS.\r\nCOVID dashboard implemented in SASThe next visualization, by the Financial Times, represents the excess of deaths caused by the Coronavirus pandemic. It shows a set of small multiples -one per country- highlighting when the number of deaths was higher than the average in recent years. Although the information is impressive, the chart is very crowded with data and annotations which makes understanding it a bit difficult. A similar project, done by The Economist, included interactivity to avoid this problem. Their implementation of tooltips to extract information is very well done.\r\nExcess Covid deaths - FT. Coronavirus tracker: the latest figures as countries fight the Covid-19 resurgenceThe following visualization is an unusual chart done again by The Financial Times: a streamgraph. This type of plot is a stacked area chart displaced around a central axis. Its organic shapes and different looks might make them unconventional and attractive. However, with this type of chart is difficult to compare the size of the areas. And users who are not familiarized with them might have a hard time understanding them.\r\nA streamgraph - FT. Coronavirus tracker: Daily death rates by regionBut visualizing the coronavirus pandemic doesn’t mean using rare charts, or interactive projects. One forest plot from The Economist shows how this traditional chart can be extremely successful at highlighting stories. The key is to include labels and annotations to make the information accessible and declutter the axis to make the data be the main protagonist.\r\nForest plot of COVID vaccine trials. Economist news report: In clinical and real world trials, China’s Sinovac underperformsMany of the projects around COVID used gamification and interactivity to explain complex scientific terms to the general audience. The webinar highlighted two that explained how the virus can expand slower or faster depending on people staying or not at home. Users can understand better how simulations and models work by interacting with the different variables that feed the interactive visualizations.\r\nInteractive explainations of epidemiology concepts - What Happens Next?COVID-19 Futures, Explained With Playable Simulations - Marcel Salathé (epidemiologist) & Nicky Case (art/code)The last example is a network analysis of how the virus moved in Hong Kong during the different waves.\r\nCOVID transmission networks in Hong Kong. Uncovering transmission patterns of COVID-19 outbreaks: A region-wide comprehensive retrospective study in Hong Kong: Liu et al\r\n\r\n\r\n",
+    "preview": "posts/2021-09-06-wonderful-wednesdays-august-2021/./images/Picture1.png",
+    "last_modified": "2021-09-06T12:34:15+02:00",
+    "input_file": "wonderful-wednesdays-august-2021.knit.md",
+    "preview_width": 745,
+    "preview_height": 408
+  },
+  {
     "path": "posts/2021-09-03-scientific-meeting/",
     "title": "PSI Scientific Meeting",
     "description": "PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation.\nFind more information and sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation)!",
