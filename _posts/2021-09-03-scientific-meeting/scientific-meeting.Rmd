@@ -2,7 +2,7 @@
 title: "PSI Scientific Meeting"
 description: |
   PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation.
-  Find more information and sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation)!
+  Find more information and sign up here: https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation
 author:
   - name: PSI VIS SIG
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation

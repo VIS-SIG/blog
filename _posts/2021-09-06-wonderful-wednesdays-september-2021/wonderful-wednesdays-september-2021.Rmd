@@ -98,8 +98,8 @@ A very good idea is the x-axis labeling. Even without a label it becomes clear r
 
 ## Example 5. Profile plots with overlays
 
-![](./images/scatterplot_cgm_v0_2 - Abi Williams.png)  
-[high resolution image](./images/scatterplot_cgm_v0_2 - Abi Williams.png)  
+![](./images/profile_plot.png)  
+[high resolution image](./images/profile_plot.png)  
 
 This visualization follows a similar idea as the one above. Furthermore, the same ordering of the plots is used and therefore, the same idea of re-ordering them might apply. Another thing that could be improved is the order of the treatment arms (going from SOC to low - medium - high dose) and the coloring of the arms with increased intensity of the color for increased levels of dosing. (Grey is wisely chosen for SOC.)
 
@@ -110,8 +110,8 @@ The overlays make it easy to compare the different groups which is a very nice i
 
 ## Example 6. Variability plot
 
-![](./images/profile_plot.png)  
-[high resolution image](./images/profile_plot.png)  
+![](./images/scatterplot_cgm_v0_2 - Abi Williams.png)  
+[high resolution image](./images/scatterplot_cgm_v0_2 - Abi Williams.png)  
 
 In this plot, the variability (represented by the standard deviation) is plotted over time and by treatment group. This is a very good idea to present the stability of the values.
 
