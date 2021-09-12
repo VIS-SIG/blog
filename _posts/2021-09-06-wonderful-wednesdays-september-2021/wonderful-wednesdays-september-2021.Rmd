@@ -1,7 +1,7 @@
 ---
 title: "Wonderful Wednesdays September 2021"
 description: |
-  The goal of the challenge is to produce an explanatory graphics - Visually demonstrate that there is a dose response in glycemic control for Rx (the higher the dose the lower the variability) and that the Rx med and Rx high demonstrate better glycemic control that SOC and these attributes are sustained.
+  The goal of the challenge is to produce explanatory graphics - Visually demonstrate that there is a dose response in glycemic control for Rx (the higher the dose the lower the variability) and that the Rx med and Rx high demonstrate better glycemic control that SOC and these attributes are sustained.
 author:
   - name: Lorenz Uhlmann
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
@@ -31,9 +31,9 @@ The CGM data allows us to approximate glucose levels every 5 minutes continuousl
 ![](./images/barplot - Lorenz Uhlmann.png)  
 [high resolution image](./images/barplot - Lorenz Uhlmann.png)  
 
-In this bar plot, the relatively complex data set is boiled down to a very simple visualization. The relative amount of time is plotted against the time, by the treatment group.
+In this bar plot, the relatively complex data set is boiled down to a very simple visualization. The relative amount of time is plotted against time and treatment group.
 
-The panel liked its simplicity and that clutter has been avoided. Furthermore, the coloring is chosen in a sensible way. Grey is used for SOC whereas different shaded of green are used for the Rx treatments which increasing intensity with higher dose levels. The horizontal lines and the y-axis tick marks could have removed to make it even less cluttered, because the percentage is shown in each bar.
+The panel liked its simplicity and that clutter has been avoided. Furthermore, the coloring is chosen in a sensible way. Grey is used for SOC whereas different shades of green are used for the Rx treatments using increasing intensities with higher dose levels. The horizontal lines and the y-axis tick marks could have been removed to make it even less cluttered, because the percentage is shown in each bar.
 
 
 [link to code](#example1 code)
@@ -47,17 +47,17 @@ The panel liked its simplicity and that clutter has been avoided. Furthermore, t
 
 The app can be found [here](https://agstn.github.io/CGM/)  
 
-This is a lot more than just a visualization. It is a very comprehensive tool to do an extensive exploratory analysis of the data.
+This is a lot more than just a visualization. It is a very comprehensive tool to do an exhaustive exploratory analysis of the data.
 
-In the first tab ("AGP") we see individual patient data including individual profile plots over time. This is very helpful if you want to focus on specific patients. In the visualizations the level of information increases from top to bottom. In the first row, we see a summary over all data for this patient. The next row shows a summary over all days. And the last rows provides the user with individual patient profile plots.
+In the first tab ("AGP"), we see individual patient data including individual profile plots over time. This is very helpful if you want to focus on specific patients. The level of information increases from top to bottom. In the first row, we see a summary over all data for this patient. The next row shows a summary over all days. And the last rows provides the user with individual patient profile plots.
 
 In the second tab ("MODEL RESULTS"), we see a visualization of model results to detect clusters in the CGM values. The goal was to detect differences between clusters in regards to the time spent in the standardized glycemic ranges. The visualization helps the user to easily understand the results.
 
-The last tab ("OTHER METRICS") follows a similar idea as the second tab. The clustering can be done on other variables in a flexible way. This makes this a very powerful tool with many options.
+The last tab ("OTHER METRICS") follows a similar idea as the second tab. The clustering can be done based on other variables in a flexible way. This makes this a very powerful tool with many options.
 
-The whole tool comes with a lot of explanations of the definitions used and with clickable references.
+The whole tool comes with a lot of explanations and with clickable references.
 
-The panel thinks that this is just a great and very powerful app to do a thorough exploratory data analysis.
+The panel thinks that this is a great and very powerful app to do a thorough exploratory data analysis.
 
 [link to code](#example2 code)
 
@@ -69,9 +69,9 @@ The panel thinks that this is just a great and very powerful app to do a thoroug
 
 [high resolution image](./images/cgm_plot_quantiles.png).
 
-This visualization shows quantiles of profile plots at week 52 for the different treatment groups. The message becomes very obvious in is stated in the title: Increasing dose leads to improved glucose stability at week 52.
+This visualization shows quantiles of profile plots at week 52 for the different treatment groups. The message becomes very obvious and it is also stated in the title: Increasing dose leads to improved glucose stability at week 52.
 
-The quantiles are color coded and the grid line helps to understand the results. It marks the upper limit of good glycemic control. Furthermore, the order of the treatment groups is sensibly chosen (from top left to bottom right - from SOC to the highest dose).
+The quantiles are color-coded and the grid line helps to understand the results. It marks the upper limit of good glycemic control. Furthermore, the order of the treatment groups is sensibly chosen (going from top left to bottom right means going from SOC to the highest dose).
 
 
 [link to code](#example3 code)
@@ -86,9 +86,9 @@ The quantiles are color coded and the grid line helps to understand the results.
 
 In this visualization, we see the averaged profile plots for the different treatment groups. It is a very clean visualization and the message becomes quite obvious.
 
-The panel thought coloring could be improved (for example, by using the same color with increasing intensity for the Rx arms with increasing dose levels). Furthermore, it might be better to re-organize the plots: The time points could be next to each other and the groups on top of each other.
+The panel thought that the coloring could be improved (for example, by using the same color but with increasing intensity for the Rx arms with increasing dose levels). Furthermore, it might be better to re-organize the plots: The time points could be next to each other and the groups on top of each other.
 
-A very good idea is the x-axis labeling. Even without a label it becomes clear right away that the time is displayed, due to the format that is being used.
+A very good idea is the x-axis labeling. Even without a label it becomes clear right away that it is the time that is displayed because of the format that is being used.
 
 [link to code](#example4 code)
 
@@ -98,10 +98,10 @@ A very good idea is the x-axis labeling. Even without a label it becomes clear r
 
 ## Example 5. Profile plots with overlays
 
-![](./images/profile_plot.png)  
-[high resolution image](./images/profile_plot.png)  
+![](./images/CGM_simulated_plot.png)  
+[high resolution image](./images/CGM_simulated_plot.png)  
 
-This visualization follows a similar idea as the one above. Furthermore, the same ordering of the plots is used and therefore, the same idea of re-ordering them might apply. Another thing that could be improved is the order of the treatment arms (going from SOC to low - medium - high dose) and the coloring of the arms with increased intensity of the color for increased levels of dosing. (Grey is wisely chosen for SOC.)
+This visualization follows a similar idea as the one above. Furthermore, the same ordering of the plots is used and, therefore, the same comment about re-ordering them might apply. Another thing that could be improved is the order of the treatment arms (going from SOC to low - medium - high dose) and the coloring of the arms with increased intensity of the color for increased levels of dosing. (Grey is wisely chosen for SOC.)
 
 The overlays make it easy to compare the different groups which is a very nice idea of visualizing this type of data.
 
@@ -119,6 +119,14 @@ The title is very nicely done. The first line provides already a very clear mess
 
 [link to code](#example6 code)
 
+
+## Example 7. Colab notebook
+
+![](./images/colab.png)  
+
+Please find the notebook [here](https://github.com/metadatadriven/PSI-VIZ/blob/main/PSI_WWed_20210908.ipynb).
+
+[link to code](#example7 code)
 
 
 # Code
@@ -524,4 +532,10 @@ plotdata + geom_point() +
         plot.subtitle = element_text(size=14, face="bold"))
 ```
 
-[Back to blog](#example5)
+[Back to blog](#example6)
+
+
+## Example 5. Colab notebook
+The code is included in the notebook which can be found [here](https://github.com/metadatadriven/PSI-VIZ/blob/main/PSI_WWed_20210908.ipynb).
+
+[Back to blog](#example7)
