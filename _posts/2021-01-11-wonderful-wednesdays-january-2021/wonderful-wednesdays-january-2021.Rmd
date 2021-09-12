@@ -27,28 +27,59 @@ output:
 ![](./images/Age Dist by RE - Zara Sari.png)  
 [high resolution image](./images/Age Dist by RE - Zara Sari.png)  
 ![](./images/Age Plot - Zara Sari.png)  
+
 [high resolution image](./images/Age Plot - Zara Sari.png)  
 
 ![](./images/TumorSize Distribution - Zara Sari.png)  
-[high resolution image](./images/TumorSize Distribution - Zara Sari.png)  
-![](./images/TumorSize Dist by RE - Zara Sari.png)  
-[high resolution image](./images/TumorSize Dist by RE - Zara Sari.png)  
-![](./images/RE by Age Boxplot - Zara Sari.png)  
+
+This is a relatively simple plot to present the data which can be seen as a preview of the data which is very helpful to start with. There are some things we could improve. Since absolute data is used, it is a little bit hard to compare the groups with each other. We could even lay the two plots on top of each other to make a comparison between groups very straightforward. Furthermore, a title is missing.
+
+
 [high resolution image](./images/RE by Age Boxplot - Zara Sari.png)  
 ![](./images/RE by Tumor Boxplot - Zara Sari.png)  
+
+This plot helps to compare the groups in regards to age and is therefore very helpful to get a first insight into a potential difference in age between both groups. Boxplots are very well-known and, thus, there is no need for any explanation when they are presented to the audience. The use of grey is done very nicely. The gridlines are visible but kept in the background. There is also a description below the boxplot which is very helpful. However, a title is still missing. Another detail is about the labeling. We could use "yes" and "no" instead of 1 and 0 on the x-axis.
+
+
+[high resolution image](./images/TumorSize Distribution - Zara Sari.png)  
+![](./images/TumorSize Dist by RE - Zara Sari.png)  
+
+The same comments apply as above (for age plots).
+
+[high resolution image](./images/TumorSize Dist by RE - Zara Sari.png)  
+![](./images/RE by Age Boxplot - Zara Sari.png)  
+The same comments apply as above (for age plots).
+
+
 [high resolution image](./images/RE by Tumor Boxplot - Zara Sari.png)  
 ![](./images/Correlation Plot - Zara Sari.png)  
+The same comments apply as above (for age plots).
+
 [high resolution image](./images/Correlation Plot - Zara Sari.png)  
 ![](./images/Fitted Plot RE Age - Zara Sari.png)  
-[high resolution image](./images/Fitted Plot RE Age - Zara Sari.png)  
-![](./images/Fitted Plot RE Tumor Size - Zara Sari.png)  
-[high resolution image](./images/Fitted Plot RE Tumor Size - Zara Sari.png)  
-![](./images/Log-odds by Age - Specific - Zara Sari.png)  
+
+Colours going fro m blue to red are used to present the correlation between variables. In general, it is a very good idea to present correlations as another step towards finding predictors. The red and blue ones pop out and you can identify strong correlations very quickly. The panel also liked the white space which makes it clear and "simple". Some things could be improved: The labels on the y-axis could be rotated 90 degrees to make them easier to read. Also, it is a bit of an visual "overload" since there is a lot of information in the plot. Furthermore, the column on the very left might be the most interesting one and could therefore be framed or anything like that to make the audience focus on it. You could even order this first column by correlation to make it easier to compare the correlations with each other. Also, it might not be clear what a correlation with a binary variable really means. How is the "direction" of the correlation defined. A short footnote might help here.
+
+
 [high resolution image](./images/Log-odds by Age - Specific - Zara Sari.png)  
 ![](./images/Log-odds by Tumor Size - Specific - Zara Sari.png)  
+
+Log-odds are presented with confidence bands. The footnote is very helpful to better understand the plot and to interpret the results. However, the plot might be a bit challenging to a non-technical audience. At the same time, this plot can be very helpful to see if (fractional) polynomials of the predictors are needed in the model. Furthermore, the uncertainty is shown which is very helpful. The x-axis shows only data that we actually have. There is no extrapolation which is very good practice. The gridlines are also very helpful and the use of colour is nicely done.
+
+
+[high resolution image](./images/Fitted Plot RE Age - Zara Sari.png)  
+![](./images/Fitted Plot RE Tumor Size - Zara Sari.png)  
+In this plot, we see the probability on the y-axis which is easier to interpret as compared to the plot above (using log-odds). The data points are included using some jittering which is a very good idea to make all data points visible. It might help to reduce the point size a little bit, though. Furthermore, we can easily see the "direction" of the predictor. This is a nice visualization to put on a poster, for example.
+
+
+[high resolution image](./images/Fitted Plot RE Tumor Size - Zara Sari.png)  
+![](./images/Log-odds by Age - Specific - Zara Sari.png)  
+The same comments apply as above (for age plots).
+
 [high resolution image](./images/Log-odds by Tumor Size - Specific - Zara Sari.png)  
 
-(A summary of the discussion will be added shortly.)
+The same comments apply as above (for age plots).
+
 
 [link to code](#example1 code)
 
@@ -60,7 +91,9 @@ output:
 ![](./images/tree - Lorenz Uhlmann.png)  
 [high-resolution image](./images/tree - Lorenz Uhlmann.png)  
 
-(A summary of the discussion will be added shortly.)
+This is a very different way to present the data. Obviously, single trees are not recommended to do prediction. However, it may help to get a quick overview over the data.
+
+Having the full name instead of variable labels would be an improvement of the plot. Furthermore the labels of categories should be updated to make clear what they stand for (instead of using 0/1 etc.). Also, the number of patients per path or box are missing. One way would be to use different thicknesses of the lines to represent the sample sizes. Another issues is about colouring which can be used to visualize the probabilities of re-excision. The use of the cut-off in regards to the probability to decide whether a box is denoted as "yes" or "no" is questionable. Another idea would be to present the tree in a horizontal way.
 
 [link to code](#example2 code)
 
@@ -69,24 +102,26 @@ output:
 ## Example 3. Nomogram
 
 ![](./images/nomogram - Lorenz Uhlmann.png)  
-
 [high-resolution image](./images/nomogram - Lorenz Uhlmann.png)  
 
-(A summary of the discussion will be added shortly.)
+This is a rather challenging visualization because it is not so easy to get a message out of by just looking at it. It is rather a tool. For a (new) patient, you need to read out the values per predictor, sum them up, and read out the probability for re-excision. It is kind of an interactive tool without interactivity.
+The advantage of this plot is still that all predictors are included and the length between tickmarks (per unit) give an impression of the strenght of the impact of a predictor. Furthermore, there almost no clutter and it comes with a description.
+
+In general, it might look a bit old-fashioned, but it may still be useful to some audience. An alternative would be a shiny app or something like that.
 
 [link to code](#example3 code)
 
 <a id="example4"></a>
 
-## Example 4. Interactive Model Studio
+## Example 4. Prediction app
 
-![](./images/viz_ms_edited - Agustin Calatroni.png)  
+![](./images/viz_pred - Agustin Calatroni.png)  
+The html file can be found [here](./images/viz_pred - Agustin Calatroni.html).
 
+This is kind of a nomogram as an interactive app. Starting with the first tab, there is a nice explanation included, but also the plots speak for themselves. The color coding is clearly defined and we get a nice overview. The second tab, provides a visualization of an individual person. And the third tab provides us with the estimated model.
 
+In general, it has got a very nice design.
 
-The html file can be found [here](./images/viz_ms_edited - Agustin Calatroni.html).
-
-(A summary of the discussion will be added shortly.)
 
 [link to code](#example4 code)
 
@@ -94,12 +129,15 @@ The html file can be found [here](./images/viz_ms_edited - Agustin Calatroni.htm
 
 <a id="example5"></a>
 
-## Example 5. Prediction app
+## Example 5. Interactive Model Studio
 
-![](./images/viz_pred - Agustin Calatroni.png)  
-The html file can be found [here](./images/viz_pred - Agustin Calatroni.html).
+![](./images/viz_ms_edited - Agustin Calatroni.png)  
 
-(A summary of the discussion will be added shortly.)
+The html file can be found [here](./images/viz_ms_edited - Agustin Calatroni.html).
+
+Here, we see the impact of each predictor which is a very nice idea to present the data and the prediction model. When you select a new patient the plot grows step by step and this is a very nice way to describe what is happening in the model.
+
+Overall, it is a very nice and well-structured visualization. The colouring is nicely chosen and there are is very good title and a helpful footnote. It is just very useful and informative graph and tool.
 
 [link to code](#example5 code)
 
@@ -915,7 +953,15 @@ dev.off()
 
 <a id="example4 code"></a>
 
-## Example 4. Interactive Model Studio
+## Example 4. Prediction app
+The rmd file can be found [here](./code/viz_pred - Agustin Calatroni.rmd).
+
+[Back to blog](#example4)
+
+
+<a id="example5 code"></a>
+
+## Example 5. Interactive Model Studio
 ```{r, echo = TRUE, eval=FALSE}
 # LINKS
 # modelStudio github: https://github.com/ModelOriented/modelStudio
@@ -993,14 +1039,6 @@ modelStudio(explainer,
 # markdown::rpubsUpload(title = "Interactive Model Studio", 
 #                       htmlFile = "viz_ms_edited.html")
 ```
-
-[Back to blog](#example4)
-
-
-<a id="example5 code"></a>
-
-## Example 5. Prediction app
-The rmd file can be found [here](./code/viz_pred - Agustin Calatroni.rmd).
 
 [Back to blog](#example5)
 
