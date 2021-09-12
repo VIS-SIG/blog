@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays July 2021"
 description: |
   Patient Reported Outcomes (PROs) are often used within clinical trials. Prior to use as an endpoint, it is important to establish measurement properties of the instrument in the population of interest. This is conducted on blinded data, with no knowledge of the treatment allocation of each patient. Instead, anchor measures are used and compared to the score that is being evaluated. These anchor measures are usually simple questions that are designed to link conceptually to the overall target of evaluation or can be previously validated measures that assess similar concepts.
 author:
-  - name: PSI VIS SIG
+  - name: Rhys Warham
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 07-14-2021
 categories:
