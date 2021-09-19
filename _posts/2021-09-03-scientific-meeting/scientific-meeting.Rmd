@@ -19,4 +19,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Members of the PSI Visualisation SIG are hosting The PSI Scientific Meeting: Generating Insights through Modern Applications of Data Visualisation. It is a two-day workshop where you can gain new insights into advanced data visualisations. Speakers are Susan Mayo (FDA), Jeremy Wildfire (Gilead), Sheila Dickinson (Novartis), Matthias Trampisch (Boehringer Ingelheim), Patrick Schloemer (Bayer), Charlotta Fruechtenicht (Roche), and Alexander Schacht (Veramed). We are looking forward to seeing you there. Sign up [here](https://psiweb.org/events/event-item/2021/09/17/default-calendar/psi-scientific-meeting-generating-insights-through-modern-applications-of-data-visualisation).
 
+If you need technical support or want to meet other participants, visit the [wonder room](https://www.wonder.me/r?id=7b090d6c-4c0f-44fc-8ea3-c19a99a9e6d1) during or after the meeting.
+
 
