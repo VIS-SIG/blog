@@ -1,0 +1,554 @@
+---
+title:      Risk factors for in-hospital mortality in laboratory-confirmed COVID-19 patients in the Netherlands
+author:     Agustin Calatroni 
+date:       "`r format(Sys.Date(), format='%a %d %b %Y')`" 
+output: 
+   flexdashboard::flex_dashboard:
+     self_contained: true
+     source_code: "https://github.com/agstn/nijman"
+---
+
+```{=html}
+<style type="text/css">
+
+.main-container {
+max-width:    1200px;
+margin-left:  auto;
+margin-right: auto;}
+
+.rt-compact .rt-td-inner{
+padding: 0px 6px;
+}
+
+
+</style>
+```
+
+```{r knitr-defaults}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, comment = NA)
+knitr::opts_chunk$set(cache = FALSE)
+options(width=170)
+```
+
+```{r load-packages}
+pacman::p_load(tidyverse, rio, labelled)
+pacman::p_load(gt, gtsummary, gtExtras)
+pacman::p_load(plotly)
+pacman::p_load(Hmisc)
+pacman::p_load(crosstalk, htmltools)
+pacman::p_load(reactable, reactablefmtr)
+pacman::p_load(cmprsk, survminer)
+# remotes::install_github("jthomasmock/gtExtras")
+```
+
+```{r import-data}
+nijman_data <- import("dat/nijman_data.rds") %>% 
+   mutate(id = 1:n(), .before = everything())
+```
+
+```{r reshape-data}
+nijman_long_nest <- nijman_data %>% 
+   select(id, age, bmi,  mews,            
+          ct_sevscore_total, sympt_duration, 
+          adm_neutrotolymphorate, adm_ldh, adm_creat, adm_procalcitonin, adm_crp, adm_ferritin, adm_ddimer_new,
+          ends_with("_log1p"),
+          ftime) %>% 
+   pivot_longer(cols = -1,
+                names_to = 'variable',
+                values_to = 'x') %>% 
+   nest_by(variable) %>% 
+   mutate(descript = var_label(nijman_data[,variable]),
+          transform = ifelse(str_detect(variable, "_log1p") == TRUE, "log(1+x) transformation", ""))
+
+
+nijman_describe <- nijman_long_nest %>%
+   mutate( x        = data %>% pull(x) %>% list(),
+           describe = describe(x, digits = 2) %>% list(),
+           #descript = str_remove(describe$descript, "x : "),
+           units    = describe$units,
+           format   = describe$format,
+           counts   = describe$counts %>% list(),
+           n        = counts %>% pluck('n'),
+           missing  = counts %>% pluck('missing', .default = NA),
+           distinct = counts %>% pluck('distinct', .default = NA),
+           Info     = counts %>% pluck('Info', .default = NA), # relative information measure
+           Mean     = counts %>% pluck('Mean', .default = NA),
+           Sum      = counts %>% pluck('Sum', .default = NA),
+           digits   = nchar(strsplit(Mean, "\\.")[[1]][2]) %>% ifelse(is.na(.), 0, .),
+           SD       = sd(x, na.rm = TRUE),
+           Gmd      = counts %>% pluck('Gmd', .default = NA), # Gini’s mean difference: ?GiniMd
+           p_.05    = counts %>% pluck('.05', .default = NA),
+           p_.10    = counts %>% pluck('.10', .default = NA),
+           p_.25    = counts %>% pluck('.25', .default = NA),
+           p_.50    = counts %>% pluck('.50', .default = NA),
+           p_.75    = counts %>% pluck('.75', .default = NA),
+           p_.90    = counts %>% pluck('.90', .default = NA),
+           p_.95    = counts %>% pluck('.95', .default = NA),
+           values   = describe$values %>% list(),
+           extremes = describe$extremes %>% list(),
+           
+           histboxp = list( histboxp(x= x, 
+                                     sd = FALSE,
+                                     gmd = FALSE,
+                                     showlegend = FALSE,
+                                     xlab = "") %>% 
+                               config(displayModeBar = F) %>% 
+                               layout(xaxis = list(showticklabels = FALSE),
+                                      yaxis = list(showticklabels = FALSE),
+                                      width = 250,
+                                      height = 90,
+                                      margin = list(l = 1, r = 1, b = 1, t = 1))
+           )
+   )
+```
+
+
+```{r transform-data}
+nijman_describe_trans <- nijman_describe %>% 
+   mutate(variable = str_glue("<b>{variable}</b> <br> 
+                              <small>{descript}</small> <br>
+                              <small><u>{transform}</u></small>")) %>% 
+   mutate(extremes = enframe(extremes) %>% list()) %>% 
+   mutate(ex_l = extremes %>% filter(str_detect(name, "L")) %>% str_glue_data("{style_number(value, digits)} <br>") %>% str_flatten() %>% list(),
+          ex_h = extremes %>% filter(str_detect(name, "H")) %>% str_glue_data("{style_number(value, digits)} <br>") %>% str_flatten() %>% list()) %>%
+   mutate(across(c(n, missing, distinct, Info, Mean, Gmd, 
+                   p_.05, p_.10, p_.25, p_.50, p_.75, p_.90, p_.95), ~as.numeric(.x) )) %>% 
+   mutate(across(c(Mean, Gmd, SD,
+                   p_.05, p_.10, p_.25, p_.50, p_.75, p_.90, p_.95), 
+                 ~style_number(.x, digits = digits) ) ) %>% 
+   mutate(missing = missing / 1006) %>% 
+   relocate(histboxp, .after = ex_h) %>% 
+   select(-data, -x, -describe, -counts, -values, -extremes, -descript) 
+```
+
+# TABLE 1
+
+### Characteristics of the study population.
+
+```{r create-reactable-theme}
+fivethirtyeight_updated <- function(
+   font_family = "Helvetica",
+   font_size = 14,
+   font_color = "#222222",
+   header_font_family = "Helvetica",
+   header_font_size = 12,
+   header_font_color = "#000000",
+   cell_padding = 5) {
+   
+   reactableTheme(
+      color = font_color,
+      backgroundColor = "#ffffff",
+      borderWidth = "1px",
+      borderColor = "#dddddd",
+      stripedColor = "#dddddd",
+      highlightColor = "#f0f0f0",
+      cellPadding = cell_padding,
+      tableStyle = list(
+         fontFamily = font_family,
+         fontSize = font_size,
+         borderBottom = "3px solid #222222"
+      ),
+      headerStyle = list(
+         borderWidth = "3px",
+         paddingTop = "12px",
+         verticalAlign = "bottom",
+         textAlign = "bottom",
+         background = "#ffffff",
+         textTransform = "uppercase",
+         borderColor = "#222222",
+         color = header_font_color,
+         "&:hover" = list(background = "#dddddd"),
+         "&[aria-sort='ascending'], &[aria-sort='descending']" = list(background = "#5b5e5f", color = "#ffffff"),
+         borderColor = "#333",
+         fontSize = header_font_size,
+         fontFamily = header_font_family
+      ),
+      groupHeaderStyle = list(
+         "&:not(:empty)" = list(
+            paddingBottom = "3px",
+            verticalAlign = "bottom",
+            textAlign = "bottom",
+            backgroundColor = "#ffffff",
+            textTransform = "uppercase",
+            fontSize = header_font_size,
+            fontFamily = header_font_family,
+            color = font_color
+         )
+      ),
+      searchInputStyle = list(
+         textTransform = "uppercase",
+         color = "#222222",
+         fontSize = "14px"
+      ),
+      inputStyle = list(backgroundColor = "#ffffff", color = "#222222"),
+      rowSelectedStyle = list(backgroundColor = "#dddddd"),
+      rowStyle = list('max-height' = '90px'),
+      pageButtonStyle = list(textTransform = "uppercase", fontSize = "14px"),
+      paginationStyle = list(textTransform = "uppercase", fontSize = "14px")
+   )
+}
+```
+
+```{r create-reactable-1}
+options(reactable.language = 
+           reactableLang(
+              filterPlaceholder = "filter VAR/LABEL/TRANS ...")
+        )
+
+nijman_describe_trans %>% 
+   reactable(
+      .,
+      pagination = FALSE, # all one page,
+      
+      height = 875,
+      theme = fivethirtyeight_updated(),
+      # theme = reactableTheme(rowStyle = list('max-height' = '115px')),
+      highlight = TRUE, compact = TRUE,
+      
+      defaultColDef = colDef(vAlign = 'top'),
+      
+      columnGroups = list(
+         colGroup(name = 'Percentiles', 
+                  columns = c('p_.05', 'p_.10', 'p_.25', 'p_.50', 'p_.75', 'p_.90', 'p_.95')),
+         colGroup(name = 'Extremes',    
+                  columns = c('ex_l', 'ex_h')),
+         colGroup(name = 'Spike Histogram', 
+                  columns = c('histboxp'))
+      ),
+      
+      columns = list( 
+         
+         digits = colDef(show = FALSE),
+         Info   = colDef(show = FALSE),
+         Gmd    = colDef(show = FALSE),
+         Sum    = colDef(show = FALSE),
+         
+         transform = colDef(show = FALSE),
+         
+         variable = colDef(name = 'Variable <br> <small>Label & Transform</small>', 
+                           html = TRUE, width = 300,
+                           sticky = 'right',
+                           style = list(borderRight = "1px solid #eee"),
+                           filterable = TRUE),
+         
+         n = colDef(name = 'Observed',
+                    width = 150,
+                    cell = data_bars(., max_value = 1006, text_size = 14,
+                                     text_position = 'outside-base', background = 'lightgrey')),
+         
+         missing = colDef(name = 'Missing',
+                          width = 75, 
+                          format = colFormat(percent = TRUE, digits = 1),
+                          align = 'left'),
+         
+         distinct = colDef(width = 85, align = 'left'),
+         Mean     = colDef(width = 60, sortable = FALSE),
+         SD       = colDef(width = 60, sortable = FALSE),
+         
+         p_.05  = colDef(name = '.05', width = 60, sortable = FALSE),
+         p_.10  = colDef(name = '.10', width = 60, sortable = FALSE),
+         p_.25  = colDef(name = '.25', width = 60, sortable = FALSE),
+         p_.50  = colDef(name = '.50', width = 60, sortable = FALSE),
+         p_.75  = colDef(name = '.75', width = 60, sortable = FALSE),
+         p_.90  = colDef(name = '.90', width = 60, sortable = FALSE), 
+         p_.95  = colDef(name = '.95', width = 60, sortable = FALSE),
+         
+         ex_l = colDef(name = 'Lowest',  html = TRUE, width = 75, align = 'center', sortable = FALSE,
+                       style = list(fontSize = "12px")),
+         ex_h = colDef(name = 'Highest', html = TRUE, width = 75, align = 'center', sortable = FALSE,
+                       style = list(fontSize = "12px")),
+         
+         histboxp = colDef(name = '<small> 
+                           <span style="color:#000000;">Mean</sub>&#8231;</span> &nbsp;
+                           <span style="color:#FF0000;">Q<sub>0.05</sub>&mid;</span>
+                           <span style="color:#0000FF;">Q<sub>0.25</sub>&mid;</span> 
+                           <span style="color:#000000;">Median</sub>&mid;</span> 
+                           <span style="color:#0000FF;">Q<sub>0.75</sub>&mid;</span>
+                           <span style="color:#FF0000;">Q<sub>0.95</sub>&mid;</span>
+                           </small>',
+                           html = TRUE,
+                           cell   = function(x){return(x)},
+                           align = 'center',
+                           width  = 250,
+                           sortable = FALSE)
+      )
+   )
+```
+
+
+```{r}
+t1 <- tibble::tribble(
+   ~label,                           ~var,          ~uv_death,       ~uv_recovery,          ~mv_death,       ~mv_recovery,
+   "Age (years)",  "age", "1.09.(1.08–1.11)", "0.99.(0.98–0.99)", "1.10.(1.08–1.12)", "0.99.(0.98–0.99)",
+   "Sex, male", "sex",  "1.15 (0.88–1.52)",  "0.80 (0.68–0.93)",  "1.07 (0.79–1.47)",  "0.90 (0.75–1.08)",
+   "BMI", "bmi",  "0.99 (0.96–1.01)",  "1.01 (0.99–1.03)",  "1.01 (0.98–1.04)",  "1.01 (0.99–1.03)",
+   "Diabetes Mellitus","comorb_dm", "1.23 (0.93–1.63)", "0.89 (0.74–1.07)", "1.17 (0.86–1.59)", "0.85 (0.69–1.04)",
+   "Cardiovascular disease (incl. hypertension)","comorb_cvd", "1.99 (1.50–2.65)", "0.83 (0.72–0.97)", "1.05 (0.69–1.59)", "0.71 (0.54–0.93)",
+   "Hypertension","comorb_cvd_hypertension", "1.39 (1.07–1.79)", "2.30 (1.98–2.68)", "0.78 (0.56–1.10)", "1.15 (0.90–1.48)",
+   "Pulmonary disease","comorb_pulm_dis", "1.42 (1.08–1.88)", "1.01 (0.85–1.21)", "1.33 (0.98–1.80)", "0.88 (0.73–1.07)",
+   "Immunocompromised a","immunocompromised", "1.31 (0.99–1.74)", "0.87 (0.72–1.05)", "1.46 (1.08–1.98)", "0.76 (0.62–0.93)",
+   "Chronic use of anticoagulant or antiplatelet medication","adm_anticoag", "2.23 (1.73–2.87)", "1.01 (0.86–1.18)", "1.38 (1.01–1.88)", "1.15 (0.93–1.43)",
+   "Chronic use of ACE inhibitors and/or angiotensin II receptor blockers","adm_ace_arb", "1.38 (1.07–1.79)", "0.97 (0.83–1.14)", "0.99 (0.74–1.32)", "1.09 (0.88–1.33)",
+   "Performed, suggestive for COVID-19","xray_new", "0.96 (0.59–1.55)", "0.96 (0.71–1.28)", "1.07 (0.63–1.80)", "1.52 (1.05–2.19)",
+   "Not performed","xray_new", "0.76 (0.48–1.20)", "1.02 (0.75–1.39)", "0.90 (0.54–1.48)", "1.18 (0.82–1.70)",
+   "CT scan severity score","ct_sevscore_total", "0.99 (0.97–1.02)", "0.95 (0.93–0.97)", "1.01 (0.98–1.05)", "0.97 (0.95–0.99)",
+   "Symptom duration (days)","sympt_duration", "0.98 (0.95–1.00)", "1.01 (1.00–1.02)", "0.98 (0.96–1.01)", "1.01 (1.00–1.02)",
+   "Symptoms, fever","sympt_fever", "0.55 (0.42–0.72)", "0.95 (0.79–1.15)", "0.70 (0.52–0.95)", "1.05 (0.85–1.30)",
+   "Symptoms, dyspnea","sympt_dyspnea", "0.75 (0.57–0.98)", "0.94 (0.80–1.11)", "0.77 (0.58–1.03)", "1.01 (0.84–1.21)",
+   "Modified Early Warning Score (MEWS)","mews", "1.06 (0.99–1.14)", "0.95 (0.91–1.00)", "1.09 (1.01–1.18)", "0.97 (0.93–1.02)",
+   "Neutrophil-to-lymphocyte rate", "adm_neutrotolymphorate_log1p", "1.58 (1.02–2.42)", "0.65 (0.50–0.85)", "0.97 (0.59–1.60)", "1.01 (0.74–1.38)",
+   "Lactate dehydrogenase (U/L)","adm_ldh_log1p", "1.67 (0.76–3.65)", "0.16 (0.10–0.25)", "6.68 (1.95–22.8)", "0.25 (0.13–0.48)",
+   "Creatinine (umol/L)","adm_creat_log1p", "5.44 (3.13–9.44)", "0.63 (0.40–0.99)", "1.84 (0.87–3.90)", "1.17 (0.69–1.99)",
+   "Procalcitonin (ug/L)","adm_procalcitonin_log1p", "1.27 (0.98–1.64)", "0.78 (0.68–0.90)", "1.04 (0.76–1.41)", "0.88 (0.75–1.03)",
+   "C-reactive protein (mg/L)","adm_crp_log1p", "1.16 (0.82–1.63)", "0.61 (0.51–0.74)", "1.25 (0.79–2.00)", "0.88 (0.69–1.11)",
+   "Ferritin (ug/L)","adm_ferritin_log1p", "0.69 (0.50–0.96)", "0.58 (0.49–0.70)", "0.66 (0.43–1.02)", "0.77 (0.60–0.99)",
+   "D-dimer (ng/L)","adm_ddimer_new_log1p", "1.10 (0.94–1.30)", "0.88 (0.83–0.93)", "0.99 (0.84–1.16)", "0.94 (0.87–1.00)"
+)
+
+
+t2 <- t1 %>% 
+   filter(var %in% Cs(age, bmi,  mews,            
+                      ct_sevscore_total, 
+                      sympt_duration, 
+                      adm_neutrotolymphorate_log1p, adm_ldh_log1p, adm_creat_log1p, adm_procalcitonin_log1p, 
+                      adm_crp_log1p, adm_ferritin_log1p, adm_ddimer_new_log1p)) %>% 
+   pivot_longer(cols = -c(1:2)) %>% 
+   separate(name, into = c("model","outcome"), sep="_") %>% 
+   mutate(estimate = str_sub(value, 1, 4),
+          conf.low  = str_sub(value, 7, 10),
+          conf.high = str_sub(value, 12, 15)) %>% 
+   mutate(across(c(estimate, conf.low, conf.high), ~as.numeric(.x))) %>% 
+   mutate(sig_1 = ifelse(conf.low>1 & conf.high>1, 1, 0),
+          sig_2 = ifelse(conf.low<1 & conf.high<1, 1, 0)) %>%
+   rowwise() %>% 
+   mutate(sig = max(sig_1, sig_2)) %>% 
+   select(-sig_1, -sig_2)
+```
+
+```{r}
+r2 <- range(t2$conf.low, t2$conf.high)
+```
+
+```{r}
+pacman::p_load(g2r)
+
+template <- tpl(
+   tpl_item(
+      outcome,
+      estimate
+   )
+)
+
+cb <- htmlwidgets::JS(
+   "(outcome, estimate) => {
+    return {
+      outcome: outcome,
+      estimate: estimate
+    }
+   }"
+)
+
+t3 <- t2 %>% 
+   select(var, label, model, outcome, est95ci = value, sig, estimate, conf.low, conf.high) %>% 
+   nest_by(var, label, model) %>% 
+   mutate(g2 = list( 
+      g2(data, 
+         width = 200,
+         height = 50,
+         digits = 3,
+         asp(y = estimate, 
+             ymin = conf.low, ymax = conf.high,
+             color = outcome,
+             shape = "circle",
+             tooltip = outcome,
+             tooltip = estimate,
+             tooltip = conf.low,
+             tooltip = conf.high)) %>%
+         fig_point(adjust("dodge", margin = 0.05)) %>% 
+         fig_error(adjust("dodge", margin = 0.05)) %>%
+         coord_transpose() %>% 
+         # info_vline(asp(x = 1, content = "info_vline")) %>% 
+         # info_vline(asp(y = 0, content = "info_hline")) %>% 
+         gauge_x_linear(min = r2[1], max = r2[2]) %>% 
+         axis_x(tickline = NULL,
+                line = NULL,
+                grid = TRUE,
+                label = NULL) %>%
+         gauge_color(c("#FC0F00", "#0C59FE")) %>% 
+         legend_color(FALSE) %>% 
+         motif(padding = c(0, 0, 0, 0)) %>%
+         gauge_tooltip(cb) %>%
+         tooltip(itemTpl = template,
+                 showMarkers = FALSE,
+                 showTitle = FALSE)
+   )
+   )
+```
+
+
+```{r}
+g2_foot <- 
+   g2( t3$data[[1]] %>% 
+          mutate(y = 0, estimate = NA),
+       width = 200,
+       height = 70,
+       asp(y = y,
+           x = estimate, 
+           color = outcome, shape = 'circle')) %>% 
+   fig_point() %>%
+   gauge_x_linear(min = r2[1], max = r2[2]) %>% 
+   gauge_color(c("#FC0F00", "#0C59FE")) %>%
+   legend_color(reversed = TRUE) %>% 
+   axis_asps("y", FALSE) %>%
+   axis_x(tickLine = TRUE,
+          grid = TRUE,
+          line = TRUE) %>% 
+   axis_title_x("HR (95% CI)",
+                fontSize = 10,
+                fontWeight = 'bold') %>% 
+   remove_interplay('legend-filter')
+```
+
+```{r}
+x <- rnorm(100)
+cut(x, breaks = c(min(x)-0.01, median(x), max(x))) %>% table()
+
+t4 <- nijman_data %>% 
+   select(id, age, bmi,  mews,            
+          ct_sevscore_total, 
+          sympt_duration, 
+          adm_neutrotolymphorate_log1p, adm_ldh_log1p, adm_creat_log1p, adm_procalcitonin_log1p, 
+          adm_crp_log1p, adm_ferritin_log1p, adm_ddimer_new_log1p) %>%
+   pivot_longer(cols = -1,
+                names_to = 'var',
+                values_to = 'x') %>% 
+   nest_by(var) %>% 
+   mutate(data = list( left_join(data,
+                                 nijman_data %>% select(id, ftime, status),
+                                 by = 'id') %>%
+                          na.omit() %>% 
+                          mutate( #x_cut = cut2(x, g = 2, levels.mean=TRUE, digits = 2),
+                             x_cut = cut(x, breaks = c(min(x)-0.0001, median(x), max(x))))
+   )
+   )%>% 
+   mutate(gg = list(
+      with(data, 
+           cuminc(ftime   = ftime, 
+                  fstatus = status, 
+                  group   = x_cut, 
+                  cencode = 'censored')) %>% 
+         ggcompetingrisks(multiple_panels = TRUE, conf.int = TRUE) +
+         scale_y_continuous(breaks = seq(0, 0.8, 0.2),
+                            limits = c(0, 0.90)) + 
+         scale_x_continuous(limits = c(0, 50)) +
+         scale_color_brewer(palette = 'Set1') +
+         scale_fill_brewer(palette = 'Set1') +
+         labs(x = 'Duration of hosptial admission (days)',
+              title = str_glue("Cumulative incidence of death and recovery, separated by {var} (median split)")
+         ) +
+         theme_bw() +
+         theme(legend.position = 'none',
+               plot.title = element_text(size=11),
+               panel.grid.minor = element_blank())
+   )
+   ) %>% 
+   select(-data) %>% 
+   ungroup()
+```
+
+# TABLE 2
+
+Column {.sidebar}
+--------------------------------------------------
+
+**Univariable and multivariable cause-specific hazard ratios (HRCS) including 95% confidence intervals for 
+death and recovery.**
+
+Laboratory variables are log-transformed (**log1p**). HRs should be interpreted for a 10-fold increase in the concerning variable, rather than a one unit increase  
+
+D-dimer is determined within 24h of hospital admission.
+
+
+Column
+--------------------------------------------------
+
+```{r}
+t3 %>% 
+   pivot_wider(id_cols = 1:2,
+               names_from = model,
+               values_from = c('data','g2')) %>% 
+   mutate(variable = str_glue("<b>{var}</b> <br> <small>{label}</small>")) %>% 
+   rowwise() %>% 
+   mutate(# code to color HR
+      HR_uv = str_glue("<span style='color:#0C59FE';>s_{data_uv[2,]$sig} {data_uv[2,]$est95ci} e_{data_uv[2,]$sig}</span> <br>
+                        <span style='color:#FC0F00';>s_{data_uv[1,]$sig} {data_uv[1,]$est95ci} e_{data_uv[1,]$sig}</span>"),
+      HR_mv = str_glue("<span style='color:#0C59FE';>s_{data_mv[2,]$sig} {data_mv[2,]$est95ci} e_{data_mv[2,]$sig}</span> <br>
+                        <span style='color:#FC0F00';>s_{data_mv[1,]$sig} {data_mv[1,]$est95ci} e_{data_mv[1,]$sig}</span>")
+   ) %>% 
+   select(var, variable, g2_uv, HR_uv, g2_mv, HR_mv) %>% 
+   mutate(across(c(HR_uv, HR_mv), ~str_replace_all(.x, "s_1", "<b>")),
+          across(c(HR_uv, HR_mv), ~str_replace_all(.x, "e_1", "</b>")),
+          across(c(HR_uv, HR_mv), ~str_replace_all(.x, "s_0", "")),
+          across(c(HR_uv, HR_mv), ~str_replace_all(.x, "e_0", ""))) %>%
+   ungroup() %>% 
+   reactable(.,
+             
+             pagination = FALSE,
+             height = 875,
+             theme = fivethirtyeight(cell_padding = "0px 8px"),
+             # theme = reactableTheme(rowStyle = list('max-height' = '115px')),
+             highlight = TRUE, compact = TRUE,
+             
+             details = function(index) {
+                htmltools::plotTag(t4$gg[[index]], alt="ggcompetingrisks", width = 500, height = 250)
+             },
+             
+             columnGroups = list(
+                colGroup(name = 'Univariate Results', 
+                         columns = c('g2_uv','HR_uv')),
+                colGroup(name = 'Multivariate Results', 
+                         columns = c('g2_mv','HR_mv'))
+             ),
+             
+             columns = list( 
+                
+                var = colDef(show = FALSE),
+                
+                variable = colDef(name = 'Variable <br> <small>Label & Transform</small>', 
+                                  html = TRUE, width = 250,
+                                  filterable = TRUE),
+                
+                g2_uv  = colDef(name = 'Figure',
+                                width = 200, 
+                                cell   = function(x){return(x)},
+                                footer = function(x){return(g2_foot)},
+                                style="font-size: 0px; padding: 0px; margin: 0px;"),
+                
+                HR_uv = colDef(name = 'Hazard Ratio (95% CI)',
+                               width = 190,
+                               html = TRUE,
+                               vAlign = 'center'),
+                
+                g2_mv  = colDef(name = 'Figure',
+                                width = 200, 
+                                cell   = function(x){return(x)},
+                                footer = function(x){return(g2_foot)},
+                                style="font-size: 0px; padding: 0px; margin: 0px;"),
+                
+                HR_mv = colDef(name = 'Hazard Ratio (95% CI)',
+                               width = 190,
+                               html = TRUE,
+                               vAlign = 'center')
+             )
+   )
+```
+
+# MANUSCRIPT
+```{r out.height = '100%', out.width='1000px'}
+knitr::include_graphics("doc/journal.pone.0249231.pdf")
+```
+
+# SUPPLEMENT
+```{r out.height = '100%', out.width='1000px'}
+knitr::include_graphics("doc/journal.pone.0249231.s003.pdf")
+```

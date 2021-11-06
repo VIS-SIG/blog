@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 17 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays October 2021</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-11-06-wonderful-wednesdays-october-2021</link>
+      <description>The goal was to find a way to visualize the impact of different risk factors (comorbidities and symptoms at admission to hospital) on the risk of death considering the competing risk of recovery.</description>
+      <category>Competing risk</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2021-11-06-wonderful-wednesdays-october-2021</guid>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-11-06-wonderful-wednesdays-october-2021/./images/nijman_tables_flx - Agustin Calatroni.png" medium="image" type="image/png" width="1920" height="1080"/>
+    </item>
     <item>
       <title>PSI Scientific Meeting</title>
       <dc:creator>PSI VIS SIG</dc:creator>

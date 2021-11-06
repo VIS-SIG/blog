@@ -1,0 +1,51 @@
+---
+title: "Wonderful Wednesdays October 2021"
+description: |
+  The goal was to find a way to visualize the impact of different risk factors (comorbidities and symptoms at admission to hospital) on the risk of death considering the competing risk of recovery.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 10-13-2021
+categories:
+  - Competing risk
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/nijman_tables_flx - Agustin Calatroni.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Competing risk example data set
+Observational, multicenter cohort study, in adult patients with PCR-confirmed infection with SARS-CoV-2, who were admitted to one of five collaborating hospitals in the region of Gelderland and North-Brabant (NL) for at least 24 hours between March and May 2020.
+
+Recovery is considered a competing risk for mortality and is taken into account as an extra outcome.
+
+Cumulative incidence curves were presented side by side for different characteristics.
+
+The goal was to find a way to visualize the impact of different risk factors (comorbidities and symptoms at admission to hospital) on the risk of death considering the competing risk of recovery.
+
+<a id="example1"></a>
+
+## Example 1. Interactive app
+
+![](./images/nijman_tables_flx - Agustin Calatroni.png)  
+The app can be found [here](https://agstn.github.io/nijman/nijman_tables_flx.html)  
+
+(A summary of the discussion will be added shortly.)
+
+
+[link to code](#example1 code)
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. <Same title as above>
+
+The code can be found [here](https://github.com/agstn/nijman).  
+The R Markdown file can be found [here](https://github.com/agstn/nijman/blob/main/nijman_tables_flx.rmd).  
+
+[Back to blog](#example1)
