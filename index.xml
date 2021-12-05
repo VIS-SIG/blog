@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays November 2021</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2021-12-05-wonderful-wednesdays-november-2021</link>
+      <description>Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I.</description>
+      <category>CGI-I data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2021-12-05-wonderful-wednesdays-november-2021</guid>
+      <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2021-12-05-wonderful-wednesdays-november-2021/./images/plot_par_nonpar - Paolo Eusebi.png" medium="image" type="image/png" width="1920" height="1080"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays October 2021</title>
       <dc:creator>PSI VIS SIG</dc:creator>

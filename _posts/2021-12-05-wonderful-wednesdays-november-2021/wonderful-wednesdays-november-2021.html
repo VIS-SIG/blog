@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Wonderful Wednesdays November 2021</title>
+
+  <meta property="description" itemprop="description" content="Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-11-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-11-10"/>
+  <meta name="article:author" content="PSI VIS SIG"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Wonderful Wednesdays November 2021"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I."/>
+  <meta property="og:image" content="https://vis-sig.github.io/blog/./images/plot_par_nonpar - Paolo Eusebi.png"/>
+  <meta property="og:image:width" content="1920"/>
+  <meta property="og:image:height" content="1080"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:title" content="Wonderful Wednesdays November 2021"/>
+  <meta property="twitter:description" content="Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I."/>
+  <meta property="twitter:image" content="https://vis-sig.github.io/blog/./images/plot_par_nonpar - Paolo Eusebi.png"/>
+  <meta property="twitter:image:width" content="1920"/>
+  <meta property="twitter:image:height" content="1080"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","base_url","preview","output"]}},"value":[{"type":"character","attributes":{},"value":["Wonderful Wednesdays November 2021"]},{"type":"character","attributes":{},"value":["Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["PSI VIS SIG"]},{"type":"character","attributes":{},"value":["https://www.psiweb.org/sigs-special-interest-groups/visualisation"]}]}]},{"type":"character","attributes":{},"value":["11-10-2021"]},{"type":"character","attributes":{},"value":["CGI-I data","Wonderful Wednesdays"]},{"type":"character","attributes":{},"value":["https://vis-sig.github.io/blog"]},{"type":"character","attributes":{},"value":["./images/plot_par_nonpar - Paolo Eusebi.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["code/MCT Plot Code - Philip Griffiths.R","code/MCT Plot Code - Philip Griffiths(1).R","code/pch_change_par_non_par - Paolo Eusebi.R","code/RidgePlot_v0_3 - Mike Greenwood.R","code/ww_mci - Agustin Calatroni.r","images/MCT_Anchor_Correlation - Philip Griffiths.png","images/MCT_Anchor_Correlation - Philip Griffiths(1).png","images/MCT_RIDGES - Philip Griffiths.PNG","images/MCT_Ridges_v2 - Philip Griffiths.png","images/plot_par_nonpar - Paolo Eusebi.pdf","images/plot_par_nonpar - Paolo Eusebi.png","images/reliable_clinical_change_plot_red_green_v0_2 - Mike Greenwood.png","images/ww_mci - Agustin Calatroni.png","wonderful-wednesdays-november-2021_files/anchor-4.2.2/anchor.min.js","wonderful-wednesdays-november-2021_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-november-2021_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-november-2021_files/header-attrs-2.8/header-attrs.js","wonderful-wednesdays-november-2021_files/jquery-1.11.3/jquery.min.js","wonderful-wednesdays-november-2021_files/popper-2.6.0/popper.min.js","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.css","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesdays-november-2021_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="wonderful-wednesdays-november-2021_files/header-attrs-2.8/header-attrs.js"></script>
+  <script src="wonderful-wednesdays-november-2021_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="wonderful-wednesdays-november-2021_files/popper-2.6.0/popper.min.js"></script>
+  <link href="wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="wonderful-wednesdays-november-2021_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="wonderful-wednesdays-november-2021_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="wonderful-wednesdays-november-2021_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="wonderful-wednesdays-november-2021_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Wonderful Wednesdays November 2021","description":"Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I.","authors":[{"author":"PSI VIS SIG","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-11-10T00:00:00.000+01:00","citationText":"SIG, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Wonderful Wednesdays November 2021</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">CGI-I data</div>
+<div class="dt=tag">Wonderful Wednesdays</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I.</p></p>
+</div>
+
+<div class="d-byline">
+  PSI VIS SIG <a href="https://www.psiweb.org/sigs-special-interest-groups/visualisation" class="uri">https://www.psiweb.org/sigs-special-interest-groups/visualisation</a> 
+  
+<br/>11-10-2021
+</div>
+
+<div class="d-article">
+<h1 id="cgi-i-data-example">CGI-I data example</h1>
+<p>The task is to display the relationship between changes from baseline of the total score and the corresponding CGI-I to guide the understanding of clinically relevant changes and especially assess minimal clinically relevant changes.</p>
+<p><a id="example1"></a></p>
+<h2 id="example-1.-exploring-uncertainty">Example 1. Exploring uncertainty</h2>
+<p><img src="images/plot_par_nonpar%20-%20Paolo%20Eusebi.png" /><br />
+<a href="./images/plot_par_nonpar%20-%20Paolo%20Eusebi.png">high resolution image</a></p>
+<p>(A summary of the discussion will be added shortly.)</p>
+<p><a href="#example1%20code">link to code</a></p>
+<p><a id="example2"></a></p>
+<h2 id="example-2.-spaghetti-and-distribution-plot">Example 2. Spaghetti and distribution plot</h2>
+<p><img src="images/ww_mci%20-%20Agustin%20Calatroni.png" /><br />
+<a href="./images/ww_mci%20-%20Agustin%20Calatroni.png">high resolution image</a></p>
+<p>(A summary of the discussion will be added shortly.)</p>
+<p><a href="#example2%20code">link to code</a></p>
+<p><a id="example3"></a></p>
+<h2 id="example-3.-distribution-plot-by-category-i">Example 3. Distribution plot by category I</h2>
+<p><img src="images/reliable_clinical_change_plot_red_green_v0_2%20-%20Mike%20Greenwood.png" /><br />
+<a href="./images/reliable_clinical_change_plot_red_green_v0_2%20-%20Mike%20Greenwood.png">high resolution image</a></p>
+<p>(A summary of the discussion will be added shortly.)</p>
+<p><a href="#example3%20code">link to code</a></p>
+<p><a id="example4"></a></p>
+<h2 id="example-4.-distribution-plot-by-category-ii">Example 4. Distribution plot by category II</h2>
+<p><img src="images/MCT_Ridges_v2%20-%20Philip%20Griffiths.png" /></p>
+<p>The html file can be found <a href="./images/MCT_Ridges_v2%20-%20Philip%20Griffiths.png">here</a>.</p>
+<p>(A summary of the discussion will be added shortly.)</p>
+<p><a href="#example4%20code">link to code</a></p>
+<p><a id="example5"></a></p>
+<h2 id="example-5.-dot-plot">Example 5. Dot plot</h2>
+<p><img src="images/MCT_Anchor_Correlation%20-%20Philip%20Griffiths.png" /><br />
+<a href="./images/MCT_Anchor_Correlation%20-%20Philip%20Griffiths.png">high resolution image</a></p>
+<p>(A summary of the discussion will be added shortly.)</p>
+<p><a href="#example5%20code">link to code</a></p>
+<h1 id="code">Code</h1>
+<p><a id="example1 code"></a></p>
+<h2 id="example-1.-exploring-uncertainty-1">Example 1. Exploring uncertainty</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Data and packages ----</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>cowplot</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>ggpubr</span><span class='op'>)</span>
+
+<span class='va'>urlfile</span> <span class='op'>&lt;-</span> <span class='st'>"https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2021/2021-10-13/WWW_example_minimal_clinical_improvement.csv"</span>
+
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/connections.html'>url</a></span><span class='op'>(</span><span class='va'>urlfile</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>change<span class='op'>=</span><span class='va'>`total score follow up`</span><span class='op'>-</span><span class='va'>`total score baseline`</span>,
+         change_pct<span class='op'>=</span><span class='op'>(</span><span class='va'>`total score follow up`</span><span class='op'>-</span><span class='va'>`total score baseline`</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>100</span><span class='op'>/</span><span class='va'>`total score baseline`</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>CGI_I<span class='op'>=</span><span class='va'>`CGI-I`</span><span class='op'>)</span>
+
+<span class='co'># Bootstrapping ECDFs ----</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='va'>nboot</span> <span class='op'>&lt;-</span> <span class='fl'>1000</span>
+<span class='va'>boot</span> <span class='op'>&lt;-</span> <span class='cn'>NULL</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>nboot</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>d</span> <span class='op'>&lt;-</span> <span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span>, replace<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>, <span class='op'>]</span>
+  <span class='va'>d</span><span class='op'>$</span><span class='va'>sim</span> <span class='op'>&lt;-</span> <span class='va'>i</span>
+  <span class='va'>boot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>boot</span>, <span class='va'>d</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='va'>res1</span> <span class='op'>&lt;-</span> <span class='va'>boot</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>CGI_I</span>, <span class='va'>sim</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>change_pct_median<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>change_pct</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>ungroup</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>CGI_I</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>boot_median <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>change_pct_median</span><span class='op'>)</span>,
+            boot_lo95ci <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>change_pct_median</span>, <span class='fl'>0.025</span><span class='op'>)</span>,
+            boot_hi95ci <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>change_pct_median</span>, <span class='fl'>0.975</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>res1</span>
+
+<span class='va'>res2</span> <span class='op'>&lt;-</span> <span class='va'>boot</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>CGI_I</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>boot_lo95pi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>change_pct</span>, <span class='fl'>0.025</span><span class='op'>)</span>,
+            boot_hi95pi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>change_pct</span>, <span class='fl'>0.975</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>res2</span>
+
+<span class='va'>res3</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>CGI_I</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>,
+            mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>change_pct</span><span class='op'>)</span>,
+            sd <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>change_pct</span><span class='op'>)</span>,
+            lo95pi <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>-</span> <span class='fl'>1.96</span><span class='op'>*</span><span class='va'>sd</span>,
+            hi95pi <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>+</span> <span class='fl'>1.96</span><span class='op'>*</span><span class='va'>sd</span>,
+            lo95ci <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>-</span> <span class='fl'>1.96</span><span class='op'>*</span><span class='op'>(</span><span class='va'>sd</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>,
+            hi95ci <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>+</span> <span class='fl'>1.96</span><span class='op'>*</span><span class='va'>sd</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>res3</span>
+
+<span class='va'>chg</span> <span class='op'>&lt;-</span> <span class='va'>res1</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>res2</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>res3</span><span class='op'>)</span>
+<span class='va'>chg</span>
+
+<span class='va'>no_chg</span> <span class='op'>&lt;-</span> <span class='va'>res1</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>left_join</a></span><span class='op'>(</span><span class='va'>res3</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>CGI_I</span><span class='op'>==</span><span class='fl'>4</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>lo95ci</span>, <span class='va'>hi95ci</span>, <span class='va'>lo95pi</span>, <span class='va'>hi95pi</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>right_join</a></span><span class='op'>(</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>id<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>no_chg</span>
+
+<span class='co'># Final plot ----</span>
+<span class='co'>## CDFs</span>
+<span class='va'>p1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_ecdf.html'>stat_ecdf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>change_pct</span>, group<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>sim</span><span class='op'>)</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>boot</span>, colour <span class='op'>=</span> <span class='fu'><a href='https://scales.r-lib.org/reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"deepskyblue4"</span>, <span class='fl'>0.2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_ecdf.html'>stat_ecdf</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>change_pct</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>df</span>, size <span class='op'>=</span> <span class='fl'>1.25</span>, color <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>80</span>, <span class='fl'>80</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>rows <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>CGI_I</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Cumulative Distribution Functions of Score % Changes"</span>,
+       subtitle <span class='op'>=</span> <span class='st'>"Empirical CDF (Orange) with 1000 Bootstrap Samples (Blue)"</span>,
+       y <span class='op'>=</span> <span class='st'>"Cumulative Distribution Function"</span>,
+       x <span class='op'>=</span> <span class='st'>"Change %"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>strip.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>18</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,
+        plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>p1</span>
+
+
+<span class='va'>labels_cgii</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/as_labeller.html'>as_labeller</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>`1` <span class='op'>=</span> <span class='st'>"1\nVery Much\nImproved"</span>, 
+                             `2` <span class='op'>=</span> <span class='st'>"2\nMuch\nImproved"</span>,
+                             `3` <span class='op'>=</span> <span class='st'>"3\nMinimally\nImproved"</span>, 
+                             `4` <span class='op'>=</span> <span class='st'>"4\nNo Change"</span>,
+                             `5` <span class='op'>=</span> <span class='st'>"5\nMinimally\nWorse"</span>,
+                             `6` <span class='op'>=</span> <span class='st'>"6\nMuch\nWorse"</span>, 
+                             `7` <span class='op'>=</span> <span class='st'>"7\nVery Much\nWorse"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>## Forest plot</span>
+<span class='va'>p2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>chg</span><span class='op'>)</span> <span class='op'>+</span>
+  
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_rect</a></span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>no_chg</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span><span class='fl'>0</span>, ymax<span class='op'>=</span><span class='fl'>1</span>,
+                             xmin<span class='op'>=</span><span class='va'>lo95ci</span>, xmax<span class='op'>=</span><span class='va'>hi95ci</span><span class='op'>)</span>,
+            fill<span class='op'>=</span><span class='st'>"orange2"</span>, alpha<span class='op'>=</span><span class='fl'>0.025</span><span class='op'>)</span> <span class='op'>+</span>
+  
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>boot_median</span>, y<span class='op'>=</span><span class='fl'>0.6</span><span class='op'>)</span>,
+             size <span class='op'>=</span> <span class='fl'>4</span>, color <span class='op'>=</span> <span class='st'>"deepskyblue4"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>boot_lo95ci</span>, xmax <span class='op'>=</span> <span class='va'>boot_hi95ci</span>, y <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span>, 
+                 height <span class='op'>=</span> <span class='fl'>0.1</span>, size<span class='op'>=</span><span class='fl'>1.25</span>, color <span class='op'>=</span> <span class='st'>"deepskyblue4"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>boot_lo95pi</span>, xmax <span class='op'>=</span> <span class='va'>boot_hi95pi</span>, y <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span>, 
+                 height <span class='op'>=</span> <span class='fl'>0.0</span>, size<span class='op'>=</span><span class='fl'>0.75</span>, color <span class='op'>=</span> <span class='st'>"deepskyblue4"</span>, linetype<span class='op'>=</span><span class='st'>"dotted"</span><span class='op'>)</span> <span class='op'>+</span>
+  
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>mean</span>, y <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span>, 
+             size <span class='op'>=</span> <span class='fl'>4</span>, color <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>lo95ci</span>, xmax <span class='op'>=</span> <span class='va'>hi95ci</span>, y <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span>, 
+                 height <span class='op'>=</span> <span class='fl'>0.1</span>, size<span class='op'>=</span><span class='fl'>1.25</span>, color <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>lo95pi</span>, xmax <span class='op'>=</span> <span class='va'>hi95pi</span>, y <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span>, 
+                 height <span class='op'>=</span> <span class='fl'>0.0</span>, size<span class='op'>=</span><span class='fl'>0.75</span>, color <span class='op'>=</span> <span class='st'>"orange2"</span>, linetype<span class='op'>=</span><span class='st'>"dotted"</span><span class='op'>)</span> <span class='op'>+</span>
+
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span>rows <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>CGI_I</span><span class='op'>)</span>, labeller <span class='op'>=</span> <span class='va'>labels_cgii</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Estimates, 95% Confidence Intervals and 95% Prediction Intervals"</span>,
+       subtitle <span class='op'>=</span> <span class='st'>"Parametric (Orange) and with 1000 Bootstrap Samples (Blue)"</span>,
+       x <span class='op'>=</span> <span class='st'>"Change %"</span>, 
+       y <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>strip.text.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span>, angle <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>,
+        axis.text.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>18</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,
+        plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>50</span>, <span class='fl'>50</span><span class='op'>)</span>, ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span>, expand<span class='op'>=</span><span class='cn'>F</span>, clip <span class='op'>=</span> <span class='st'>"on"</span><span class='op'>)</span>
+<span class='va'>p2</span>
+
+
+<span class='co'>## Legend</span>
+<span class='va'>dummy1</span> <span class='op'>&lt;-</span> <span class='va'>chg</span><span class='op'>[</span><span class='va'>chg</span><span class='op'>$</span><span class='va'>CGI_I</span><span class='op'>==</span><span class='fl'>4</span>,<span class='op'>]</span>
+<span class='va'>dummy2</span> <span class='op'>&lt;-</span> <span class='va'>chg</span><span class='op'>[</span><span class='va'>chg</span><span class='op'>$</span><span class='va'>CGI_I</span><span class='op'>==</span><span class='fl'>5</span>,<span class='op'>]</span>
+
+<span class='va'>tl</span><span class='op'>&lt;-</span><span class='fl'>0.015</span> <span class='co'># tip.length</span>
+<span class='va'>l1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Legend"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_rect</a></span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>dummy1</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span><span class='fl'>0</span>, ymax<span class='op'>=</span><span class='fl'>1</span>, xmin<span class='op'>=</span><span class='va'>lo95ci</span>, xmax<span class='op'>=</span><span class='va'>hi95ci</span><span class='op'>)</span>,
+            fill<span class='op'>=</span><span class='st'>"orange2"</span>, alpha <span class='op'>=</span> <span class='fl'>0.15</span><span class='op'>)</span> <span class='op'>+</span>  
+  <span class='fu'>geom_bracket</span><span class='op'>(</span>xmin<span class='op'>=</span><span class='va'>dummy1</span><span class='op'>$</span><span class='va'>lo95ci</span>, xmax<span class='op'>=</span><span class='va'>dummy1</span><span class='op'>$</span><span class='va'>hi95ci</span>,
+               y.position <span class='op'>=</span> <span class='fl'>0</span>, 
+               label <span class='op'>=</span> <span class='st'>"95% CI - No Change"</span>, tip.length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>tl</span>, <span class='op'>-</span><span class='va'>tl</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>boot_median</span>, y<span class='op'>=</span><span class='fl'>0.75</span><span class='op'>)</span>, 
+             size <span class='op'>=</span> <span class='fl'>4</span>, color <span class='op'>=</span> <span class='st'>"deepskyblue4"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>boot_lo95ci</span>, xmax <span class='op'>=</span> <span class='va'>boot_hi95ci</span>, y <span class='op'>=</span> <span class='fl'>0.75</span><span class='op'>)</span>,
+                 height <span class='op'>=</span> <span class='fl'>0.1</span>, size<span class='op'>=</span><span class='fl'>1.25</span>, color <span class='op'>=</span> <span class='st'>"deepskyblue4"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>boot_lo95pi</span>, xmax <span class='op'>=</span> <span class='va'>boot_hi95pi</span>, y <span class='op'>=</span> <span class='fl'>0.75</span><span class='op'>)</span>, 
+                 height <span class='op'>=</span> <span class='fl'>0.0</span>, size<span class='op'>=</span><span class='fl'>0.75</span>, color <span class='op'>=</span> <span class='st'>"deepskyblue4"</span>, linetype<span class='op'>=</span><span class='st'>"dotted"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bracket</span><span class='op'>(</span>xmin<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>lo95ci</span>, xmax<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>hi95ci</span>, y.position <span class='op'>=</span> <span class='fl'>0.35</span>,
+               label <span class='op'>=</span> <span class='st'>"95% Confidence Interval"</span>, tip.length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tl</span>, <span class='va'>tl</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bracket</span><span class='op'>(</span>xmin<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>mean</span>, xmax<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>mean</span>, y.position <span class='op'>=</span> <span class='fl'>0.3</span>,
+               label <span class='op'>=</span> <span class='st'>"Estimate"</span>, tip.length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tl</span>, <span class='va'>tl</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bracket</span><span class='op'>(</span>xmin<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>lo95pi</span>, xmax<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>hi95pi</span>, y.position <span class='op'>=</span> <span class='fl'>0.15</span>, vjust <span class='op'>=</span> <span class='fl'>4</span>,
+               label <span class='op'>=</span> <span class='st'>"95% Prediction Interval"</span>, tip.length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>tl</span>, <span class='op'>-</span><span class='va'>tl</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>mean</span>, y <span class='op'>=</span> <span class='fl'>0.25</span><span class='op'>)</span>, 
+             size <span class='op'>=</span> <span class='fl'>4</span>, color <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>lo95ci</span>, xmax <span class='op'>=</span> <span class='va'>hi95ci</span>, y <span class='op'>=</span> <span class='fl'>0.25</span><span class='op'>)</span>, 
+                 height <span class='op'>=</span> <span class='fl'>0.1</span>, size<span class='op'>=</span><span class='fl'>1.25</span>, color <span class='op'>=</span> <span class='st'>"orange2"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_errorbarh.html'>geom_errorbarh</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>lo95pi</span>, xmax <span class='op'>=</span> <span class='va'>hi95pi</span>, y <span class='op'>=</span> <span class='fl'>0.25</span><span class='op'>)</span>, 
+                 height <span class='op'>=</span> <span class='fl'>0.0</span>, size<span class='op'>=</span><span class='fl'>0.75</span>, color <span class='op'>=</span> <span class='st'>"orange2"</span>, linetype<span class='op'>=</span><span class='st'>"dotted"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bracket</span><span class='op'>(</span>xmin<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>boot_lo95ci</span>, xmax<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>boot_hi95ci</span>,
+               y.position <span class='op'>=</span> <span class='fl'>0.85</span>,
+               label <span class='op'>=</span> <span class='st'>"95% Confidence Interval (Bootstrap)"</span>, tip.length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tl</span>, <span class='va'>tl</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bracket</span><span class='op'>(</span>xmin<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>boot_median</span>, xmax<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>boot_median</span>,
+               y.position <span class='op'>=</span> <span class='fl'>0.8</span>,
+               label <span class='op'>=</span> <span class='st'>"Estimate (Bootstrap)"</span>, tip.length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tl</span>, <span class='va'>tl</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bracket</span><span class='op'>(</span>xmin<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>boot_lo95pi</span>, xmax<span class='op'>=</span><span class='va'>dummy2</span><span class='op'>$</span><span class='va'>boot_hi95pi</span>, 
+               y.position <span class='op'>=</span> <span class='fl'>0.65</span>, vjust <span class='op'>=</span> <span class='fl'>4</span>,
+               label <span class='op'>=</span> <span class='st'>"95% Prediction Interval (Bootstrap)"</span>, tip.length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>tl</span>, <span class='op'>-</span><span class='va'>tl</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>30</span>, <span class='fl'>50</span><span class='op'>)</span>, ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_void</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>18</span>, face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,
+        plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>l1</span>
+
+<span class='va'>pnull</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>30</span>, <span class='fl'>50</span><span class='op'>)</span>, ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_void</a></span><span class='op'>(</span><span class='op'>)</span>
+  
+<span class='va'>legend</span> <span class='op'>&lt;-</span> <span class='fu'>plot_grid</span><span class='op'>(</span><span class='va'>l1</span>, <span class='va'>pnull</span>, ncol<span class='op'>=</span><span class='fl'>1</span>,
+                    rel_heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>## Title</span>
+<span class='va'>title</span> <span class='op'>&lt;-</span> <span class='fu'>ggdraw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>draw_label</span><span class='op'>(</span>
+    <span class='st'>"Exploring uncertainty of minimally clinically relevant changes"</span>,
+    fontface <span class='op'>=</span> <span class='st'>'bold'</span>, size <span class='op'>=</span> <span class='fl'>36</span>,
+    x <span class='op'>=</span> <span class='fl'>0</span>,
+    hjust <span class='op'>=</span> <span class='fl'>0</span>
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>
+    plot.margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>7</span><span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='va'>title</span>
+
+<span class='va'>plot_row</span> <span class='op'>&lt;-</span> <span class='fu'>plot_grid</span><span class='op'>(</span><span class='va'>p1</span>, <span class='va'>p2</span>, <span class='va'>pnull</span> , <span class='va'>legend</span>, nrow<span class='op'>=</span><span class='fl'>1</span>, rel_widths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>0.25</span>, <span class='fl'>1.25</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>g2</span> <span class='op'>&lt;-</span> <span class='fu'>plot_grid</span><span class='op'>(</span><span class='va'>title</span>, <span class='va'>plot_row</span>, ncol <span class='op'>=</span> <span class='fl'>1</span>, rel_heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>g2</span>
+<span class='va'>f</span><span class='op'>&lt;-</span><span class='fl'>1.7</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span>file<span class='op'>=</span><span class='st'>"plot_par_nonpar.pdf"</span>, <span class='va'>g2</span>, width <span class='op'>=</span> <span class='fl'>16</span><span class='op'>*</span><span class='va'>f</span>, height <span class='op'>=</span> <span class='fl'>9</span><span class='op'>*</span><span class='va'>f</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><a href="#example1">Back to blog</a></p>
+<p><a id="example2 code"></a></p>
+<h2 id="example-2.-spaghetti-and-distribution-plot-1">Example 2. Spaghetti and distribution plot</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># PACKAGES</span>
+<span class='fu'>pacman</span><span class='fu'>::</span><span class='fu'>p_load</span><span class='op'>(</span><span class='va'>tidyverse</span>, <span class='va'>rio</span><span class='op'>)</span>
+<span class='fu'>pacman</span><span class='fu'>::</span><span class='fu'>p_load</span><span class='op'>(</span><span class='va'>dabestr</span><span class='op'>)</span>
+<span class='fu'>pacman</span><span class='fu'>::</span><span class='fu'>p_load</span><span class='op'>(</span><span class='va'>ggdist</span>, <span class='va'>patchwork</span><span class='op'>)</span>
+<span class='fu'>pacman</span><span class='fu'>::</span><span class='fu'>p_load</span><span class='op'>(</span><span class='va'>ggpp</span>, <span class='va'>ggtext</span><span class='op'>)</span>
+
+<span class='co'># IMPORT</span>
+<span class='va'>d1</span> <span class='op'>&lt;-</span> <span class='fu'>import</span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2021/2021-10-13/WWW_example_minimal_clinical_improvement.csv"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>id <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/ranking.html'>row_number</a></span><span class='op'>(</span><span class='op'>)</span>, .before <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/everything.html'>everything</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'>janitor</span><span class='fu'>::</span><span class='fu'>clean_names</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># EXPORT</span>
+<span class='va'>d1</span> <span class='op'>%&gt;%</span> <span class='fu'>export</span><span class='op'>(</span><span class='st'>"C:/R/Wonderful-Wednesdays/2021-10-13/ww_mci.csv"</span><span class='op'>)</span>
+
+<span class='co'># RESHAPE &amp; CALC</span>
+<span class='va'>d2</span> <span class='op'>&lt;-</span> <span class='va'>d1</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'>pivot_longer</span><span class='op'>(</span>cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>total_score_baseline</span>, <span class='va'>total_score_follow_up</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>time <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>name</span> <span class='op'>==</span> <span class='st'>"total_score_baseline"</span>,<span class='st'>"B"</span>,<span class='st'>"F"</span><span class='op'>)</span>,
+          cgi_f <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cgi_i</span>, labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Very much improved [1]'</span>,
+                                           <span class='st'>'Much improved [2]'</span>,
+                                           <span class='st'>'Minimally improved [3]'</span>,
+                                           <span class='st'>'No change [4]'</span>,
+                                           <span class='st'>'Minimally worse [5]'</span>,
+                                           <span class='st'>'Much worse [6]'</span>,
+                                           <span class='st'>'Very much worse [7]'</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>cgi_i</span>, <span class='va'>cgi_f</span>, <span class='va'>time</span>, <span class='va'>value</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/nest_by.html'>nest_by</a></span><span class='op'>(</span><span class='va'>cgi_i</span>, <span class='va'>cgi_f</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>dabest   <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'>dabest</span><span class='op'>(</span><span class='va'>data</span>, 
+                                 <span class='va'>time</span>, <span class='va'>value</span>,
+                                 idx <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"B"</span>,<span class='st'>"F"</span><span class='op'>)</span>,
+                                 paired <span class='op'>=</span> <span class='cn'>TRUE</span>, id.col <span class='op'>=</span> <span class='va'>id</span><span class='op'>)</span> <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>mean_diff <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span> <span class='fu'>mean_diff</span><span class='op'>(</span><span class='va'>dabest</span><span class='op'>)</span> <span class='op'>)</span> <span class='op'>)</span> 
+
+<span class='co'># EXTRACT</span>
+<span class='va'>d3</span> <span class='op'>&lt;-</span> <span class='va'>d2</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>cgi_i</span>, <span class='va'>cgi_f</span>, <span class='va'>mean_diff</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>change <span class='op'>=</span> <span class='va'>mean_diff</span><span class='op'>$</span><span class='va'>data</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+          boot   <span class='op'>=</span> <span class='va'>mean_diff</span><span class='op'>$</span><span class='va'>result</span><span class='op'>$</span><span class='va'>bootstraps</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>mean_diff</span><span class='op'>)</span> 
+
+<span class='co'># N's and nested graphs</span>
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='va'>d2</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>cgi_i</span>, <span class='va'>cgi_f</span>, <span class='va'>n</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>ungroup</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>n_sum <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>gg_p</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span><span class='op'>{</span>
+   
+   <span class='va'>cols</span>         <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>'gray90'</span>,<span class='fl'>7</span><span class='op'>)</span><span class='op'>)</span>
+   <span class='va'>cols</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>      <span class='op'>&lt;-</span> <span class='st'>'gray25'</span>
+   
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>n</span>,
+          <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>n</span>, y <span class='op'>=</span> <span class='st'>'1'</span>, fill <span class='op'>=</span> <span class='fu'>fct_rev</span><span class='op'>(</span><span class='va'>cgi_f</span><span class='op'>)</span>   <span class='op'>)</span> <span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>'identity'</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>n</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span>,
+                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>   x <span class='op'>=</span> <span class='va'>n_sum</span>,
+                        y <span class='op'>=</span> <span class='st'>'1'</span>,
+                        label <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span>,
+                 nudge_y <span class='op'>=</span> <span class='fl'>0.40</span>,
+                 size <span class='op'>=</span> <span class='fl'>3</span>, fill <span class='op'>=</span> <span class='st'>'white'</span>, 
+                 label.padding <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0.10</span>, <span class='st'>"lines"</span><span class='op'>)</span>, label.size <span class='op'>=</span> <span class='fl'>0.0</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span><span class='op'>(</span><span class='va'>cols</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>'none'</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_void</a></span><span class='op'>(</span><span class='op'>)</span> 
+<span class='op'>}</span>
+
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='va'>n</span> <span class='op'>%&gt;%</span>
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rowwise.html'>rowwise</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>gg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span> <span class='fu'>gg_p</span><span class='op'>(</span><span class='va'>cgi_i</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> 
+
+<span class='co'># CHANGE</span>
+<span class='va'>change</span> <span class='op'>&lt;-</span> <span class='va'>d3</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>cgi_i</span>, <span class='va'>cgi_f</span>, <span class='va'>change</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'>unnest</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>change</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>f1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>change</span>,
+             <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>time</span>, y <span class='op'>=</span> <span class='va'>value</span>, group <span class='op'>=</span> <span class='va'>id</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'>geom_plot_npc</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>n</span>,
+                 vp.width <span class='op'>=</span> <span class='fl'>0.95</span>, vp.height <span class='op'>=</span> <span class='fl'>0.08</span>,
+                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>npcx <span class='op'>=</span> <span class='fl'>0.01</span>, npcy <span class='op'>=</span> <span class='fl'>0.99</span>,  label <span class='op'>=</span> <span class='va'>gg</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>'gray25'</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span>, size <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/stat_summary.html'>stat_summary</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>, 
+                fun <span class='op'>=</span> <span class='va'>mean</span>, colour <span class='op'>=</span> <span class='st'>'black'</span>, geom<span class='op'>=</span><span class='st'>'line'</span>, size <span class='op'>=</span> <span class='fl'>1</span>,
+                position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_nudge.html'>position_nudge</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.05</span>, <span class='fl'>0.05</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'>stat_halfeye</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>.</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>time</span> <span class='op'>==</span> <span class='st'>"B"</span><span class='op'>)</span>,
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>,
+                point_interval <span class='op'>=</span> <span class='va'>mean_qi</span>,
+                side <span class='op'>=</span> <span class='st'>'left'</span>,
+                justification <span class='op'>=</span> <span class='fl'>1.1</span>,
+                adjust <span class='op'>=</span> <span class='fl'>0.95</span>,
+                position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_nudge.html'>position_nudge</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'>stat_halfeye</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>.</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>time</span> <span class='op'>==</span> <span class='st'>"F"</span><span class='op'>)</span>,
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>,
+                point_interval <span class='op'>=</span> <span class='va'>mean_qi</span>,
+                side <span class='op'>=</span> <span class='st'>'right'</span>,
+                justification <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.1</span>,
+                adjust <span class='op'>=</span> <span class='fl'>0.95</span>,
+                position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_nudge.html'>position_nudge</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>'Better &lt;----- Total Score -----&gt; Worst'</span>,
+                      expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0</span><span class='op'>)</span>,
+                      limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>12</span>, <span class='fl'>80</span><span class='op'>)</span>,
+                      sec.axis <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/sec_axis.html'>sec_axis</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>.</span>, name <span class='op'>=</span> <span class='st'>''</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>''</span>,
+                    expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.05</span><span class='op'>)</span>,
+                    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Baseline         "</span>, <span class='st'>"         Follow-up"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='va'>.</span><span class='op'>~</span><span class='va'>cgi_f</span>, ncol <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.grid.minor <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+         panel.spacing    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+         plot.margin      <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>b <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># BOOSTRAP</span>
+<span class='va'>boot</span> <span class='op'>&lt;-</span> <span class='va'>d3</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>cgi_i</span>, <span class='va'>cgi_f</span>, <span class='va'>boot</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+   <span class='fu'>unnest</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>boot</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>m</span> <span class='op'>&lt;-</span> <span class='va'>boot</span> <span class='op'>%&gt;%</span>
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>cgi_f</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>m <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>boot</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>f2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>boot</span>,
+             <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>boot</span>, x <span class='op'>=</span> <span class='st'>'Ch'</span>, fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes_eval.html'>stat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>10</span><span class='op'>)</span> <span class='op'>)</span> <span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'>stat_halfeye</span><span class='op'>(</span>point_interval <span class='op'>=</span> <span class='va'>mean_qi</span>,
+                side <span class='op'>=</span> <span class='st'>'right'</span>,
+                justification <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.05</span>,
+                adjust <span class='op'>=</span> <span class='fl'>0.8</span>,
+                position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_nudge.html'>position_nudge</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0.05</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>10</span><span class='op'>)</span>,
+              color <span class='op'>=</span> <span class='st'>'gray75'</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0</span>,
+              color <span class='op'>=</span> <span class='st'>'gray50'</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gray80"</span>, <span class='st'>"skyblue"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>'Paired Mean Difference \n (5K Bootstrap)'</span>,
+                      limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>20</span>, <span class='fl'>20</span><span class='op'>)</span>,
+                      expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>,
+                      sec.axis <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/sec_axis.html'>sec_axis</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>.</span>, name <span class='op'>=</span> <span class='st'>''</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>''</span>,
+                    expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.15</span>, <span class='fl'>0</span><span class='op'>)</span>,
+                    labels <span class='op'>=</span> <span class='st'>"F minus B"</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='va'>.</span><span class='op'>~</span><span class='va'>cgi_f</span>, ncol <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>m</span>,
+             <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>'Ch'</span>, y <span class='op'>=</span> <span class='va'>m</span>, label <span class='op'>=</span> <span class='va'>m</span><span class='op'>)</span>,
+             size <span class='op'>=</span> <span class='fl'>3</span>, nudge_x <span class='op'>=</span> <span class='fl'>0.2</span>
+   <span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.grid.minor   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+         panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+         panel.spacing      <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='st'>"lines"</span><span class='op'>)</span>,
+         plot.margin        <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>0</span>, b <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>, 
+         strip.text         <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>'none'</span><span class='op'>)</span>
+
+<span class='va'>f1</span><span class='op'>/</span><span class='va'>f2</span> <span class='op'>+</span>
+   <span class='fu'>plot_layout</span><span class='op'>(</span>heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.5</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'>plot_annotation</span><span class='op'>(</span>
+      title   <span class='op'>=</span> 
+      <span class='st'>"&lt;b&gt;Baseline, Follow-up and Change assessment of the total score by Clinical Assessment of Improvement (CGI-I)&lt;/b&gt; 
+      &lt;br&gt;
+      &lt;span style = 'font-size:10pt'&gt;&lt;b&gt;Top panel&lt;/b&gt; gray lines represent a participant score, while 
+      the slab and point interval (mean, 95% and 99% CI) characterize the marginal observations with 
+      top annotations for the total number of pairs. 
+      &lt;br&gt;
+      &lt;b&gt;Bottom panel&lt;/b&gt; paired mean Change derived though nonparametric bootstrap resampling, mean difference 
+      &lt;span&gt;&amp;#177;&lt;/span&gt; than 10 are &lt;b&gt;&lt;span style = 'color:skyblue;'&gt;color-coded&lt;/span&gt;&lt;/b&gt;.
+     &lt;/span&gt;"</span>,
+     theme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>
+        plot.title <span class='op'>=</span> <span class='fu'>element_textbox_simple</span><span class='op'>(</span>
+           size <span class='op'>=</span> <span class='fl'>13</span>,
+           lineheight <span class='op'>=</span> <span class='fl'>1</span>,
+           r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='st'>"pt"</span><span class='op'>)</span>,
+           padding <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>4</span>, <span class='fl'>4</span>, <span class='fl'>4</span><span class='op'>)</span>,
+           margin  <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>20</span>, <span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>)</span>,
+           fill <span class='op'>=</span> <span class='st'>"gray90"</span>
+        <span class='op'>)</span>
+     <span class='op'>)</span>
+   <span class='op'>)</span>
+
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"C:/R/Wonderful-Wednesdays/2021-10-13/ww_mci.png"</span>,
+       dpi <span class='op'>=</span> <span class='fl'>600</span>,
+       width <span class='op'>=</span> <span class='fl'>14</span>,
+       height <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><a href="#example2">Back to blog</a></p>
+<p><a id="example3 code"></a></p>
+<h2 id="example-3.-distribution-plot-by-category-i-1">Example 3. Distribution plot by category I</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>WW_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"WWW_example_minimal_clinical_improvement_stats.csv"</span><span class='op'>)</span>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>tidyverse</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>ggridges</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>gt</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>psych</span><span class='op'>)</span>
+
+<span class='co'>#####</span>
+<span class='co'>#1 - calculate SEM </span>
+<span class='co'>#The Standard Error of Measurement (SEM) quantifies </span>
+<span class='co'>#the precision of the individual measurements </span>
+<span class='co'>#and gives an indication of the absolute reliability</span>
+
+<span class='co'>#2 - calculate SDC</span>
+<span class='co'>#The SEM can be used to calculate the Minimal Detectable Change (MDC)</span>
+<span class='co'>#which is the minimal amount of change that a measurement </span>
+<span class='co'>#must show to be greater than the within subject variability</span>
+<span class='co'>#and measurement error, also referred to as the sensitivity to change</span>
+
+<span class='va'>pre_post</span> <span class='op'>&lt;-</span> <span class='va'>WW_data</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>sd_baseline</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>WW_data</span><span class='op'>$</span><span class='va'>total.score.baseline</span>, na.rm <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+
+<span class='va'>icc</span> <span class='op'>&lt;-</span> <span class='fu'>ICC</span><span class='op'>(</span><span class='va'>pre_post</span><span class='op'>)</span><span class='co'>#0.032 - reliability for SEM</span>
+
+<span class='va'>sem_baseline</span> <span class='op'>&lt;-</span> <span class='fu'>psychometric</span><span class='fu'>::</span><span class='fu'>SE.Meas</span><span class='op'>(</span><span class='va'>sd_baseline</span>, <span class='fl'>0.032</span><span class='op'>)</span>
+
+<span class='co'>#Smallest detectable change(SDC)/Minimal detectable change (MDC)</span>
+<span class='co'>#SEM*1.92*sqrt(2)</span>
+<span class='va'>sdc</span> <span class='op'>&lt;-</span> <span class='va'>sem_baseline</span><span class='op'>*</span><span class='fl'>1.96</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>sdc_comp</span> <span class='op'>&lt;-</span> <span class='va'>sdc</span><span class='op'>*</span><span class='op'>-</span><span class='fl'>1</span>
+
+<span class='va'>WW_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span><span class='va'>WW_data</span>, baseline <span class='op'>=</span> <span class='va'>total.score.baseline</span>, followup <span class='op'>=</span> <span class='va'>total.score.follow.up</span>, CGI <span class='op'>=</span> <span class='va'>CGI.I</span><span class='op'>)</span>
+<span class='va'>WW_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>within</a></span><span class='op'>(</span><span class='va'>WW_data</span>, <span class='va'>CHG</span> <span class='op'>&lt;-</span> <span class='va'>followup</span><span class='op'>-</span><span class='va'>baseline</span><span class='op'>)</span>
+<span class='va'>WW_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>within</a></span><span class='op'>(</span><span class='va'>WW_data</span>, <span class='op'>{</span>
+            <span class='va'>CGI_cat</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
+            <span class='va'>CGI_cat</span><span class='op'>[</span><span class='va'>CGI</span><span class='op'>==</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Very much improved"</span>
+            <span class='va'>CGI_cat</span><span class='op'>[</span><span class='va'>CGI</span><span class='op'>==</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Much improved"</span>
+            <span class='va'>CGI_cat</span><span class='op'>[</span><span class='va'>CGI</span><span class='op'>==</span><span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Minimally improved"</span>
+            <span class='va'>CGI_cat</span><span class='op'>[</span><span class='va'>CGI</span><span class='op'>==</span><span class='fl'>4</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"No change"</span>
+            <span class='va'>CGI_cat</span><span class='op'>[</span><span class='va'>CGI</span><span class='op'>==</span><span class='fl'>5</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Minimally worse"</span>
+            <span class='va'>CGI_cat</span><span class='op'>[</span><span class='va'>CGI</span><span class='op'>==</span><span class='fl'>6</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Much worse"</span>
+            <span class='va'>CGI_cat</span><span class='op'>[</span><span class='va'>CGI</span><span class='op'>==</span><span class='fl'>7</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Very much worse"</span>
+            <span class='op'>}</span><span class='op'>)</span>
+
+<span class='va'>WW_data</span> <span class='op'>&lt;-</span> <span class='va'>WW_data</span> <span class='op'>&lt;-</span> <span class='va'>WW_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>CGI_cat</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>WW_data</span><span class='op'>$</span><span class='va'>CGI_cat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>WW_data</span><span class='op'>$</span><span class='va'>CGI_cat</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very much improved"</span>,
+                                   <span class='st'>"Much improved"</span>,
+                                   <span class='st'>"Minimally improved"</span>,
+                                   <span class='st'>"No change"</span>,
+                                   <span class='st'>"Minimally worse"</span>,
+                                   <span class='st'>"Much worse"</span>,
+                                   <span class='st'>"Very much worse"</span>
+                                   <span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>gg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>WW_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>CHG</span>, 
+                    y <span class='op'>=</span> <span class='va'>CGI_cat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_density_ridges</span><span class='op'>(</span>
+    geom <span class='op'>=</span> <span class='st'>"density_ridges_gradient"</span>,
+    quantile_lines <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    quantiles <span class='op'>=</span> <span class='fl'>2</span>, scale <span class='op'>=</span> <span class='fl'>1</span>, rel_min_height <span class='op'>=</span> <span class='fl'>0.01</span>,
+    jittered_points <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>breaks<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>40</span>,<span class='fl'>40</span>,<span class='fl'>10</span><span class='op'>)</span>,
+                     limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>40</span>,<span class='fl'>40</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"CGI-I Response"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Change in PRO Score"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Minimally Improved &amp; Minimally Worse CGI-I Categories\nAre Not Differentiated From No change"</span>,
+       subtitle <span class='op'>=</span> <span class='st'>"Smoothed Distributions with Individual Patients (dots) and Means (|) \nReference Lines Display Smallest Detectable Change of PRO Score"</span>,
+       caption <span class='op'>=</span> <span class='st'>"Smallest Detectable Change defined by Standard Error of Measurement of PRO Score at Baseline"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>
+    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"black"</span>, size <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>,
+    plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"black"</span>, size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,
+    plot.caption <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"black"</span>, size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span>
+  <span class='op'>)</span>
+
+<span class='co'>#theme_ridges(font_size = 12)</span>
+
+<span class='co'>#Build ggplot and extract data</span>
+<span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot_build.html'>ggplot_build</a></span><span class='op'>(</span><span class='va'>gg</span><span class='op'>)</span><span class='op'>$</span><span class='va'>data</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>
+
+<span class='co'># Add geom_ribbon for shaded area</span>
+<span class='va'>rcc</span> <span class='op'>&lt;-</span> <span class='va'>gg</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span>
+    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/transform.html'>transform</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>d</span>, <span class='va'>x</span> <span class='op'>&gt;=</span> <span class='va'>sdc</span><span class='op'>)</span>, CGI_cat <span class='op'>=</span> <span class='va'>group</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>x</span>, ymin <span class='op'>=</span> <span class='va'>ymin</span>, ymax <span class='op'>=</span> <span class='va'>ymax</span>, group <span class='op'>=</span> <span class='va'>group</span><span class='op'>)</span>,
+    fill <span class='op'>=</span> <span class='st'>"red"</span>,
+    alpha <span class='op'>=</span> <span class='fl'>0.2</span>, 
+    show.legend <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span>
+    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/transform.html'>transform</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>d</span>, <span class='va'>x</span> <span class='op'>&lt;=</span> <span class='va'>sdc_comp</span><span class='op'>)</span>, CGI_cat <span class='op'>=</span> <span class='va'>group</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>x</span>, ymin <span class='op'>=</span> <span class='va'>ymin</span>, ymax <span class='op'>=</span> <span class='va'>ymax</span>, group <span class='op'>=</span> <span class='va'>group</span><span class='op'>)</span>,
+    fill <span class='op'>=</span> <span class='st'>"green"</span>,
+    alpha <span class='op'>=</span> <span class='fl'>0.2</span>,
+    show.legend <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept <span class='op'>=</span><span class='va'>sdc</span>, linetype<span class='op'>=</span><span class='st'>"dashed"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept <span class='op'>=</span><span class='va'>sdc_comp</span>, linetype<span class='op'>=</span><span class='st'>"dashed"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"segment"</span>, x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>15</span>, xend <span class='op'>=</span> <span class='op'>-</span><span class='fl'>35</span>, y <span class='op'>=</span> <span class='fl'>0.7</span>, yend <span class='op'>=</span> <span class='fl'>0.7</span>, colour <span class='op'>=</span> <span class='st'>"black"</span>, size<span class='op'>=</span><span class='fl'>0.5</span>, arrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/grid/arrow.html'>arrow</a></span><span class='op'>(</span>length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0.03</span>, <span class='st'>"npc"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"segment"</span>, x <span class='op'>=</span> <span class='fl'>15</span>, xend <span class='op'>=</span> <span class='fl'>35</span>, y <span class='op'>=</span> <span class='fl'>0.7</span>, yend <span class='op'>=</span> <span class='fl'>0.7</span>, colour <span class='op'>=</span> <span class='st'>"black"</span>, size<span class='op'>=</span><span class='fl'>0.5</span>, arrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/grid/arrow.html'>arrow</a></span><span class='op'>(</span>length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0.03</span>, <span class='st'>"npc"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>30</span>, y <span class='op'>=</span> <span class='fl'>0.45</span>, label <span class='op'>=</span> <span class='st'>"Improvement"</span><span class='op'>)</span>, 
+             hjust <span class='op'>=</span> <span class='fl'>0</span>, 
+             vjust <span class='op'>=</span> <span class='fl'>0</span>,
+             colour <span class='op'>=</span> <span class='st'>"black"</span>, 
+             size <span class='op'>=</span> <span class='fl'>2.5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>20</span>, y <span class='op'>=</span> <span class='fl'>0.45</span>, label <span class='op'>=</span> <span class='st'>"Deterioration"</span><span class='op'>)</span>, 
+            hjust <span class='op'>=</span> <span class='fl'>0</span>, 
+            vjust <span class='op'>=</span> <span class='fl'>0</span>,
+            colour <span class='op'>=</span> <span class='st'>"black"</span>, 
+            size <span class='op'>=</span> <span class='fl'>2.5</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"CGI-I Response"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Change in PRO Score"</span><span class='op'>)</span>
+  
+  
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"reliable_clinical_change_plot_red_green_v0_2.png"</span>, plot <span class='op'>=</span> <span class='va'>rcc</span>, device <span class='op'>=</span> <span class='va'>png</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><a href="#example3">Back to blog</a></p>
+<p><a id="example4 code"></a></p>
+<h2 id="example-4.-distribution-plot-by-category-ii-1">Example 4. Distribution plot by category II</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#### MCT PLOT</span>
+
+<span class='co'>#FIND LOWER TAIL OF THE "NO CHANGE GROUP"</span>
+
+<span class='va'>dat_tail</span> <span class='op'>&lt;-</span> <span class='va'>dat</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>CGI</span> <span class='op'>==</span> <span class='fl'>4</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>quantile <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/label_percent.html'>percent</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.025</span><span class='op'>)</span><span class='op'>)</span>,
+           value <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>CHANGE</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.025</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>dat_tail</span><span class='op'>)</span>
+
+<span class='va'>text_grob</span> <span class='op'>&lt;-</span> <span class='fu'>textGrob</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>dat_tail</span><span class='op'>$</span><span class='va'>value</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>, gp<span class='op'>=</span><span class='fu'>gpar</span><span class='op'>(</span>fontsize<span class='op'>=</span><span class='fl'>16</span>, col <span class='op'>=</span> <span class='va'>Green100</span><span class='op'>)</span><span class='op'>)</span> <span class='co'>#Needed to draw on axis </span>
+
+
+<span class='va'>ridge</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>CHANGE</span>, y <span class='op'>=</span> <span class='va'>CGI</span>, fill <span class='op'>=</span>  <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>..x..</span><span class='op'>&lt;</span> <span class='va'>dat_tail</span><span class='op'>$</span><span class='va'>value</span>, <span class='st'>"lower"</span>, <span class='st'>"rest"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>stat_density_ridges</span><span class='op'>(</span>geom <span class='op'>=</span> <span class='st'>"density_ridges_gradient"</span>,quantiles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.025</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>
+  values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>Green100a</span>, <span class='va'>Purple100a</span><span class='op'>)</span>,
+  <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"A threshold of "</span>,<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>dat_tail</span><span class='op'>$</span><span class='va'>value</span><span class='op'>)</span>,<span class='st'>" may be an appropriate patient-level improvement threshold"</span> <span class='op'>)</span>, subtitle <span class='op'>=</span> <span class='st'>'Derived using the value of the lower tail of the "No change" Group'</span><span class='op'>)</span><span class='op'>+</span>      
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"PRO Change Score from Baseline"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>breaks<span class='op'>=</span><span class='op'>-</span><span class='fl'>40</span><span class='op'>:</span><span class='op'>+</span><span class='fl'>40</span><span class='op'>*</span><span class='fl'>20</span><span class='op'>)</span> <span class='op'>+</span>         <span class='co'># SET TICK EVERY 10</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_y_discrete</a></span><span class='op'>(</span>labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very much improved - 1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>,<span class='st'>"No change - 4"</span>, <span class='st'>"5"</span>, <span class='st'>"6"</span>,<span class='st'>"Very much worse - 7"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>, axis.line <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        axis.text<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        axis.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        legend.text<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        legend.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        legend.position <span class='op'>=</span> <span class='st'>"none"</span>,
+        plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>22</span>, face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span>,
+        plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span>, face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"segment"</span>, x<span class='op'>=</span><span class='va'>dat_tail</span><span class='op'>$</span><span class='va'>value</span>, xend<span class='op'>=</span><span class='va'>dat_tail</span><span class='op'>$</span><span class='va'>value</span>, y<span class='op'>=</span><span class='fl'>4</span>, yend <span class='op'>=</span> <span class='fl'>0</span>, colour <span class='op'>=</span> <span class='st'>"black"</span>, linetype <span class='op'>=</span> <span class='st'>"dashed"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotation_custom.html'>annotation_custom</a></span><span class='op'>(</span><span class='va'>text_grob</span>, xmin<span class='op'>=</span><span class='va'>dat_tail</span><span class='op'>$</span><span class='va'>value</span>,xmax<span class='op'>=</span><span class='va'>dat_tail</span><span class='op'>$</span><span class='va'>value</span>,ymin<span class='op'>=</span><span class='op'>-</span><span class='fl'>0.27</span>,ymax<span class='op'>=</span><span class='op'>-</span><span class='fl'>0.27</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span>clip <span class='op'>=</span> <span class='st'>"off"</span><span class='op'>)</span>
+    
+
+<span class='va'>ridge</span>
+</code></pre>
+</div>
+</div>
+<p><a href="#example4">Back to blog</a></p>
+<p><a id="example5 code"></a></p>
+<h2 id="example-5.-dot-plot-1">Example 5. Dot plot</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>tidyverse</span><span class='op'>)</span>
+<span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>polycor</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"polycor"</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>polycor</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>ggridges</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"ggridges"</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>ggridges</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+
+<span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>grid</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"grid"</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>grid</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='co'>#Clear environment</span>
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span>list<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+
+<span class='co'>#Colour scheme</span>
+<span class='va'>Turquoise100</span> <span class='op'>&lt;-</span> <span class='st'>"#00a3e0"</span>
+<span class='va'>Turquoise75</span> <span class='op'>&lt;-</span> <span class='st'>"#40bae8"</span>
+<span class='va'>Turquoise50</span> <span class='op'>&lt;-</span> <span class='st'>"#7fd1ef"</span>
+<span class='va'>Turquoise25</span> <span class='op'>&lt;-</span> <span class='st'>"#bfe8f7"</span>
+<span class='va'>Blue100</span> <span class='op'>&lt;-</span> <span class='st'>"#005587"</span>
+<span class='va'>Blue50</span> <span class='op'>&lt;-</span> <span class='st'>"#7FAAC3"</span>
+<span class='va'>Green100</span> <span class='op'>&lt;-</span> <span class='st'>"#43b02a"</span>
+<span class='va'>Green100a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb</a></span><span class='op'>(</span><span class='fl'>67</span>, <span class='fl'>176</span>, <span class='fl'>42</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span> <span class='op'>*</span> <span class='fl'>255</span>, maxColorValue <span class='op'>=</span> <span class='fl'>255</span><span class='op'>)</span>
+<span class='va'>Green50</span> <span class='op'>&lt;-</span> <span class='st'>"#a1d794"</span>
+<span class='va'>Purple100</span> <span class='op'>&lt;-</span><span class='st'>"#830065"</span>
+<span class='va'>Purple100a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb</a></span><span class='op'>(</span><span class='fl'>131</span>, <span class='fl'>0</span>, <span class='fl'>101</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span> <span class='op'>*</span> <span class='fl'>255</span>, maxColorValue <span class='op'>=</span> <span class='fl'>255</span><span class='op'>)</span>
+<span class='va'>Purple50</span> <span class='op'>&lt;-</span> <span class='st'>"#c17fb2"</span>
+
+<span class='co'>#Set data and results areas up</span>
+<span class='va'>sourcedata</span> <span class='op'>&lt;-</span> <span class='st'>"C:/Users/phili/Documents/WonWed/MCT/sourcedata/"</span>
+<span class='va'>outputdata</span> <span class='op'>&lt;-</span><span class='st'>"C:/Users/phili/Documents/WonWed/MCT/outputdata/"</span>
+<span class='va'>tables</span> <span class='op'>&lt;-</span> <span class='st'>"C:/Users/phili/Documents/WonWed/MCT/tables/"</span>
+<span class='va'>figures</span> <span class='op'>&lt;-</span> <span class='st'>"C:/Users/phili/Documents/WonWed/MCT/figures/"</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>setwd</a></span><span class='op'>(</span><span class='va'>sourcedata</span><span class='op'>)</span>
+<span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"WWW_example_minimal_clinical_improvement.csv"</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span>
+
+<span class='va'>dat</span><span class='op'>$</span><span class='va'>USUBJID</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span><span class='op'>)</span> <span class='co'>#MAKE A NEW SUBJECT ID COLUMN</span>
+
+<span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='va'>dat</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span><span class='st'>"Time1"</span> <span class='op'>=</span> <span class='va'>`total score baseline`</span>, <span class='st'>"Time2"</span> <span class='op'>=</span> <span class='va'>`total score follow up`</span>, <span class='st'>"CGI"</span> <span class='op'>=</span><span class='va'>`CGI-I`</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'>#RENAME COLUMNS</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>CHANGE <span class='op'>=</span> <span class='va'>Time2</span> <span class='op'>-</span> <span class='va'>Time1</span><span class='op'>)</span> <span class='co'># MAKE CHANGE SCORES. NEGATIVE SCORE IS IMPROVEMENT</span>
+<span class='va'>dat</span><span class='op'>$</span><span class='va'>CGI</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>CGI</span><span class='op'>)</span>  
+  
+<span class='va'>corr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'>polyserial</span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>CHANGE</span>, <span class='va'>dat</span><span class='op'>$</span><span class='va'>CGI</span><span class='op'>)</span>,<span class='fl'>3</span><span class='op'>)</span>
+
+<span class='co'>#CREATE A PLOT SHOWING TH CORRELATION BETWEEN THE ANCHOR AND PRO MEASURE</span>
+<span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>CGI</span>, y<span class='op'>=</span><span class='va'>CHANGE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_jitter.html'>geom_jitter</a></span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>0.15</span>, height <span class='op'>=</span> <span class='fl'>0.5</span>,alpha <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"The CGI-I is Appropriate for Meaningful Change Derivation"</span>, subtitle <span class='op'>=</span> <span class='st'>"A correlation between an anchor and a COA change score of &gt;0.37 is recommended"</span><span class='op'>)</span><span class='op'>+</span>      
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"CGI-I Score at Time 2"</span>, y <span class='op'>=</span> <span class='st'>"COA Change Score from Baseline"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>breaks<span class='op'>=</span><span class='op'>-</span><span class='fl'>40</span><span class='op'>:</span><span class='op'>+</span><span class='fl'>40</span><span class='op'>*</span><span class='fl'>10</span><span class='op'>)</span> <span class='op'>+</span>         <span class='co'># SET TICK EVERY 10</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1\nVery much improved"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>,<span class='st'>"4\nNo change"</span>, <span class='st'>"5"</span>, <span class='st'>"6"</span>,<span class='st'>"7\nVery much worse"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>panel.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>, axis.line <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+        axis.text<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        axis.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        legend.text<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        legend.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,
+        plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>22</span>, face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span>,
+        plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span>, face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"text"</span>, x<span class='op'>=</span><span class='fl'>6</span>, y<span class='op'>=</span><span class='op'>-</span><span class='fl'>35</span>, label<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"polyserial correlation = "</span>, <span class='va'>corr</span><span class='op'>)</span>, size<span class='op'>=</span><span class='fl'>4</span>, hjust<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>p</span>
+</code></pre>
+</div>
+</div>
+<p><a href="#example5">Back to blog</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
