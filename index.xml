@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 10 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays December 2021</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2022-01-16-wonderful-wednesdays-december-2021</link>
+      <description>The challenge was to give a comprehensive visual overview of demographic data and baseline charactaristics.</description>
+      <category>Demographic data</category>
+      <category>Baseline characteristics</category>
+      <category>Alzheimer data example</category>
+      <guid>https://graphicsprinciples.github.io/posts/2022-01-16-wonderful-wednesdays-december-2021</guid>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2022-01-16-wonderful-wednesdays-december-2021/./images/baseline_SM - Steve Mallett.png" medium="image" type="image/png" width="3600" height="2400"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays November 2021</title>
       <dc:creator>PSI VIS SIG</dc:creator>
