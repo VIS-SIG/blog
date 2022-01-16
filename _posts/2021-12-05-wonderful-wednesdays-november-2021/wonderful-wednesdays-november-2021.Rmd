@@ -28,7 +28,11 @@ The task is to display the relationship between changes from baseline of the tot
 ![](./images/plot_par_nonpar - Paolo Eusebi.png)  
 [high resolution image](./images/plot_par_nonpar - Paolo Eusebi.png)  
 
-(A summary of the discussion will be added shortly.)
+This graph is formed in two panels, with the left panel showing the Cumulative Distribution Function (CDF) plots of percentage change from baseline in score, grouped by the anchor measure. A measure of variability has been added to the plot, derived using bootstrapping methods. The right panel is showing 95% CIs and 95% Prediction Intervals of scores for each category.
+
+CDF plots used for comparing distributions are sometimes superimposed, so this approach may have been useful. However the confidence envelopes couldn’t then be shown simultaneously, so there’d need to be a way of interactively selecting one category at a time. Use of percentage change was discussed – absolute changes are often preferable in a scenario where clinical meaningful changes are being assessed.
+
+Overall the design of the graph was appreciated, with a clear legend and good use of colour.
 
 [link to code](#example1 code)
 
@@ -40,7 +44,13 @@ The task is to display the relationship between changes from baseline of the tot
 ![](./images/ww_mci - Agustin Calatroni.png)  
 [high resolution image](./images/ww_mci - Agustin Calatroni.png)  
 
-(A summary of the discussion will be added shortly.)
+The upper part of the  graph is showing the distribution of the score values within each CGI-I category, using density plots of scores on an absolute scale. Distributions are shown separately for baseline and follow-up visits within each category, rather than change from baseline. Individual patient and mean changes are shown using slope plots.
+
+The lower part of the graph shows the distribution of change from baseline values, with a measure of variability being derived using bootstrapping methods. Colour has been used to show paired mean differences outside a +/- 10 unit range.
+
+In general, the graph contains a lot of information and takes some time to understand. However the graph tells a clear story in terms of the distribution of score across different categories, and shows clearly that the Minimally Improved category does not seem to be well differentiated from No Change category.
+
+It was not clear why 10 used as the threshold in the lower panel; in practice we need to consider what is the clinically relevant threshold. The combination of summary level data (density plots) and with patient-level data was effective, although there’s the possibility of including more colour in the graph, e.g. colour coding positive versus negative changes in the patient-level data.
 
 [link to code](#example2 code)
 
@@ -51,7 +61,9 @@ The task is to display the relationship between changes from baseline of the tot
 ![](./images/reliable_clinical_change_plot_red_green_v0_2 - Mike Greenwood.png)  
 [high resolution image](./images/reliable_clinical_change_plot_red_green_v0_2 - Mike Greenwood.png)  
 
-(A summary of the discussion will be added shortly.)
+This graph includes stacked density plots, sometimes known as a ridgeline plot. This graph type is useful where there are approximately 4-8 categories with a natural ordering, which is the case in this example. The graph is also showing patient level data as transparent dots on the X axis, and reference lines have been added. There is a lot of overplotting of the dots, so the opacity of dots is representing the data density at each value on the X-axis.
+
+A title has been added to give a clear interpretation of the overall message.
 
 [link to code](#example3 code)
 
@@ -65,7 +77,7 @@ The task is to display the relationship between changes from baseline of the tot
 
 The html file can be found [here](./images/MCT_Ridges_v2 - Philip Griffiths.png).
 
-(A summary of the discussion will be added shortly.)
+The graph type here is similar to the previous graph, although with overlapping curves. The design is relatively simple compared to the previous plot, but with a stronger use of colour. The lack of unnecessary clutter is effective, although the overlap of the curves is unnecessary and could be distracting to the viewer. It would be useful to see the number of patients in each group, as this could be seen in the previous plot in term of the number of dots on the X-axis.
 
 [link to code](#example4 code)
 
@@ -78,11 +90,23 @@ The html file can be found [here](./images/MCT_Ridges_v2 - Philip Griffiths.png)
 ![](./images/MCT_Anchor_Correlation - Philip Griffiths.png)  
 [high resolution image](./images/MCT_Anchor_Correlation - Philip Griffiths.png)  
 
-(A summary of the discussion will be added shortly.)
+This graph used a different approach, showing only the patient-level data within each category as a scatter plot, with added jittering. The trend between categories is clear, and the number of patients can be compared between groups visually. It was noted that some people find it hard to compare distributions from scatter plots, so a hybrid of scatter plot and a elements showing the distribution, e.g. boxplot or density plot, may have been useful. However the author of the graph mentioned that this graph was intended to be used at the first step of an assessment, to answer the question “is CGI a good enough measure to investigate the meaningful change threshold”, and would be followed in practice by another plot more like Example 4.
+
+The design may be enhanced by including a Y-axis and also horizontal reference lines, and possibly use of colour to differential patients with positive versus negative change. However the purpose of the plot, i.e. to confirm that CGI-I is an appropriate measure, and has sufficient correlation, is met.
 
 [link to code](#example5 code)
 
 
+## Example 6. Storytelling
+
+<!-- ![](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21.png)  -->
+<!-- The html file can be found [here](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21.html)  -->
+
+This graph includes pairs of density plots to compare the distributions of change from baseline score for each category with the “No change” category, with the graph building in an animated fashion. Different hues (green vs red) have been used to represent improved vs worsened categories, and different colour intensities are mapped to level of improvement/worsening (light colours for minimally improved/worse and dark colours for very much improved/worse). As the animation builds, pairs of categories (e.g. Minimally Worse vs Minimally Improved) are brought into focus by colouring the relevant density plots and showing reference lines (median scores of the pairs of categories and the “No change” category). Distributions not part of the current focus are greyed, and reference lines of previously highlighted categories are not shown. Numbers of patients in each category are shown.
+
+An improvement might have been to somehow preserve the information from the reference lines previously shown, as the animation progresses. It would also have been useful to show the actual median values for each category that are presented by the reference lines. As the animation progressed, previous reference lines could have been preserved, but in the background. Also, the colour palette may not be ideal, as the light green category is quite difficult to read.
+
+[link to code](#example6 code)
 
 # Code
 
@@ -738,3 +762,12 @@ p
 ```
 
 [Back to blog](#example5)
+
+
+<a id="example6 code"></a>
+
+## Example 6. Storytelling
+
+<!-- The Rmd file can be found [here](./code/Huw_Wilson_Wonderful_Wednesdays_Nov21.Rmd) -->
+
+[Back to blog](#example6)

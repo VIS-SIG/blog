@@ -132,7 +132,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["code/MCT Plot Code - Philip Griffiths.R","code/MCT Plot Code - Philip Griffiths(1).R","code/pch_change_par_non_par - Paolo Eusebi.R","code/RidgePlot_v0_3 - Mike Greenwood.R","code/ww_mci - Agustin Calatroni.r","images/MCT_Anchor_Correlation - Philip Griffiths.png","images/MCT_Anchor_Correlation - Philip Griffiths(1).png","images/MCT_RIDGES - Philip Griffiths.PNG","images/MCT_Ridges_v2 - Philip Griffiths.png","images/plot_par_nonpar - Paolo Eusebi.pdf","images/plot_par_nonpar - Paolo Eusebi.png","images/reliable_clinical_change_plot_red_green_v0_2 - Mike Greenwood.png","images/ww_mci - Agustin Calatroni.png","wonderful-wednesdays-november-2021_files/anchor-4.2.2/anchor.min.js","wonderful-wednesdays-november-2021_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-november-2021_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-november-2021_files/header-attrs-2.8/header-attrs.js","wonderful-wednesdays-november-2021_files/jquery-1.11.3/jquery.min.js","wonderful-wednesdays-november-2021_files/popper-2.6.0/popper.min.js","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.css","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesdays-november-2021_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["code/Huw_Wilson_Wonderful_Wednesdays_Nov21.Rmd","code/MCT Plot Code - Philip Griffiths.R","code/MCT Plot Code - Philip Griffiths(1).R","code/pch_change_par_non_par - Paolo Eusebi.R","code/RidgePlot_v0_3 - Mike Greenwood.R","code/ww_mci - Agustin Calatroni.r","images/Huw_Wilson_Wonderful_Wednesdays_Nov21.html","images/Huw_Wilson_Wonderful_Wednesdays_Nov21.png","images/MCT_Anchor_Correlation - Philip Griffiths.png","images/MCT_Anchor_Correlation - Philip Griffiths(1).png","images/MCT_RIDGES - Philip Griffiths.PNG","images/MCT_Ridges_v2 - Philip Griffiths.png","images/plot_par_nonpar - Paolo Eusebi.pdf","images/plot_par_nonpar - Paolo Eusebi.png","images/reliable_clinical_change_plot_red_green_v0_2 - Mike Greenwood.png","images/ww_mci - Agustin Calatroni.png","wonderful-wednesdays-november-2021_files/anchor-4.2.2/anchor.min.js","wonderful-wednesdays-november-2021_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-november-2021_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-november-2021_files/header-attrs-2.8/header-attrs.js","wonderful-wednesdays-november-2021_files/jquery-1.11.3/jquery.min.js","wonderful-wednesdays-november-2021_files/popper-2.6.0/popper.min.js","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.css","wonderful-wednesdays-november-2021_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesdays-november-2021_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2442,32 +2442,45 @@ d-appendix d-footnote-list a.footnote-backlink {
 <h2 id="example-1.-exploring-uncertainty">Example 1. Exploring uncertainty</h2>
 <p><img src="images/plot_par_nonpar%20-%20Paolo%20Eusebi.png" /><br />
 <a href="./images/plot_par_nonpar%20-%20Paolo%20Eusebi.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This graph is formed in two panels, with the left panel showing the Cumulative Distribution Function (CDF) plots of percentage change from baseline in score, grouped by the anchor measure. A measure of variability has been added to the plot, derived using bootstrapping methods. The right panel is showing 95% CIs and 95% Prediction Intervals of scores for each category.</p>
+<p>CDF plots used for comparing distributions are sometimes superimposed, so this approach may have been useful. However the confidence envelopes couldn’t then be shown simultaneously, so there’d need to be a way of interactively selecting one category at a time. Use of percentage change was discussed – absolute changes are often preferable in a scenario where clinical meaningful changes are being assessed.</p>
+<p>Overall the design of the graph was appreciated, with a clear legend and good use of colour.</p>
 <p><a href="#example1%20code">link to code</a></p>
 <p><a id="example2"></a></p>
 <h2 id="example-2.-spaghetti-and-distribution-plot">Example 2. Spaghetti and distribution plot</h2>
 <p><img src="images/ww_mci%20-%20Agustin%20Calatroni.png" /><br />
 <a href="./images/ww_mci%20-%20Agustin%20Calatroni.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>The upper part of the graph is showing the distribution of the score values within each CGI-I category, using density plots of scores on an absolute scale. Distributions are shown separately for baseline and follow-up visits within each category, rather than change from baseline. Individual patient and mean changes are shown using slope plots.</p>
+<p>The lower part of the graph shows the distribution of change from baseline values, with a measure of variability being derived using bootstrapping methods. Colour has been used to show paired mean differences outside a +/- 10 unit range.</p>
+<p>In general, the graph contains a lot of information and takes some time to understand. However the graph tells a clear story in terms of the distribution of score across different categories, and shows clearly that the Minimally Improved category does not seem to be well differentiated from No Change category.</p>
+<p>It was not clear why 10 used as the threshold in the lower panel; in practice we need to consider what is the clinically relevant threshold. The combination of summary level data (density plots) and with patient-level data was effective, although there’s the possibility of including more colour in the graph, e.g. colour coding positive versus negative changes in the patient-level data.</p>
 <p><a href="#example2%20code">link to code</a></p>
 <p><a id="example3"></a></p>
 <h2 id="example-3.-distribution-plot-by-category-i">Example 3. Distribution plot by category I</h2>
 <p><img src="images/reliable_clinical_change_plot_red_green_v0_2%20-%20Mike%20Greenwood.png" /><br />
 <a href="./images/reliable_clinical_change_plot_red_green_v0_2%20-%20Mike%20Greenwood.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This graph includes stacked density plots, sometimes known as a ridgeline plot. This graph type is useful where there are approximately 4-8 categories with a natural ordering, which is the case in this example. The graph is also showing patient level data as transparent dots on the X axis, and reference lines have been added. There is a lot of overplotting of the dots, so the opacity of dots is representing the data density at each value on the X-axis.</p>
+<p>A title has been added to give a clear interpretation of the overall message.</p>
 <p><a href="#example3%20code">link to code</a></p>
 <p><a id="example4"></a></p>
 <h2 id="example-4.-distribution-plot-by-category-ii">Example 4. Distribution plot by category II</h2>
 <p><img src="images/MCT_Ridges_v2%20-%20Philip%20Griffiths.png" /></p>
 <p>The html file can be found <a href="./images/MCT_Ridges_v2%20-%20Philip%20Griffiths.png">here</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>The graph type here is similar to the previous graph, although with overlapping curves. The design is relatively simple compared to the previous plot, but with a stronger use of colour. The lack of unnecessary clutter is effective, although the overlap of the curves is unnecessary and could be distracting to the viewer. It would be useful to see the number of patients in each group, as this could be seen in the previous plot in term of the number of dots on the X-axis.</p>
 <p><a href="#example4%20code">link to code</a></p>
 <p><a id="example5"></a></p>
 <h2 id="example-5.-dot-plot">Example 5. Dot plot</h2>
 <p><img src="images/MCT_Anchor_Correlation%20-%20Philip%20Griffiths.png" /><br />
 <a href="./images/MCT_Anchor_Correlation%20-%20Philip%20Griffiths.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>This graph used a different approach, showing only the patient-level data within each category as a scatter plot, with added jittering. The trend between categories is clear, and the number of patients can be compared between groups visually. It was noted that some people find it hard to compare distributions from scatter plots, so a hybrid of scatter plot and a elements showing the distribution, e.g. boxplot or density plot, may have been useful. However the author of the graph mentioned that this graph was intended to be used at the first step of an assessment, to answer the question “is CGI a good enough measure to investigate the meaningful change threshold”, and would be followed in practice by another plot more like Example 4.</p>
+<p>The design may be enhanced by including a Y-axis and also horizontal reference lines, and possibly use of colour to differential patients with positive versus negative change. However the purpose of the plot, i.e. to confirm that CGI-I is an appropriate measure, and has sufficient correlation, is met.</p>
 <p><a href="#example5%20code">link to code</a></p>
+<h2 id="example-6.-storytelling">Example 6. Storytelling</h2>
+<!-- ![](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21.png)  -->
+<!-- The html file can be found [here](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21.html)  -->
+<p>This graph includes pairs of density plots to compare the distributions of change from baseline score for each category with the “No change” category, with the graph building in an animated fashion. Different hues (green vs red) have been used to represent improved vs worsened categories, and different colour intensities are mapped to level of improvement/worsening (light colours for minimally improved/worse and dark colours for very much improved/worse). As the animation builds, pairs of categories (e.g. Minimally Worse vs Minimally Improved) are brought into focus by colouring the relevant density plots and showing reference lines (median scores of the pairs of categories and the “No change” category). Distributions not part of the current focus are greyed, and reference lines of previously highlighted categories are not shown. Numbers of patients in each category are shown.</p>
+<p>An improvement might have been to somehow preserve the information from the reference lines previously shown, as the animation progresses. It would also have been useful to show the actual median values for each category that are presented by the reference lines. As the animation progressed, previous reference lines could have been preserved, but in the background. Also, the colour palette may not be ideal, as the light green category is quite difficult to read.</p>
+<p><a href="#example6%20code">link to code</a></p>
 <h1 id="code">Code</h1>
 <p><a id="example1 code"></a></p>
 <h2 id="example-1.-exploring-uncertainty-1">Example 1. Exploring uncertainty</h2>
@@ -3112,6 +3125,10 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 </div>
 <p><a href="#example5">Back to blog</a></p>
+<p><a id="example6 code"></a></p>
+<h2 id="example-6.-storytelling-1">Example 6. Storytelling</h2>
+<!-- The Rmd file can be found [here](./code/Huw_Wilson_Wonderful_Wednesdays_Nov21.Rmd) -->
+<p><a href="#example6">Back to blog</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
