@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays December 2021"
 description: |
   The challenge was to give a comprehensive visual overview of demographic data and baseline charactaristics.
 author:
-  - name: PSI VIS SIG
+  - name: Abi Williams
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 12-08-2021
 categories:
@@ -35,7 +35,10 @@ The data is a ADaM data set following the CDISC standard. We will focus on the A
 The app can be found [here](https://observablehq.com/@irenedelatorre/beeswarm-in-plot-for-demographic-data).
 
 
-(A summary of the discussion will be added shortly.)
+The beeswarm visualisation plots individual data in a similar way to a scatterplot. However, unlike a scatterplot, the beeswarm ensures that there are no overlapping datapoints. This means that it is clearer to see how many patients have data of the same value. The visualisation provides dropdown options for selecting the values used on the x-axis and y-axis, allowing the viewer to explore different combinations of variables with ease. There are also options for filtering on the provided demographic attributes. 
+
+The panel liked the interactivity of the plot, including that the axes and title all updated when new variables were selected. The overall presentation was clean and the decision to split the plots by treatment allocation allowed for easy comparison between groups- although this may have been simpler for the viewer if the plots had been stacked (rather than side by side). The panel also discussed broader applications of this sort of visualisation and how this would perform with a larger group of patients. 
+
 
 [link to code](#example1 code)
 
@@ -47,7 +50,10 @@ The app can be found [here](https://observablehq.com/@irenedelatorre/beeswarm-in
 ![](./images/baseline_SM - Steve Mallett.png)  
 [high resolution image](./images/baseline_SM - Steve Mallett.png)  
 
-(A summary of the discussion will be added shortly.)
+This entry combined scatterplots and density graphs into a single visualisation. The main part of each plot displays a scatter plot of age vs BMI, with the densities of each of these variables shown on the top and right sides respectively. The points of the scatterplot were different colours, based on the race of the patient.
+
+The panel highlighted that this visualisation made it easy to spot any outliers in the data. It also demonstrated a clean way of presenting three variables simultaneously. Comparisons between treatment arms may be simpler if all plots were in a single row or column. The opacity of the datapoints was such that any overlapped plotting of datapoints could be observed. However, the panel discussed that care should be taken when doing this- as although the original colours chosen may be colour-blind friendly, the altered opacity may make the differentiation between colours more difficult. Suggestions were also made to include the densities separately for each race and to display reference lines or annotations for the mean or median. These changes would have to balance the trade-off between including the additional information and the clarity of the current layout- so may depend on the target audience and purpose of the visualisation.
+
 
 [link to code](#example2 code)
 
@@ -58,7 +64,12 @@ The app can be found [here](https://observablehq.com/@irenedelatorre/beeswarm-in
 ![](./images/adsl_describer - Agustin Calatroni.png)  
 The app can be found here[here](./images/adsl_describer - Agustin Calatroni.html).  
 
-(A summary of the discussion will be added shortly.)
+The interactive describer visualisation allows the user to explore every variable included in the dataset. The details tab provides an overview of the summaries that are produced and a guide to how to navigate the data/interpret the visualisations, which summarise the data based on the type of variable (i.e. categorical or continuous).
+
+The panel liked that the display was generalisable and could be ran on different datasets, although this does mean that that summaries of some variables are automatically included but may not be useful, such as plots of the USUBJID variable. It was discussed that the audience of the visualisation is important. In this case, the tool would be extremely useful for statisticians or programmers who want to investigate their data in depth, or to conduct data checks on interim data cuts. To improve the visualisation further, the panel recommended including treatment arm within the summaries of other variables.
+
+
+
 
 [link to code](#example3 code)
 
@@ -72,7 +83,10 @@ The app can be found here[here](./images/adsl_describer - Agustin Calatroni.html
 
 The html file can be found [here](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21.html).
 
-(A summary of the discussion will be added shortly.)
+This submission included bar charts for the categorical data and density plots for the continuous variables in the data. There is also a commentary pane alongside the graphs to aid interpretation.
+
+Numbers are presented on the visualisation in a clear way for both chart types without adding too much clutter. The panel discussed the possibility of adding further measures of spread to the density plots (rather than just mean), but agreed that there is a balance between adding additional information and not becoming too cluttered. Separate colours were used for each visualisation but did not add any additional information. It was suggested that colours could instead be used to indicate treatment arms. The axes on the bar chart could be flipped, which would allow for inclusion of labelling in the bars. This alteration would also make it easier to align the comments in the right pane with the visualisations themselves, which would further aid interpretation.
+
 
 [link to code](#example4 code)
 
@@ -85,7 +99,10 @@ The html file can be found [here](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21
 ![](./images/Distribution - Sarah Robson.png)  
 [high resolution image](./images/Distribution - Sarah Robson.png)  
 
-(A summary of the discussion will be added shortly.)
+This visualisation presented the data using a panel of box plots, with a separate panel for each variable. Data was also split by treatment arm with a different box for each group. 
+
+The panel praised the clean presentation of the plot, with the need for a key eliminated by using colours within the plot title itself. The graphs presented the data in a way which made it easy for the viewer to interpret and compare across treatment arms. However, the panel did highlight that it may be beneficial to rearrange the ordering of the boxes, as placebo, low dose, high dose would be a more natural ordering of treatment arms. The y-axis scales for each panel varied based on the data values for each variable, which helped to ensure plots were clear to read and not misleading. 
+
 
 [link to code](#example5 code)
 
