@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays November 2021"
 description: |
   Understanding clinically meaningful differences is important to get a feeling for how relevant changes are on e.g. a patient reported outcome. These are often done by understanding how changes from baseline relate to the overall impression of the physician measured by the CGI-I.
 author:
-  - name: PSI VIS SIG
+  - name: Steve Mallett
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 11-10-2021
 categories:
@@ -97,10 +97,12 @@ The design may be enhanced by including a Y-axis and also horizontal reference l
 [link to code](#example5 code)
 
 
+<a id="example6"></a>
+
 ## Example 6. Storytelling
 
-<!-- ![](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21.png)  -->
-<!-- The html file can be found [here](./images/Huw_Wilson_Wonderful_Wednesdays_Nov21.html)  -->
+![](./images/storytelling.png)
+[high resolution image](./images/storytelling.png)  
 
 This graph includes pairs of density plots to compare the distributions of change from baseline score for each category with the “No change” category, with the graph building in an animated fashion. Different hues (green vs red) have been used to represent improved vs worsened categories, and different colour intensities are mapped to level of improvement/worsening (light colours for minimally improved/worse and dark colours for very much improved/worse). As the animation builds, pairs of categories (e.g. Minimally Worse vs Minimally Improved) are brought into focus by colouring the relevant density plots and showing reference lines (median scores of the pairs of categories and the “No change” category). Distributions not part of the current focus are greyed, and reference lines of previously highlighted categories are not shown. Numbers of patients in each category are shown.
 
@@ -767,6 +769,8 @@ p
 <a id="example6 code"></a>
 
 ## Example 6. Storytelling
+
+No code available.
 
 <!-- The Rmd file can be found [here](./code/Huw_Wilson_Wonderful_Wednesdays_Nov21.Rmd) -->
 
