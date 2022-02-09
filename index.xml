@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 08 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays February 2022</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2022-02-09-wonderful-wednesdays-february-2022</link>
+      <description>The current example is focusing on uncertainty in study planning. In this Wonderful Wednesday Webinar, we assume that a phase III cardiovascular superiority study is planned and we will discuss how uncertainty can be displayed with regard to total study duration if the assumptions are not exactly met.</description>
+      <category>Study planning</category>
+      <category>Uncertainty</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2022-02-09-wonderful-wednesdays-february-2022</guid>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2022-02-09-wonderful-wednesdays-february-2022/./images/heatmaps_rlc - Agustin Calatroni.png" medium="image" type="image/png" width="1100" height="475"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays December 2021</title>
       <dc:creator>Abi Williams</dc:creator>

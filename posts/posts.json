@@ -1,5 +1,28 @@
 [
   {
+    "path": "posts/2022-02-09-wonderful-wednesdays-february-2022/",
+    "title": "Wonderful Wednesdays February 2022",
+    "description": "The current example is focusing on uncertainty in study planning. In this Wonderful Wednesday Webinar, we assume that a phase III cardiovascular superiority study is planned and we will discuss how uncertainty can be displayed with regard to total study duration if the assumptions are not exactly met.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2022-02-09",
+    "categories": [
+      "Study planning",
+      "Uncertainty",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nUncertainty in study planning\nA phase III cardiovascular superiority study is planned with the following assumptions (simplified, no lost-to-FU, no treatment discontinuation, no non-CV death):\nHazard rate of active comparator 5% per year\nHazard ratio 0.775\nAccrual time 24 months, total duration 30 months\nStatistical settings:\nLogrank test for superiority in time to first MACE event (CV death, MI, stroke)\nAlpha 5%, Power 90%\nA sample size of about 9900 patients would be needed aiming for 650 patients experiencing a MACE event to show superiority of the new treatment over the comparator in reducing MACE events.\nThe challenge is about how uncertainty can be displayed with regard to total study duration if the assumptions are not exactly met, i.e. comparator hazard rate between 4% and 6% (and hazard ratio between 0.75 and 0.8).\n\nExample 1. Animated dotplot\nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 2. Linked heatmaps\nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\nCode\n\nExample 1. Animated dotplot\nPlease see the Rmd file, the R file, and the bib file.\nBack to blog\n\nExample 2. Linked heatmaps\nPlease see instructions and the GitHub repository.\nBack to blog\n\n\n\n",
+    "preview": "posts/2022-02-09-wonderful-wednesdays-february-2022/./images/heatmaps_rlc - Agustin Calatroni.png",
+    "last_modified": "2022-02-09T19:55:39+01:00",
+    "input_file": {},
+    "preview_width": 1100,
+    "preview_height": 475
+  },
+  {
     "path": "posts/2022-01-16-wonderful-wednesdays-december-2021/",
     "title": "Wonderful Wednesdays December 2021",
     "description": "The challenge was to give a comprehensive visual overview of demographic data and baseline charactaristics.",
