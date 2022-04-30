@@ -1,5 +1,28 @@
 [
   {
+    "path": "posts/2022-04-30-wonderful-wednesdays-april-2022/",
+    "title": "Wonderful Wednesdays April 2022",
+    "description": "The data reflects a phase III study - active vs placebo and the endpoint was Ordinal Scale for Improvement (OSCI). All patients started at OSCI=4 and daily measures over 35 days were performed. The challenge was to describe the treatment effect specifically taking into account the number and timing of patients who died, left the hospital or fully recovered.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2022-04-13",
+    "categories": [
+      "OSCI",
+      "Data over time",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nCOVID OSCI over time\nAs described above, the challenge was to describe the treatment effect specifically taking into account the number and timing of patients who died, left the hospital or fully recovered.\n\nExample 1. Lasagna plots\nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 2. Barcharts\nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 3. Shiny app\n\nThe shiny app can be found here\n(A summary of the discussion will be added shortly.)\nlink to code\n\nCode\n\nExample 1. Lasagna plots\nAll code & reshaped data to reproduce this example can be found at: https://github.com/agstn/WW/tree/main/2022-03-09\nAny questions let me know, Agustin Calatroni acalatroni@gmail.com\nBack to blog\n\nExample 2. Barcharts\nNo code has been submitted.\nBack to blog\n\nExample 3. Shiny app\nNo code has been submitted.\nBack to blog\n\n\n\n",
+    "preview": "posts/2022-04-30-wonderful-wednesdays-april-2022/./images/covid_combined - Agustin Calatroni.png",
+    "last_modified": "2022-04-30T14:28:21+02:00",
+    "input_file": {},
+    "preview_width": 1204,
+    "preview_height": 926
+  },
+  {
     "path": "posts/2022-02-09-wonderful-wednesdays-february-2022/",
     "title": "Wonderful Wednesdays February 2022",
     "description": "The current example is focusing on uncertainty in study planning. In this Wonderful Wednesday Webinar, we assume that a phase III cardiovascular superiority study is planned and we will discuss how uncertainty can be displayed with regard to total study duration if the assumptions are not exactly met.",

@@ -1,0 +1,95 @@
+---
+title: "Wonderful Wednesdays April 2022"
+description: |
+  The data reflects a phase III study - active vs placebo and the endpoint was Ordinal Scale for Improvement (OSCI). All patients started at OSCI=4 and daily measures over 35 days were performed. The challenge was to describe the treatment effect specifically taking into account the number and timing of patients who died, left the hospital or fully recovered.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 04-13-2022
+categories:
+  - OSCI
+  - Data over time
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/covid_combined - Agustin Calatroni.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# COVID OSCI over time
+As described above, the challenge was to describe the treatment effect specifically taking into account the number and timing of patients who died, left the hospital or fully recovered.
+
+
+<a id="example1"></a>
+
+## Example 1. Lasagna plots
+
+![](./images/covid_combined - Agustin Calatroni.png)  
+[high resolution image](./images/covid_combined - Agustin Calatroni.pdf)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. Barcharts
+
+![](./images/ww_fcollin - francois collin.png)  
+[high resolution image](./images/ww_fcollin - francois collin.pdf)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. Shiny app
+
+![](./images/app1.png)  
+The shiny app can be found [here](https://bonorico.shinyapps.io/oscicovid)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. Lasagna plots
+
+All code & reshaped data to reproduce this example can be found at:
+https://github.com/agstn/WW/tree/main/2022-03-09  
+Any questions let me know,
+Agustin Calatroni
+acalatroni@gmail.com
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. Barcharts
+
+No code has been submitted.
+
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. Shiny app
+
+No code has been submitted.
+
+[Back to blog](#example3)

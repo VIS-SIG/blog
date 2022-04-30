@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays April 2022</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2022-04-30-wonderful-wednesdays-april-2022</link>
+      <description>The data reflects a phase III study - active vs placebo and the endpoint was Ordinal Scale for Improvement (OSCI). All patients started at OSCI=4 and daily measures over 35 days were performed. The challenge was to describe the treatment effect specifically taking into account the number and timing of patients who died, left the hospital or fully recovered.</description>
+      <category>OSCI</category>
+      <category>Data over time</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2022-04-30-wonderful-wednesdays-april-2022</guid>
+      <pubDate>Wed, 13 Apr 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2022-04-30-wonderful-wednesdays-april-2022/./images/covid_combined - Agustin Calatroni.png" medium="image" type="image/png" width="1204" height="926"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays February 2022</title>
       <dc:creator>Irene de la Torre Arenas</dc:creator>

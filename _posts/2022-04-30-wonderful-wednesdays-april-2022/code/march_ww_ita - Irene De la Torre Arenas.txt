@@ -1,0 +1,7 @@
+The visualization is based on Paolo Eusebi's entry in the Wonderful Wednesdays
+
+https://vis-sig.github.io/blog/posts/2021-02-07-wonderful-wednesdays-february-2021/
+
+Original image: https://vis-sig.github.io/blog/posts/2021-02-07-wonderful-wednesdays-february-2021/images/DLQI_multidimensional_210206%20-%20Paolo%20Eusebi.png 
+
+Revisited entry: https://observablehq.com/@irenedelatorre/comparing-placebo-vs-active-treatments
