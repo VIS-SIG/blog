@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays May 2022</title>
+      <dc:creator>Lorenz Uhlmann</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2022-06-06-wonderful-wednesdays-may-2022</link>
+      <description>The challenge is to visualize the impact of changing the definition of HiSCR response on the results. The idea is to change, for example, the first condition and assume that a decrease of 25% or 75% is needed to reach HiSCR response. The second and third condition can be changed separately, or a mix of changes to two or all conditions can be applied. How does this impact the results?</description>
+      <category>HiSCR</category>
+      <category>Combined endpoint</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2022-06-06-wonderful-wednesdays-may-2022</guid>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2022-06-06-wonderful-wednesdays-may-2022/./images/example_1a.png" medium="image" type="image/png" width="1298" height="665"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays April 2022</title>
       <dc:creator>PSI VIS SIG</dc:creator>
