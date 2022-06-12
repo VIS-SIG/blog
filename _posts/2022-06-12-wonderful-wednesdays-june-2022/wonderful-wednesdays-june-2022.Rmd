@@ -1,0 +1,258 @@
+---
+title: "Wonderful Wednesdays June 2022"
+description: |
+  The purpose of this data visualization is to assess if there is an adverse impact on the growth of these children due to taking the drug (exploratory). Explanatory examples are welcome too (once you know the answer).
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 06-08-2022
+categories:
+  - Pediatric Growth
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/growth - Steve Mallett.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# <Overall title of the webinar>
+This is a snapshot from a two-year clinical trial assessing the impact of a drug on growth measurements (stature, weight and BMI) in children as part of a regulatory commitment for a marketed drug. There is a placebo comparator arm that converts to active drug at 6 months and additional rescue medication is allowed.
+
+The purpose of this data visualization is to assess if there is an adverse impact on the growth of these children due to taking the drug (exploratory). Explanatory examples are welcome too (once you know the answer).
+
+
+<a id="example1"></a>
+
+## Example 1. Change from baseline over time
+
+![](./images/growth - Steve Mallett.png)  
+[high resolution image](./images/growth - Steve Mallett.png)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. Animated ZScore
+
+![](./images/ZScore.gif)  
+[high resolution animation](./images/ZScore.gif)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. BMI - error bars
+
+![](./images/BMI.png)  
+[high resolution image](./images/BMI.png)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+## Example 4. Density plots
+
+![](./images/dist.png)  
+
+
+
+[high resolution image](./images/dist.png).
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example4 code)
+
+
+
+<a id="example5"></a>
+
+## Example 5. Box plots
+
+![](./images/Wonderful-Wednesdays1 - P J_a.png)  
+![](./images/Wonderful-Wednesdays1 - P J_b.png)  
+![](./images/Wonderful-Wednesdays2 - P J_a.png)  
+![](./images/Wonderful-Wednesdays2 - P J_b.png)  
+[high resolution image 1](./images/Wonderful-Wednesdays1 - P J_a.png)  
+[high resolution image 2](./images/Wonderful-Wednesdays1 - P J_b.png)  
+[high resolution image 3](./images/Wonderful-Wednesdays2 - P J_a.png)  
+[high resolution image 4](./images/Wonderful-Wednesdays2 - P J_b.png)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example5 code)
+
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. Change from baseline over time
+
+```{r, echo = TRUE, eval=FALSE, python.reticulate = FALSE}
+library(haven)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(readxl)
+library(cowplot)
+
+hgb1 <- read_excel("/.../growth.xlsx") %>%
+  filter(MEASURE == "STATURE" & TRT == "Rx" & TIME != 0)
+
+quant1 <- hgb1 %>% group_by(TIME) %>%
+  do(quant = quantile(.$CFB, probs = seq(0.2,0.8,.05)), probs = seq(0.2,0.8,.05)) %>%
+  unnest(cols=c(quant, probs)) %>%
+  mutate(delta = 2*round(abs(.5-probs)*100)) %>% 
+  group_by(TIME, delta) %>%
+  summarize(quantmin = min(quant), quantmax= max(quant)) %>%
+  filter(delta > 0)
+
+# Derive median Hgb
+
+hgb_med1 <- hgb1 %>% 
+  group_by(TIME) %>% 
+  summarise(hgb.median = median(CFB)) 
+
+# Produce plot for group E
+
+plot01 <- ggplot() +
+  geom_ribbon(data = quant1, aes(x = TIME, ymin = quantmin, ymax = quantmax,
+                                    group = reorder(delta, -delta), fill = factor(delta)),
+              alpha = .5) +
+  geom_line(data = hgb_med1, aes(x = TIME, y = hgb.median, color = "#00441b"), size = 2 ) +  
+  scale_x_continuous("Time (days)",
+                     breaks=c(16, 28, 40, 52, 64, 76),
+                     limits=c(16, 76)) +
+  scale_y_continuous(" ",
+                     breaks=c(-1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5),
+                     limits=c(-1.5, 1.5),
+                     ) +
+  scale_fill_manual("% Patients in band", values=c("#e5f5e0","#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#006d2c")) +
+  scale_color_identity(name = " ",
+                       guide=legend,
+                       labels = " ") + 
+  theme_minimal() +
+  theme(legend.position="none",
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.text.y.left =  element_text(color = 'black'),        
+        plot.title = element_text(hjust = 0.5, size = 25),
+        text = element_text(size = 15),
+        axis.text = element_text(size = 20),
+        axis.title = element_text(size = 25),
+        panel.border = element_rect(colour = "black", fill=NA, size=1),
+        plot.margin=unit(c(1,0,0,0),"cm")) +
+  ggtitle(label = "Treatment")
+
+hgb2 <- read_excel("/.../growth.xlsx") %>%
+  filter(MEASURE == "STATURE" & TRT == "Placebo"  & TIME != 0)
+
+
+quant2 <- hgb2 %>% group_by(TIME) %>%
+  do(quant = quantile(.$CFB, probs = seq(0.2,0.8,.05)), probs = seq(0.2,0.8,.05)) %>%
+  unnest(cols=c(quant, probs)) %>%
+  mutate(delta = 2*round(abs(.5-probs)*100)) %>% 
+  group_by(TIME, delta) %>%
+  summarize(quantmin = min(quant), quantmax= max(quant)) %>%
+  filter(delta > 0)
+
+hgb_med2 <- hgb2 %>% 
+  group_by(TIME) %>% 
+  summarise(hgb.median = median(CFB)) 
+
+plot02 <- ggplot() +
+  geom_ribbon(data = quant2, aes(x = TIME, ymin = quantmin, ymax = quantmax,
+                                    group = reorder(delta, -delta), fill = factor(delta)),
+              alpha = .5) +
+  geom_line(data = hgb_med2, aes(x = TIME, y = hgb.median, color = "#00441b"), size = 2) + 
+  geom_segment(x=17, y=1, xend=75, yend=1, color="black") +
+  scale_x_continuous("Time (days)",
+                     breaks=c(16, 28, 40, 52, 64, 76),
+                     limits=c(16, 76)) +
+  scale_y_continuous(" ",
+                     breaks=c(-1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5),
+                     limits=c(-1.5, 1.5),
+  ) +
+  scale_fill_manual("% Patients in band", values=c("#e5f5e0","#c7e9c0", "#a1d99b", "#74c476", "#41ab5d", "#238b45", "#006d2c")) +
+  scale_color_identity(name = "Median",
+                       guide=legend,
+                       labels = " ") + 
+  labs(fill = "Hgb (% patients in band)") +
+  theme_minimal() +
+  theme(legend.position="bottom",
+        plot.title = element_text(hjust = 0.5, size = 25),
+        text = element_text(size = 15),
+        axis.text = element_text(size = 20),
+        axis.title = element_text(size = 25),
+        axis.text.y.left =  element_text(color = 'black'),
+        legend.text=element_text(size=14),
+        legend.title=element_text(size=20),
+        legend.key.size = unit(1.2, "cm"),        
+        panel.border = element_rect(colour = "black", fill=NA, size=1)) +
+  guides(colour = guide_legend(override.aes = list(size=3))) +
+  ggtitle(label = "Control")
+
+p <- grid.arrange(arrangeGrob(plot01, ncol=1, nrow=1),
+                  arrangeGrob(plot02, ncol=1, nrow=1),
+                  heights = c(1,1.32))
+
+title <- ggdraw() + draw_label("Change from Baseline in Stature (cm) Over Time\nNo Evidence of a Treatment Effect", size = 24)
+
+p2 <- plot_grid(title, p, ncol=1, rel_heights = c(1, 10))  
+
+gsave("/.../growth.png", p2, width=12, height=12, dpi=300)
+```
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. <Same title as above>
+
+No code has been submitted.
+
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. <Same title as above>
+
+No code has been submitted.
+
+[Back to blog](#example3)
+
+
+<a id="example4 code"></a>
+
+## Example 4. <Same title as above>
+
+No code has been submitted.
+
+[Back to blog](#example4)
+
+
+<a id="example5 code"></a>
+
+## Example 5. <Same title as above>
+The rmd file for the graphs 1 and 3 can be found [here](./code/pedGrowth - P J_a.Rmd).  
+The rmd file for the graphs 2 and 4 can be found [here](./code/pedGrowth - P J_b.Rmd).
+
+[Back to blog](#example5)

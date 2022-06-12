@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays June 2022</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2022-06-12-wonderful-wednesdays-june-2022</link>
+      <description>The purpose of this data visualization is to assess if there is an adverse impact on the growth of these children due to taking the drug (exploratory). Explanatory examples are welcome too (once you know the answer).</description>
+      <category>Pediatric Growth</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2022-06-12-wonderful-wednesdays-june-2022</guid>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2022-06-12-wonderful-wednesdays-june-2022/./images/growth - Steve Mallett.png" medium="image" type="image/png" width="3600" height="3600"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays May 2022</title>
       <dc:creator>Lorenz Uhlmann</dc:creator>

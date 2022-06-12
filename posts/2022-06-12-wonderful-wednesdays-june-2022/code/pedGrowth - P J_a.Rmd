@@ -1,0 +1,98 @@
+---
+title: "Ptients's Growth Curves Are Normal"
+author: "Paridhi"
+date: "29/04/2022"
+runtime: shiny
+output: html_document
+
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+
+library(plotly)
+options(warn = -1)
+
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+library(readr)
+```
+
+```{r, echo = FALSE}
+  radioButtons("yScale",
+               label = "Scale",
+  #                #HTML('<FONT color="black"><FONT size="5pt">Y-Scale</FONT></FONT><br> #<b>Your favorite color is red ?</b>'),
+               choices = c("Z-score", "Percentile"),
+               selected = "Z-score",
+               inline = T,
+               width = "100%")
+
+# par(mfrow = c(2, 1))
+
+# bp1
+# bp2
+
+```
+
+```{r, echo = FALSE, include=FALSE}
+PedsGrowth <- read_csv("data/2022/2022-05-11/PedsGrowth.csv")
+ PedsGrowth$TIME <- as.factor(PedsGrowth$TIME)
+ width <- PedsGrowth %>%filter(complete.cases(.)) %>% group_by(MEASURE, TIME, TRT) %>% count()
+ # PedsGrowth <- PedsGrowth %>%filter(complete.cases(.)) %>% group_by(MEASURE, TIME) %>% mutate(ss = n())
+ showTimePoints <- unique(PedsGrowth$TIME)
+ 
+subset <- reactive({
+  if(input$yScale == "Z-score"){
+  "ZSCORES"
+  }else{
+      "PERCENTILES"
+  }
+})
+
+ylabel <- reactive({
+  if(input$yScale == "Z-score")
+    "Z-score"
+  else
+    "Percentile"
+})
+shading <- reactive({
+  if(input$yScale == "Z-score"){
+    c(-1, 1)
+  }
+  
+  else
+    c(0.25, 0.75)
+    
+})
+output$bp1 <- renderPlot({
+  if(subset() == "ZSCORES"){
+  PedsGrowth %>% filter(complete.cases(.)) %>% group_by(MEASURE, TIME) %>% ggplot(aes(x = TIME, y = ZSCORES, fill = TRT)) +          
+  geom_boxplot(width = 3, varwidth = TRUE) + facet_wrap(.~MEASURE, scales="free_y", ncol=1) + theme_minimal() +
+  stat_summary(fun = mean, geom = "point", col = "red", position = position_dodge(1.8)) +
+      scale_x_discrete(limits=0:76, breaks = showTimePoints, labels = paste(showTimePoints, "Weeks")) + scale_y_discrete(limits=-3:3, breaks = seq(-3,3,1)) + 
+      annotate("rect", xmin = -Inf, xmax = Inf, ymin = shading()[1], ymax = shading()[2], 
+           alpha = .2, fill = "grey") + theme(panel.grid.major.x = element_blank()) +
+      geom_text(size = 2, data = width, aes(x = TIME, y = -3.2, label = paste0("n = ", n)), position = position_dodge(5))+
+       theme(
+                          axis.title.y = element_text(margin = margin(t=0, r=20, b=0, l=10), size=10,face="bold"),axis.title.x = element_blank(), axis.text.x=element_text(size=10, margin = margin(t=15, r=0, b=0, l=0)), strip.text = element_text(size = 8)) 
+    }
+  else
+  {
+    PedsGrowth %>% filter(complete.cases(.)) %>% group_by(MEASURE, TIME) %>% ggplot(aes(x = TIME, y = PERCENTILES, fill = TRT)) +          
+  geom_boxplot(width = 3, varwidth = TRUE) + facet_wrap(.~MEASURE, scales="free_y", ncol=1) + theme_minimal() +
+  stat_summary(fun = mean, geom = "point", col = "red", position = position_dodge(1.8)) +
+      scale_x_discrete(limits=0:76, breaks = showTimePoints, labels = paste(showTimePoints, "Weeks")) +
+      annotate("rect", xmin = -Inf, xmax = Inf, ymin = shading()[1], ymax = shading()[2], 
+           alpha = .2, fill = "grey") + theme(panel.grid.major.x = element_blank())+
+      geom_text(size = 2, data = width, aes(x = TIME, y = -0.1, label = paste0("n = ", n)), position = position_dodge(5))+
+       theme(
+                          axis.title.y = element_text(margin = margin(t=0, r=20, b=0, l=10), size=10,face="bold"),axis.title.x = element_blank(), axis.text.x=element_text(size=10, margin = margin(t=15, r=0, b=0, l=0)), strip.text = element_text(size = 8)) 
+  }
+  })
+
+```
+
+```{r, echo = FALSE}
+plotOutput("bp1")
+```
+
