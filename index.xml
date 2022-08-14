@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays August 2022</title>
+      <dc:creator>Rhys Warham</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2022-08-14-wonderful-wednesdays-august-2022</link>
+      <description>Visualise the relative performance of the treatments based on ranking data. You may want to consider other metrics which can be derived from the ranking data and used to compare treatments.</description>
+      <category>Ranking Data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2022-08-14-wonderful-wednesdays-august-2022</guid>
+      <pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2022-08-14-wonderful-wednesdays-august-2022/./images/NMA_ranks - Steve Mallett.PNG" medium="image" type="image/png" width="1900" height="966"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays July 2022</title>
       <dc:creator>Bodo Kirsch</dc:creator>
@@ -21,7 +32,7 @@
     </item>
     <item>
       <title>Wonderful Wednesdays June 2022</title>
-      <dc:creator>PSI VIS SIG</dc:creator>
+      <dc:creator>Irene de la Torre Arenas</dc:creator>
       <link>https://graphicsprinciples.github.io/posts/2022-06-12-wonderful-wednesdays-june-2022</link>
       <description>The purpose of this data visualization is to assess if there is an adverse impact on the growth of these children due to taking the drug (exploratory). Explanatory examples are welcome too (once you know the answer).</description>
       <category>Pediatric Growth</category>

@@ -1,0 +1,5 @@
+Visualizing (Bayesian) Ranking Data
+
+Interactive Figure:	https://rpubs.com/acalatroni/929092
+Reproducible Code:	https://github.com/agstn/WW/tree/main/2022-07-13
+Study Data:		https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2022/2022-07-13			

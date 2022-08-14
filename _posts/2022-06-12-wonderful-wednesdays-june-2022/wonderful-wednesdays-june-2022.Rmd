@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays June 2022"
 description: |
   The purpose of this data visualization is to assess if there is an adverse impact on the growth of these children due to taking the drug (exploratory). Explanatory examples are welcome too (once you know the answer).
 author:
-  - name: PSI VIS SIG
+  - name: Irene de la Torre Arenas
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 06-08-2022
 categories:
