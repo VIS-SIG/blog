@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays July 2022</title>
+      <dc:creator>Bodo Kirsch</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2022-08-14-wonderful-wednesdays-july-2022</link>
+      <description>Detailed patient level data is meant to be an informed representation of the patient and what happened to the patient during the course of the study. These visualisations can help to get a quick overview on demographic information as well as exposure, concomitant medications, adverse events and laboratory data.</description>
+      <category>Patient profiles</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2022-08-14-wonderful-wednesdays-july-2022</guid>
+      <pubDate>Wed, 13 Jul 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2022-08-14-wonderful-wednesdays-july-2022/./images/David.png" medium="image" type="image/png" width="1600" height="720"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays June 2022</title>
       <dc:creator>PSI VIS SIG</dc:creator>

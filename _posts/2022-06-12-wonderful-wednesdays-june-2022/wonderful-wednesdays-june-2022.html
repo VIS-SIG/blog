@@ -123,7 +123,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["code/growth_f - Steve Mallett.R","code/pedGrowth - P J_a.Rmd","code/pedGrowth - P J_b.Rmd","images/BMI.png","images/dist.png","images/growth - Steve Mallett.png","images/Wonderful-Wednesdays1 - P J_a.png","images/Wonderful-Wednesdays1 - P J_b.png","images/Wonderful-Wednesdays2 - P J_a.png","images/Wonderful-Wednesdays2 - P J_b.png","images/ZScore.gif"]}
+  {"type":"character","attributes":{},"value":["code/growth_f - Steve Mallett.R","code/pedGrowth - P J_a.Rmd","code/pedGrowth - P J_b.Rmd","images/BMI.png","images/dist.png","images/growth - Steve Mallett.png","images/Wonderful-Wednesdays1 - P J_a.png","images/Wonderful-Wednesdays1 - P J_b.png","images/Wonderful-Wednesdays2 - P J_a.png","images/Wonderful-Wednesdays2 - P J_b.png","images/ZScore.gif","wonderful-wednesdays-june-2022_files/anchor-4.2.2/anchor.min.js","wonderful-wednesdays-june-2022_files/bowser-1.9.3/bowser.min.js","wonderful-wednesdays-june-2022_files/distill-2.2.21/template.v2.js","wonderful-wednesdays-june-2022_files/header-attrs-2.14/header-attrs.js","wonderful-wednesdays-june-2022_files/jquery-3.6.0/jquery-3.6.0.js","wonderful-wednesdays-june-2022_files/jquery-3.6.0/jquery-3.6.0.min.js","wonderful-wednesdays-june-2022_files/jquery-3.6.0/jquery-3.6.0.min.map","wonderful-wednesdays-june-2022_files/popper-2.6.0/popper.min.js","wonderful-wednesdays-june-2022_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesdays-june-2022_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesdays-june-2022_files/tippy-6.2.7/tippy.css","wonderful-wednesdays-june-2022_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesdays-june-2022_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1494,30 +1494,51 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h1 id="section"><Overall title of the webinar></h1>
 <p>This is a snapshot from a two-year clinical trial assessing the impact of a drug on growth measurements (stature, weight and BMI) in children as part of a regulatory commitment for a marketed drug. There is a placebo comparator arm that converts to active drug at 6 months and additional rescue medication is allowed.</p>
-<p>The purpose of this data visualization is to assess if there is an adverse impact on the growth of these children due to taking the drug (exploratory). Explanatory examples are welcome too (once you know the answer).</p>
+<p>The challenge is to use visualizations to assess if there is an adverse impact on children’s growth due to taking a drug. To do so, participants had to display effects on development over time. Although the topic led to more exploratory visualizations, the organizers also encouraged participants to develop explanatory graphs.</p>
 <p><a id="example1"></a></p>
 <h2 id="example-1.-change-from-baseline-over-time">Example 1. Change from baseline over time</h2>
 <p><img src="images/growth%20-%20Steve%20Mallett.png" /><br />
 <a href="./images/growth%20-%20Steve%20Mallett.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>The first entry encoded the change from baseline in stature’s distribution with color. The area graph used contours and shades of green to highlight the percentages of patients that had a specific shift from baseline over time.</p>
+<p>The panelists liked the descriptive title. They also made a few suggestions to improve the chart:</p>
+<ul>
+<li>Removing the opacity of the areas: the overlap of the shades made the bands hard to read.</li>
+<li>Using colors that highlight the highest percentages instead of the lowest ones.</li>
+<li>Labeling de bands to better identify groupings.</li>
+</ul>
 <p><a href="#example1%20code">link to code</a></p>
 <p><a id="example2"></a></p>
-<h2 id="example-2.-animated-zscore">Example 2. Animated ZScore</h2>
+<h2 id="example-2.-animated-z-score">Example 2. Animated Z-Score</h2>
 <p><img src="images/ZScore.gif" /><br />
 <a href="./images/ZScore.gif">high resolution animation</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>The second entry was an animated scatterplot and density plot: an exploratory visualization that showed the data over time and let viewers draw their conclusions.</p>
+<p>The graph had four panels:</p>
+<ul>
+<li>The top left panel showed the baseline distribution for the two groups</li>
+<li>The bottom right one displayed the change from the baseline distribution.</li>
+<li>The bottom left had a scatterplot showing the change from baseline and baseline for the two groups.</li>
+<li>The panel enjoyed the animations and highlighted its minimalistic design, where there are no duplicated elements, such as axis titles. A design change that would have made the entry even better would have been to increase the contrast between the dots and the trend lines in the scatterplot.</li>
+</ul>
 <p><a href="#example2%20code">link to code</a></p>
 <p><a id="example3"></a></p>
 <h2 id="example-3.-bmi---error-bars">Example 3. BMI - error bars</h2>
 <p><img src="images/BMI.png" /><br />
 <a href="./images/BMI.png">high resolution image</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>The third entry is a dot plot with whiskers showing confidence intervals and trendlines connecting treatment values. The visualization displayed a lot of data and how the treatments deviated.</p>
+<p>The panelists made a few suggestions on how to improve the graph:</p>
+<ul>
+<li>The first step would be to consider which elements need to pick the audience’s attention first and structure the visual hierarchy around them.</li>
+<li>Following that idea, those shapes -in this case, the dots- need to be the first thing they see.</li>
+<li>Everything else, the trendlines or the CIs (Confidence intervals), can be knocked back and made just supportive elements -by simplifying them or making them lighter-.</li>
+</ul>
+<p>Another point that was mentioned was to make the textual elements more descriptive. Having the abbreviations meaning, or writing down the unit of the time axis, would have helped viewers understand the chart.</p>
 <p><a href="#example3%20code">link to code</a></p>
 <p><a id="example4"></a></p>
 <h2 id="example-4.-density-plots">Example 4. Density plots</h2>
 <p><img src="images/dist.png" /></p>
 <p><a href="./images/dist.png">high resolution image</a>.</p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>The fourth entry showed distributions over time. In this challenge, the expectation was that most of the changes from baseline should be 0, which is what this visualization highlights.</p>
+<p>It’s an especially useful graph that lets you see the distributions over time. It helps you see differences and find extreme values. It also includes the quartiles that facilitate making comparisons between the two groups.</p>
 <p><a href="#example4%20code">link to code</a></p>
 <p><a id="example5"></a></p>
 <h2 id="example-5.-box-plots">Example 5. Box plots</h2>
@@ -1529,7 +1550,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="./images/Wonderful-Wednesdays1%20-%20P%20J_b.png">high resolution image 2</a><br />
 <a href="./images/Wonderful-Wednesdays2%20-%20P%20J_a.png">high resolution image 3</a><br />
 <a href="./images/Wonderful-Wednesdays2%20-%20P%20J_b.png">high resolution image 4</a></p>
-<p>(A summary of the discussion will be added shortly.)</p>
+<p>The last visualization is box plots over time. A shaded area highlights the band [1, -1], which should fit around 50% of the data. The width of the box plots is also proportional to the number of participants in each treatment group. The X-Axis is also relative to the time points.</p>
+<p>The panel liked all the little additions to make the box plots more understandable and representative. They would have liked more separation between the treatment groups to help make comparisons between them.</p>
 <p><a href="#example5%20code">link to code</a></p>
 <h1 id="code">Code</h1>
 <p><a id="example1 code"></a></p>
