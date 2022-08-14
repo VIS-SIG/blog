@@ -20,7 +20,7 @@ output:
 # <Overall title of the webinar>
 This is a snapshot from a two-year clinical trial assessing the impact of a drug on growth measurements (stature, weight and BMI) in children as part of a regulatory commitment for a marketed drug. There is a placebo comparator arm that converts to active drug at 6 months and additional rescue medication is allowed.
 
-The purpose of this data visualization is to assess if there is an adverse impact on the growth of these children due to taking the drug (exploratory). Explanatory examples are welcome too (once you know the answer).
+The challenge is to use visualizations to assess if there is an adverse impact on children's growth due to taking a drug. To do so, participants had to display effects on development over time. Although the topic led to more exploratory visualizations, the organizers also encouraged participants to develop explanatory graphs.
 
 
 <a id="example1"></a>
@@ -30,19 +30,43 @@ The purpose of this data visualization is to assess if there is an adverse impac
 ![](./images/growth - Steve Mallett.png)  
 [high resolution image](./images/growth - Steve Mallett.png)  
 
-(A summary of the discussion will be added shortly.)
+The first entry encoded the change from baseline in stature's distribution with
+color. The area graph used contours and shades of green to highlight the
+percentages of patients that had a specific shift from baseline over time.
+
+The panelists liked the descriptive title. They also made a few suggestions to
+improve the chart:
+
+- Removing the opacity of the areas: the overlap of the shades made the bands
+  hard to read.
+- Using colors that highlight the highest percentages instead of the
+  lowest ones. 
+- Labeling de bands to better identify groupings.
 
 [link to code](#example1 code)
 
 
 <a id="example2"></a>
 
-## Example 2. Animated ZScore
+## Example 2. Animated Z-Score
 
 ![](./images/ZScore.gif)  
 [high resolution animation](./images/ZScore.gif)  
 
-(A summary of the discussion will be added shortly.)
+The second entry was an animated scatterplot and density plot: an exploratory
+visualization that showed the data over time and let viewers draw their
+conclusions.
+
+The graph had four panels: 
+
+- The top left panel showed the baseline distribution for the two groups
+- The bottom right one displayed the change from the baseline distribution.
+- The bottom left had a scatterplot showing the change from baseline and
+  baseline for the two groups.
+- The panel enjoyed the animations and highlighted its minimalistic design,
+  where there are no duplicated elements, such as axis titles. A design change
+  that would have made the entry even better would have been to increase the
+  contrast between the dots and the trend lines in the scatterplot.  
 
 [link to code](#example2 code)
 
@@ -53,7 +77,23 @@ The purpose of this data visualization is to assess if there is an adverse impac
 ![](./images/BMI.png)  
 [high resolution image](./images/BMI.png)  
 
-(A summary of the discussion will be added shortly.)
+The third entry is a dot plot with whiskers showing confidence intervals and
+trendlines connecting treatment values. The visualization displayed a lot of
+data and how the treatments deviated.
+
+The panelists made a few suggestions on how to improve the graph:
+
+- The first step would be to consider which elements need to pick the audience's
+  attention first and structure the visual hierarchy around them.
+- Following that idea, those shapes -in this case, the dots- need to be the
+  first thing they see.
+- Everything else, the trendlines or the CIs (Confidence intervals), can be
+  knocked back and made just supportive elements -by simplifying them or making
+  them lighter-.
+
+Another point that was mentioned was to make the textual elements more
+descriptive. Having the abbreviations meaning, or writing down the unit of the
+time axis, would have helped viewers understand the chart.
 
 [link to code](#example3 code)
 
@@ -67,7 +107,13 @@ The purpose of this data visualization is to assess if there is an adverse impac
 
 [high resolution image](./images/dist.png).
 
-(A summary of the discussion will be added shortly.)
+The fourth entry showed distributions over time. In this challenge, the
+expectation was that most of the changes from baseline should be 0, which is
+what this visualization highlights.
+
+It’s an especially useful graph that lets you see the distributions over time.
+It helps you see differences and find extreme values. It also includes the
+quartiles that facilitate making comparisons between the two groups.
 
 [link to code](#example4 code)
 
@@ -86,7 +132,14 @@ The purpose of this data visualization is to assess if there is an adverse impac
 [high resolution image 3](./images/Wonderful-Wednesdays2 - P J_a.png)  
 [high resolution image 4](./images/Wonderful-Wednesdays2 - P J_b.png)  
 
-(A summary of the discussion will be added shortly.)
+The last visualization is box plots over time. A shaded area highlights the band
+[1, -1], which should fit around 50% of the data. The width of the box plots is
+also proportional to the number of participants in each treatment group. The
+X-Axis is also relative to the time points.
+ 
+The panel liked all the little additions to make the box plots more
+understandable and representative. They would have liked more separation between
+the treatment groups to help make comparisons between them.
 
 [link to code](#example5 code)
 
