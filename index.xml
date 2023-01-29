@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 10 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays September 2022</title>
+      <dc:creator>Rhys Warham</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-01-29-wonderful-wednesdays-september-2022</link>
+      <description>The data is based on a study to assess the health status in patients with coronary heart diseases (see Ose et al., 2012). The research question was: what factors are associated with health status in usual primary care? The original data included 2,656 patients with 14 (patient and practice) characteristics (with clustered data structure). The outcome was EQ-5D VAS scale (Health related quality of life; range: [0; 1]). The data set for this challenge is a sub-sample of patients and variables and it is simulated data.</description>
+      <category>EQ-5D</category>
+      <category>Predictors</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-01-29-wonderful-wednesdays-september-2022</guid>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-01-29-wonderful-wednesdays-september-2022/./images/ed5d_relaimpo - Agustin Calatroni.png" medium="image" type="image/png" width="6375" height="5625"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays August 2022</title>
       <dc:creator>Rhys Warham</dc:creator>
