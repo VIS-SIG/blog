@@ -7,7 +7,30 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays November 2022</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-04-09-wonderful-wednesdays-november-2022</link>
+      <description>The EORTC QLQ-C30 is a 30-item questionnaire that has been designed for use in a wide range of cancer patient populations and is a reliable and valid measure of the quality of life in cancer patients. It includes a number of different scales, but this challenge is focussed on the global health and quality of life scale (QL).</description>
+      <category>Quality of life</category>
+      <category>Missing data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-04-09-wonderful-wednesdays-november-2022</guid>
+      <pubDate>Wed, 09 Nov 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-04-09-wonderful-wednesdays-november-2022/./images/line_plot - Paolo Eusebi.png" medium="image" type="image/png" width="3600" height="1800"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays October 2022</title>
+      <dc:creator>Steve Mallett</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-04-09-wonderful-wednesdays-october-2022</link>
+      <description>The EORTC QLQ-C30 is a 30-item questionnaire that has been designed for use in a wide range of cancer patient populations and is a reliable and valid measure of the quality of life in cancer patients (Aaronson et al., 1993).</description>
+      <category>Quality of life</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-04-09-wonderful-wednesdays-october-2022</guid>
+      <pubDate>Wed, 12 Oct 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-04-09-wonderful-wednesdays-october-2022/./images/qlq-c30_fig_comb.png" medium="image" type="image/png" width="5520" height="2760"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays September 2022</title>
       <dc:creator>Rhys Warham</dc:creator>
