@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 14 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays March 2023</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-04-16-wonderful-wednesdays-march-2023</link>
+      <description>This month’s challenge was to improve a published visualisation. The visualisation displayed the mean (and SD) Dermatology Life Quality Index (DLQI) score for 12 studies on alopecia areata. The publication had visualised these using ‘dynamite plots’, a type of visualisation which has received criticism in the past.</description>
+      <category>DLQI</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-04-16-wonderful-wednesdays-march-2023</guid>
+      <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-04-16-wonderful-wednesdays-march-2023/./images/DLQI_individual - Benjamin Lang.png" medium="image" type="image/png" width="4200" height="3230"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays December 2022</title>
       <dc:creator>PSI VIS SIG</dc:creator>
