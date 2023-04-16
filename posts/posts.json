@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2023-04-16-wonderful-wednesdays-december-2022/",
+    "title": "Wonderful Wednesdays December 2022",
+    "description": "The data is an excerpt of the official VAERS data created by US Food and Drug Administration (FDA) and Centers for Disease Control and Prevention (CDC) that may be associated with vaccines.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2022-12-14",
+    "categories": [
+      "VAERS",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nAdverse\nEvent data of COVID-19 vaccination in 2021\nThe data is an excerpt of the official VAERS data created by US Food\nand Drug Administration (FDA) and Centers for Disease Control and\nPrevention (CDC) that may be associated with vaccines.\nThe challenge is to display the advers event profile of the different\nvaccines. The visualisation should allow to detect differences in the\nincidence of adverse events. You may concentrate on the most frequently\nreported events.\nps: some of the variables needed to be deleted due to file size\nconstrains.\nA recording of the session can be found here.\n\nExample 1.\nhigh resolution image\nlink to code\n\nExample 2.\nhigh resolution image\nlink to code\n\nExample 3.\nhigh resolution image\nlink to code\n\nCode\n\nExample 1. \nNo code available.\nBack to blog\n\nExample 2. \nNo code available.\nBack to blog\n\nExample 3. \nNo code available.\nBack to blog\n\n\n\n",
+    "preview": "posts/2023-04-16-wonderful-wednesdays-december-2022/./images/double_dot_plot.png",
+    "last_modified": "2023-04-16T15:27:56+02:00",
+    "input_file": {},
+    "preview_width": 1321,
+    "preview_height": 713
+  },
+  {
     "path": "posts/2023-04-09-wonderful-wednesdays-november-2022/",
     "title": "Wonderful Wednesdays November 2022",
     "description": "The EORTC QLQ-C30 is a 30-item questionnaire that has been designed for use in a wide range of cancer patient populations and is a reliable and valid measure of the quality of life in cancer patients. It includes a number of different scales, but this challenge is focussed on the global health and quality of life scale (QL).",

@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 09 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays December 2022</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-04-16-wonderful-wednesdays-december-2022</link>
+      <description>The data is an excerpt of the official VAERS data created by US Food and Drug Administration (FDA) and Centers for Disease Control and Prevention (CDC) that may be associated with vaccines.</description>
+      <category>VAERS</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-04-16-wonderful-wednesdays-december-2022</guid>
+      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-04-16-wonderful-wednesdays-december-2022/./images/double_dot_plot.png" medium="image" type="image/png" width="1321" height="713"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays November 2022</title>
       <dc:creator>PSI VIS SIG</dc:creator>

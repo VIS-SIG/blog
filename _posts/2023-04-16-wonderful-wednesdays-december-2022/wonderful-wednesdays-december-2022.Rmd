@@ -1,0 +1,90 @@
+---
+title: "Wonderful Wednesdays December 2022"
+description: |
+  The data is an excerpt of the official VAERS data created by US Food and Drug Administration (FDA) and Centers for Disease Control and Prevention (CDC) that may be associated with vaccines.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 12-14-2022
+categories:
+  - VAERS
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/double_dot_plot.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Adverse Event data of COVID-19 vaccination in 2021
+The data is an excerpt of the official VAERS data created by US Food and Drug Administration (FDA) and Centers for Disease Control and Prevention (CDC) that may be associated with vaccines.
+
+The challenge is to display the advers event profile of the different vaccines. The visualisation should allow to detect differences in the incidence of adverse events. You may concentrate on the most frequently reported events.
+
+ps: some of the variables needed to be deleted due to file size constrains.
+
+A recording of the session can be found [here](https://www.psiweb.org/vod/item/psi-vissig-wonderful-wednesday-34-vaccine-adverse-event-reporting-system).
+
+<a id="example1"></a>
+
+## Example 1.
+
+![](./images/barplot.png)  
+[high resolution image](./images/barplot.png)  
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2.
+
+![](./images/double_dot_plot.png)  
+[high resolution image](./images/double_dot_plot.png)  
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3.
+
+![](./images/AEexplorer.png)  
+[high resolution image](./images/AEexplorer.png)  
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. <Same title as above>
+
+No code available.
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. <Same title as above>
+
+No code available.
+
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. <Same title as above>
+
+No code available.
+
+[Back to blog](#example3)
