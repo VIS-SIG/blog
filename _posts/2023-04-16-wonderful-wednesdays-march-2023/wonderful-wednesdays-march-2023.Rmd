@@ -3,7 +3,7 @@ title: "Wonderful Wednesdays March 2023"
 description: |
   This month’s challenge was to improve a published visualisation. The visualisation displayed the mean (and SD) Dermatology Life Quality Index (DLQI) score for 12 studies on alopecia areata. The publication had visualised these using ‘dynamite plots’, a type of visualisation which has received criticism in the past.
 author:
-  - name: PSI VIS SIG
+  - name: Rhys Warham
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 03-08-2023
 categories:
