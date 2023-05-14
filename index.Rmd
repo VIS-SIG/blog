@@ -3,4 +3,4 @@ title: "VIS-SIG Blog"
 site: distill::distill_website
 listing: posts
 ---
-<!-- library(distill); create_post("Wonderful Wednesdays April 2023"); rmarkdown::render_site()-->
+<!-- library(distill); create_post("Visualisation SIG Showcase"); rmarkdown::render_site()-->
