@@ -2447,7 +2447,7 @@ class="uri">https://www.psiweb.org/sigs-special-interest-groups/visualisation</a
 <p>In this entry, you can find the visualisations presented on our
 poster at the PSI conference 2023 together with a summary of the
 discussion we had when the visualisations were presented in our
-Wonnderful Wednesday Webinars and the programming code.</p>
+Wonderful Wednesday Webinars and the programming code.</p>
 <p><a id="example1"></a></p>
 <h2 id="example-1.-gable">Example 1. Gable</h2>
 <p><img src="images/Agustin.png" /><br />
@@ -2505,51 +2505,8 @@ references.</p>
 <p>The panel thinks that this is a great and very powerful app to do a
 thorough exploratory data analysis.</p>
 <p><a href="#example3%20code">link to code</a></p>
-<p><a id="example4"></a></p>
-<h2 id="example-4.-displaying-predictors">Example 4. Displaying
-predictors</h2>
-<p><img
-src="images/ed5d_relaimpo%20-%20Agustin%20Calatroni.png" /><br />
-high resolution image: <a
-href="https://github.com/agstn/WW/blob/main/2022-08-10/ed5d_relaimpo.pdf">pdf</a>
-<a
-href="https://github.com/agstn/WW/blob/main/2022-08-10/ed5d_relaimpo.png">png</a></p>
-<p>The final submission changed focus from the first two. Whereas
-previous submissions look to present model results (i.e., predicted
-outcomes at different values of the predictors), the final submission
-focused on graphically displaying which predictors are the most
-important in determining the EQ-5D VAS value.</p>
-<p>The submission is split into two. On the left-hand side, there is a
-graphical depiction of the predictors included in a final model selected
-through a combination of forward selection and backward elimination.
-Solid lines indicate those variables included in the model as a main
-effect, whereas dashed lines display the interactions included in the
-model. Please note, a small issue caused several solid lines to be
-displayed from certain predictors.</p>
-<p>The right-hand side of the plot displays the relative importance of
-the included predictors, as determined by the LMG metric. The
-contribution of each included predictor and each included interaction is
-presented by a bar. Each subsequent bar starts where the previous
-finishes, very nicely making it extremely clear that these are
-individual contributions to the overall R-squared, which is presented at
-the bottom. Within the main effects and two-way interaction displays,
-the predictors are logically ordered based on their relative importance.
-This drives home the same message that was given as a key takeaway in
-the previous submissions: number of conditions is the most important
-predictor in determining EQ-5D VAS score. Throughout all aspects of the
-submission, each predictor is consistently coloured, making each
-occurrence very easy to identify.</p>
-<p>Within the right-hand panel, an arrow is displayed on top of each
-bar. In this instance, this is somewhat redundant since relative
-importance will always be non-negative and thus the arrows will always
-point to the right. Whilst not the focus of this submission (which very
-nicely achieves its goal of presenting the most influential predictors),
-we do not have any information here on the direction of effect of each
-predictor (i.e., we know that it is important, but does it increase or
-decrease quality of life?).</p>
-<p><a href="#example4%20code">link to code</a></p>
-<p><a id="example5"></a></p>
-<h2 id="example-5.-histograms">Example 5. Histograms</h2>
+<p><a id="example4a"></a></p>
+<h2 id="example-4a.-histograms">Example 4a. Histograms</h2>
 <p><img src="images/Histogram%20-%20Samah%20Abdelaal.jpeg" /></p>
 <p><a href="./images/Histogram%20-%20Samah%20Abdelaal.jpeg">high
 resolution image</a></p>
@@ -2579,10 +2536,35 @@ not a great deal of change.</p>
 implemented changes to become a really nice visualisation, and thought
 this was a great opportunity to highlight how some of these changes may
 look, as displayed in the next example.</p>
-<p><a href="#example5%20code">link to code</a></p>
-<p><a id="example6"></a></p>
-<h2 id="example-6.-example-4.-upset-plot">Example 6. Example 4. Upset
-Plot</h2>
+<p><a href="#example4a%20code">link to code</a></p>
+<p><a id="example4b"></a></p>
+<h2 id="example-4b.-histograms-updated">Example 4b. Histograms
+updated</h2>
+<p><img src="./images/hysto2c.png" /></p>
+<p><a href="./images/hysto2c.png">high resolution image</a></p>
+<p>Here we see a really effective visualisation which has been produced
+with only minimal additional work to the previous example. Firstly, we
+see that a more appropriate and telling title has been used and a
+footnote has been added to aid in interpretation for those individuals
+who are unfamiliar with the DLQI. We also see that the layout has been
+changed with changes in time occurring horizontally as we expect to
+see.</p>
+<p>Different colours have also been used to allow the two treatment
+groups to be easily distinguished, and the titles have been coloured
+accordingly. Consistent spacing has been used on the vertical axes to
+allow for easy comparisons, and these axes now represent percentages
+rather than counts to allow for more meaningful comparison between the
+imbalanced treatment groups. There was some discussion amongst the group
+regarding the fact that lower panel is shorter, but there were no strong
+feelings about this given that the spacing on the vertical axes is
+consistent.</p>
+<p>Probably the biggest improvement here, though, is that a bin width of
+one has now been used. This simple change allows the histograms to be
+interpreted in a much more meaningful way for a score that can only take
+values in the natural numbers.</p>
+<p><a href="#example4b%20code">link to code</a></p>
+<p><a id="example5"></a></p>
+<h2 id="example-5.-upset-plot">Example 5. Upset Plot</h2>
 <p><img src="images/plot04.png" /> <a href="./images/plot04.png">high
 resolution image</a></p>
 <p>This is a useful plot for displaying frequency counts where there is
@@ -2611,50 +2593,28 @@ interactivity, to allow the user to define which categories are
 displayed. In addition, the aspect ratio is challenging to display in a
 landscape screen, so flexibility in the layout of the various charts
 would be useful.</p>
-<p><a href="#example6%20code">link to code</a></p>
-<p><a id="example7"></a></p>
-<h2 id="example-7.-sankey-diagram">Example 7. Sankey Diagram</h2>
+<p><a href="#example5%20code">link to code</a></p>
+<p><a id="example6"></a></p>
+<h2 id="example-6.-sankey-diagram">Example 6. Sankey Diagram</h2>
 <p><img src="images/Missing%20Sankey%20-%20David%20Carr.png" /><br />
 The pdf file can be found <a
 href="./images/Missing%20Sankey%20-%20David%20Carr.pdf">here</a>.</p>
-<p>This was the first plot presented that included the actual pain
-scores, which have been categorised and summarised over time separately
-for the two treatment groups. Categorisation allows missing data
-categories to also be included alongside the efficacy data, with
-separate categories for single missing visits and monotone missing
-values (dropouts). A Sankey Diagram is effective in showing shifts
-between categories at the individual patient level, and in this case a
-subset of visits has been included to allow the flows to be seen more
-easily (although this has also created some issues with interpreting the
-“no subsequent visit” category).</p>
+<p>This plot presents pain scores, which have been categorised and
+summarised over time separately for the two treatment groups.
+Categorisation allows missing data categories to also be included
+alongside the efficacy data, with separate categories for single missing
+visits and monotone missing values (dropouts). A Sankey Diagram is
+effective in showing shifts between categories at the individual patient
+level, and in this case a subset of visits has been included to allow
+the flows to be seen more easily (although this has also created some
+issues with interpreting the “no subsequent visit” category).</p>
 <p>As well as showing overall trends, the graph provides insights into
 the pain scores that preceded withdrawal from the study. The results are
 showing a rapid improvement in both treatment groups at the start of the
 study, possibly due to regression to the mean resulting from study
 inclusion criteria selecting a cohort of patients with relatively high
 baseline pain score.</p>
-<p><a href="#example7%20code">link to code</a></p>
-<p><a id="example8"></a></p>
-<h2 id="example-8.-scatter-matrices">Example 8. Scatter matrices</h2>
-<p><img src="images/scatter-matrix-final.png" /> <img
-src="images/scatter-matrix-locf%20-%20Mark%20Baillie.png" /> <img
-src="images/scatter-matrix-cc%20-%20Mark%20Baillie.png" /></p>
-<p><a href="./images/scatter-matrix-final.png">high-resolution image</a>
-<a
-href="./images/scatter-matrix-locf%20-%20Mark%20Baillie.png">high-resolution
-image</a> <a
-href="./images/scatter-matrix-cc%20-%20Mark%20Baillie.png">high-resolution
-image</a></p>
-<p>These 3 graphics provide an exhaustive amount of information. The 3
-graphics address the different ways of treating the missing data. Each
-graph is a matrix where the upper triangle models the data by treatment
-and covariate, the lower triangle shows the individual data and the
-diagonal shows the marginal distributions. The title clearly leads the
-reader to the conclusion the DLQI is highly correlated with itch and
-when the reader looks at the panel with two splines, one for each
-treatment, of DLQI against itch the reader can see that the treatment
-effect on DLQI is neglible once itch is included in the model.</p>
-<p><a href="#example8%20code">link to code</a></p>
+<p><a href="#example6%20code">link to code</a></p>
 <h1 id="code">Code</h1>
 <p><a id="example1 code"></a></p>
 <h2 id="example-1.-grable">Example 1. Grable</h2>
@@ -2792,14 +2752,8 @@ href="./code/index%20-%20Agustin%20Calatroni.rmd">here</a>.<br />
 The full code can be found <a
 href="https://github.com/agstn/CGM">here</a>.</p>
 <p><a href="#example3">Back to blog</a></p>
-<p><a id="example4 code"></a></p>
-<h2 id="example-4.-displaying-predictors-1">Example 4. Displaying
-predictors</h2>
-<p>The code can be found <a
-href="https://github.com/agstn/WW/tree/main/2022-08-10">here</a>.</p>
-<p><a href="#example4">Back to blog</a></p>
-<p><a id="example5 code"></a></p>
-<h2 id="example-5.-histrograms">Example 5. Histrograms</h2>
+<p><a id="example4a code"></a></p>
+<h2 id="example-4a.-histrograms">Example 4a. Histrograms</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Load data</span>
@@ -2897,9 +2851,112 @@ href="https://github.com/agstn/WW/tree/main/2022-08-10">here</a>.</p>
 </code></pre>
 </div>
 </div>
-<p><a href="#example5">Back to blog</a></p>
-<p><a id="example6 code"></a></p>
-<h2 id="example-6.-upset-plot">Example 6. Upset Plot</h2>
+<p><a href="#example4a">Back to blog</a></p>
+<p><a id="example4b code"></a></p>
+<h2 id="example-4b.-histrograms-updated">Example 4b. Histrograms
+updated</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Load data</span>
+<span class='va'>dql</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"O:\\1_Global_Biostatistics\\Biostatistics Innovation Center\\BIC Project - Subgroup Analyses\\Screening\\R-Package\\Supports\\WW\\ww2020_dlqi.csv"</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/attach.html'>attach</a></span><span class='op'>(</span><span class='va'>dql</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>dql</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>dql</span><span class='op'>)</span>
+
+<span class='co'># Load Library</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jrnold/ggthemes'>ggthemes</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/thomas-neitmann/ggcharts'>ggcharts</a></span><span class='op'>)</span>
+
+<span class='co'># Select relevant variables</span>
+<span class='va'>dql_renamed</span> <span class='op'>&lt;-</span>
+  <span class='va'>dql</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>
+    <span class='va'>TRT</span>, <span class='va'>VISIT</span>, <span class='va'>DLQI_SCORE</span>
+    <span class='op'>)</span>
+
+<span class='co'># Rename treatment levels</span>
+<span class='va'>dql_renamed</span><span class='op'>$</span><span class='va'>TRT</span><span class='op'>[</span><span class='va'>dql_renamed</span><span class='op'>$</span><span class='va'>TRT</span><span class='op'>==</span><span class='st'>"A"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Placebo"</span>
+<span class='va'>dql_renamed</span><span class='op'>$</span><span class='va'>TRT</span><span class='op'>[</span><span class='va'>dql_renamed</span><span class='op'>$</span><span class='va'>TRT</span><span class='op'>==</span><span class='st'>"B"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Active Treatment"</span>
+
+<span class='co'># Seperate treatments</span>
+
+<span class='co'># Active</span>
+<span class='va'>totalB</span> <span class='op'>&lt;-</span> 
+  <span class='va'>dql_renamed</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>TRT</span><span class='op'>==</span><span class='st'>"Active Treatment"</span><span class='op'>)</span>
+
+<span class='co'># Construct a histogram for each treatment arm at baseline visit</span>
+<span class='op'>(</span><span class='va'>d</span> <span class='op'>&lt;-</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>
+    data <span class='op'>=</span> <span class='va'>totalB</span>,
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>
+      x <span class='op'>=</span> <span class='va'>DLQI_SCORE</span>
+      <span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>
+    binwidth <span class='op'>=</span> <span class='fl'>1</span>,
+    color <span class='op'>=</span> <span class='st'>"grey"</span>,
+    fill <span class='op'>=</span> <span class='st'>"deeppink3"</span>
+    <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span><span class='op'>~</span> <span class='va'>VISIT</span><span class='op'>)</span>
+  <span class='op'>+</span> <span class='fu'>theme_ng</span><span class='op'>(</span>grid <span class='op'>=</span> <span class='st'>"X"</span><span class='op'>)</span>
+  <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>
+    x <span class='op'>=</span> <span class='st'>"Total DLQI Score"</span>,
+    y <span class='op'>=</span> <span class='st'>"Patients"</span>,
+    title <span class='op'>=</span> <span class='st'>"Improved Quality of life after 16 weeks of treatment"</span>,
+    subtitle <span class='op'>=</span> <span class='st'>"Active Treatment"</span><span class='op'>)</span>
+  <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>
+    axis.title.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+    axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>17</span>,
+                              face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span>,
+    plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span>, color <span class='op'>=</span> <span class='st'>"deeppink3"</span><span class='op'>)</span>
+    <span class='op'>)</span><span class='op'>)</span>
+
+
+<span class='co'># Week 16 visit</span>
+<span class='va'>totalA</span> <span class='op'>&lt;-</span> 
+  <span class='va'>dql_renamed</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>TRT</span><span class='op'>==</span><span class='st'>"Placebo"</span><span class='op'>)</span>
+
+<span class='op'>(</span><span class='va'>e</span> <span class='op'>&lt;-</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>
+    data <span class='op'>=</span> <span class='va'>totalA</span>,
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>
+      x <span class='op'>=</span> <span class='va'>DLQI_SCORE</span>
+      <span class='op'>)</span>
+    <span class='op'>)</span>
+  <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>
+    binwidth <span class='op'>=</span> <span class='fl'>1</span>,
+    color <span class='op'>=</span> <span class='st'>"grey"</span>,
+    fill <span class='op'>=</span> <span class='st'>"green4"</span>
+    <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span><span class='op'>~</span> <span class='va'>VISIT</span><span class='op'>)</span>
+  <span class='op'>+</span> <span class='fu'>theme_ng</span><span class='op'>(</span>grid <span class='op'>=</span> <span class='st'>"X"</span><span class='op'>)</span>
+  <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>
+    x <span class='op'>=</span> <span class='st'>"Total DLQI Score"</span>,
+    y <span class='op'>=</span> <span class='st'>"Patients"</span>,
+    subtitle <span class='op'>=</span> <span class='st'>"Placebo"</span>,
+    caption <span class='op'>=</span> <span class='st'>"Lower score equals better quality of life"</span>
+    <span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>
+    strip.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+    plot.subtitle <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span>, color <span class='op'>=</span> <span class='st'>"green4"</span><span class='op'>)</span>,
+    plot.caption <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span>,
+                                face <span class='op'>=</span> <span class='st'>"italic"</span><span class='op'>)</span>
+    <span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># Compine plots</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>gridExtra</span><span class='op'>)</span>
+
+<span class='fu'>gridExtra</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html'>grid.arrange</a></span><span class='op'>(</span><span class='va'>d</span>, <span class='va'>e</span>, nrow <span class='op'>=</span> <span class='fl'>2</span>, heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.5</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><a href="#example4b">Back to blog</a></p>
+<p><a id="example5 code"></a></p>
+<h2 id="example-5.-upset-plot-1">Example 5. Upset Plot</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># packages</span>
@@ -2997,107 +3054,12 @@ href="https://github.com/agstn/WW/tree/main/2022-08-10">here</a>.</p>
 </code></pre>
 </div>
 </div>
-<p><a href="#example6">Back to blog</a></p>
-<p><a id="example7 code"></a></p>
-<h2 id="example-7.-sankey-diagram-1">Example 7. Sankey Diagram</h2>
+<p><a href="#example5">Back to blog</a></p>
+<p><a id="example6 code"></a></p>
+<h2 id="example-6.-sankey-diagram-1">Example 6. Sankey Diagram</h2>
 <p>The sas file can be found <a
 href="./code/missing_sankey%20-%20David%20Carr.sas">here</a>.</p>
-<p><a href="#example7">Back to blog</a></p>
-<p><a id="example8 code"></a></p>
-<h2 id="example-8.-displaying-predictors">Example 8. Displaying
-predictors</h2>
-Correlation matrices ### a) Overview
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggforce.data-imaginist.com'>ggforce</a></span><span class='op'>)</span>
-
-<span class='co'>## Save plot</span>
-<span class='va'>page_width</span> <span class='op'>&lt;-</span> <span class='fl'>350</span>
-<span class='va'>page_height</span> <span class='op'>&lt;-</span> <span class='fl'>250</span>
-<span class='va'>d_dpi</span> <span class='op'>&lt;-</span> <span class='fl'>400</span>
-
-<span class='co'>## read in data</span>
-<span class='va'>final_in</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"mediation_data.csv"</span><span class='op'>)</span>
-
-
-<span class='co'>## Plot overall</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>final_in</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>.panel_x</span>, y <span class='op'>=</span> <span class='va'>.panel_y</span>, colour <span class='op'>=</span> <span class='va'>TRT</span>, fill <span class='op'>=</span> <span class='va'>TRT</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_autopoint</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_autodensity</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='va'>lm</span>, formula <span class='op'>=</span> <span class='va'>y</span> <span class='op'>~</span> <span class='fu'>splines</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/splines/bs.html'>bs</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>facet_matrix</span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>DLQI</span>, <span class='va'>itch</span>, <span class='va'>redness</span>, <span class='va'>BSA</span><span class='op'>)</span>, layer.diag <span class='op'>=</span> <span class='fl'>2</span>, layer.upper <span class='op'>=</span> <span class='fl'>3</span>, 
-               grid.y.diag <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Itch has a strong positive association with DLQI."</span>,
-       subtitle <span class='op'>=</span> <span class='st'>"There is evidence that the DLQI treatment effect is mediated through itch."</span>,
-       caption <span class='op'>=</span> <span class='st'>"\n Cubic splines are presented in the top-right layer regressing y on x.\nScatter-plots of the same relationship are displayed in the bottom-left later.\nThe marginal distribution by treatment are displayed on the diagonal."</span><span class='op'>)</span> <span class='op'>+</span>  
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"bottom"</span><span class='op'>)</span>
-
-<span class='co'>## save plot</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"scatter-matrix-final.png"</span><span class='op'>)</span>, 
-       width <span class='op'>=</span> <span class='va'>page_width</span>, height <span class='op'>=</span> <span class='va'>page_height</span>, 
-       units <span class='op'>=</span> <span class='st'>"mm"</span>, dpi <span class='op'>=</span> <span class='va'>d_dpi</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h3 id="b-locf-and-cc">b) LOCF and CC:</h3>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggforce.data-imaginist.com'>ggforce</a></span><span class='op'>)</span>
-
-<span class='co'>## Save plot</span>
-<span class='va'>page_width</span> <span class='op'>&lt;-</span> <span class='fl'>350</span>
-<span class='va'>page_height</span> <span class='op'>&lt;-</span> <span class='fl'>250</span>
-<span class='va'>d_dpi</span> <span class='op'>&lt;-</span> <span class='fl'>400</span>
-
-<span class='co'>## read in data</span>
-<span class='va'>final_in</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"mediation_data.csv"</span><span class='op'>)</span>
-
-
-<span class='co'>## Plot overall</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>final_in</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>.panel_x</span>, y <span class='op'>=</span> <span class='va'>.panel_y</span>, colour <span class='op'>=</span> <span class='va'>TRT</span>, fill <span class='op'>=</span> <span class='va'>TRT</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_autopoint</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_autodensity</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='va'>lm</span>, formula <span class='op'>=</span> <span class='va'>y</span> <span class='op'>~</span> <span class='fu'>splines</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/splines/bs.html'>bs</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>facet_matrix</span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>DLQI</span>, <span class='va'>itch</span>, <span class='va'>redness</span>, <span class='va'>BSA</span><span class='op'>)</span>, layer.diag <span class='op'>=</span> <span class='fl'>2</span>, layer.upper <span class='op'>=</span> <span class='fl'>3</span>, 
-               grid.y.diag <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Investigating the assocation between outcomes and treatment"</span>,
-       subtitle <span class='op'>=</span> <span class='st'>"With LOCF imputation"</span>,
-       caption <span class='op'>=</span> <span class='st'>"\n Cubic splines are presented in the top-right layer regressing y on x.\nScatter-plots of the same relationship are displayed in the bottom-left later.\nThe marginal distribution by treatment are displayed on the diagonal."</span><span class='op'>)</span> <span class='op'>+</span>  
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"bottom"</span><span class='op'>)</span>
-
-<span class='co'>## save plot</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"scatter-matrix-locf.png"</span><span class='op'>)</span>, 
-       width <span class='op'>=</span> <span class='va'>page_width</span>, height <span class='op'>=</span> <span class='va'>page_height</span>, 
-       units <span class='op'>=</span> <span class='st'>"mm"</span>, dpi <span class='op'>=</span> <span class='va'>d_dpi</span><span class='op'>)</span>
-
-
-<span class='co'>## Plot complete cases</span>
-<span class='va'>final_in</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>itch_LOCF</span> <span class='op'>==</span> <span class='cn'>FALSE</span> <span class='op'>&amp;</span> <span class='va'>BSA_LOCF</span> <span class='op'>==</span> <span class='cn'>FALSE</span> <span class='op'>&amp;</span> <span class='va'>redness_LOCF</span> <span class='op'>==</span> <span class='cn'>FALSE</span> <span class='op'>&amp;</span> <span class='va'>DLQI_LOCF</span> <span class='op'>==</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>.panel_x</span>, y <span class='op'>=</span> <span class='va'>.panel_y</span>, colour <span class='op'>=</span> <span class='va'>TRT</span>, fill <span class='op'>=</span> <span class='va'>TRT</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_autopoint</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_autodensity</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='va'>lm</span>, formula <span class='op'>=</span> <span class='va'>y</span> <span class='op'>~</span> <span class='fu'>splines</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/splines/bs.html'>bs</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>facet_matrix</span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/vars.html'>vars</a></span><span class='op'>(</span><span class='va'>DLQI</span>, <span class='va'>itch</span>, <span class='va'>redness</span>, <span class='va'>BSA</span><span class='op'>)</span>, layer.diag <span class='op'>=</span> <span class='fl'>2</span>, layer.upper <span class='op'>=</span> <span class='fl'>3</span>, 
-               grid.y.diag <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Investigating the assocation between outcomes and treatment"</span>,
-       subtitle <span class='op'>=</span> <span class='st'>"Complete cases analysis"</span>,
-       caption <span class='op'>=</span> <span class='st'>"\n Cubic splines are presented in the top-right layer regressing y on x.\nScatter-plots of the same relationship are displayed in the bottom-left later.\nThe marginal distribution by treatment are displayed on the diagonal."</span><span class='op'>)</span> <span class='op'>+</span>  
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_light</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"bottom"</span><span class='op'>)</span>
-
-<span class='co'>## save plot</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"scatter-matrix-cc.png"</span><span class='op'>)</span>, 
-       width <span class='op'>=</span> <span class='va'>page_width</span>, height <span class='op'>=</span> <span class='va'>page_height</span>, 
-       units <span class='op'>=</span> <span class='st'>"mm"</span>, dpi <span class='op'>=</span> <span class='va'>d_dpi</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p><a href="#example8">Back to blog</a></p>
+<p><a href="#example6">Back to blog</a></p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

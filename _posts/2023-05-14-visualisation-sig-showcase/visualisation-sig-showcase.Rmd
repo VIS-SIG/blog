@@ -18,7 +18,7 @@ output:
 
 
 # Visualisation SIG Showcase
-In this entry, you can find the visualisations presented on our poster at the PSI conference 2023 together with a summary of the discussion we had when the visualisations were presented in our Wonnderful Wednesday Webinars and the programming code.
+In this entry, you can find the visualisations presented on our poster at the PSI conference 2023 together with a summary of the discussion we had when the visualisations were presented in our Wonderful Wednesday Webinars and the programming code.
 
 <a id="example1"></a>
 
@@ -67,30 +67,10 @@ The panel thinks that this is a great and very powerful app to do a thorough exp
 
 [link to code](#example3 code)
 
-<a id="example4"></a>
 
-## Example 4. Displaying predictors
+<a id="example4a"></a>
 
-![](./images/ed5d_relaimpo - Agustin Calatroni.png)  
-high resolution image:
-[pdf](https://github.com/agstn/WW/blob/main/2022-08-10/ed5d_relaimpo.pdf)
-[png](https://github.com/agstn/WW/blob/main/2022-08-10/ed5d_relaimpo.png)
-
-The final submission changed focus from the first two. Whereas previous submissions look to present model results (i.e., predicted outcomes at different values of the predictors), the final submission focused on graphically displaying which predictors are the most important in determining the EQ-5D VAS value.
-
-The submission is split into two. On the left-hand side, there is a graphical depiction of the predictors included in a final model selected through a combination of forward selection and backward elimination. Solid lines indicate those variables included in the model as a main effect, whereas dashed lines display the interactions included in the model. Please note, a small issue caused several solid lines to be displayed from certain predictors.
-
-The right-hand side of the plot displays the relative importance of the included predictors, as determined by the LMG metric. The contribution of each included predictor and each included interaction is presented by a bar. Each subsequent bar starts where the previous finishes, very nicely making it extremely clear that these are individual contributions to the overall R-squared, which is presented at the bottom. Within the main effects and two-way interaction displays, the predictors are logically ordered based on their relative importance. This drives home the same message that was given as a key takeaway in the previous submissions: number of conditions is the most important predictor in determining EQ-5D VAS score. Throughout all aspects of the submission, each predictor is consistently coloured, making each occurrence very easy to identify.
-
-Within the right-hand panel, an arrow is displayed on top of each bar. In this instance, this is somewhat redundant since relative importance will always be non-negative and thus the arrows will always point to the right. Whilst not the focus of this submission (which very nicely achieves its goal of presenting the most influential predictors), we do not have any information here on the direction of effect of each predictor (i.e., we know that it is important, but does it increase or decrease quality of life?).
-
-[link to code](#example4 code)
-
-
-
-<a id="example5"></a>
-
-## Example 5. Histograms
+## Example 4a. Histograms
 
 ![](./images/Histogram - Samah Abdelaal.jpeg)  
 
@@ -104,14 +84,32 @@ There are a couple of issues with this example that the group felt could be easi
 
 Overall, the group felt that this example only needed some easily implemented changes to become a really nice visualisation, and thought this was a great opportunity to highlight how some of these changes may look, as displayed in the next example.
 
-[link to code](#example5 code)
+[link to code](#example4a code)
+
+
+<a id="example4b"></a>
+
+## Example 4b. Histograms updated
+
+![](./images/hysto2c.png)  
+
+[high resolution image](./images/hysto2c.png)  
+
+Here we see a really effective visualisation which has been produced with only minimal additional work to the previous example. Firstly, we see that a more appropriate and telling title has been used and a footnote has been added to aid in interpretation for those individuals who are unfamiliar with the DLQI. We also see that the layout has been changed with changes in time occurring horizontally as we expect to see.
+
+Different colours have also been used to allow the two treatment groups to be easily distinguished, and the titles have been coloured accordingly. Consistent spacing has been used on the vertical axes to allow for easy comparisons, and these axes now represent percentages rather than counts to allow for more meaningful comparison between the imbalanced treatment groups. There was some discussion amongst the group regarding the fact that lower panel is shorter, but there were no strong feelings about this given that the spacing on the vertical axes is consistent.
+
+Probably the biggest improvement here, though, is that a bin width of one has now been used. This simple change allows the histograms to be interpreted in a much more meaningful way for a score that can only take values in the natural numbers.
+
+
+[link to code](#example4b code)
 
 
 
 
-<a id="example6"></a>
+<a id="example5"></a>
 
-## Example 6. Example 4. Upset Plot
+## Example 5. Upset Plot
 
 ![](./images/plot04.png)
 [high resolution image](./images/plot04.png)  
@@ -123,43 +121,23 @@ The plot requires a fair amount of explanation, and would work well with stakeho
 Where there is a large number of categories (as in this example), displaying all of the combinations of categories is limited by the display area of the plot. In this case a "cut-off" has been applied to limit to an intersection size of 20. Ideally the graph would include interactivity, to allow the user to define which categories are displayed. In addition, the aspect ratio is challenging to display in a landscape screen, so flexibility in the layout of the various charts would be useful.
 
 
-[link to code](#example6 code)
+[link to code](#example5 code)
 
 
 
-<a id="example7"></a>
+<a id="example6"></a>
 
-## Example 7. Sankey Diagram
+## Example 6. Sankey Diagram
 
 ![](./images/Missing Sankey - David Carr.png)  
 The pdf file can be found [here](./images/Missing Sankey - David Carr.pdf).
 
-This was the first plot presented that included the actual pain scores, which have been categorised and summarised over time separately for the two treatment groups. Categorisation allows missing data categories to also be included alongside the efficacy data, with separate categories for single missing visits and monotone missing values (dropouts). A Sankey Diagram is effective in showing shifts between categories at the individual patient level, and in this case a subset of visits has been included to allow the flows to be seen more easily (although this has also created some issues with interpreting the “no subsequent visit” category).
+This plot presents pain scores, which have been categorised and summarised over time separately for the two treatment groups. Categorisation allows missing data categories to also be included alongside the efficacy data, with separate categories for single missing visits and monotone missing values (dropouts). A Sankey Diagram is effective in showing shifts between categories at the individual patient level, and in this case a subset of visits has been included to allow the flows to be seen more easily (although this has also created some issues with interpreting the “no subsequent visit” category).
 
 As well as showing overall trends, the graph provides insights into the pain scores that preceded withdrawal from the study. The results are showing a rapid improvement in both treatment groups at the start of the study, possibly due to regression to the mean resulting from study inclusion criteria selecting a cohort of patients with relatively high baseline pain score.
 
 
-[link to code](#example7 code)
-
-
-
-<a id="example8"></a>
-
-## Example 8. Scatter matrices
-
-![](./images/scatter-matrix-final.png)
-![](./images/scatter-matrix-locf - Mark Baillie.png)
-![](./images/scatter-matrix-cc - Mark Baillie.png)
-
-[high-resolution image](./images/scatter-matrix-final.png)
-[high-resolution image](./images/scatter-matrix-locf - Mark Baillie.png)
-[high-resolution image](./images/scatter-matrix-cc - Mark Baillie.png)
-
-These 3 graphics provide an exhaustive amount of information.  The 3 graphics address the different ways of treating the missing data.  Each graph is a matrix  where the upper triangle models the data by treatment and covariate, the lower triangle shows the individual data and the diagonal shows the marginal distributions.  The title clearly leads the reader to the conclusion the DLQI is highly correlated with itch and when the reader looks at the panel with two splines, one  for each treatment, of DLQI against itch the reader can see that the treatment effect on DLQI is neglible once itch is included in the model.
-
-
-[link to code](#example8 code)
-
+[link to code](#example6 code)
 
 
 # Code
@@ -310,18 +288,9 @@ The full code can be found [here](https://github.com/agstn/CGM).
 [Back to blog](#example3)
 
 
-<a id="example4 code"></a>
+<a id="example4a code"></a>
 
-## Example 4. Displaying predictors
-
-The code can be found [here](https://github.com/agstn/WW/tree/main/2022-08-10).
-
-[Back to blog](#example4)
-
-
-<a id="example5 code"></a>
-
-## Example 5. Histrograms
+## Example 4a. Histrograms
 ```{r, echo = TRUE, eval=FALSE}
 # Load data
 dql <- read.csv("ww2020_dlqi.csv")
@@ -417,13 +386,116 @@ library(gridExtra)
 gridExtra::grid.arrange(d, e, nrow = 2)
 ```
 
-[Back to blog](#example5)
+[Back to blog](#example4a)
 
 
+<a id="example4b code"></a>
 
-<a id="example6 code"></a>
+## Example 4b. Histrograms updated
 
-## Example 6. Upset Plot
+```{r, echo = TRUE, eval=FALSE, python.reticulate = FALSE}
+# Load data
+dql <- read.csv("O:\\1_Global_Biostatistics\\Biostatistics Innovation Center\\BIC Project - Subgroup Analyses\\Screening\\R-Package\\Supports\\WW\\ww2020_dlqi.csv")
+attach(dql)
+View(dql)
+summary(dql)
+
+# Load Library
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(ggcharts)
+
+# Select relevant variables
+dql_renamed <-
+  dql %>%
+  select(
+    TRT, VISIT, DLQI_SCORE
+    )
+
+# Rename treatment levels
+dql_renamed$TRT[dql_renamed$TRT=="A"] <- "Placebo"
+dql_renamed$TRT[dql_renamed$TRT=="B"] <- "Active Treatment"
+
+# Seperate treatments
+
+# Active
+totalB <- 
+  dql_renamed %>% 
+  filter(TRT=="Active Treatment")
+
+# Construct a histogram for each treatment arm at baseline visit
+(d <- 
+  ggplot(
+    data = totalB,
+    aes(
+      x = DLQI_SCORE
+      ))
+  + geom_histogram(
+    binwidth = 1,
+    color = "grey",
+    fill = "deeppink3"
+    ) +
+  facet_grid(~ VISIT)
+  + theme_ng(grid = "X")
+  + labs(
+    x = "Total DLQI Score",
+    y = "Patients",
+    title = "Improved Quality of life after 16 weeks of treatment",
+    subtitle = "Active Treatment")
+  + theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank(),
+    plot.title = element_text(size = 17,
+                              face = "bold"),
+    plot.subtitle = element_text(size = 15, color = "deeppink3")
+    ))
+
+
+# Week 16 visit
+totalA <- 
+  dql_renamed %>% 
+  filter(TRT=="Placebo")
+
+(e <- 
+  ggplot(
+    data = totalA,
+    aes(
+      x = DLQI_SCORE
+      )
+    )
+  + geom_histogram(
+    binwidth = 1,
+    color = "grey",
+    fill = "green4"
+    ) +
+  facet_grid(~ VISIT)
+  + theme_ng(grid = "X")
+  + labs(
+    x = "Total DLQI Score",
+    y = "Patients",
+    subtitle = "Placebo",
+    caption = "Lower score equals better quality of life"
+    ) +
+  theme(
+    strip.text.x = element_blank(),
+    plot.subtitle = element_text(size = 15, color = "green4"),
+    plot.caption = element_text(size = 12,
+                                face = "italic")
+    ))
+
+# Compine plots
+library(gridExtra)
+
+gridExtra::grid.arrange(d, e, nrow = 2, heights = c(1.5,1))
+```
+
+[Back to blog](#example4b)
+
+
+<a id="example5 code"></a>
+
+## Example 5. Upset Plot
 
 ```{r, echo = TRUE, eval=FALSE}
 # packages
@@ -521,113 +593,15 @@ upset(
 
 ```
 
-[Back to blog](#example6)
+[Back to blog](#example5)
 
 
 
 
-<a id="example7 code"></a>
+<a id="example6 code"></a>
 
-## Example 7. Sankey Diagram
+## Example 6. Sankey Diagram
 
 The sas file can be found [here](./code/missing_sankey - David Carr.sas).
 
-[Back to blog](#example7)
-
-
-
-<a id="example8 code"></a>
-
-## Example 8. Displaying predictors
-
-Correlation matrices
-### a) Overview
-```{r, echo = TRUE, eval=FALSE}
-library(tidyverse)
-library(ggforce)
-
-## Save plot
-page_width <- 350
-page_height <- 250
-d_dpi <- 400
-
-## read in data
-final_in <- read_csv("mediation_data.csv")
-
-
-## Plot overall
-ggplot(final_in, aes(x = .panel_x, y = .panel_y, colour = TRT, fill = TRT)) +
-  geom_autopoint(alpha = 0.6) +
-  geom_autodensity(alpha = 0.2) +
-  geom_smooth(method = lm, formula = y ~ splines::bs(x, 3)) +
-  facet_matrix(vars(DLQI, itch, redness, BSA), layer.diag = 2, layer.upper = 3, 
-               grid.y.diag = FALSE) +
-  labs(title = "Itch has a strong positive association with DLQI.",
-       subtitle = "There is evidence that the DLQI treatment effect is mediated through itch.",
-       caption = "\n Cubic splines are presented in the top-right layer regressing y on x.\nScatter-plots of the same relationship are displayed in the bottom-left later.\nThe marginal distribution by treatment are displayed on the diagonal.") +  
-  theme_light(base_size = 14) +
-  theme(legend.position = "bottom")
-
-## save plot
-ggsave(file = paste0("scatter-matrix-final.png"), 
-       width = page_width, height = page_height, 
-       units = "mm", dpi = d_dpi)
-```
-
-### b) LOCF and CC:
-```{r, echo = TRUE, eval=FALSE}
-library(tidyverse)
-library(ggforce)
-
-## Save plot
-page_width <- 350
-page_height <- 250
-d_dpi <- 400
-
-## read in data
-final_in <- read_csv("mediation_data.csv")
-
-
-## Plot overall
-ggplot(final_in, aes(x = .panel_x, y = .panel_y, colour = TRT, fill = TRT)) +
-  geom_autopoint(alpha = 0.6) +
-  geom_autodensity(alpha = 0.2) +
-  geom_smooth(method = lm, formula = y ~ splines::bs(x, 3)) +
-  facet_matrix(vars(DLQI, itch, redness, BSA), layer.diag = 2, layer.upper = 3, 
-               grid.y.diag = FALSE) +
-  labs(title = "Investigating the assocation between outcomes and treatment",
-       subtitle = "With LOCF imputation",
-       caption = "\n Cubic splines are presented in the top-right layer regressing y on x.\nScatter-plots of the same relationship are displayed in the bottom-left later.\nThe marginal distribution by treatment are displayed on the diagonal.") +  
-  theme_light(base_size = 14) +
-  theme(legend.position = "bottom")
-
-## save plot
-ggsave(file = paste0("scatter-matrix-locf.png"), 
-       width = page_width, height = page_height, 
-       units = "mm", dpi = d_dpi)
-
-
-## Plot complete cases
-final_in %>%
-  filter(itch_LOCF == FALSE & BSA_LOCF == FALSE & redness_LOCF == FALSE & DLQI_LOCF == FALSE) %>%
-  ggplot(aes(x = .panel_x, y = .panel_y, colour = TRT, fill = TRT)) +
-  geom_autopoint(alpha = 0.6) +
-  geom_autodensity(alpha = 0.2) +
-  geom_smooth(method = lm, formula = y ~ splines::bs(x, 3)) +
-  facet_matrix(vars(DLQI, itch, redness, BSA), layer.diag = 2, layer.upper = 3, 
-               grid.y.diag = FALSE) +
-  labs(title = "Investigating the assocation between outcomes and treatment",
-       subtitle = "Complete cases analysis",
-       caption = "\n Cubic splines are presented in the top-right layer regressing y on x.\nScatter-plots of the same relationship are displayed in the bottom-left later.\nThe marginal distribution by treatment are displayed on the diagonal.") +  
-  theme_light(base_size = 14) +
-  theme(legend.position = "bottom")
-
-## save plot
-ggsave(file = paste0("scatter-matrix-cc.png"), 
-       width = page_width, height = page_height, 
-       units = "mm", dpi = d_dpi)
-```
-
-[Back to blog](#example8)
-
-
+[Back to blog](#example6)
