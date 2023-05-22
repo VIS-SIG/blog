@@ -22,7 +22,7 @@ In this entry, you can find the visualisations presented on our poster at the PS
 
 <a id="example1"></a>
 
-## Example 1. Gable
+## Example 1. Grable
 
 ![](./images/Agustin.png)  
 The app can be found [here](https://agstn.github.io/PatientProfiler/PatientProfiler.html).  
