@@ -10,7 +10,7 @@ categories:
   - PSI conference
   - Visualisation SIG Showcase
 base_url: https://vis-sig.github.io/blog
-preview: ./images/reliable_clinical_change_plot_red_green_v0_2 - Mike Greenwood.png
+preview: ./images/VIS_SIG_poster.png
 output:
   distill::distill_article:
     self_contained: false
