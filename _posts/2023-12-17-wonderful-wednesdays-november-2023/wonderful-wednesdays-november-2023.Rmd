@@ -1,0 +1,90 @@
+---
+title: "Wonderful Wednesdays November 2023"
+description: |
+  Gatekeeping Procedure: Results are provided from a simulation of a phase III study in schizophrenia patients, investigating efficacy at 3 dose levels (Low, Medium, High) versus placebo. The study includes a primary endpoint and two key secondary endpoints. The study includes a total of 9 hypotheses, and multiplicity adjustments are required to control for type I error.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 11-08-2023
+categories:
+  - Gatekeeping Procedure
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/example_2.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Gatekeeping Procedure
+
+Results are provided from a simulation of a phase III study in schizophrenia patients, investigating efficacy at 3 dose levels (Low, Medium, High) versus placebo. The study includes a primary endpoint and two key secondary endpoints. The study includes a total of 9 hypotheses, and multiplicity adjustments are required to control for type I error.
+
+A description of the challenge can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2023/2023-10-11).  
+A recording of the session can be found [here](https://www.psiweb.org/vod/item/psi-vissig-wonderful-wednesday-44-multiplicity-and-power).
+
+<a id="example1"></a>
+
+## Example 1. Panel plot
+
+![](./images/example_1.png)  
+[high resolution image](./images/example_1.png)  
+
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. Response surface plot
+
+![](./images/example_2.png)  
+[high resolution image](./images/example_2.png)  
+
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. Trellis plot (Shiny app)
+
+![](./images/example_3.png)  
+[high resolution image](./images/example_3.png)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example3 code)
+
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. <Same title as above>
+
+No code is available.
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. <Same title as above>
+
+No code is available.
+
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. <Same title as above>
+
+No code is available.
+
+[Back to blog](#example3)

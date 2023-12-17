@@ -7,7 +7,75 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 11 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays December 2023</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-december-2023</link>
+      <description>Demographic data display: The challenge is based on CDISC data. It is a standard ADSL data set for subject level data (demographics and baseline).</description>
+      <category>Demographic data display</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-december-2023</guid>
+      <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-december-2023/./images/WW_Dec23_SM01 - Steve Mallett.gif" medium="image" type="image/gif"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays November 2023</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-november-2023</link>
+      <description>Gatekeeping Procedure: Results are provided from a simulation of a phase III study in schizophrenia patients, investigating efficacy at 3 dose levels (Low, Medium, High) versus placebo. The study includes a primary endpoint and two key secondary endpoints. The study includes a total of 9 hypotheses, and multiplicity adjustments are required to control for type I error.</description>
+      <category>Gatekeeping Procedure</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-november-2023</guid>
+      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-november-2023/./images/example_2.png" medium="image" type="image/png" width="938" height="825"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays October 2023</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-october-2023</link>
+      <description>Leverage visual analytics to identify data issues.</description>
+      <category>data cleaning</category>
+      <category>visual analytics</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-october-2023</guid>
+      <pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-october-2023/./images/slopes.png" medium="image" type="image/png" width="840" height="506"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays September 2023</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-september-2023</link>
+      <description>The PRIMUM study aimed to improve medication appropriateness in elderly patients with multimorbidity. A complex intervention involving general practitioners (GPs) and their healthcare assistants (HCA) was developed and compared to usual care. Check for a treatment effect on the MAI score after the intervention. Visualize the effect of adjusting the treatment effect for the MAI score at baseline.</description>
+      <category>Treatment effect</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-september-2023</guid>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-september-2023/./images/example_1.png" medium="image" type="image/png" width="1792" height="983"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays August 2023</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-august-2023</link>
+      <description>Benefit-Risk Assessment: For a drug to be approved for marketing, regulatory authorities must determine that the drug is effective and that its expected benefits outweigh its potential risks to patients. An Alzheimer’s Disease drug might have a positive benefit-risk profile for lowering blood pressure. To generate a hypothesis, an exploratory benefit-risk assessment will be conducted.</description>
+      <category>Benefit-Risk Assessment</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-august-2023</guid>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-august-2023/./images/app.png" medium="image" type="image/png" width="1536" height="768"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays July 2023</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-july-2023</link>
+      <description>US Disease Incidence</description>
+      <category>US Disease Incidence</category>
+      <category>Epidemiology data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-july-2023</guid>
+      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2023-12-17-wonderful-wednesdays-july-2023/./images/meas_inc - Bodo Kirsch.png" medium="image" type="image/png" width="1000" height="687"/>
+    </item>
     <item>
       <title>Visualisation SIG Showcase</title>
       <dc:creator>PSI VIS SIG</dc:creator>

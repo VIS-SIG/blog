@@ -1,0 +1,140 @@
+---
+title: "PSI Wonderfull Wednesday"
+output: html_document
+---
+
+Thank you very much for the awesome event!
+I'm sorry for the late submission and would greatly appreciate it if you could still consider it for a review.
+
+## Libraries and data
+
+```{r, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+library(ggplot2)
+library(data.table)
+library(readr)
+library(viridis)
+
+```
+
+```{r}
+# read data
+urlfile <- "https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/master/data/2023/2023-09-13/PROdata.csv"
+testData <- read_csv(url(urlfile))
+setDT(testData)
+
+# rename
+names(testData) <- c("site", "id", "trt", "sex", "age", "q1", "q2", "q3", "q4")
+```
+
+## SITE04 swapped values
+
+For each research site I created a histogram comparing answer distributions against all other sites. 
+I observed that SITE04 had the most "opposite" answer distribution compared to the others. 
+Considering this, I suspect that SITE04 may have swapped answer scales.
+
+```{r}
+# melt data
+testData6 <- testData
+names(testData6)[6:9] <- paste("Question", 1:4, sep = "")
+testData4 <- melt(testData6, 
+                  id.vars = c("site", "id", "trt", "sex", "age"), 
+                  measure.vars = paste("Question", 1:4, sep = ""), 
+                  variable.name = "question", 
+                  value.name = "response")
+
+# create plot
+printPlot <- function(test, title){
+  p1 <- ggplot(test,
+               aes(x = response,
+                   fill = site)) +
+      geom_histogram(aes(y = ..density..), binwidth = 1, show.legend = F) +
+      facet_grid(site ~ question) +
+      scale_fill_viridis(discrete = T) +
+      theme_minimal() +
+      theme(axis.title = element_text(face = "bold"),
+            plot.title = element_text(hjust = 0.5),
+            strip.text.y = element_text(angle = 0))  +
+      labs(title = "",
+           y = "Density",
+           x = "Response")
+  
+  print(p1)
+}  
+
+# split table
+compareSites <- function(x){
+  setDT(testData4)
+  testData4With <- testData4[site == x,]
+  testData4Without <- testData4[site != x,]
+  testData4Without$site <- "Other Sites"
+  testData5 <- rbind(testData4Without, testData4With)
+  printPlot(testData5, x)
+}
+
+# # print all plots
+sites <- unique(testData$site)
+for(i in sites){
+compareSites(i)
+}
+
+compareSites("SITE04")
+  
+```
+
+## Exploring AGE
+
+Unfortunately I couldn't identify any singular age values, which might have been unexpected. 
+What surprised me, was the clear divide in age between men and women taking part in the study.
+
+```{r}
+testData2 <- na.omit(testData, cols = "sex")
+
+# plot p3 histogram
+p3 <- ggplot(testData2, aes(x = age,
+                           fill = site)) +
+  geom_histogram(binwidth = 1) +
+  facet_grid(sex ~ .) +
+  scale_fill_viridis(discrete = T,
+                     label = paste("Site", 1:10, sep = "")) +
+  theme_minimal() +
+  theme(legend.position = "top",
+        strip.text.y = element_text(angle = 0),
+        axis.title = element_text(face = "bold"),
+        plot.caption = element_text(color = "grey60", hjust = 0),
+        plot.title = element_text(hjust = 0.5)) + 
+  labs(fill = "",
+       x = "Patient age",
+       y = "Count",
+       title = "",
+       caption = "Excluding patients where information on sex is not available")
+
+print(p3)
+  
+```
+
+```{r}
+testData2 <- na.omit(testData, cols = "sex")
+
+# plot p3 histogram
+p3 <- ggplot(testData2, aes(x = age,
+                            fill = sex)) +
+  geom_histogram(binwidth = 1) +
+  facet_grid(sex ~ .) +
+  scale_fill_viridis(discrete = T,
+                     label = paste("Site", 1:10, sep = "")) +
+  theme_minimal() +
+  theme(legend.position = "none",
+        strip.text.y = element_text(angle = 0),
+        axis.title = element_text(face = "bold"),
+        plot.caption = element_text(color = "grey60", hjust = 0),
+        plot.title = element_text(hjust = 0.5)) + 
+  labs(fill = "",
+       x = "Patient age",
+       y = "Count",
+       title = "All males have age ≤ 50 and females age ≥ 50",
+       caption = "Excluding patients where information on sex is not available")
+
+print(p3)
+  
+```

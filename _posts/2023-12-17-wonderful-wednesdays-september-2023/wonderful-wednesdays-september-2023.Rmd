@@ -1,0 +1,145 @@
+---
+title: "Wonderful Wednesdays September 2023"
+description: |
+  The PRIMUM study aimed to improve medication appropriateness in elderly patients with multimorbidity. A complex intervention involving general practitioners (GPs) and their healthcare assistants (HCA) was developed and compared to usual care. Check for a treatment effect on the MAI score after the intervention. Visualize the effect of adjusting the treatment effect for the MAI score at baseline.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 09-13-2023
+categories:
+  - Treatment effect
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/example_1.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Treatment effect
+The PRIMUM study aimed to improve medication appropriateness in elderly patients with multimorbidity. A complex intervention involving general practitioners (GPs) and their healthcare assistants (HCA) was developed and compared to usual care. Check for a treatment effect on the MAI score after the intervention. Visualize the effect of adjusting the treatment effect for the MAI score at baseline.
+
+A description of the challenge can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/blob/master/data/2023/2023-08-09).  
+A recording of the session can be found [here](https://www.psiweb.org/vod/item/psi-vissig-wonderful-wednesday-42-medication-planning).
+
+<a id="example1"></a>
+
+## Example 1. Line plot
+
+![](./images/example_1.png)  
+[high resolution image](./images/example_1.png)  
+
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. Box plot
+
+![](./images/example_2.png)  
+[high resolution image](./images/example_2.png)  
+
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. Dumbbell plot 1
+
+![](./images/example_3.png)  
+[high resolution image](./images/example_3.png)  
+
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+## Example 4. Dumbbell plot 2
+
+![](./images/example_4.png)  
+[high resolution image](./images/example_4.png)  
+
+
+[link to code](#example4 code)
+
+
+
+<a id="example5"></a>
+
+## Example 5. Scatter plot
+
+![](./images/example_5.png)  
+[high resolution image](./images/example_5.png)  
+
+
+[link to code](#example5 code)
+
+
+<a id="example6"></a>
+
+## Example 6. Bar chart
+
+![](./images/example_6.png)  
+[high resolution image](./images/example_6.png)  
+
+
+[link to code](#example6 code)
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. Line plot
+
+No code is available.
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. Box plot
+
+No code is available.
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. Dumbbell plot 1
+
+No code is available.
+
+[Back to blog](#example3)
+
+
+<a id="example4 code"></a>
+
+## Example 4. Dumbbell plot 2
+
+No code is available.
+
+[Back to blog](#example4)
+
+
+<a id="example5 code"></a>
+
+## Example 5. Scatter plot
+
+No code is available.
+
+[Back to blog](#example5)
+
+
+<a id="example6 code"></a>
+
+## Example 6. Bar chart
+
+No code is available.
+
+[Back to blog](#example6)

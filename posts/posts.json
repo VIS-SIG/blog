@@ -1,5 +1,137 @@
 [
   {
+    "path": "posts/2023-12-17-wonderful-wednesdays-december-2023/",
+    "title": "Wonderful Wednesdays December 2023",
+    "description": "Demographic data display: The challenge is based on CDISC data. It is a standard ADSL data set for subject level data (demographics and baseline).",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2023-12-13",
+    "categories": [
+      "Demographic data display",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nDemographic data display\nThe challenge is based on CDISC data. It is a standard ADSL data set\nfor subject level data (demographics and baseline)\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. Animated density\nplot\nhigh\nresolution gif\nlink to code\n\nExample 2.\nInteractive trellis plot (plotly)\ninteractive\nversion\nlink to code\n\nExample 3. GGally 1\nhigh resolution image\nlink to code\n\nExample 4. GGally 2\nhigh resolution image\nlink to code\nCode\n\nExample 1. Animated density\nplot\n\n\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(haven)\nlibrary(emojifont)\nlibrary(ggtext)\n\nadsl <- read_xpt(\"adsl.xpt\")\n\nadsl2 <- adsl %>%\n  mutate(agegp2 = cut(AGE, quantile(AGE, c(0:6/6)))) %>%\n  group_by(agegp2) %>%\n  arrange(AGE) %>%\n  select(agegp2, BMIBL, SEX, AGE) %>%\n  mutate(id = as.numeric(substr(agegp2,2,3))) %>%\n  drop_na(id)\n\n# Create a vector containing unique values for age group identifier\nid <- adsl2 %>%\n  group_by(id) %>%\n  slice(1) %>%\n  select(id) %>%\n  unlist() %>%\n  as.vector()\n\nfor (i in id) {\n  \n  ADSLloop <- adsl2 %>%\n    filter(id == i)\n  \n  plot <- ggplot(ADSLloop, aes(x = BMIBL, colour = SEX)) +\n    geom_density(show.legend = FALSE) +\n    geom_text(aes(x=25, y=0.19, label=\"Age Group:\"), size=16, color=\"#7570b3\") +\n    geom_text(aes(x=28, y=0.19, label=agegp2), size=16, color=\"#7570b3\") +\n    scale_x_continuous(\"BMI\", limits=c(15, 40)) +\n    scale_y_continuous(\"Frequency\", limits=c(0, 0.2)) +\n    scale_color_discrete(type=c(\"#1b9e77\", \"#d95f02\")) +\n    theme(plot.title = element_markdown(colour = \"#636363\",\n                                        size = 50),\n          panel.background=element_rect(fill=\"white\"),\n          panel.grid.major=element_line(colour = \"#f0f0f0\",\n                                        linewidth = 0.5,\n                                        linetype = 1),\n          axis.line=element_line(colour = \"#bdbdbd\",\n                                 linewidth = 0.5,\n                                 linetype = 1),\n          axis.text=element_text(\n            colour = \"#636363\",\n            size = 28),\n          axis.title=element_text(\n            colour = \"#636363\",\n            size = 32)) +\n    labs(title=\"<b>Distribution of BMI by Sex (<span style='color:#1b9e77'>Female<\/span> and <span style='color:#d95f02'>Male<\/span>) and  <span style='color:#7570b3'>Age Group<\/span><\/b>\") \n\n  ggsave(\n    filename = paste0(\"frames/plot\", sprintf(\"%03d\", i) , \".png\"),\n    plot = plot,\n    device = \"png\",\n    height = 1500,\n    width = 2757,\n    units = \"px\"\n  )\n}\n\n# Additional steps to create animated gif file:\n# 1. Install ImageMagick\n# 2. Open a command line\n# 3. cd to the folder containing the *.png files \n# 4. Enter the following command:\n#   magick convert -delay 150 -loop 0 *.png -scale 4800x2700 WW_Dec23_SM01.gif\n\n\n\nBack to blog\n\nExample 2.\nInteractive trellis plot (plotly)\n\n\nlibrary(plotly)\n\nadsl <- read_xpt(\"adsl.xpt\")\n\npl_colorscale=list(c(0.0, '#19d3f3'),\n                   c(0.333, '#19d3f3'),\n                   c(0.333, '#e763fa'),\n                   c(0.666, '#e763fa'),\n                   c(0.666, '#636efa'),\n                   c(1, '#636efa'))\n\nfig <- adsl %>%\n  plot_ly() \nfig <- fig %>%\n  add_trace(\n    type = 'splom',\n    dimensions = list(\n      list(label='Age', values=~AGE),\n      list(label='Height', values=~HEIGHTBL),\n      list(label='Weight', values=~WEIGHTBL),\n      list(label='BMI', values=~BMIBL)\n    ),\n    text=~TRT01P,\n    marker = list(\n      color = as.integer(adsl$TRT01PN),\n      colorscale = pl_colorscale,\n      size = 7,\n      line = list(\n        width = 1,\n        color = 'rgb(230,230,230)'\n      )\n    )\n  ) \n\nfig <- fig %>%\n  layout(\n    title= 'ADSL Data set',\n    plot_bgcolor='rgba(240,240,240, 0.95)'\n  )\n\nfig2 <-  fig %>% style(diagonal = list(visible = F))\nhtmlwidgets::saveWidget(as_widget(fig2), \"WW Dec2023b.html\")\n\n\n\nBack to blog\n\nExample 3. GGally 1\nNo code is available.\nBack to blog\n\nExample 4. GGally 2\nNo code is available.\nBack to blog\n\n\n\n",
+    "preview": "posts/2023-12-17-wonderful-wednesdays-december-2023/./images/WW_Dec23_SM01 - Steve Mallett.gif",
+    "last_modified": "2023-12-17T17:28:41+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2023-12-17-wonderful-wednesdays-november-2023/",
+    "title": "Wonderful Wednesdays November 2023",
+    "description": "Gatekeeping Procedure: Results are provided from a simulation of a phase III study in schizophrenia patients, investigating efficacy at 3 dose levels (Low, Medium, High) versus placebo. The study includes a primary endpoint and two key secondary endpoints. The study includes a total of 9 hypotheses, and multiplicity adjustments are required to control for type I error.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2023-11-08",
+    "categories": [
+      "Gatekeeping Procedure",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nGatekeeping Procedure\nResults are provided from a simulation of a phase III study in\nschizophrenia patients, investigating efficacy at 3 dose levels (Low,\nMedium, High) versus placebo. The study includes a primary endpoint and\ntwo key secondary endpoints. The study includes a total of 9 hypotheses,\nand multiplicity adjustments are required to control for type I\nerror.\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. Panel plot\nhigh resolution image\nlink to code\n\nExample 2. Response surface\nplot\nhigh resolution image\nlink to code\n\nExample 3. Trellis plot\n(Shiny app)\nhigh resolution image\n(A summary of the discussion will be added shortly.)\nlink to code\nCode\n\nExample 1. \nNo code is available.\nBack to blog\n\nExample 2. \nNo code is available.\nBack to blog\n\nExample 3. \nNo code is available.\nBack to blog\n\n\n\n",
+    "preview": "posts/2023-12-17-wonderful-wednesdays-november-2023/./images/example_2.png",
+    "last_modified": "2023-12-17T17:33:36+01:00",
+    "input_file": {},
+    "preview_width": 938,
+    "preview_height": 825
+  },
+  {
+    "path": "posts/2023-12-17-wonderful-wednesdays-october-2023/",
+    "title": "Wonderful Wednesdays October 2023",
+    "description": "Leverage visual analytics to identify data issues.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2023-10-11",
+    "categories": [
+      "data cleaning",
+      "visual analytics",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\n\nDirty Data\nLeverage visual analytics to identify data issues. Consider 4\nquestions on a Likert scale. 5 rating levels (Strongly disagree,\nDisagree, Neutral, Agree, Strongly Agree) coded as 1, 2, 3, 4 and 5,\nrespectively. The higher the number the better. 400 Subjects (200\nactive, 200 control).\n— # The data contains - USUBJID: Unique subject identifier to the 400\nsubjects - TRT: Either “Active” (200 patients) or “Control” (200\npatients) - Q1-Q4: results from 4 questionnaires evaluated on the Likert\nscale - AGE: age of the patient - SEX: sex of the patient - SITE: there\nare 10 sites numbered accordingly\n— # Use exploratory visual analytics to identify [data points that\nare not plausible, the SITE where patients were given the wrong\ninstructions and they interpreted the scale wrong and score 1 as 5, 5 as\n1, 2 as 4 and 4 as 2]\nA recording of the session can be found here: [Link to PSI Video on\nDemand] (https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-43-dirty-data)\n\nExample 1. Alluvial Chart\nhigh resolution image\nA paneled Alluvial plot was used to illustrate that Site 4 is\ndifferent from the other sites. The panels are by site 4 vs all other\nsites and within each of these groups they are paneled by treatment:\n‘Active’ and ‘Control’. The dimensions are the results from the 4\nquestionnaires: Q1, Q2, Q3 and Q4. We see that there are consistently\nhigher scores in the Control group and consistently lower scores in the\nActive group for Site 4 and the pattern is the exact opposite for the\nother sites, grouped together. In Site 4 you can see a thin band of\nscores from people that were consistently 1 across all questionnaires\nfor the Active group and you can see a thing band of scores that were\nconsistently 5 across all questionnaires for the Control group. You see\nthe exact opposite pattern for all other sites combined. This is\nevidence that Site 4 was a visual outlier from the data.\nThe missing data is included as value in each of the dimensions which\nis misleading since the data for each result is ordered. The “NA” at the\nbottom of the Active group for Site 4 makes it look like there are more\nanswers for the higher numbers (the y-axis is sorted from high to low)\nwhen in reality these probably would have been lower scores if they were\nnot missing.\nThe data viz was created using a code free, open source, web-based\nsoftware called rawgraphs\n\nExample 2. Histograms\nhigh resolution image\nThe author correctly identified the site that had incorrect data for\nall questionnaire data, but it is still a mystery to the panelist how he\ngot this insight since the treatment groups were combined and the\ndifference Site 4 and the other sites essentially averaged out. The\nauthor provided his R markdown code where you can see each site\nindividually. It is still a mystery how he figured it out.\nThe author also discovered an inadvertent programming error in the\nprogram that was used to generate this data set. Apparently all of the\nfemales were under 50 and all of the males were over 50. See his R\nMarkdown rendered HTML link rendered\nR Markdown\n\n\nExample\n3. Notebook with Historgram and Side by Side Barchart\n\nThis was an exploratory visual analytics example. The author did a\nhistogram of the categorical questionnaire data with large bins.\nHistograms are typically applied to continuous data, but for exploratory\npurposes this meets the needs. One can clearly see that the data on the\nrow labeled Site 4 is a visual outlier.\nThe author finishes the entry by correcting the discovered error and\nthe creating an explanatory data viz using a side by side bar chart\nvisual idiom, which is more appropriate for this type of data.\n\n\nExample 4. Stacked Bar Chart\nhigh resolution image\nThe author uses annotation (circling Site 4 in red) and sorting (Site\n4 in the upper left hand corner) to make clear that Site 4 is a visual\noutlier. The visual idiom is a stacked bar chart, one color for each\nquestionnaire. Stacked barcharts are limited when comparing any of the\ncomponents except the one on the bottom. For the purpose of this data\nviz challenge, it was only necessary to compare the totals, ie the\nheights of the stacked bars. This is easy to do for the stacked bars\nfrom a visual perception point of view. But the colors for the different\ncomponents (Q1, Q2, Q3 and Q4) can be distracting.\nThe panelists suggested doing a slope plot to clearly see the\ndifference in patterns between Site 4 and the other sites.\nThe data viz was created using a code free, open source, web-based\nsoftware called rawgraphs\n\nExample 5. Slope Plots\nhigh resolution image\nThis plot was inspired at the live session on October 11th, 2023. We\ncan clearly see that Site 4 is a visual outlier. The Active data for\nSite 4 looks like it belongs with the Control data from the other sites\nand likewise the Contorl data for Site 4 looks like it belo9ngs with the\nActive data from the other sites. Color and a useful title are used to\nhighlight the difference.\nlink to code\nCode\n\n\nExample 5. Slope Plot\n\n\n## do the slope data viz for active to control by site\n\n#*********#\n# DATA    #\n# MUNGING #\n#*********#\n \n\n  PROdata.slopes <- PROdata.vert %>%\n    group_by(SITE, TRT) %>%\n    summarise(total.score=sum(result, na.rm=TRUE))\n  \n\n#************#\n# CREATE THE #\n# DATA VIZ   #\n#************#\n\n## apply a plot to a data set where this works\n\n  library(ggrepel)\n\np <- ggplot(PROdata.slopes, aes(\n  x = TRT,\n  y = total.score,\n  group = SITE \n)) +\n  geom_line(\n    size = 0.75,\n    color = \"grey\" \n  ) +\n  geom_point(\n    size = 2.5,\n    #color = unhcr_pal(n = 1, \"pal_blue\")\n    color = \"grey\" \n  ) +\n  labs(\n    title = \"Total Scores By Site\",\n    caption = \"Site 04 is Visual Outlier\"\n  ) +\n  geom_text_repel(\n    data = PROdata.slopes |> filter(TRT==\"Active\"),\n    aes(label = paste(SITE, TRT,\"=\", total.score)),\n    size = 8 / .pt,\n    hjust = 1,\n    direction = \"y\",\n    nudge_x = -0.3,\n  ) + \n  geom_text_repel(\n    data = PROdata.slopes |> filter(TRT==\"Control\"),\n    aes(label = paste(SITE, TRT,\"=\", total.score)),\n    size = 8 / .pt,\n    hjust = 1,\n    direction = \"y\",\n    nudge_x = 0.5,\n  ) +\n ## Make Site 04 appear in blue\n  geom_line(\n    data=PROdata.slopes |> filter(SITE==\"SITE04\"),\n    size = 0.75,\n    color = \"blue\" \n  ) +\n  geom_point(\n    data=PROdata.slopes |> filter(SITE==\"SITE04\"),\n    size = 2.5,\n    #color = unhcr_pal(n = 1, \"pal_blue\")\n    color = \"blue\" \n  ) + \n  xlab(\"Treatment\") + ylab(\"Total Scores (Q1 + Q2 + Q3 + Q4)\")\n\n  ggsave(plot=p, ofile(\"slopes.png\"))\n\n\n\nBack to blog\n\n\n\n",
+    "preview": "posts/2023-12-17-wonderful-wednesdays-october-2023/./images/slopes.png",
+    "last_modified": "2023-12-17T16:21:35+01:00",
+    "input_file": {},
+    "preview_width": 840,
+    "preview_height": 506
+  },
+  {
+    "path": "posts/2023-12-17-wonderful-wednesdays-september-2023/",
+    "title": "Wonderful Wednesdays September 2023",
+    "description": "The PRIMUM study aimed to improve medication appropriateness in elderly patients with multimorbidity. A complex intervention involving general practitioners (GPs) and their healthcare assistants (HCA) was developed and compared to usual care. Check for a treatment effect on the MAI score after the intervention. Visualize the effect of adjusting the treatment effect for the MAI score at baseline.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2023-09-13",
+    "categories": [
+      "Treatment effect",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nTreatment effect\nThe PRIMUM study aimed to improve medication appropriateness in\nelderly patients with multimorbidity. A complex intervention involving\ngeneral practitioners (GPs) and their healthcare assistants (HCA) was\ndeveloped and compared to usual care. Check for a treatment effect on\nthe MAI score after the intervention. Visualize the effect of adjusting\nthe treatment effect for the MAI score at baseline.\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. Line plot\nhigh resolution image\nlink to code\n\nExample 2. Box plot\nhigh resolution image\nlink to code\n\nExample 3. Dumbbell plot 1\nhigh resolution image\nlink to code\n\nExample 4. Dumbbell plot 2\nhigh resolution image\nlink to code\n\nExample 5. Scatter plot\nhigh resolution image\nlink to code\n\nExample 6. Bar chart\nhigh resolution image\nlink to code\nCode\n\nExample 1. Line plot\nNo code is available.\nBack to blog\n\nExample 2. Box plot\nNo code is available.\nBack to blog\n\nExample 3. Dumbbell plot 1\nNo code is available.\nBack to blog\n\nExample 4. Dumbbell plot 2\nNo code is available.\nBack to blog\n\nExample 5. Scatter plot\nNo code is available.\nBack to blog\n\nExample 6. Bar chart\nNo code is available.\nBack to blog\n\n\n\n",
+    "preview": "posts/2023-12-17-wonderful-wednesdays-september-2023/./images/example_1.png",
+    "last_modified": "2023-12-17T17:34:51+01:00",
+    "input_file": {},
+    "preview_width": 1792,
+    "preview_height": 983
+  },
+  {
+    "path": "posts/2023-12-17-wonderful-wednesdays-august-2023/",
+    "title": "Wonderful Wednesdays August 2023",
+    "description": "Benefit-Risk Assessment: For a drug to be approved for marketing, regulatory authorities must determine that the drug is effective and that its expected benefits outweigh its potential risks to patients. An Alzheimer’s Disease drug might have a positive benefit-risk profile for lowering blood pressure. To generate a hypothesis, an exploratory benefit-risk assessment will be conducted.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2023-08-09",
+    "categories": [
+      "Benefit-Risk Assessment",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nBenefit-Risk Assessment\nFor a drug to be approved for marketing, regulatory authorities must\ndetermine that the drug is effective and that its expected benefits\noutweigh its potential risks to patients. An Alzheimer’s Disease drug\nmight have a positive benefit-risk profile for lowering blood pressure.\nTo generate a hypothesis, an exploratory benefit-risk assessment will be\nconducted.\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. \nhigh resolution image\nlink to code\nCode\n\nExample 1. \nNo code is available.\nBack to blog\n\n\n\n",
+    "preview": "posts/2023-12-17-wonderful-wednesdays-august-2023/./images/app.png",
+    "last_modified": "2023-12-17T17:33:10+01:00",
+    "input_file": {},
+    "preview_width": 1536,
+    "preview_height": 768
+  },
+  {
+    "path": "posts/2023-12-17-wonderful-wednesdays-july-2023/",
+    "title": "Wonderful Wednesdays July 2023",
+    "description": "US Disease Incidence",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2023-07-12",
+    "categories": [
+      "US Disease Incidence",
+      "Epidemiology data",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nUS Disease Incidence\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. Heatmap 1\nhigh resolution\nimage\nlink to code\n\nExample 2. Heatmap 2\nhigh resolution\nimage\nlink to code\n\nCode\n\nExample 1. \n\n\nlibrary(tidyverse)\nlibrary(stringr)\nlibrary(lubridate)\nlibrary(gridExtra)\nlibrary(readr)\nlibrary(ggpubr)\nlibrary(grid)\nlibrary(plotly)\nlibrary(ggdark)\n\ndf <- read_csv(\"C:/Users/AW0204TU/Desktop/TidyTuesday/disease_data.csv\")\n\n# Records of the year for which each vaccine was introduced\nvac_dat <- data.frame(disease = c(\"MEASLES\", \"POLIO\", \"RUBELLA\"), \n                      Z = c(1963, 1955, 1969))\n\ndf %>%\n  na.omit() %>%\n  ggplot() +\n  geom_tile(aes(x = year, y = state, fill = incidence)) +\n  scale_fill_gradient2(trans = \"log10\", high = \"red\", low = \"blue\", \n                       mid = \"white\", midpoint = 0, na.value = \"white\") +\n  scale_x_continuous(expand = c(0.02, 0.02)) +\n  geom_vline(data = vac_dat, aes(xintercept = Z), linewidth = 1.5, color = \"darkred\") +\n  facet_wrap(~disease, scales = \"free\") +\n  dark_theme_minimal() +\n  theme(axis.text.y =  element_text(size = 5), \n        plot.title = element_text(hjust = 0.5, size = 16)) +\n  labs(y = \"State\", fill = \"Log \\nIncidence\", x = \"Year\", \n       title = \"Visulaizing Effect of Vaccines\",\n       caption = \"Dark Red Line Indicates Introduction of Vaccine\")\n\n\n\nBack to blog\n\nExample 2. \n\n\nlibrary(tidyverse)\nlibrary(ggtext)\n\ninc <- read_csv('vaccine_data.csv') \n\nmeasles <- inc %>%\n  filter(disease == \"MEASLES\") %>%\n  mutate(inc_cat = cut(incidence, c(0, 200, 400, 600, 800, 1000, 1200, Inf))) %>%\n  mutate(inc_fac = factor(inc_cat)) \n\nggplot(data=measles) +\n  geom_tile(aes(x=year, y=state, fill=inc_fac), color=\"gray\") +\n  scale_x_continuous(\"Year\", breaks=seq(1930, 2010, by=10), limits = c(1928, 2000)) +\n  scale_y_discrete(\"State\", limits=rev) +\n  geom_vline(xintercept = 1963, size = 1, color = \"#d7191c\") +\n  scale_fill_brewer(\"Incidence\\nPer\\n100,0000\\nPopulation\", \n                    labels=c(\"0-<200\", \"200-<400\", \"400-<600\", \"600-<800\", \"800-<1000\", \"1000-<1200\", \">=1200\"),\n                    na.value = 'white',\n                    na.translate = F) +\n  labs (title =\"Incidence of measles in US states declines after <b style='color:#d7191c;'>vaccine approval<\/b>\")+\n  theme_minimal() +\n  theme(legend.title.align = 0.5,\n        axis.text.x = element_text(size = 12, color = \"#525252\"),\n        axis.text.y = element_text(size = 8, color = \"#525252\"),\n        axis.line.y = element_blank(),\n        axis.ticks.y = element_blank(),\n        panel.grid.major = element_blank(),\n        plot.title = element_markdown())\n\n\n\nBack to blog\n\n\n\n",
+    "preview": "posts/2023-12-17-wonderful-wednesdays-july-2023/./images/meas_inc - Bodo Kirsch.png",
+    "last_modified": "2023-12-17T16:10:47+01:00",
+    "input_file": {},
+    "preview_width": 1000,
+    "preview_height": 687
+  },
+  {
     "path": "posts/2023-05-14-visualisation-sig-showcase/",
     "title": "Visualisation SIG Showcase",
     "description": "This is an entry accompanying the poster at the PSI conference 2023.",

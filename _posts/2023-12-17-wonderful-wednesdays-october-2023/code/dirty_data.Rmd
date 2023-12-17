@@ -1,0 +1,372 @@
+---
+title: 'Wonderful Wednesday Webinar #42'
+subtitle: Dirty Data
+date: "October 11, 2023"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+  html_notebook: default
+  # This was updated to add a slope plot based on comments from the session
+---
+
+
+```{r, echo=FALSE, warning=FALSE, comment="#", error=FALSE, message=FALSE}
+
+
+
+
+
+#        Program name: dirty_data.R 
+#        Project name: WWW.2023.Oct.dirty_data 
+#        Programmer name: Z. Skrivanek 
+# 
+#        Program creation date: Oct 5, 2023 
+#        Program requirements: utils.R 
+#        Called by:  NA
+#        Output: NA 
+#        Output location: NA 
+#        Infrastructure: R 4.2.2, LINUX, hpc 
+#        Validation Level: 1 
+#        Comments:  this is for PSI Wonderful Wednesday Webinar.  This is all fake data. 
+#           The data was generated in the SimClinicalTrials project under WWW.2023.September
+
+
+#*******#
+# SETUP #
+#*******#
+
+   if(.Platform$OS.type=="unix") {home <- system("cd ..;pwd",intern=T); tsep="/"}
+   FUNCTIONS <- paste(home, "FUNCTIONS" ,sep=tsep)
+  
+
+ #****************#
+ # ADMINISTRATIVE #
+ # ASSIGNMENTS    #
+ #****************#
+  
+   OUTPUT <- paste(home,"OUTPUT",sep=tsep)
+   DATA <- paste(home, "DATA", sep=tsep)
+
+
+ #****************#
+ # ADMINISTRATIVE #
+ # FUNCTIONS      #
+ #****************#
+
+   source(paste(FUNCTIONS, "utils.R",sep=tsep))
+   library("tidyverse")
+
+```
+     
+   Read in the data set.
+   
+```{r}
+   
+   PROdata <- read.csv(dfile("PROdata.csv"))
+   head(PROdata)
+   
+```
+
+Let's examine the demographic data to make sure there is nothing unusual
+
+```{r}
+  ggplot(PROdata) +
+    geom_bar(aes(x=SEX, fill=TRT))
+    
+
+```
+
+There are more males than females.  There do not seem to be any data errors, except for some missing values.
+
+Now let's examine the ages of these patients for possible data errors.
+
+```{r, warning=FALSE,error=FALSE, comment="#", message=FALSE}
+
+  library(plotly)
+ ## We want to match the colors in plotly with the colors in ggplot
+  library(scales)    
+  hex <- hue_pal()(2)
+ 
+  plot_ly() %>%
+    add_trace(data=PROdata,
+              y = ~AGE,
+              color = ~TRT,
+              colors=hex,
+              type="box",
+              boxpoints="all",
+              jitter=0.7,
+              marker=list(size=5))
+  
+
+```
+There do not appear to be any data errors in the age demographic.  Let's exmaine the Patient Reported Outcome questionnaire data.
+
+We transform the data so that it is vertical regarding the questionnaires.  This will allow us to trellis the plots.
+
+```{r}
+
+
+  PROdata.vert <- PROdata %>%
+    tidyr::pivot_longer(
+      cols=starts_with("Q"),
+      names_to = "Q_no",
+      values_to = "result",
+      names_prefix = "Q",
+      values_drop_na=FALSE
+    )
+
+```
+
+Let us compare the sites regarding the response to the questionnaires for the active and control groups.
+
+
+
+```{r, fig.width=11, fig.align='center'}
+
+  ggplot(PROdata.vert) +
+     geom_histogram(aes(x = result, fill=TRT),
+           binwidth=4,
+           alpha=.5,
+           position="identity") +
+     labs(title = "Questionnaire Data",
+           x = element_blank(),
+           y= element_blank()) +
+     facet_grid(SITE~Q_no) +
+     theme(axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.x=element_blank(), axis.ticks.y=element_blank()) +
+     scale_y_continuous(breaks=NULL) + scale_x_continuous(breaks=NULL)
+ 
+
+```
+
+It appears that Site 4 is an outlier.  This is probably the site where the scores were reversed.  Based on comments from the October WWW session let's make a slope plot so we can really make it clear that this site is different than the other sites.
+
+```{r, eval=FALSE}
+
+## apply a plot to a data set where this works
+
+  library(ggrepel)
+# Loading data
+df <- read_csv("https://raw.githubusercontent.com/GDS-ODSSS/unhcr-dataviz-platform/master/data/change_over_time/slope.csv")
+
+# Plot
+ggplot(df, aes(
+  x = year,
+  y = refugee_number,
+  group = country_origin
+)) +
+  geom_line(
+    size = 0.75,
+    color = "blue" 
+  ) +
+  geom_text_repel(
+    data = df |> filter(year == 2016),
+    aes(label = paste(
+      country_origin,
+      if_else(refugee_number > 1e6,
+        paste0(round(refugee_number / 1e6, 1), "M"),
+        paste0(round(refugee_number / 1e3, 1), "k")
+      )
+    )),
+    size = 8 / .pt,
+    hjust = 1,
+    direction = "y",
+    nudge_x = -0.3
+  ) +
+  geom_text_repel(
+    data = df |> filter(year == 2021),
+    aes(label = paste(
+      country_origin,
+      if_else(refugee_number > 1e6,
+        paste0(round(refugee_number / 1e6, 1), "M"),
+        paste0(round(refugee_number / 1e3, 1), "k")
+      )
+    )),
+    size = 8 / .pt,
+    hjust = 0,
+    direction = "y",
+    nudge_x = 0.3
+  ) +
+  geom_point(
+    size = 2.5,
+    #color = unhcr_pal(n = 1, "pal_blue")
+    color = "blue" 
+  ) +
+  labs(
+    title = "Evolution of refugee population in East and\nHorn of Africa region | 2016 vs 2021",
+    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+  ) +
+  scale_x_continuous(
+    breaks = c(2016, 2021),
+    limits = c(2013, 2024)
+  ) +
+  scale_y_continuous(limits = c(-2e5, NA)) #+
+  #theme_unhcr(
+    #grid = "X",
+    #axis = FALSE,
+  #   axis_title = FALSE,
+  #   axis_text = "X"
+  #)
+
+
+
+
+  
+```
+
+```{r}
+
+## do the slope data viz for active to control by site
+
+#*********#
+# DATA    #
+# MUNGING #
+#*********#
+ 
+
+  PROdata.slopes <- PROdata.vert %>%
+    group_by(SITE, TRT) %>%
+    summarise(total.score=sum(result, na.rm=TRUE))
+  
+
+#************#
+# CREATE THE #
+# DATA VIZ   #
+#************#
+
+## apply a plot to a data set where this works
+
+  library(ggrepel)
+
+p <- ggplot(PROdata.slopes, aes(
+  x = TRT,
+  y = total.score,
+  group = SITE 
+)) +
+  geom_line(
+    size = 0.75,
+    color = "grey" 
+  ) +
+  geom_point(
+    size = 2.5,
+    #color = unhcr_pal(n = 1, "pal_blue")
+    color = "grey" 
+  ) +
+  labs(
+    title = "Total Scores By Site",
+    caption = "Site 04 is Visual Outlier"
+  ) +
+  geom_text_repel(
+    data = PROdata.slopes |> filter(TRT=="Active"),
+    aes(label = paste(SITE, TRT,"=", total.score)),
+    size = 8 / .pt,
+    hjust = 1,
+    direction = "y",
+    nudge_x = -0.3,
+  ) + 
+  geom_text_repel(
+    data = PROdata.slopes |> filter(TRT=="Control"),
+    aes(label = paste(SITE, TRT,"=", total.score)),
+    size = 8 / .pt,
+    hjust = 1,
+    direction = "y",
+    nudge_x = 0.5,
+  ) +
+ ## Make Site 04 appear in blue
+  geom_line(
+    data=PROdata.slopes |> filter(SITE=="SITE04"),
+    size = 0.75,
+    color = "blue" 
+  ) +
+  geom_point(
+    data=PROdata.slopes |> filter(SITE=="SITE04"),
+    size = 2.5,
+    #color = unhcr_pal(n = 1, "pal_blue")
+    color = "blue" 
+  ) + 
+  xlab("Treatment") + ylab("Total Scores (Q1 + Q2 + Q3 + Q4)")
+
+  ggsave(plot=p, ofile("slopes.png"))
+
+```
+
+
+Let's do some data munging to correct this data error.
+
+```{r, fig.width=11}
+
+   #========#
+   # SWITCH #
+   # SCORES #
+   #========#
+   
+    flip.scale <- function(x){
+     ## Simulate getting the scale wrong on a 5 point likert scale
+     ## re-assign their values 1->5, 5->1, 2->4, 4->2, 3 <-> 3
+      case_when( 
+        x == 1 ~ 5,
+        x == 5 ~ 1,
+        x == 2 ~ 4,
+        x == 4 ~ 2,
+        x == 3 ~ 3
+      )
+    }
+
+   ## apply the function
+    site4.flipped.scores <- flip.scale(PROdata.vert$result[PROdata.vert$SITE=="SITE04"])
+    
+    tmp <- PROdata.vert
+    tmp$result[tmp$SITE=="SITE04"] <- site4.flipped.scores
+    
+  ##  verify results
+    
+    ggplot(tmp) +
+     geom_histogram(aes(x = result, fill=TRT),
+           binwidth=4,
+           alpha=.5,
+           position="identity") +
+     labs(title = "Questionnaire Data",
+           x = element_blank(),
+           y= element_blank()) +
+     facet_grid(SITE~Q_no) +
+     theme(axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.x=element_blank(), axis.ticks.y=element_blank()) +
+     scale_y_continuous(breaks=NULL) + scale_x_continuous(breaks=NULL)
+```
+
+The data looks correct now. We will use this transformed data to create a plot of the scores, comparing the 2 treatments across all sites.
+
+
+```{r, fig.width=11, warning=FALSE}
+
+  PROdata.vert.corrected <- tmp
+  write.csv(PROdata.vert.corrected, dfile("PROdata.vert.corrected.csv"))
+
+ ## Summarize the data
+  PROdata.sum <- PROdata.vert.corrected %>%
+    group_by(TRT, Q_no) %>%
+    count(result) %>%
+    mutate(percent = n /sum(n))
+  
+ ## Save the data for use in RAWgraphics
+  write.csv(PROdata.sum, dfile("PROdata.sum.csv"))
+  
+ ## Plot the data
+  p <- ggplot(PROdata.sum, aes(x=result, y=percent, fill=TRT)) 
+  p <- p + geom_bar(position='dodge',stat='identity') 
+  
+ ## label the facets
+  Q.labs <- c("1" = "PRO Question 1",  "2" = "PRO Question 2", "3" = "PRO Question 3", "4" = "PRO Question 4"  )
+  
+  p <- p + facet_wrap(vars(Q_no), 
+                 ncol=2,
+                 labeller = labeller(Q_no=Q.labs))
+  
+ ## add title
+  p <- p + ggtitle("Active group consistently scores higher than Control group\n on all PRO questions") +
+    theme(plot.title=element_text(hjust=0.5))
+  
+  p + scale_y_continuous(labels = scales:: percent_format(accuracy = 1))
+
+```
+
+
