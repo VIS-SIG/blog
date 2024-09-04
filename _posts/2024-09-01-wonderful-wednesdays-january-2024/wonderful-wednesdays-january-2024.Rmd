@@ -1,0 +1,79 @@
+---
+title: "Wonderful Wednesdays January 2024"
+description: |
+  Best of 2023
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 01-10-2024
+categories:
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/meas_inc - Bodo Kirsch - Steve Mallett.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Your favorite visualisation
+
+Best of 2023
+
+A description of the challenge can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2023/2023-12-13).  
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-46-best-of-2023).
+
+<a id="example1"></a>
+
+## Example 1. Cumulative distribution function
+
+![](./images/CDF_Week12vs.52_Zara - Steve Mallett.png)  
+[high resolution image](./images/CDF_Week12vs.52_Zara - Steve Mallett.png)  
+
+
+<a id="example2"></a>
+
+## Example 2. Vaccine efficiency
+
+![](./images/meas_inc - Bodo Kirsch - Steve Mallett.png)  
+[high resolution image](./images/meas_inc - Bodo Kirsch - Steve Mallett.png)  
+
+
+<a id="example3"></a>
+
+## Example 3. Dirty data I
+
+![](./images/dirty_data_1.png)  
+[high resolution image](./images/dirty_data_1.png)  
+
+
+<a id="example4"></a>
+
+## Example 4. Dirty data II
+
+![](./images/slopes.png)  
+
+
+
+[high resolution image](./images/slopes.png)  
+
+
+
+<a id="example5"></a>
+
+## Example 5. Dumbbell or lollipop plot
+
+![](./images/example_4.png)  
+[high resolution image](./images/example_4.png)  
+
+
+## Example 6. Double dot plot of DetectoR
+
+![](./images/double_dot_plot.png)  
+[high resolution image](./images/double_dot_plot.png)  
+
+
+
+# Code
+
+The code can be found in the original posts.

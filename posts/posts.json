@@ -1,5 +1,47 @@
 [
   {
+    "path": "posts/2024-09-01-wonderful-wednesdays-february-2024/",
+    "title": "Wonderful Wednesdays February 2024",
+    "description": "Find a plot in a healthcare related publication and improve the visual presentation with only the data available from the publication.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2024-02-08",
+    "categories": [
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nImproving a plot\nFind a plot in a healthcare related publication and improve the\nvisual presentation with only the data available from the\npublication.\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. AEs\nOriginal:\nhigh\nresolution image\nUpdated version:\n\nThe Shiny app can be found here.\nlink to code\n\nExample 2. COVID data\nOriginal:\nhigh resolution image\nUpdated version:\n\nThe Shiny app can be found here.\n\nlink to code\nExample 3. DLQI data I\nOriginal:\nhigh resolution image\nUpdated version:\nhigh resolution image\nlink to code\n\nExample 4. DLQI data II\nOriginal:\n\nhigh resolution image\nSource: Figure 2 in Muntyanu A, Gabrielli S, Donovan J, Gooderham M,\nGuenther L, Hanna S, et al. The burden of alopecia areata: A scoping\nreview focusing on quality of life, mental health and work productivity.\nJ Eur Acad Dermatol Venereol. 2023; 37: 1490–1520. https://doi.org/10.1111/jdv.18926\nUpdated version 1:\n\nhigh resolution\nimage\nUpdated version 2:\n\nhigh resolution\nimage\n\nlink to code\nCode\n\nExample 1. AEs\nNo code available.\nBack to blog\n\nExample 2. COVID data\n\n\nlibrary(tidyverse)\nlibrary(haven)\nlibrary(ggplot2)\nlibrary(readr)\n\n### Bring in data\n\n# Replacing missing counts with 0 assuming no deaths on dates where\n# no deaths reported for purpose of this plot\n# Also some negative numbers of deaths reported in plot, assuming\n# the negative sign added in error for purpose of this plot\ndf_raw <- read_csv(\"WHO-COVID-19-global-data.csv\") %>%\n  select(Date_reported, WHO_region, New_deaths) %>%\n  mutate(New_deaths = ifelse(is.na(New_deaths), 0, abs(New_deaths)))\n\n# Numeric variable for dates in order\n# Dataset contains 211 unique dates repeated across 240 countries\ndf_raw$date_n <- rep(c(1:211), times=240)\n\n# Total counts by region and overall\ndf_reg <- aggregate(df_raw$New_deaths,\n                    by=list(df_raw$date_n, df_raw$WHO_region),\n                    FUN=sum)\ndf_total <- aggregate(df_raw$New_deaths,\n                      by=list(df_raw$date_n),\n                      FUN=sum) \n\n### Function for plot\n\ncovid_plot <- function(Region, text_y, cap_text){\n  \n  # Data for other regions - ggplot below will stack \n  # this and data for region to get overall counts\n  # (Update - later fill these additional regions in white\n  #  so now somewhat redundant)\n  df_filt <- df_raw %>% filter(WHO_region != Region)\n  \n  df_other <- aggregate(df_filt$New_deaths,\n                        by=list(df_filt$date_n),\n                        FUN=sum) %>%\n    mutate(Group.2 = \"Other\")\n  \n  # Data for region of interest\n  df_red <- df_reg %>% filter(Group.2 == Region)\n  \n  df <- rbind(df_red, df_other) %>%\n    mutate(Group.2_n = as.factor(if_else(Group.2 == \"Other\", 1, 2)))\n  \n  outplot <- \n    ggplot() +\n    geom_area(data= df, aes(x = Group.1, y = x, \n                            group = Group.2_n, fill = Group.2_n)) + \n    scale_x_continuous(breaks = c(0, 53, 105, 157, 211),\n                       labels=c(\"05/01/2020\", \"03/01/2021\",\n                                \"02/01/2022\", \"01/01/2023\", \"14/01/2024\")) +\n    scale_fill_manual(values = c(\"white\", \"red\")) +\n    geom_line(data = df_total, mapping = aes(x = Group.1, y = x)) + \n    theme_bw() +\n    theme(\n      plot.title.position = \"plot\", \n      panel.border = element_blank(), \n      panel.grid.major.x = element_blank(), \n      panel.grid.minor.x = element_blank(),\n      panel.grid.minor.y = element_blank(), \n      axis.line.x = element_line(colour = \"black\"), \n      axis.ticks.y = element_blank(),\n      axis.text.x = element_text(margin = margin(t = 5, unit = \"pt\")),\n      axis.title.x = element_blank(),\n      axis.title.y = element_blank(),\n      legend.position = \"none\"\n    ) + \n    geom_segment(aes(x = 14+6/7, y = 0, xend = 14+6/7, yend = 80000),\n                 linetype=2) +\n    labs(title = \"Weekly COVID Deaths\",\n         caption = cap_text) +\n    annotate(geom=\"text\", x=78, y=90000, label=\"TOTAL\",\n             size=4, fontface=2) +\n    annotate(geom=\"text\", x=78, y=text_y, label = Region,\n             size=4, fontface=2, color = \"red\") +\n    annotate(geom=\"text\", x=14+6/7, y=82500, label=\" WHO Declares Pandemic\",\n             size=3, fontface=3)\n  \n  return(outplot)\n  \n  \n}\n\nAFRO_plot <- covid_plot(Region = \"AFRO\", text_y = 7500,\n           cap_text = \"AFRO = African Region\")\n\nAMRO_plot <- covid_plot(Region = \"AMRO\", text_y = 40000,\n           cap_text = \"AMRO = Region of the Americas\")\n\nEMRO_plot <- covid_plot(Region = \"EMRO\", text_y = 7500,\n           cap_text = \"EMRO = Eastern Mediterranean Region\")\n\nEURO_plot <- covid_plot(Region = \"EURO\", text_y = 25000,\n           cap_text = \"EURO = European Region\")\n\nSEARO_plot <- covid_plot(Region = \"SEARO\", text_y = 35000,\n           cap_text = \"SEARO = South-East Asian Region\")\n\nWPRO_plot <- covid_plot(Region = \"WPRO\", text_y = 7500,\n           cap_text = \"WPRO = Western Pacific Region\")\n\n\n\nBack to blog\n\nExample 3. DLQI data I\nNo code available.\nBack to blog\n\nExample 4. DLQI data II\nNo code available.\nBack to blog\n\n\n\n",
+    "preview": "posts/2024-09-01-wonderful-wednesdays-february-2024/./images/dlqi_II_updated_2.png",
+    "last_modified": "2024-09-04T22:18:04+02:00",
+    "input_file": {},
+    "preview_width": 675,
+    "preview_height": 666
+  },
+  {
+    "path": "posts/2024-09-01-wonderful-wednesdays-january-2024/",
+    "title": "Wonderful Wednesdays January 2024",
+    "description": "Best of 2023",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2024-01-10",
+    "categories": [
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nYour favorite visualisation\nBest of 2023\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1.\nCumulative distribution function\nhigh\nresolution image\n\nExample 2. Vaccine\nefficiency\nhigh\nresolution image\n\nExample 3. Dirty data I\nhigh resolution image\n\nExample 4. Dirty data II\n\nhigh resolution image\n\nExample 5. Dumbbell or\nlollipop plot\nhigh resolution image\nExample 6. Double dot\nplot of DetectoR\nhigh resolution image\nCode\nThe code can be found in the original posts.\n\n\n\n",
+    "preview": "posts/2024-09-01-wonderful-wednesdays-january-2024/./images/meas_inc - Bodo Kirsch - Steve Mallett.png",
+    "last_modified": "2024-09-04T22:10:43+02:00",
+    "input_file": {},
+    "preview_width": 1000,
+    "preview_height": 687
+  },
+  {
     "path": "posts/2023-12-17-wonderful-wednesdays-december-2023/",
     "title": "Wonderful Wednesdays December 2023",
     "description": "Demographic data display: The challenge is based on CDISC data. It is a standard ADSL data set for subject level data (demographics and baseline).",

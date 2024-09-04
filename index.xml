@@ -7,7 +7,27 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays February 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-09-01-wonderful-wednesdays-february-2024</link>
+      <description>Find a plot in a healthcare related publication and improve the visual presentation with only the data available from the publication.</description>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-09-01-wonderful-wednesdays-february-2024</guid>
+      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-09-01-wonderful-wednesdays-february-2024/./images/dlqi_II_updated_2.png" medium="image" type="image/png" width="675" height="666"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays January 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-09-01-wonderful-wednesdays-january-2024</link>
+      <description>Best of 2023</description>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-09-01-wonderful-wednesdays-january-2024</guid>
+      <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-09-01-wonderful-wednesdays-january-2024/./images/meas_inc - Bodo Kirsch - Steve Mallett.png" medium="image" type="image/png" width="1000" height="687"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays December 2023</title>
       <dc:creator>PSI VIS SIG</dc:creator>
