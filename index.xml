@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 08 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays March 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-09-09-wonderful-wednesdays-march-2024</link>
+      <description>Produce data visualisation(s) providing insights into how microbiome profiles change over time and what the differences are in microbiome profiles between Pre-Term Birth and Term Birth.</description>
+      <category>Microbiome</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-09-09-wonderful-wednesdays-march-2024</guid>
+      <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-09-09-wonderful-wednesdays-march-2024/./images/WW_Mar24_01 - Steve Mallett.png" medium="image" type="image/png" width="7200" height="3600"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays February 2024</title>
       <dc:creator>PSI VIS SIG</dc:creator>
