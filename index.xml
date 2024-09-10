@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays April 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-09-10-wonderful-wednesdays-april-2024</link>
+      <description>As statisticians, we often have to deal with power or sample size calculations. It can be very beneficial to visualise the impact that different factors have on the sample size or power. Produce data visualisation(s) or share tools that help your audience understand how power and sample size calculations work and what impacts the actual results of these calculations.</description>
+      <category>Power Calculations</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-09-10-wonderful-wednesdays-april-2024</guid>
+      <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-09-10-wonderful-wednesdays-april-2024/./images/power - T M.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays March 2024</title>
       <dc:creator>PSI VIS SIG</dc:creator>
