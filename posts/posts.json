@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2024-09-12-wonderful-wednesdays-may-2024/",
+    "title": "Wonderful Wednesdays May 2024",
+    "description": "In almost every study there is a flow chart to present the patient's path through the trial. What could the next level of study flow charts look like? Sandard study flow charts are basically organised lookup tables. A true visualisation can do much more. For example colour coding or indenting boxes can help organising. Also additional information can be embedded. This can easily done in R. For patient disposition Sankey diagrams can be extremely useful. This is even more powerful if used interactively. People charts even go without explanation.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2024-05-08",
+    "categories": [
+      "Study flow charts",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nStudy flow charts\nIn almost every study there is a flow chart to present the patient’s\npath through the trial. What could the next level of study flow charts\nlook like? Sandard study flow charts are basically organised lookup\ntables. A true visualisation can do much more. For example colour coding\nor indenting boxes can help organising. Also additional information can\nbe embedded. This can easily done in R. For patient disposition Sankey\ndiagrams can be extremely useful. This is even more powerful if used\ninteractively. People charts even go without explanation.\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. Typical Study\nFlow Diagram\nhigh resolution image\nlink to code\n\nExample 2. Novel Study Flow\nChart\nhigh resolution image\nlink to code\n\nExample 3. Typical\nStudy Disposition Chart\nhigh resolution image\nlink to code\n\nExample 4. Automate in R\n\nhigh resolution image\nlink to code\n\nExample 5. Novel Study\nDisposition Chart\nhigh resolution\nimage\n(A summary of the discussion will be added shortly.)\nlink to code\n\nExample 6. Individual\nsubjects\nhigh resolution image\nhigh resolution image\nhigh resolution image\nhigh resolution image\nlink to code\nCode\n\nExample 1. Typical\nStudy Flow Diagram\nNo code available.\nBack to blog\n\nExample 2. Novel Study Flow\nChart\nNo code available.\nBack to blog\n\nExample 3. Typical\nStudy Disposition Chart\nNo code available.\nBack to blog\n\nExample 4. Automate in R\n\nBack to blog\n\nExample 5. Novel\nStudy Disposition Chart\nNo code available.\nBack to blog\n\nExample 6. Individual\nsubjects\nNo code available.\nBack to blog\n\n\n\n",
+    "preview": "posts/2024-09-12-wonderful-wednesdays-may-2024/./images/Sankey - SNZ Skrivanek.png",
+    "last_modified": "2024-09-12T19:36:05+02:00",
+    "input_file": {},
+    "preview_width": 800,
+    "preview_height": 334
+  },
+  {
     "path": "posts/2024-09-10-wonderful-wednesdays-april-2024/",
     "title": "Wonderful Wednesdays April 2024",
     "description": "As statisticians, we often have to deal with power or sample size calculations. It can be very beneficial to visualise the impact that different factors have on the sample size or power. Produce data visualisation(s) or share tools that help your audience understand how power and sample size calculations work and what impacts the actual results of these calculations.",

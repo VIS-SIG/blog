@@ -1,0 +1,154 @@
+---
+title: "Wonderful Wednesdays May 2024"
+description: |
+  In almost every study there is a flow chart to present the patient's path through the trial. What could the next level of study flow charts look like? Sandard study flow charts are basically organised lookup tables. A true visualisation can do much more. For example colour coding or indenting boxes can help organising. Also additional information can be embedded. This can easily done in R. For patient disposition Sankey diagrams can be extremely useful. This is even more powerful if used interactively. People charts even go without explanation.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 05-08-2024
+categories:
+  - Study flow charts
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/Sankey - SNZ Skrivanek.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Study flow charts
+
+In almost every study there is a flow chart to present the patient's path through the trial. What could the next level of study flow charts look like? Sandard study flow charts are basically organised lookup tables. A true visualisation can do much more. For example colour coding or indenting boxes can help organising. Also additional information can be embedded. This can easily done in R. For patient disposition Sankey diagrams can be extremely useful. This is even more powerful if used interactively. People charts even go without explanation.
+
+A description of the challenge can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2024/2024-05-08).  
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-50-study-flow-charts).
+
+<a id="example1"></a>
+
+## Example 1. Typical Study Flow Diagram
+
+![](./images/image1.png)  
+[high resolution image](./images/image1.png)  
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. Novel Study Flow Chart
+
+![](./images/image2.jpg)  
+[high resolution image](./images/image2.jpg)  
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. Typical Study Disposition Chart
+
+![](./images/image3.jpg)  
+[high resolution image](./images/image3.jpg)  
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+## Example 4. Automate in R
+
+![](./images/image4.jpg)  
+
+[high resolution image](./images/image4.jpg)  
+
+[link to code](#example4 code)
+
+<a id="example5"></a>
+
+## Example 5. Novel Study Disposition Chart
+
+![](./images/Sankey - SNZ Skrivanek.png)  
+[high resolution image](./images/Sankey - SNZ Skrivanek.png)  
+
+(A summary of the discussion will be added shortly.)
+
+[link to code](#example5 code)
+
+
+<a id="example6"></a>
+
+## Example 6. Individual subjects
+
+![](./images/image6_1.jpg)  
+[high resolution image](./images/image6_1.jpg)  
+
+![](./images/image6_2.jpg)  
+[high resolution image](./images/image6_2.jpg)  
+
+![](./images/image6_3.jpg)  
+[high resolution image](./images/image6_3.jpg)  
+
+![](./images/image6_4.jpg)  
+[high resolution image](./images/image6_4.jpg)  
+
+[link to code](#example6 code)
+
+
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. Typical Study Flow Diagram
+
+No code available.
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. Novel Study Flow Chart
+
+No code available.
+
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. Typical Study Disposition Chart
+
+No code available.
+
+[Back to blog](#example3)
+
+
+<a id="example4 code"></a>
+
+## Example 4. Automate in R
+
+![](./code/automate.jpg)
+
+[Back to blog](#example4)
+
+
+<a id="example5 code"></a>
+
+## Example 5. Novel Study Disposition Chart
+
+No code available.
+
+[Back to blog](#example5)
+
+
+<a id="example6 code"></a>
+
+## Example 6. Individual subjects
+
+No code available.
+
+[Back to blog](#example6)

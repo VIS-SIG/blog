@@ -7,7 +7,18 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 10 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays May 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-09-12-wonderful-wednesdays-may-2024</link>
+      <description>In almost every study there is a flow chart to present the patient's path through the trial. What could the next level of study flow charts look like? Sandard study flow charts are basically organised lookup tables. A true visualisation can do much more. For example colour coding or indenting boxes can help organising. Also additional information can be embedded. This can easily done in R. For patient disposition Sankey diagrams can be extremely useful. This is even more powerful if used interactively. People charts even go without explanation.</description>
+      <category>Study flow charts</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-09-12-wonderful-wednesdays-may-2024</guid>
+      <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-09-12-wonderful-wednesdays-may-2024/./images/Sankey - SNZ Skrivanek.png" medium="image" type="image/png" width="800" height="334"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays April 2024</title>
       <dc:creator>PSI VIS SIG</dc:creator>
