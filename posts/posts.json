@@ -67,6 +67,28 @@
     "preview_height": 675
   },
   {
+    "path": "posts/2024-12-01-wonderful-wednesdays-august-2024/",
+    "title": "Wonderful Wednesdays August 2024",
+    "description": "When a new patient-reported outcome (PRO) is developed, there is interest in deriving the following, to support interpretation of data collected using the new tool: Minimal Clinically Important Difference (MCID) / Responder Definition (RD), Meaningful Between-Group Difference, Meaningful Score Categories. These are usually derived by using an existing, validated measure as the ‘gold standard’ to quantify e.g. disease status.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2024-08-14",
+    "categories": [
+      "Responder definition",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nResponder definition\nWhen a new patient-reported outcome (PRO) is developed, there is interest in deriving the following, to support interpretation of data collected using the new tool: Minimal Clinically Important Difference (MCID) / Responder Definition (RD), Meaningful Between-Group Difference, Meaningful Score Categories. These are usually derived by using an existing, validated measure as the ‘gold standard’ to quantify e.g. disease status.\nChallenge: Use visualisations to support in the derivation in any or all of the following:\nMCID\nMeaningful between-group difference\nMeaningful score categories\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. Part 1\nhigh resolution image\nhigh resolution image\nhigh resolution image\nhigh resolution image\nlink to code\n\nExample 2. Part 2\nhigh resolution image\nhigh resolution image\nlink to code\n\nExample 3. November 2021\nhigh resolution image\nhigh resolution image\nhigh resolution image\nhigh resolution image\nhigh resolution image\nhigh resolution image\nlink to code\n\nCode\n\nExample 1. \nNo code has been submitted.\nBack to blog\n\nExample 2. \nNo code has been submitted.\nBack to blog\n\nExample 3. \nNo code has been submitted.\nBack to blog\n\n\n\n",
+    "preview": "posts/2024-12-01-wonderful-wednesdays-august-2024/./images/improvement.png",
+    "last_modified": "2024-12-01T21:00:30+01:00",
+    "input_file": {},
+    "preview_width": 959,
+    "preview_height": 742
+  },
+  {
     "path": "posts/2024-09-12-wonderful-wednesdays-may-2024/",
     "title": "Wonderful Wednesdays May 2024",
     "description": "In almost every study there is a flow chart to present the patient's path through the trial. What could the next level of study flow charts look like? Sandard study flow charts are basically organised lookup tables. A true visualisation can do much more. For example colour coding or indenting boxes can help organising. Also additional information can be embedded. This can easily done in R. For patient disposition Sankey diagrams can be extremely useful. This is even more powerful if used interactively. People charts even go without explanation.",
