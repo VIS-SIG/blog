@@ -54,6 +54,28 @@
       <media:content url="https://graphicsprinciples.github.io/posts/2024-12-01-wonderful-wednesdays-august-2024/./images/improvement.png" medium="image" type="image/png" width="959" height="742"/>
     </item>
     <item>
+      <title>Wonderful Wednesdays July 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-12-01-wonderful-wednesdays-july-2024</link>
+      <description>The data set is based on a platform trial design. How can we investigate the effectiveness of early stopping for futility? What is the relationship between the quality of the surrogate endpoint and the average number of patients enrolled? Is there an interaction with futility stopping and treatment effect scenario? How do FWER and FWER_BA differ from each other with respect to treatment effect scenario and maximum number of cohorts? Can you find other interesting patterns in the data?</description>
+      <category>Platform Trial Design</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-12-01-wonderful-wednesdays-july-2024</guid>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-12-01-wonderful-wednesdays-july-2024/./images/WW_Jul24_03 - Steve Mallett.png" medium="image" type="image/png" width="1250" height="1000"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays June 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-12-01-wonderful-wednesdays-june-2024</link>
+      <description>The data set is based on a platform trial design. How can we best show the effect of sample size on the power/type 1 error? Does sample size affect PTP and Disj_Power in the same way? How about in interaction with the type of data sharing? What is the relationship between number of cohorts, cohort inclusion rate and power? How can we investigate the effectiveness of early stopping for futility? What is the relationship between the quality of the surrogate endpoint and the average number of patients enrolled? Is there an interaction with futility stopping and treatment effect scenario? How do FWER and FWER_BA differ from each other with respect to treatment effect scenario and maximum number of cohorts? Can you find other interesting patterns in the data?</description>
+      <category>Platform Trial Design</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-12-01-wonderful-wednesdays-june-2024</guid>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-12-01-wonderful-wednesdays-june-2024/./images/power_TomMarlow_2024-06-04 - T M.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Wonderful Wednesdays May 2024</title>
       <dc:creator>PSI VIS SIG</dc:creator>
       <link>https://graphicsprinciples.github.io/posts/2024-09-12-wonderful-wednesdays-may-2024</link>

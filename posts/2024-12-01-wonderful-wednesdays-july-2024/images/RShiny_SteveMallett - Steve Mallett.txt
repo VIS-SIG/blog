@@ -1,0 +1,7 @@
+Wonderful Wednesday July 2024
+
+Platform Trial Design Tool
+
+R-Shiny app
+Author: Steve Mallett
+URL: https://steve-mallett.shinyapps.io/WW_Jul_2024/
