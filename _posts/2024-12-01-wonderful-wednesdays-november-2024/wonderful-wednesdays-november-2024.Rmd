@@ -1,0 +1,108 @@
+---
+title: "Wonderful Wednesdays November 2024"
+description: |
+  The challenge was about improving a bad chart.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 11-13-2024
+categories:
+  - Bad chart
+  - Improve
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/WW55_fig1 - Thomas Weissensteiner.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Improving a Bad Chart
+The challenge was about improving a bad chart.
+
+A description of the challenge can be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2024/2024-10-09).  
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-56-improving-a-bad-chart).
+
+<a id="example1"></a>
+
+## Example 1. Separate Line Plots
+
+![](./images/AndrewStaroscik_wondwend_Nov2024 - Andrew Staroscik.png)  
+[high resolution image](./images/AndrewStaroscik_wondwend_Nov2024 - Andrew Staroscik.png)  
+
+
+[link to code](#example1 code)
+
+
+<a id="example2"></a>
+
+## Example 2. Combined Line Plots
+
+![](./images/WW55_fig1 - Thomas Weissensteiner.png)  
+[high resolution image](./images/WW55_fig1 - Thomas Weissensteiner.pdf)  
+
+![](./images/WW55_fig1 - Thomas Weissensteiner(1).png)  
+[high resolution image](./images/WW55_fig1 - Thomas Weissensteiner(1).pdf)  
+
+![](./images/WW55_fig2 - Thomas Weissensteiner.png)  
+[high resolution image](./images/WW55_fig2 - Thomas Weissensteiner.pdf)  
+
+![](./images/WW55_fig2 - Thomas Weissensteiner(1).png)  
+[high resolution image](./images/WW55_fig2 - Thomas Weissensteiner(1).pdf)  
+
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+## Example 3. Step-by-Step Example
+
+![](./images/step-by-step_1.jpg)  
+[high resolution image](./images/step-by-step_1.jpg)  
+![](./images/step-by-step_2.jpg)  
+[high resolution image](./images/step-by-step_2.jpg)  
+![](./images/step-by-step_3.jpg)  
+[high resolution image](./images/step-by-step_3.jpg)  
+![](./images/step-by-step_4.jpg)  
+[high resolution image](./images/step-by-step_4.jpg)  
+
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+
+
+
+# Code
+
+<a id="example1 code"></a>
+
+## Example 1. Separate Line Plots
+
+No code has been submitted.
+
+
+[Back to blog](#example1)
+
+
+
+<a id="example2 code"></a>
+
+## Example 2. Combined Line Plots
+
+The Rmd file can be found [here](./code/WWchallenge091024 - Thomas Weissensteiner.Rmd).  
+The html file can be found [here](./code/WWchallenge091024.html).
+
+
+[Back to blog](#example2)
+
+
+<a id="example3 code"></a>
+
+## Example 3. Step-by-Step Example
+
+No code has been submitted.
+
+[Back to blog](#example3)
