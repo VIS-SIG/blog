@@ -45,6 +45,28 @@
     "preview_height": 760
   },
   {
+    "path": "posts/2024-12-01-wonderful-wednesdays-september-2024/",
+    "title": "Wonderful Wednesdays September 2024",
+    "description": "Visualise the pattern of events (disease progression, death, etc) on a summary data level or on a patient level data. Highlight differences between treatments or subgroups.",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2024-09-11",
+    "categories": [
+      "Progression free survival",
+      "Wonderful Wednesdays"
+    ],
+    "contents": "\nProgression free survival\nThe example simulated data set is based on large phase III clinical trials in Breast cancer such as ALTTO.\nThe “trial” aims to determine if a combination of two therapies tablemab (T) plus vismab (V) improves outcomes for metastatic human epidermal growth factor 2–positive breast cancer and increases the pathologic complete response in the neoadjuvant setting (treatment given as a first step to shrink a tumor before the main treatment or surgery).\nThe trial has four treatment arms, patients with centrally confirmed human epidermal growth factor 2-positive early breast cancer were randomly assigned to 1 year of adjuvant therapy with V, T, their sequence (T→V), or their combination (T+V) for 52 weeks. The primary end point was progression-free survival (PFS).\nAs defined by Cancer.gov: “the length of time during and after the treatment of a disease, such as cancer, that a patient lives with the disease but it does not get worse. In a clinical trial, measuring the progression-free survival is one way to see how well a new treatment works”.\nA description of the challenge can be found here.\nA recording of the session can be found here.\n\nExample 1. Augmented survival plots\nhigh resolution image\nhigh resolution image\nlink to code\n\nExample 2. Sorted lollipop plots\nhigh resolution image\nhigh resolution image\nlink to code\n\nCode\n\nExample 1. Augmented survival plots\nSecond version:\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(broom)\nlibrary(survival)\nlibrary(patchwork)\n\n# load data\nADTTE <- read_csv('2024-08-12-psi-vissig-adtte.csv') %>%\n  mutate(EVNTDESCN=case_when(\n    EVNTDESC==\"Death\" ~ 1,\n    EVNTDESC==\"PD\" ~ 2,\n    EVNTDESC==\"Lost to follow-up\" ~ 3,\n    EVNTDESC==\"No next-line therapy initiated\" ~ 4,\n    EVNTDESC==\"Ongoing on first next-line therapy\" ~ 5,\n    EVNTDESC==\"Second next-line therapy initiated\" ~ 6))\n\n# plot KM curve by treatment \nd <- survfit(Surv(AVAL, CNSR == 0) ~ TRT01P  , data = ADTTE )  %>%\n  tidy(fit) %>%\n  rename(TRT01P=strata) %>%\n  mutate(TRT01P=gsub('TRT01P=', '', TRT01P))\n\na <- ggplot(data=d, aes(x=time, y=estimate, group = TRT01P, colour = TRT01P)) +\n  # do not inherit legend from ggplot\n  geom_line(show.legend = T) +\n  geom_point(pch=ifelse(d$n.censor>0,\"|\",\"\")) +\n  theme_bw() +\n  theme(legend.position=\"top\",\n        legend.text = element_text(size=12)) +\n  guides(colour = guide_legend(title = \"\")) +\n  labs(y=\"\", x=\"Time (days)\") +\n  scale_color_brewer(palette=\"Set1\")+\n  annotate(\"text\", x=-250, 0.35, label = \"Progression Free Survival\", hjust = 0, vjust = 1, angle=90) +\n  coord_cartesian(xlim = c(0, 2000),  clip = 'off')\na\n\nb <- ggplot(data = ADTTE, aes(x=AVAL, y=reorder(EVNTDESC, -EVNTDESCN), colour=TRT01P)) + \n  geom_point(pch=ifelse(ADTTE$CNSR==1, \"|\", \"x\"), size=3, alpha=0.5) +\n  facet_grid(cols = vars(TRT01P)) +\n  theme_bw() +\n  theme(legend.position=\"none\") +\n  labs(y=\"\", x=\"Time (days)\") +\n  scale_color_brewer(palette=\"Set1\")\nb\n\na/b +\n  plot_layout(heights = c(2, 1))\n\nggsave(\"figures/survplot_v1_2024-09-07.png\", width = 16, height = 9)\n\n\nBack to blog\n\nExample 2. Sorted lollipop plots\nNo code has been submitted.\nBack to blog\n\n\n\n",
+    "preview": "posts/2024-12-01-wonderful-wednesdays-september-2024/./images/augmented_survival_1.png",
+    "last_modified": "2024-12-01T20:25:20+01:00",
+    "input_file": {},
+    "preview_width": 1200,
+    "preview_height": 675
+  },
+  {
     "path": "posts/2024-09-12-wonderful-wednesdays-may-2024/",
     "title": "Wonderful Wednesdays May 2024",
     "description": "In almost every study there is a flow chart to present the patient's path through the trial. What could the next level of study flow charts look like? Sandard study flow charts are basically organised lookup tables. A true visualisation can do much more. For example colour coding or indenting boxes can help organising. Also additional information can be embedded. This can easily done in R. For patient disposition Sankey diagrams can be extremely useful. This is even more powerful if used interactively. People charts even go without explanation.",
