@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesdays December 2024</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2024-12-20-wonderful-wednesdays-december-2024</link>
+      <description>Use Visualizations to answer the following questions: Inter-goniometer: do the two goniometers agree? Intra-goniometer: do the goniometers measure consistently the knee joint angle across the three repeated measurements?</description>
+      <category>Inter-rater reliability</category>
+      <category>Intra-rater reliability</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2024-12-20-wonderful-wednesdays-december-2024</guid>
+      <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2024-12-20-wonderful-wednesdays-december-2024/./images/Fig1_raw - Thomas Weissensteiner.png" medium="image" type="image/png" width="937" height="770"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays November 2024</title>
       <dc:creator>PSI VIS SIG</dc:creator>
