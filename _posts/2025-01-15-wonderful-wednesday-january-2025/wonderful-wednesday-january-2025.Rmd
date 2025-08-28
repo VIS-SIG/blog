@@ -1,0 +1,66 @@
+---
+title: "Wonderful Wednesday January 2025 (58)"
+description: |
+  Looking back to a year of visualisations in healthcare
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 01-08-2025
+categories:
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# <Overall title of the webinar>
+
+Data set:
+
+There will be no data set for this challenge.
+
+The Challenge:
+
+What is the best healthcare related visualization you have seen this year?
+
+- Most useful
+- Most beautiful
+- Most insightful
+- Most impressing …
+
+
+
+A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2024/2024-12-11).  
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-58-best-of-2024).
+
+## Visualisations
+
+What is the best visualisation? That depends heavily on the purpose. For exploration interactive and animated plot are presented that enhance the understanding of the data. For explanation a static plot is best if it delivers the message on the first glance.
+
+<a id="example1"></a>
+
+### Example 1. 
+
+![](./images/.png)  
+
+[link to code](#example1 code)
+
+
+## Code
+
+<a id="example1 code"></a>
+
+### Example 1. 
+
+```{r, echo = TRUE, eval=FALSE}
+
+```
+
+[Back to blog](#example1)
+
+
+
+

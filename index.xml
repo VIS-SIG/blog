@@ -7,7 +7,90 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 11 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesday August 2025 (65)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-08-13-wonderful-wednesday-august-2025</link>
+      <description>In clinical trials, intercurrent events are post-baseline occurrences that affect the interpretation or existence of outcome data. Visualisations help understand the possible impact of these events on the interpretation of the study results.</description>
+      <category>Intercurrent events</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-08-13-wonderful-wednesday-august-2025</guid>
+      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-08-13-wonderful-wednesday-august-2025/./images/rhys3.png" medium="image" type="image/png" width="1076" height="531"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesday July 2025 (64)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-07-09-wonderful-wednesday-july-2025</link>
+      <description>Building on the topic from june the focus is on visualising patient-level data (generated with AI)</description>
+      <category>Patient-level data</category>
+      <category>Longitudinal data</category>
+      <category>Artificial Intelligence</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-07-09-wonderful-wednesday-july-2025</guid>
+      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-07-09-wonderful-wednesday-july-2025/./images/Fig8-ThomasWeissensteiner.png" medium="image" type="image/png" width="593" height="611"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesday June 2025 (63)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-06-11-wonderful-wednesday-june-2025</link>
+      <description>All about improving an existing plot from a recent publication on a hyperkalemia trial.</description>
+      <category>Improvement</category>
+      <category>Longitudinal data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-06-11-wonderful-wednesday-june-2025</guid>
+      <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-06-11-wonderful-wednesday-june-2025/./images/ImproveFigure_V1_LineChart.png" medium="image" type="image/png" width="500" height="480"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesday May 2025 (62)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-05-14-wonderful-wednesday-may-2025</link>
+      <description>As the current therapy of the Macrophage Activation Syndrome has significant side effects, dose reduction is key. Here are visualisations to effectively demonstrate the dose reduction over time, both on the individual level and in summary.</description>
+      <category>Longitudinal data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-05-14-wonderful-wednesday-may-2025</guid>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-05-14-wonderful-wednesday-may-2025/./images/WW62smooth.png" medium="image" type="image/png" width="619" height="490"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesday April 2025 (61)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-04-09-wonderful-wednesday-april-2025</link>
+      <description>Measuring treatment response is vital for the assessment of the efficacy of a drug. Visualisations can help to show response gain and maintenance or loss over time.</description>
+      <category>Markov trace</category>
+      <category>Longitudinal data</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-04-09-wonderful-wednesday-april-2025</guid>
+      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-04-09-wonderful-wednesday-april-2025/./images/bar-Harry-Wykes.gif" medium="image" type="image/gif"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesday March 2025 (60)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-03-12-wonderful-wednesday-march-2025</link>
+      <description>The assessment of benefit and risk is in the centre of evaluating treatments.</description>
+      <category>Benefit-Risk</category>
+      <category>Forest plot</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-03-12-wonderful-wednesday-march-2025</guid>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-03-12-wonderful-wednesday-march-2025/./images/benefit_risk_plot_preview.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Wonderful Wednesdays February 2025 (59)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-02-12-wonderful-wednesday-february-2025</link>
+      <description>It is a real challenge to display adverse event data. There are a lot of different aspects to concentrate on. How this can be approached?</description>
+      <category>Adverse events</category>
+      <category>Biomarker</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-02-12-wonderful-wednesday-february-2025</guid>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-02-12-wonderful-wednesday-february-2025/./images/Fig5_bmkrs-ThomasWeissensteiner.png" medium="image" type="image/png" width="800" height="800"/>
+    </item>
     <item>
       <title>Wonderful Wednesdays December 2024</title>
       <dc:creator>PSI VIS SIG</dc:creator>

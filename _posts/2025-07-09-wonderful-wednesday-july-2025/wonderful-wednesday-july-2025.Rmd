@@ -1,0 +1,137 @@
+---
+title: "Wonderful Wednesday July 2025 (64)"
+description: |
+  Building on the topic from june the focus is on visualising patient-level data (generated with AI)
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 07-09-2025
+categories:
+  - Patient-level data
+  - Longitudinal data
+  - Artificial Intelligence
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/Fig8-ThomasWeissensteiner.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Hyperkalemia Trial Data
+
+There was a recently publication of a trial on treatment of patients with hyperkalemia. While the challenge in June was the improvement of the original plot the focus is now on the individual data.
+
+Data set:
+
+The [data](https://github.com/VIS-SIG/Wonderful-Wednesdays/blob/master/data/2025/2025-05-14/fig2data.csv) was created using AI-generated [code](https://github.com/VIS-SIG/Wonderful-Wednesdays/blob/master/data/2025/2025-06-11/wwwMay.py) matching the results shown in the plot of the publication. This [prompt](https://github.com/VIS-SIG/Wonderful-Wednesdays/blob/master/data/2025/2025-06-11/AI_history.txt) was used with Claude 4. 
+
+The Challenge:
+
+This months challenge is a follow-up from last month. Generate a plot that includes patient level data information or distribution information.
+
+Reference:
+
+Sodium zirconium cyclosilicate versus sodium polystyrene sulfonate for treatment of hyperkalemia in hemodialysis patients: a randomized clinical trial
+The publication is available via [NIH](https://pmc.ncbi.nlm.nih.gov/articles/PMC12054224/) or [BMC Nephrology](https://bmcnephrol.biomedcentral.com/articles/10.1186/s12882-025-04129-9).
+
+A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2025/2025-06-11).  
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-64-hyperkalemia-trail-continued).
+
+
+## Visualisations
+
+Several visualisations are presented, where each is forming a part of a wider submission. This highlights how a series of data visualisations can be used to investigate and identify key relationships in the data, and then to subsequently highlight these key relationships when communicating findings.
+
+The complete story from Thomas Weissensteiner can be found on his [publication page](https://rpubs.com/thomas-weissensteiner/1334093).
+
+<a id="example1"></a>
+
+### Example 1. 
+
+![](./images/Fig1-ThomasWeissensteiner.png) 
+
+[link to code](#example1 code)
+
+<a id="example2"></a>
+
+### Example 2. 
+
+![](./images/Fig2-ThomasWeissensteiner.png) 
+
+[link to code](#example2 code)
+
+<a id="example3"></a>
+
+### Example 3. 
+
+![](./images/Fig3-ThomasWeissensteiner.png) 
+
+[link to code](#example3 code)
+
+<a id="example4"></a>
+
+### Example 4. 
+
+![](./images/Fig4-ThomasWeissensteiner.png) 
+
+[link to code](#example4 code)
+
+<a id="example5"></a>
+
+### Example 5. 
+
+![](./images/Fig5-ThomasWeissensteiner.png) 
+
+[link to code](#example5 code)
+
+<a id="example6"></a>
+
+### Example 6. 
+
+![](./images/Fig6-ThomasWeissensteiner.png) 
+
+[link to code](#example6 code)
+
+<a id="example7"></a>
+
+### Example 7. 
+
+![](./images/Fig7-ThomasWeissensteiner.png)
+
+[link to code](#example7 code)
+
+<a id="example8"></a>
+
+### Example 8. 
+
+![](./images/Fig8-ThomasWeissensteiner.png)
+
+[link to code](#example8 code)
+
+<a id="example9"></a>
+
+### Example 9. 
+
+![](./images/Fig9-ThomasWeissensteiner.png) 
+
+[link to code](#example9 code)
+
+## Code
+
+<a id="example1 code"></a>
+<a id="example2 code"></a>
+<a id="example3 code"></a>
+<a id="example4 code"></a>
+<a id="example5 code"></a>
+<a id="example6 code"></a>
+<a id="example7 code"></a>
+<a id="example8 code"></a>
+<a id="example9 code"></a>
+
+### Example 1 to 9. 
+
+The code and documentation is provided by Thomas Weissensteiner on his [publication page](https://rpubs.com/thomas-weissensteiner/1334093)
+
+
