@@ -1,0 +1,640 @@
+---
+title: "Glucorticoid dose tapering in Macrophage Activation Syndrome"
+author: "Thomas Weissensteiner"
+date: "2025-5-06"
+output:
+  html_document:
+    code_folding: show
+    toc: true
+    toc_float: true
+    toc_depth: 4
+---
+**My scripts:**  
+
+* rendered html versions: [Rpubs/thomas-weissensteiner](https://rpubs.com/thomas-weissensteiner)  
+* .rmd files with executable code chunks: www.github.com/thomas-weissensteiner/portfolio/tree/main/  
+
+**About myself:** www.linkedin.com/in/ThomasWs-Mopfair
+<br>
+
+```{r Options, include = FALSE}
+# - Global directory and output options                         - # 
+
+knitr::opts_knit$set(root.dir = "C:/Users/ThomasWeissensteiner/OneDrive/Documents/portfolio/WWchallenges/WWchallenge_58")
+knitr::opts_chunk$set (warning = FALSE, message = FALSE, tidy = FALSE)
+knitr::opts_chunk$set (attr.output='style="max-height: 200px"')
+
+setwd("C:/Users/ThomasWeissensteiner/OneDrive/Documents/portfolio/WWchallenges/WWchallenge_59")
+
+```
+<br>
+<br>
+
+### 1. Background
+<br>
+
+#### 1.1. Macrophage activation syndrome  
+
+Macrophage activation syndrome (MAS) is a severe inflammatory condition that complicates the course of rheumatological disorders. It affects mainly in young people. The symptoms include cytopenia, liver dysfunction with coagulopathy, and neurological manifestations. There is a high risk of rapid progression to multiorgan failure and death.  
+Treatment of MAS remains largely empirical, despite great improvements in diagnosis and management. Current standard therapy includes high doses of glucocorticoid (GC) but these can have severe longterm side effects, especially in children ^1^. High GC doses are generally given intravenously, and high dose pulses are the regimen of choice where low-dose steroid therapy is inadequate ^2^. E.g., methylprednisolon doses ranged from 2 to 30mg/kg/day, including 10–30mg/kg/day, in almost 60% of studies ^1^.
+Recently, high-dose GCs together with IL-1 and IFNγ inhibitors have shown promising results, especially in MAS associated with systemic juvenile idiopathic arthritis ^1^.
+<br>
+
+#### 1.2. The challenge  
+
+"Wonderful Wednesdays" are a monthly webinar organised by the Visualisation Special Interest Group of Statisticians in the Pharmaceutical Industry ([PSI](https://psiweb.org/)).  
+
+The data were provided based on two pooled open-label studies in children (n=39) with a diagnosis of MAS disease currently receiving GC treatment. Enrolled subjects started a new investigational drug on day 1, and one objective of the study was to reduce (taper) the GC dose to a safe level during the 8 week interventional period.  
+
+The data include daily GC doses levels for the 56 day interventional period, and also weekly average GC doses (week 1-8).  
+
+Variable Name	Variable Label  
+SUBJID	Subject identifier for the study  
+ASTDY	Analysis relative start day  
+AVAL1	Daily glucocorticoid dose (mg/kg/day)  
+AVISITN	Analysis visit (N)  
+AVISIT	Analysis visit  
+AVAL2	Weekly average glucocorticoid dose  
+
+The visualisations should address the following questions: 
+
+* How effective was the new investigational drug in reducing GC doses over 8 weeks?  
+* What proportion of subjects achieved GC doses between clinically important thresholds of 1.0, 0.5 and 0.2 mg/kg/day, and how did this change over time?  
+* How much variability was there in GC doses, e.g. characterise shifts between threshold levels at the individual subject level?
+
+A recording of the session can be found in PSI's video-on-demand library: [PSI VisSIG Wonderful Wednesday 62: Macrophage Activation Syndrom](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-62-macrophage-activation-syndrome#video_1084581576)
+
+<br>
+<br>
+
+### 2. R libraries and example data
+
+```{r libraries_and_data}
+## - Chunk libraries_and_data
+
+# R version 4.3.0
+
+# Load R libraries                             - #
+
+library(dplyr)        # version 1.1.4   # general grammar
+library(tidyr)        # version 1.3.1   # pivot_longer, pivot_wider
+library(purrr)        # version 1.0.2   # map, map2
+library(DescTools)    # version 0.99.58 # SomersDelta
+library(scales)       # version 1.3.0   # scale_y_continuous(label = percent)
+library(ggplot2)      # version 3.4.0   # generation of plots
+library(patchwork)    # version 1.3.0   # assembly of plots
+
+# Get the data file
+
+WW_GCdose <- read.csv("https://raw.githubusercontent.com/VIS-SIG/Wonderful-Wednesdays/refs/heads/master/data/2025/2025-04-09/WW_GCdose.csv")
+
+WW_GCdose %>% {print(as_tibble(.), n = nrow(.) )}
+```
+<br>
+<br>
+
+### 3. What do the individual patient data look like? 
+<br>
+
+The purpose of this plot is getting an initial "feel" for trends and variability in the raw data. 
+With only 39 subjects a facet-plot showing dose vs. time for each individual was feasible. Facet were arranged from left to right and top to bottom in order of decreasing strength of correlation (values of the Somer's rank correlation coefficient are shown in the next plot). Because the GC pulses represented extreme outliers, I used log scale to visualise trends, namely in the lower value range. Horizontal lines at 0.2, 0.5 and 1mg/kg/day define the three GC thresholds mentioned in the challenge. Additionally, doses >10mg/kg/day define GC pulses.
+<br>
+
+```{r chunk_1, warning = F, fig.dim = c(12, 8)}
+## - Chunk 1, requires WW_GCdose and R libraries (chunk libraries_and_data)
+
+## - Glucocorticoid dose vs. time in individual subjects
+
+WW_GCdose_somersD <- 
+  WW_GCdose %>% 
+  mutate(
+    pulses = ifelse(
+        AVAL1 < 10, 0, 1
+        )
+    ) %>% 
+  split (.$SUBJID) %>%
+  # Compute correlation for time after the start of treatment (d0: baseline)
+  lapply(function(df) filter(df, !ASTDY == 0) ) %>%          
+  lapply( function(x) 
+    c(
+      pulses = sum(x$pulses),
+      SomersDelta(
+        x = x$ASTDY, 
+        y = x$AVAL1,
+        direction = "column", 
+        conf.level = 0.95
+        )
+      )
+    ) %>% 
+  bind_rows(.id = "SUBJID") %>% 
+  arrange(somers) %>% 
+  mutate(SUBJID = factor (SUBJID, levels = unique(SUBJID)))
+
+
+WW_GCdose <- 
+  WW_GCdose %>% 
+  mutate(                                  
+    SUBJID = factor(
+      SUBJID, 
+      levels(WW_GCdose_somersD$SUBJID)
+      )
+    ) %>% 
+  # Sorts subjects by trend for lowering GC dose over time, in descending order
+  arrange(SUBJID) %>%
+  group_by(SUBJID) %>% 
+  mutate(
+    censored = ifelse(
+      which.max(ASTDY) < 56, 
+      which.max(ASTDY), NA
+      )
+    ) %>% 
+  ungroup
+
+WW_GCdose %>% 
+  ggplot(
+    aes(x= ASTDY, y = AVAL1) 
+    ) +
+  geom_line() +
+  geom_hline(
+    yintercept = c(1, 0.5, 0.2, 10),
+    colour = "darkgrey",
+    linetype = "dashed"
+  ) +
+  geom_vline(
+    aes(
+      xintercept = censored,
+      linetype = "Censored\nbefore day 56"
+      ),
+    color = "red",
+    linewidth = 0.01
+    ) +
+  scale_y_log10(
+    breaks = c(0, 0.2, 0.5, 1, 10)
+  ) +
+  labs(
+    title = "Glucocorticoid dose versus time in individual subjects",
+    subtitle = "Subject ID",
+    caption = "Subjects sorted by rank correlation between glucocorticoid dose and time (Somers' D)\n
+  Dashed lines: dose thresholds 0.2, 0.5, 1.0, and 10mg/kg/d",
+    linetype = NULL) +
+  xlab("Time (d)") +
+  ylab("Glucocorticoid dose, log10 (mg/kg/d)") +
+  facet_wrap(
+    facets = "SUBJID",
+    nrow = 3
+    ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(
+      hjust = 0.5,
+      vjust = 3
+      ),
+    plot.subtitle = element_text(
+      hjust = 0.5,
+      vjust = -3,
+      size = 9,
+    color = "blue"      
+      ),
+    plot.caption = element_text(
+      size = 9,
+      hjust = 0.5
+      ),
+    strip.text.x = element_text(
+      color = "blue"
+      ),
+    panel.grid.minor = element_blank()
+    )
+
+```
+<br>
+
+High inter-individual variation can be observed, regarding baseline values (day 0), trends for GC use vs. time, and the times when various threshold levels were crossed.  
+Although generally the frequency of GC pulses decreased with treatment time, they were still given at mid- to late stage in a few subjects (19, 29, 23).  
+Red vertical lines mark censored data in two individuals. This is useful information for the analyses, i.e. sample averages at different time points should not be calculated by dividing by sample size at baseline (N = 39), but rather by the actual sample size at each time point.
+<br>
+<br>
+
+### 4. Did GC use change significantly in the follow-up period after initiation of the experimental treatment? 
+<br>
+
+Somers' D is a non-parametric measure of correlation related to Goodman-Kruskal's Gamma and Kendall's Tau-b. In contrast to the latter, the asymmetric Somers' D coefficient is appropriate where of the variables being dependent on the other, as in this case  ^3^. 
+<br>
+ 
+
+```{r chunk_2, fig.dim = c(12, 6)}
+## -  Chunk 2, requires WW_GCdose_somersD (chunk 1):
+
+## - Correlation between GC dose and time of follow-up in individual subjects, with varying total length of pulse therapy
+
+WW_GCdose_somersD %>% 
+  rbind(
+    .,
+    select(., !c(SUBJID, pulses)) %>% 
+      apply(., 2, median) %>% t %>% 
+      data.frame(SUBJID = "\nAll     \n(median)", pulses = NA)
+    ) %>% 
+  ggplot(
+    aes(
+      y = SUBJID,
+      x = somers,
+      color = pulses
+      )
+    ) +
+  geom_point(
+    size = 2.5
+  ) +
+  geom_errorbarh(
+    aes(
+      xmin = lwr.ci,
+      xmax = upr.ci
+      )
+    ) +
+  scale_y_discrete(limits=rev) +
+  scale_color_gradient(
+    low = "#4aa2e6", 
+    high = "#c7505c",
+    na.value = "black",
+    name = "Glucocorticoid \npulses: \ntotal days on \n>= 10mg/kg/d" 
+    ) +
+  ylab("Subject ID") +
+  xlab("Somers' D") +
+  labs(
+    title = "Correlation between glucocorticoid dose and interventional time in individual subjects,\nwith varying total length of pulse therapy",
+    caption = "Asymetric Somers' D with 95% CIs, dependent variable is glucocorticoid dose\n56d follow-up, except for subjects #11 (55d) and #36 (25d)") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(
+      hjust = 0.5,
+      vjust = 3
+      ),
+    plot.caption = element_text(
+      hjust = 0.5,
+      vjust = -3
+      ),
+    legend.title = element_text(size = 9)
+    )
+
+
+```
+<br>
+
+The correlation coefficients for GC dose vs. time, including their 95% CIs, were negative for all subjects but one. The median Somers' D across all patients was -0.817 (95% CI: -0.898 - -0.722).
+Strength of correlation seemed not associated with the total length of time patients received GC pulse therapy, probably because the frequency of the high-dose outliers/pulses decreased over the treatment period. 
+<br>
+<br>
+
+### 5. What shifts between clinically important threshold levels occured at the individual subject level, and how did the proportions of subjects recieving doses above different thresholds change over time?
+<br>
+
+The upper of the two panels is a "spaghetti plot". This format offers a more compact way to visualise dose changes over time than the faceted line plots above, although at the expense of time-dependent resolution (qualitative changes) and/or clarity (colour instead of height). 
+Subjects on the y-axis are sorted by dose level, consecutively from day 1 to day 56 of the treatment (ignoring baseline values at day 0). This makes the spaghetti plot more similar in appearance and comparable to the stacked area plot in the lower panel, showing changes in the proportion of patients with dose ranges between different threshold levels.
+<br>
+
+```{r, fig.dim = c(12, 9)}
+## - Chunk 3, requires WW_GCdose (chunk 1):
+
+## - Fraction of patients receiving glucocorticoid doses above clinical thresholds versus time at baseline (day 0) and over the course of the investigational treatment
+
+
+## Define thresholds, threshold colors, and threshold data
+
+# Define clinically relevant glucocorticoid thresholds
+GC_threshold <- c(0.2, 0.5, 1, 10)
+
+# Define color palette distinguishing thresholds in the plot
+threshold_palette <- 
+  setNames(
+    c("darkblue", "#4aa2e6", "#8ccfa8", "#e8bb61", "#c7505c"), 
+    c(0, GC_threshold)
+    )
+
+# Create a nested dataframe with threshold values and thresholded GC doses vs. time 
+threshold_GCdata <- 
+  tibble(
+    threshold_value = GC_threshold
+  ) %>%
+  mutate(GCdata = map(threshold_value, function(thresh) {
+    WW_GCdose %>% 
+      select(SUBJID, ASTDY, AVAL1, censored) %>% 
+      pivot_wider(
+        names_from = "ASTDY", 
+        values_from = "AVAL1"
+      ) %>%
+      mutate(
+        across(
+          !c(SUBJID, censored), 
+          ~ ifelse(.x >= thresh, 1, 0)
+        )
+      )
+  }))
+
+
+## Create plot for showing dose thresholds for individual patients vs. time
+
+# Function for summing tibbles in a nested dataframe, element-wise
+
+sum_tibbles <- function(df, nested_col_name, ID_col_name) {
+  # Extract list of tibbles
+  tibble_list <- df[[nested_col_name]]
+  
+  # Get SUBJID column from first tibble
+  id_col <- tibble_list[[1]] %>% select(all_of(ID_col_name))
+  
+  tibble_list %>%
+    # For each tibble, drop the SUBJID column (added back later)
+    map(~select(.x, -all_of(ID_col_name))) %>%
+    # Sum all tibbles together element-wise
+    reduce(`+`) %>%
+    # Bind the SUBJID column back
+    bind_cols(id_col, .)
+  }
+
+
+# Create plot
+
+dose_labels <- threshold_GCdata$threshold_value %>% 
+  { c(
+    paste ("0 -", .[1]),
+    paste( .[-length(.)], "-", .[-1]),
+    paste ("> ", .[length(.)]), 
+    "NA"
+  ) }
+
+p1 <- threshold_GCdata %>% 
+  sum_tibbles(., "GCdata", "SUBJID") %>% 
+  # Join with WW_GCdose_somersD is only required when showing Somers' D in the plot 
+  left_join(WW_GCdose_somersD %>% select(SUBJID, somers), .) %>% 
+  # Sort so that patients dosed at the same threshold levels tend to group together, helping to compare this plot with the plot of patient fractions, p2)
+  arrange(
+    desc(
+      across(!c(SUBJID, somers, censored, `0`) )
+      )
+    ) %>% 
+  mutate(
+    SUBJID = factor(
+      SUBJID,
+      levels = unique (SUBJID) %>% rev
+      )
+    ) %>% 
+  pivot_longer(
+    cols = !c(SUBJID, somers, censored),
+    names_to = "Time",
+    values_to = "Threshold_level"
+    ) %>% 
+  mutate(
+    Time = as.numeric(Time),
+    Threshold_level = factor(Threshold_level),
+    SUBJID = factor(
+      SUBJID, levels = rev(levels(SUBJID) ) 
+      )
+    ) %>% 
+  ggplot(
+    aes(
+      # Optional: Indicate strength of correlation of GC dose dependent on time (Somers' D)
+      # alpha = somers,
+      x = Time,
+      y = SUBJID,
+      colour = Threshold_level,
+      group = SUBJID
+      )
+    ) +
+    geom_line(lwd = 3)  +
+    scale_x_continuous(
+      breaks = seq(0, 50, 10),
+      expand = c(0,0)) +
+    scale_color_discrete(
+      type = as.character(threshold_palette),  
+      na.value = "yellow",
+      labels = dose_labels
+      ) +
+    # Scale alpha is only required when showing Somers' D (stronger colour for stronger negative correlation) 
+    scale_alpha(
+      range = c(1, -0.3)
+      ) +
+    labs(
+      x = "Time(d)",
+      y = "Subject ID",
+      color = "Dose level \n(mg/kg/d)",
+      alpha = "Somers' D") +
+    theme_light() +
+    theme(
+      axis.text = element_text(size = 11),
+      legend.title = element_text(size = 11),
+      legend.text = element_text(size = 11),
+      panel.grid = element_blank()
+      ) 
+
+# Notes
+# Use of all_of() in function sum_tibbles: without it R treats -ID_col_name as looking for a column literally named "ID_col_name" rather than using the value of the variable. If the column name contains special characters or starts with a number, using all_of() ensures it's properly handled
+# Group = SUBJID in ggplot is necessary because Threshold_level is an ordinal/categorical variable and this would introduce gaps between the colors of each bar
+
+
+## Create plot for fractions of patients with doses above threshold levels vs. time
+
+# Calculate fraction of patients above various thresholds at each time point
+
+patients_above_threshold <- 
+  threshold_GCdata %>%
+  mutate(
+    summary_data = map(GCdata, function(df) {
+      df %>%
+        select(-c(SUBJID, censored)) %>%
+        summarize(across(everything(), 
+          ~ sum(.x, na.rm = TRUE) / sum(!is.na(.x)))) %>%
+        pivot_longer(
+          cols = everything(),
+          names_to = "Time",
+          values_to = "Fraction"
+        ) %>%
+      mutate(Time = as.numeric(Time) )
+      } )
+    ) %>%
+  select(threshold_value, summary_data) %>%
+  unnest(summary_data) %>%
+  mutate(Threshold = factor(threshold_value))
+
+
+# Create plot
+
+p2 <- patients_above_threshold %>% 
+  ggplot(
+    aes(
+      x = Time,
+      y = Fraction,
+      fill = Threshold
+      )
+    ) +
+  # Add an area for the remaining values, less than the lowest threshold in the input dataframe
+  geom_area(aes(y = 1, fill = "0"), alpha = 0.7) +
+  # Plot the other areas on top
+  geom_area(
+    position = 'identity'
+    ) +
+  scale_y_continuous(
+    labels = scales::percent
+    ) +
+  scale_fill_manual(
+    values = 
+      threshold_palette
+    ) +
+  
+  
+  xlab("Time (d)") +
+  ylab("Fraction of patients (%)") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, vjust = 2),
+    plot.subtitle = element_text(hjust = 0.5),
+    plot.caption = element_text(size = 10, hjust = 0.5),
+    axis.text = element_text(size = 11),
+    legend.position = "none",
+    panel.grid = element_line(
+      linetype = 3,
+      linewidth = 1),
+    panel.ontop = T
+    ) +
+  coord_cartesian(ylim = c(-0.01, 1.01), expand = FALSE)
+
+p1 + p2 +
+  plot_layout(
+      design = "A
+                A
+                B"
+      ) +
+  plot_annotation(
+      title = "Patients receiving glucocorticoid doses above clinical thresholds versus time \nat baseline (day 0) and over the course of the investigational treatment",
+      theme = theme(
+        plot.title = element_text(
+          size = 14, 
+          hjust = 0.5
+          )
+        )
+      ) 
+
+```
+<br>
+As an optional feature, the correlation of dose vs. time in individual subjects can be shown by increasing the transparency of the coloured bars with decreasing negative correlation strength. This could be useful for focussing on subjects where changes from higher to lower thresholds are part of a strong general trend for decreasing dose with treatment time. However, finding a range for the transparency scale that provided satisfactory visual discrimination was not easy with this set of values.
+<br>
+
+![](C:/Users/ThomasWeissensteiner/OneDrive/Documents/portfolio/WWchallenges/WWchallenge_59/figures_PSI/fig3b_update.png)
+<br>
+<br>
+
+### 6. How much, on average, did the investigational treatment reduce GC use below clinically relevant thresholds?
+<br>
+
+Instead of looking at changes in patient numbers, this figure tries to quantify the days that an average patient might (no longer) need GC doses above certain thresholds. This transformation smoothes the effect of extreme changes, i.e. the GC pulses, while preserving their effect on the variability of the sample. 
+The x-axis represents the accumulated time since start of the investigational treatment, the y-axis the average fraction of days that patients were dosed above individual threshold levels. 
+Confidence intervals illustrate the variability of the patient data, and that the apparent decline in over-the-threshold dosing might not be significant except for the 10mg/kg/day level (GC pulses).  
+The visualisation could be useful for assessing whether the benefits of treatment are increasing with time, and when the change will become significant for the average patient.
+<br>
+
+```{r, fig.dim = c(12, 6)}
+## - Chunk 4, requires threshold_GCdata, threshold_palette (chunk 3):
+
+## - Fraction of interventional time during which patients received glucocorticoid doses above clinical thresholds
+
+
+# Calculate cumulative statistics by iterating in parallel over CG threshold values and thresholded dataframes
+days_above_threshold <- threshold_GCdata %>%
+  mutate(
+    cumulative_data_stats = map2(GCdata, threshold_value, function(df, thresh_value) {
+      # Extract only the numeric columns for processing
+      followUp_GCdata <- df %>% select(!c(SUBJID, censored, "0"))
+      
+      # Get numeric time points for proper ordering later
+      time_points <- as.numeric(names(followUp_GCdata))
+      
+      # Calculate cumulative ratios, keep NA for censored time points
+      time_avg <- df %>%
+        select(!c(SUBJID, censored, "0")) %>%
+        apply(1, function(x) cumsum(x) / time_points) %>%
+        t()
+      
+      # Calculate statistics for each time point
+      map_df(seq_along(time_points), function(i) {
+        tibble(
+          Threshold = thresh_value,
+          Time = time_points[i],
+          n_valid = sum(!is.na(time_avg[, i])),
+          Mean = mean(time_avg[, i], na.rm = TRUE),
+          SD = sd(time_avg[, i], na.rm = TRUE)
+        )
+      })
+    })
+  ) %>%
+  select(cumulative_data_stats) %>%
+  unnest(cumulative_data_stats) %>%
+  mutate(
+    Threshold = factor(Threshold),
+    SE = SD / sqrt(n_valid),
+    CI.lwr = Mean - qt(0.975, n_valid - 1) * SE,
+    CI.upr = Mean + qt(0.975, n_valid - 1) * SE
+  )
+
+# Create plot
+days_above_threshold %>% 
+  ggplot(
+    aes(
+      x = Time,
+      y = Mean,
+      color = Threshold
+      )
+    ) +
+  geom_ribbon(
+    aes(
+      ymin = CI.lwr,
+      ymax = CI.upr,
+      fill = Threshold
+      ),
+    show.legend = FALSE,
+    alpha = 0.2,
+    linetype = 3,
+    linewidth = 0.01
+    ) +
+  geom_line(
+  linewidth = 1.2
+  ) +
+  scale_y_continuous(
+    labels = percent
+    ) +
+  scale_color_discrete (
+    type = threshold_palette[-1],
+    labels = paste (">", threshold_GCdata$threshold_value) 
+    ) +
+  scale_fill_discrete (type = threshold_palette[-1]) +
+  labs(
+    title = "Fraction of interventional time\nduring which patients received glucocorticoid doses above clinical thresholds",
+    caption = "Mean across patients (thick coloured lines), with 95%CIs (shaded areas)",
+    color = "Dose level \n(mg/kg/d)"
+    ) +
+  xlab("Investigational treatment interval (d)") +
+  ylab("Fraction of days with doses > threshold") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, vjust = 5),
+    plot.subtitle = element_text(hjust = 0.5),
+    plot.caption = element_text(size = 10, hjust = 0.5, vjust = -5),
+    legend.title = element_text(size = 9),
+    plot.margin = unit(c(0.5, 0, 0.5, 0), "cm")
+    ) +
+  # Display values inside the 0 - 100% range only (greater or smaller makes no sense), 
+  # zooming in with coord_cartesian because setting limits in scale_y_continuous will cause an error if geom_ribbon values exist outside the scale range
+  coord_cartesian(ylim = c(-0.01, 1.01), expand = F)        
+  
+  
+```
+<br>
+<br>
+
+### 7. References
+
+1. Current treatment in macrophage activation syndrome worldwide: a systematic literature review to inform the METAPHOR project.
+Baldo F, Erkens RGA, Mizuta M, Rogani G, Lucioni F, Bracaglia C, Foell D, Gattorno M, Jelusic M, Anton J, Brogan P, Canna S, Chandrakasan S, Cron RQ, De Benedetti F, Grom A, Heshin-Bekenstein M, Horne A, Khubchandani R, Ozen S, Quartier P, Ravelli A, Shimizu M, Schulert G, Scott C, Sinha R, Ruperto N, Swart JF, Vastert S, Minoia F; PReS MAS/sJIA Working Party and Paediatric Rheumatology International Trial Organization.
+Rheumatology (Oxford). 2025 Jan 1;64(1):32-44. https://doi.org/10.1093/rheumatology/keae391
+2. Evidence-based diagnosis and treatment of macrophage activation syndrome in systemic juvenile idiopathic arthritis.
+Boom V, Anton J, Lahdenne P, Quartier P, Ravelli A, Wulffraat NM, Vastert SJ.
+Pediatr Rheumatol Online J. 2015 Dec 3;13:55. https://ped-rheum.biomedcentral.com/articles/10.1186/s12969-015-0055-3
+3. https://www.statisticshowto.com/somers-d/
+  
+  
