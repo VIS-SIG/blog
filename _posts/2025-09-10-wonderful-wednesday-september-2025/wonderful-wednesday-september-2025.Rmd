@@ -58,7 +58,7 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 ### Version 1 of an interactive visualisation app
 
-![](./images/GPTShiny.png)  
+![](./images/GPTShiny1.png)  
 [link to code](#example1 code)
 
 
@@ -68,7 +68,7 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 ### Version 1 of an interactive visualisation app
 
-This R Shiny app was created purely by ChatGPT using this (prompt)[202509prompt1.html].
+This R Shiny app was created purely by ChatGPT using this [prompt](202509prompt1.html).
 
 ```{r, echo = TRUE, eval=FALSE, code = readLines("./code/boxplot4.R")}
 
