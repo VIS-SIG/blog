@@ -46,7 +46,7 @@ Reference:
 
 Colopy MW, Gakava L, Chen C. Planning Benefit-Risk Assessments Using Visualizations. Ther Innov Regul Sci. 2023 Nov;57(6):1123-1135. doi: 10.1007/s43441-023-00563-9. Epub 2023 Sep 8. PMID: [37682462](https://pubmed.ncbi.nlm.nih.gov/37682462/)
 
-A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2025/2025-02-12).  
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2025/2025-02-12).  
 A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-60-benefit-risk-profiles).
 
 ## Visualisations

@@ -34,12 +34,14 @@ The Challenge:
 
 Compare the two treatment arms, considering how intercurrent events might be handled.
 
-A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2025/2025-07-09).  
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2025/2025-07-09).  
 A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-65-intercurrent-events).
+
+## Visualisation
 
 <a id="example1"></a>
 
-## Example 1. Faceted line plot
+### Example 1. Faceted line plot
 
 ![](./images/lsm_panel-Steve-Mallett_Page_1.png)  
 
@@ -51,7 +53,7 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 <a id="example2"></a>
 
-## Example 2. Visualization side by side
+### Example 2. Visualization side by side
 
 ![](./images/rhys2.png)  
 
@@ -59,18 +61,24 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 <a id="example3"></a>
 
-## Example 3. Using individual anker point
+### Example 3. Using individual anker point
 
 ![](./images/rhys3.png)  
 [link to code](#example3 code)
 
-# Code
+## Code
 
 <a id="example1 code"></a>
 
-## Example 1. Faceted line plot
+### Example 1. Faceted line plot
 
 ```{r, echo = TRUE, eval=FALSE, code = readLines("./code/lsm_lineplot-Steve-Mallett.R")}
+
+```
+
+And the SAS code to create lsm_all.sas7bdat
+
+```{r SAS code, eval=FALSE, collapse=TRUE, code = readLines("./code/WW_Aug2025.sas")}
 
 ```
 
@@ -79,7 +87,7 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 <a id="example2 code"></a>
 
-## Example 2. Visualization side by side
+### Example 2. Visualization side by side
 
 ```{r, file = './code/rhys2.R', echo = TRUE, eval=FALSE}
 
@@ -91,7 +99,7 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 <a id="example3 code"></a>
 
-## Example 3. Using individual anker point
+### Example 3. Using individual anker point
 
 ```{r, file = './code/rhys3.R', echo = TRUE, eval=FALSE}
 

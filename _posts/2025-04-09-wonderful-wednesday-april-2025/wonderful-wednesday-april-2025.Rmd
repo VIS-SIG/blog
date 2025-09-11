@@ -36,7 +36,7 @@ Options:
 - Explore decisions which may be made based on patient behaviour – e.g., if rules were introduced to discontinue subjects with suboptimal efficacy, how might different treatment discontinuation rules impact the numbers of subjects discontinuing each treatment?
 
 
-A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2025/2025-03-12).  
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2025/2025-03-12).  
 A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-57-intra--and-interrater-reliability).
 
 ## Visualisations

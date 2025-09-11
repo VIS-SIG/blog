@@ -10,7 +10,7 @@ categories:
   - Longitudinal data
   - Wonderful Wednesdays
 base_url: https://vis-sig.github.io/blog
-preview: ./images/WW62smooth.png
+preview: ./images/WW62smooth.PNG
 output:
   distill::distill_article:
     self_contained: false
@@ -36,7 +36,7 @@ The Challenge:
   - What proportion of subjects achieved GC doses between these levels, and how did this change over time?
   - How much variability was there in GC doses, e.g. characterise shifts between threshold levels at the individual subject level?
 
-A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2025/2025-04-09).  
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2025/2025-04-09/).  
 A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-62-macrophage-activation-syndrome).
 
 ## Visualisations

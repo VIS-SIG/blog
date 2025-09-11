@@ -33,7 +33,7 @@ What is the best healthcare related visualization you have seen this year?
 
 
 
-A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2024/2024-12-11).  
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2024/2024-12-11).  
 A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-58-best-of-2024).
 
 ## Visualisations

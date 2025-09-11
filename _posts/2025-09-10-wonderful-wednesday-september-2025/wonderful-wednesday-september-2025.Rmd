@@ -1,0 +1,78 @@
+---
+title: "Wonderful Wednesday September 2025 (66)"
+description: |
+  In a recent publication of a clinical trial a pair of figures has been attached, that invites a discussion on graphic design principles.
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 09-10-2025
+categories:
+  - Bad chart
+  - Improvement
+  - Artificial Intelligence
+  - Wonderful Wednesdays
+base_url: https://vis-sig.github.io/blog
+preview: ./images/HMER-17-61-g0003a.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+# Fatty liver disease
+
+The Background:
+
+There is a recent publication: The Effect of Liv.52 DS in Metabolic Dysfunction-Associated Fatty Liver Disease (MAFLD): A Pilot, Randomized, Double-Blind, Placebo-Controlled, Clinical Study
+
+The publication is available via (NIH)[https://pubmed.ncbi.nlm.nih.gov/40765845/].
+
+In this publication a pair of figures has been attached, that is the basis of the discussion on graphic design principles.
+
+Data set:
+
+- 47 eligible subjects randomised 2:1 to active treatment or placebo
+- LSM score measured at baseline and end of study after 6 months
+- State of steatosis
+- patient level data was simulated to match the displayed results
+
+The Challenge:
+
+Within the publication the below plots were present. This months challenge was to improve a plot or find a better way to visually present the data.
+
+Mean Change in LSM values (kPa). Comparisons between the groups were performed using unpaired t-tests. Data were collected after six months of randomization.
+
+![Original figure 3 from publication](./images/HMER-17-61-g0003.jpg)
+
+Comparison of Overall Improvement in Steatosis at the end of study.
+
+![Original figure 4 from publication](./images/HMER-17-61-g0004.jpg)
+
+
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2025/2025-08-13/).  
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-66-fatty-liver-disease).
+
+## Visualisation
+
+<a id="example1"></a>
+
+### Version 1 of an interactive visualisation app
+
+![](./images/GPTShiny.png)  
+[link to code](#example1 code)
+
+
+## Code
+
+<a id="example1 code"></a>
+
+### Version 1 of an interactive visualisation app
+
+This R Shiny app was created purely by ChatGPT using this (prompt)[202509prompt1.html].
+
+```{r, echo = TRUE, eval=FALSE, code = readLines("./code/boxplot4.R")}
+
+```
+
+[Back to blog](#example1)
+

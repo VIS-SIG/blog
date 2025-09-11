@@ -36,7 +36,7 @@ Produce a visualization using this sample ADAE data set The challenge is open-en
 
 
 
-A description of the challenge can also be found [here](https://github.com/VIS-SIG/Wonderful-Wednesdays/tree/master/data/2025/2025-01-08).  
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2025/2025-01-08).  
 A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-59-adverse-event-display).
 
 ## Visualisations
