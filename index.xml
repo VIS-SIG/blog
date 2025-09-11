@@ -13,7 +13,9 @@
       <dc:creator>PSI VIS SIG</dc:creator>
       <link>https://graphicsprinciples.github.io/posts/2025-09-10-wonderful-wednesday-september-2025</link>
       <description>In a recent publication of a clinical trial a pair of figures has been attached, that invites a discussion on graphic design principles.</description>
-      <category>Intercurrent events</category>
+      <category>Bad chart</category>
+      <category>Improvement</category>
+      <category>Artificial Intelligence</category>
       <category>Wonderful Wednesdays</category>
       <guid>https://graphicsprinciples.github.io/posts/2025-09-10-wonderful-wednesday-september-2025</guid>
       <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
@@ -27,7 +29,7 @@
       <category>Intercurrent events</category>
       <category>Wonderful Wednesdays</category>
       <guid>https://graphicsprinciples.github.io/posts/2025-08-13-wonderful-wednesday-august-2025</guid>
-      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
       <media:content url="https://graphicsprinciples.github.io/posts/2025-08-13-wonderful-wednesday-august-2025/./images/rhys3.png" medium="image" type="image/png" width="1076" height="531"/>
     </item>
     <item>
@@ -64,7 +66,7 @@
       <category>Wonderful Wednesdays</category>
       <guid>https://graphicsprinciples.github.io/posts/2025-05-14-wonderful-wednesday-may-2025</guid>
       <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://graphicsprinciples.github.io/posts/2025-05-14-wonderful-wednesday-may-2025/./images/WW62smooth.png" medium="image" type="image/png" width="619" height="490"/>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-05-14-wonderful-wednesday-may-2025/./images/WW62smooth.PNG" medium="image" type="image/png" width="619" height="490"/>
     </item>
     <item>
       <title>Wonderful Wednesday April 2025 (61)</title>
@@ -522,7 +524,7 @@ Find more information and sign up here: https://psiweb.org/events/event-item/202
       <link>https://graphicsprinciples.github.io/posts/2021-09-06-wonderful-wednesdays-august-2021</link>
       <description>For this edition of the Wonderful Wednesdays, the audience was asked to send examples of visualizations representing coronavirus data. The webinar was a showcase og the different types of visualizations, such as area graphs, forest plots, streamgraphs, or network analysis.</description>
       <category>Data journalism</category>
-      <category>Wonderful wednesdays</category>
+      <category>Wonderful Wednesdays</category>
       <category>COVID-19</category>
       <guid>https://graphicsprinciples.github.io/posts/2021-09-06-wonderful-wednesdays-august-2021</guid>
       <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>

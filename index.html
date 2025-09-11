@@ -2458,143 +2458,143 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 <!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).on("load", function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      page_category = decodeURIComponent(page_category)
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
 
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="VIS-SIG Blog">VIS-SIG Blog</h1>
 <a href="posts/2025-09-10-wonderful-wednesday-september-2025/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Intercurrent events","Wonderful Wednesdays"]}</script>
+<script class="post-metadata" type="text/json">{"categories":["Bad chart","Improvement","Artificial Intelligence","Wonderful Wednesdays"]}</script>
 <div class="metadata">
 <div class="publishedDate">Sept. 10, 2025</div>
 <div class="dt-authors">
@@ -2602,12 +2602,14 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img src="posts/2025-09-10-wonderful-wednesday-september-2025/images/HMER-17-61-g0003a.jpg"/>
+<img src="posts/2025-09-10-wonderful-wednesday-september-2025/./images/HMER-17-61-g0003a.jpg"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesday September 2025 (66)</h2>
 <div class="dt-tags">
-<div class="dt-tag">Intercurrent events</div>
+<div class="dt-tag">Bad chart</div>
+<div class="dt-tag">Improvement</div>
+<div class="dt-tag">Artificial Intelligence</div>
 <div class="dt-tag">Wonderful Wednesdays</div>
 </div>
 <p>In a recent publication of a clinical trial a pair of figures has been attached, that invites a discussion on graphic design principles.</p>
@@ -2616,13 +2618,13 @@ function init_posts_list() {
 <a href="posts/2025-08-13-wonderful-wednesday-august-2025/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["Intercurrent events","Wonderful Wednesdays"]}</script>
 <div class="metadata">
-<div class="publishedDate">Aug. 13, 2025</div>
+<div class="publishedDate">Aug. 12, 2025</div>
 <div class="dt-authors">
 <div class="dt-author">PSI VIS SIG</div>
 </div>
 </div>
 <div class="thumbnail">
-<img src="posts/2025-08-13-wonderful-wednesday-august-2025/images/rhys3.png"/>
+<img src="posts/2025-08-13-wonderful-wednesday-august-2025/./images/rhys3.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesday August 2025 (65)</h2>
@@ -2642,7 +2644,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img src="posts/2025-07-09-wonderful-wednesday-july-2025/images/Fig8-ThomasWeissensteiner.png"/>
+<img src="posts/2025-07-09-wonderful-wednesday-july-2025/./images/Fig8-ThomasWeissensteiner.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesday July 2025 (64)</h2>
@@ -2664,7 +2666,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img src="posts/2025-06-11-wonderful-wednesday-june-2025/images/ImproveFigure_V1_LineChart.png"/>
+<img src="posts/2025-06-11-wonderful-wednesday-june-2025/./images/ImproveFigure_V1_LineChart.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesday June 2025 (63)</h2>
@@ -2685,7 +2687,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img src="posts/2025-05-14-wonderful-wednesday-may-2025/images/WW62smooth.png"/>
+<img src="posts/2025-05-14-wonderful-wednesday-may-2025/./images/WW62smooth.PNG"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesday May 2025 (62)</h2>
@@ -2705,7 +2707,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2025-04-09-wonderful-wednesday-april-2025/images/bar-Harry-Wykes.gif"/>
+<img data-src="posts/2025-04-09-wonderful-wednesday-april-2025/./images/bar-Harry-Wykes.gif"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesday April 2025 (61)</h2>
@@ -2726,7 +2728,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2025-03-12-wonderful-wednesday-march-2025/images/benefit_risk_plot_preview.jpg"/>
+<img data-src="posts/2025-03-12-wonderful-wednesday-march-2025/./images/benefit_risk_plot_preview.jpg"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesday March 2025 (60)</h2>
@@ -2747,7 +2749,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2025-02-12-wonderful-wednesday-february-2025/images/Fig5_bmkrs-ThomasWeissensteiner.png"/>
+<img data-src="posts/2025-02-12-wonderful-wednesday-february-2025/./images/Fig5_bmkrs-ThomasWeissensteiner.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays February 2025 (59)</h2>
@@ -2768,7 +2770,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-12-20-wonderful-wednesdays-december-2024/images/Fig1_raw%20-%20Thomas%20Weissensteiner.png"/>
+<img data-src="posts/2024-12-20-wonderful-wednesdays-december-2024/./images/Fig1_raw - Thomas Weissensteiner.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays December 2024</h2>
@@ -2789,7 +2791,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-12-01-wonderful-wednesdays-november-2024/images/WW55_fig1%20-%20Thomas%20Weissensteiner.png"/>
+<img data-src="posts/2024-12-01-wonderful-wednesdays-november-2024/./images/WW55_fig1 - Thomas Weissensteiner.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays November 2024</h2>
@@ -2810,7 +2812,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-12-01-wonderful-wednesdays-october-2024/images/doris%20-%20Bodo%20Kirsch.png"/>
+<img data-src="posts/2024-12-01-wonderful-wednesdays-october-2024/./images/doris - Bodo Kirsch.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays October 2024</h2>
@@ -2830,7 +2832,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-12-01-wonderful-wednesdays-september-2024/images/augmented_survival_1.png"/>
+<img data-src="posts/2024-12-01-wonderful-wednesdays-september-2024/./images/augmented_survival_1.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays September 2024</h2>
@@ -2850,7 +2852,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-12-01-wonderful-wednesdays-august-2024/images/improvement.png"/>
+<img data-src="posts/2024-12-01-wonderful-wednesdays-august-2024/./images/improvement.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays August 2024</h2>
@@ -2870,7 +2872,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-12-01-wonderful-wednesdays-july-2024/images/WW_Jul24_03%20-%20Steve%20Mallett.png"/>
+<img data-src="posts/2024-12-01-wonderful-wednesdays-july-2024/./images/WW_Jul24_03 - Steve Mallett.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays July 2024</h2>
@@ -2890,7 +2892,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-12-01-wonderful-wednesdays-june-2024/images/power_TomMarlow_2024-06-04%20-%20T%20M.jpg"/>
+<img data-src="posts/2024-12-01-wonderful-wednesdays-june-2024/./images/power_TomMarlow_2024-06-04 - T M.jpg"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays June 2024</h2>
@@ -2910,7 +2912,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-09-12-wonderful-wednesdays-may-2024/images/Sankey%20-%20SNZ%20Skrivanek.png"/>
+<img data-src="posts/2024-09-12-wonderful-wednesdays-may-2024/./images/Sankey - SNZ Skrivanek.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays May 2024</h2>
@@ -2930,7 +2932,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-09-10-wonderful-wednesdays-april-2024/images/power%20-%20T%20M.jpg"/>
+<img data-src="posts/2024-09-10-wonderful-wednesdays-april-2024/./images/power - T M.jpg"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays April 2024</h2>
@@ -2950,7 +2952,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-09-09-wonderful-wednesdays-march-2024/images/WW_Mar24_01%20-%20Steve%20Mallett.png"/>
+<img data-src="posts/2024-09-09-wonderful-wednesdays-march-2024/./images/WW_Mar24_01 - Steve Mallett.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays March 2024</h2>
@@ -2970,7 +2972,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-09-01-wonderful-wednesdays-february-2024/images/dlqi_II_updated_2.png"/>
+<img data-src="posts/2024-09-01-wonderful-wednesdays-february-2024/./images/dlqi_II_updated_2.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays February 2024</h2>
@@ -2989,7 +2991,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2024-09-01-wonderful-wednesdays-january-2024/images/meas_inc%20-%20Bodo%20Kirsch%20-%20Steve%20Mallett.png"/>
+<img data-src="posts/2024-09-01-wonderful-wednesdays-january-2024/./images/meas_inc - Bodo Kirsch - Steve Mallett.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays January 2024</h2>
@@ -3008,7 +3010,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-12-17-wonderful-wednesdays-december-2023/images/WW_Dec23_SM01%20-%20Steve%20Mallett.gif"/>
+<img data-src="posts/2023-12-17-wonderful-wednesdays-december-2023/./images/WW_Dec23_SM01 - Steve Mallett.gif"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays December 2023</h2>
@@ -3028,7 +3030,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-12-17-wonderful-wednesdays-november-2023/images/example_2.png"/>
+<img data-src="posts/2023-12-17-wonderful-wednesdays-november-2023/./images/example_2.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays November 2023</h2>
@@ -3048,7 +3050,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-12-17-wonderful-wednesdays-october-2023/images/slopes.png"/>
+<img data-src="posts/2023-12-17-wonderful-wednesdays-october-2023/./images/slopes.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays October 2023</h2>
@@ -3069,7 +3071,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-12-17-wonderful-wednesdays-september-2023/images/example_1.png"/>
+<img data-src="posts/2023-12-17-wonderful-wednesdays-september-2023/./images/example_1.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays September 2023</h2>
@@ -3089,7 +3091,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-12-17-wonderful-wednesdays-august-2023/images/app.png"/>
+<img data-src="posts/2023-12-17-wonderful-wednesdays-august-2023/./images/app.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays August 2023</h2>
@@ -3109,7 +3111,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-12-17-wonderful-wednesdays-july-2023/images/meas_inc%20-%20Bodo%20Kirsch.png"/>
+<img data-src="posts/2023-12-17-wonderful-wednesdays-july-2023/./images/meas_inc - Bodo Kirsch.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays July 2023</h2>
@@ -3130,7 +3132,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-05-14-visualisation-sig-showcase/images/VIS_SIG_poster.png"/>
+<img data-src="posts/2023-05-14-visualisation-sig-showcase/./images/VIS_SIG_poster.png"/>
 </div>
 <div class="description">
 <h2>Visualisation SIG Showcase</h2>
@@ -3150,7 +3152,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-05-29-wonderful-wednesdays-may-2023/images/lollipop_forest%20-%20Paolo%20Eusebi.png"/>
+<img data-src="posts/2023-05-29-wonderful-wednesdays-may-2023/./images/lollipop_forest - Paolo Eusebi.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays May 2023</h2>
@@ -3170,7 +3172,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-04-16-wonderful-wednesdays-april-2023/images/WWWDiary_Aching%20-%20Agustin%20Calatroni.png"/>
+<img data-src="posts/2023-04-16-wonderful-wednesdays-april-2023/./images/WWWDiary_Aching - Agustin Calatroni.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays April 2023</h2>
@@ -3190,7 +3192,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-04-16-wonderful-wednesdays-march-2023/images/DLQI_individual%20-%20Benjamin%20Lang.png"/>
+<img data-src="posts/2023-04-16-wonderful-wednesdays-march-2023/./images/DLQI_individual - Benjamin Lang.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays March 2023</h2>
@@ -3210,7 +3212,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-04-16-wonderful-wednesdays-december-2022/images/double_dot_plot.png"/>
+<img data-src="posts/2023-04-16-wonderful-wednesdays-december-2022/./images/double_dot_plot.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays December 2022</h2>
@@ -3230,7 +3232,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-04-09-wonderful-wednesdays-november-2022/images/line_plot%20-%20Paolo%20Eusebi.png"/>
+<img data-src="posts/2023-04-09-wonderful-wednesdays-november-2022/./images/line_plot - Paolo Eusebi.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays November 2022</h2>
@@ -3251,7 +3253,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-04-09-wonderful-wednesdays-october-2022/images/qlq-c30_fig_comb.png"/>
+<img data-src="posts/2023-04-09-wonderful-wednesdays-october-2022/./images/qlq-c30_fig_comb.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays October 2022</h2>
@@ -3271,7 +3273,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2023-01-29-wonderful-wednesdays-september-2022/images/ed5d_relaimpo%20-%20Agustin%20Calatroni.png"/>
+<img data-src="posts/2023-01-29-wonderful-wednesdays-september-2022/./images/ed5d_relaimpo - Agustin Calatroni.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays September 2022</h2>
@@ -3292,7 +3294,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2022-08-14-wonderful-wednesdays-august-2022/images/NMA_ranks%20-%20Steve%20Mallett.PNG"/>
+<img data-src="posts/2022-08-14-wonderful-wednesdays-august-2022/./images/NMA_ranks - Steve Mallett.PNG"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays August 2022</h2>
@@ -3312,7 +3314,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2022-08-14-wonderful-wednesdays-july-2022/images/David.png"/>
+<img data-src="posts/2022-08-14-wonderful-wednesdays-july-2022/./images/David.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays July 2022</h2>
@@ -3332,7 +3334,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2022-06-12-wonderful-wednesdays-june-2022/images/growth%20-%20Steve%20Mallett.png"/>
+<img data-src="posts/2022-06-12-wonderful-wednesdays-june-2022/./images/growth - Steve Mallett.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays June 2022</h2>
@@ -3352,7 +3354,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2022-06-06-wonderful-wednesdays-may-2022/images/example_1a.png"/>
+<img data-src="posts/2022-06-06-wonderful-wednesdays-may-2022/./images/example_1a.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays May 2022</h2>
@@ -3373,7 +3375,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2022-04-30-wonderful-wednesdays-april-2022/images/covid_combined%20-%20Agustin%20Calatroni.png"/>
+<img data-src="posts/2022-04-30-wonderful-wednesdays-april-2022/./images/covid_combined - Agustin Calatroni.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays April 2022</h2>
@@ -3394,7 +3396,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2022-02-09-wonderful-wednesdays-february-2022/images/heatmaps_rlc%20-%20Agustin%20Calatroni.png"/>
+<img data-src="posts/2022-02-09-wonderful-wednesdays-february-2022/./images/heatmaps_rlc - Agustin Calatroni.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays February 2022</h2>
@@ -3415,7 +3417,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2022-01-16-wonderful-wednesdays-december-2021/images/baseline_SM%20-%20Steve%20Mallett.png"/>
+<img data-src="posts/2022-01-16-wonderful-wednesdays-december-2021/./images/baseline_SM - Steve Mallett.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays December 2021</h2>
@@ -3436,7 +3438,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-12-05-wonderful-wednesdays-november-2021/images/plot_par_nonpar%20-%20Paolo%20Eusebi.png"/>
+<img data-src="posts/2021-12-05-wonderful-wednesdays-november-2021/./images/plot_par_nonpar - Paolo Eusebi.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays November 2021</h2>
@@ -3456,7 +3458,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-11-06-wonderful-wednesdays-october-2021/images/nijman_tables_flx%20-%20Agustin%20Calatroni.png"/>
+<img data-src="posts/2021-11-06-wonderful-wednesdays-october-2021/./images/nijman_tables_flx - Agustin Calatroni.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays October 2021</h2>
@@ -3494,7 +3496,7 @@ Find more information and sign up here: https://psiweb.org/events/event-item/202
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-09-06-wonderful-wednesdays-september-2021/images/CGM-trelliscope.png"/>
+<img data-src="posts/2021-09-06-wonderful-wednesdays-september-2021/./images/CGM-trelliscope.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays September 2021</h2>
@@ -3507,7 +3509,7 @@ Find more information and sign up here: https://psiweb.org/events/event-item/202
 </div>
 </a>
 <a href="posts/2021-09-06-wonderful-wednesdays-august-2021/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Data journalism","Wonderful wednesdays","COVID-19"]}</script>
+<script class="post-metadata" type="text/json">{"categories":["Data journalism","Wonderful Wednesdays","COVID-19"]}</script>
 <div class="metadata">
 <div class="publishedDate">Sept. 6, 2021</div>
 <div class="dt-authors">
@@ -3515,13 +3517,13 @@ Find more information and sign up here: https://psiweb.org/events/event-item/202
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-09-06-wonderful-wednesdays-august-2021/images/Picture1.png"/>
+<img data-src="posts/2021-09-06-wonderful-wednesdays-august-2021/./images/Picture1.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays August 2021</h2>
 <div class="dt-tags">
 <div class="dt-tag">Data journalism</div>
-<div class="dt-tag">Wonderful wednesdays</div>
+<div class="dt-tag">Wonderful Wednesdays</div>
 <div class="dt-tag">COVID-19</div>
 </div>
 <p>For this edition of the Wonderful Wednesdays, the audience was asked to send examples of visualizations representing coronavirus data. The webinar was a showcase og the different types of visualizations, such as area graphs, forest plots, streamgraphs, or network analysis.</p>
@@ -3536,7 +3538,7 @@ Find more information and sign up here: https://psiweb.org/events/event-item/202
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-07-18-wonderful-wednesdays-july-2021/images/Response%20Distributions%20-%20Philip%20Griffiths.png"/>
+<img data-src="posts/2021-07-18-wonderful-wednesdays-july-2021/./images/Response Distributions - Philip Griffiths.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays July 2021</h2>
@@ -3556,7 +3558,7 @@ Find more information and sign up here: https://psiweb.org/events/event-item/202
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-07-18-wonderful-wednesdays-june-2021/images/remission-tte%20-%20Mark%20Baillie.png"/>
+<img data-src="posts/2021-07-18-wonderful-wednesdays-june-2021/./images/remission-tte - Mark Baillie.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays June 2021</h2>
@@ -3590,7 +3592,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-05-09-wonderful-wednesdays-may-2021/images/WWW_May_RhysWarham%20-%20Rhys%20Warham.png"/>
+<img data-src="posts/2021-05-09-wonderful-wednesdays-may-2021/./images/WWW_May_RhysWarham - Rhys Warham.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays May 2021</h2>
@@ -3611,7 +3613,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-04-13-wonderful-wednesdays-april-2021/images/ITA_time_scores%20-%20Irene%20De%20la%20Torre%20Arenas.png"/>
+<img data-src="posts/2021-04-13-wonderful-wednesdays-april-2021/./images/ITA_time_scores - Irene De la Torre Arenas.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays April 2021</h2>
@@ -3631,7 +3633,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-03-08-wonderful-wednesdays-march-2021/images/ch_missing_data%20-%20Agustin%20Calatroni.png"/>
+<img data-src="posts/2021-03-08-wonderful-wednesdays-march-2021/./images/ch_missing_data - Agustin Calatroni.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays March 2021</h2>
@@ -3651,7 +3653,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-02-07-wonderful-wednesdays-february-2021/images/hysto2c.png"/>
+<img data-src="posts/2021-02-07-wonderful-wednesdays-february-2021/./images/hysto2c.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays February 2021</h2>
@@ -3671,7 +3673,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2021-01-11-wonderful-wednesdays-january-2021/images/viz_ms_edited%20-%20Agustin%20Calatroni.png"/>
+<img data-src="posts/2021-01-11-wonderful-wednesdays-january-2021/./images/viz_ms_edited - Agustin Calatroni.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays January 2021</h2>
@@ -3691,7 +3693,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-12-21-festive-reindeer-plots/images/R_example04.png"/>
+<img data-src="posts/2020-12-21-festive-reindeer-plots/./images/R_example04.png"/>
 </div>
 <div class="description">
 <h2>Festive Reindeer Plots</h2>
@@ -3711,7 +3713,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-12-03-wonderful-wednesdays-december-2020/images/forest_plot_with_bands%20-%20Waseem%20Medhat.png"/>
+<img data-src="posts/2020-12-03-wonderful-wednesdays-december-2020/./images/forest_plot_with_bands - Waseem Medhat.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays December 2020</h2>
@@ -3731,7 +3733,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-11-10-wonderful-wednesdays-november-2020/images/DLQI_mediation_mallett2%20-%20Steve%20Mallett.png"/>
+<img data-src="posts/2020-11-10-wonderful-wednesdays-november-2020/./images/DLQI_mediation_mallett2 - Steve Mallett.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays November 2020</h2>
@@ -3751,7 +3753,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-10-21-wonderful-wednesdays-october-2020/images/plot01.png"/>
+<img data-src="posts/2020-10-21-wonderful-wednesdays-october-2020/./images/plot01.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays October 2020</h2>
@@ -3772,7 +3774,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-10-17-wonderful-wednesdays-september-2020/images/volcano%20BS%20Phillips.png"/>
+<img data-src="posts/2020-10-17-wonderful-wednesdays-september-2020/./images/volcano BS Phillips.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays September 2020</h2>
@@ -3792,7 +3794,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-10-30-wonderful-wednesdays-august-2020/images/dotplot%20-%20Markus%20Vogler.png"/>
+<img data-src="posts/2020-10-30-wonderful-wednesdays-august-2020/./images/dotplot - Markus Vogler.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays August 2020</h2>
@@ -3812,7 +3814,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-09-20-wonderful-wednesdays-july-2020/images/June_PSI_AW_v1_0.png"/>
+<img data-src="posts/2020-09-20-wonderful-wednesdays-july-2020/./images/June_PSI_AW_v1_0.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays July 2020</h2>
@@ -3833,7 +3835,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-09-11-wonderful-wednesdays-june-2020/plots/cdf.png"/>
+<img data-src="posts/2020-09-11-wonderful-wednesdays-june-2020/./plots/cdf.png"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays June 2020</h2>
@@ -3875,7 +3877,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </div>
 </div>
 <div class="thumbnail">
-<img data-src="posts/2020-10-27-wonderful-wednesdays-march-2020/images/ww1.gif"/>
+<img data-src="posts/2020-10-27-wonderful-wednesdays-march-2020/./images/ww1.gif"/>
 </div>
 <div class="description">
 <h2>Wonderful Wednesdays March 2020</h2>
@@ -3924,11 +3926,11 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </li>
 <li>
 <a href="#category:Artificial_Intelligence">Artificial Intelligence</a>
-<span class="category-count">(1)</span>
+<span class="category-count">(2)</span>
 </li>
 <li>
 <a href="#category:Bad_chart">Bad chart</a>
-<span class="category-count">(1)</span>
+<span class="category-count">(2)</span>
 </li>
 <li>
 <a href="#category:Baseline_characteristics">Baseline characteristics</a>
@@ -4052,7 +4054,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </li>
 <li>
 <a href="#category:Improvement">Improvement</a>
-<span class="category-count">(1)</span>
+<span class="category-count">(2)</span>
 </li>
 <li>
 <a href="#category:Inter-rater_reliability">Inter-rater reliability</a>
@@ -4060,7 +4062,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 </li>
 <li>
 <a href="#category:Intercurrent_events">Intercurrent events</a>
-<span class="category-count">(2)</span>
+<span class="category-count">(1)</span>
 </li>
 <li>
 <a href="#category:Intra-rater_reliability">Intra-rater reliability</a>
@@ -4227,12 +4229,8 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 <span class="category-count">(1)</span>
 </li>
 <li>
-<a href="#category:Wonderful_wednesdays">Wonderful wednesdays</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
 <a href="#category:Wonderful_Wednesdays">Wonderful Wednesdays</a>
-<span class="category-count">(59)</span>
+<span class="category-count">(60)</span>
 </li>
 </ul>
 </div>
@@ -4241,7 +4239,7 @@ score is zero concurrently with the OCS dose being ≤ 7.5 mg/day.</p>
 <a href="#">More articles &raquo;</a>
 </div>
 </div>
-<!--/radix_placeholder_article_listing-->
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
 <h1>VIS-SIG Blog</h1>
