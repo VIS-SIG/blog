@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesday November 2025 (68)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2025-11-12-wonderful-wednesday-november-2025</link>
+      <description>Improving a plot - a scroll story.</description>
+      <category>Scrollytelling</category>
+      <category>Improvement</category>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2025-11-12-wonderful-wednesday-november-2025</guid>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2025-11-12-wonderful-wednesday-november-2025/./images/bad_viz_2_pie_chart.png" medium="image" type="image/png" width="2400" height="1800"/>
+    </item>
     <item>
       <title>Wonderful Wednesday October 2025 (67)</title>
       <dc:creator>PSI VIS SIG</dc:creator>
@@ -16,7 +28,7 @@
       <category>Subgroup analysis</category>
       <category>Wonderful Wednesdays</category>
       <guid>https://graphicsprinciples.github.io/posts/2025-10-08-wonderful-wednesday-october-2025</guid>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
       <media:content url="https://graphicsprinciples.github.io/posts/2025-10-08-wonderful-wednesday-october-2025/./images/WW_Oct02_SM.png" medium="image" type="image/png" width="1920" height="1080"/>
     </item>
     <item>
