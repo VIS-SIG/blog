@@ -1,0 +1,111 @@
+# Christmas Traditions Knowledge Graph - Usage Instructions
+
+## Quick Start
+
+This is a standalone HTML file that runs entirely in your web browser
+
+## How to Run
+
+### Method 1: Download and Open (Recommended)
+1. Download the file `christmas-knowledge-graph_improved.html` to your computer
+2. Locate the downloaded file in your file explorer/finder
+3. Double-click the file, or right-click and select "Open With" → your preferred web browser
+4. The graph will load and be ready to use!
+
+### Method 2: Drag and Drop
+1. Download the file `christmas-knowledge-graph_improved.html`
+2. Open your web browser (Chrome, Firefox, Safari, Edge, etc.)
+3. Drag the HTML file into the browser window
+4. The graph will load immediately
+
+## Browser Compatibility
+
+The graph works best in modern browsers:
+- ✅ Google Chrome (recommended)
+- ✅ Mozilla Firefox
+- ✅ Microsoft Edge
+- ✅ Safari
+- ✅ Opera
+
+## Features
+
+### Interactive Controls
+- **Category Filters**: Check/uncheck categories to show/hide different types of nodes
+- **Relationship Filters**: Check/uncheck relationship types to show/hide different kinds of connections 
+  (originated in, created by, derived from, influenced, popularized, associated with)
+- **Link Distance Slider**: Adjust spacing between nodes
+- **Zoom**: Use mouse wheel or pinch gestures to zoom in/out
+- **Pan**: Click and drag on empty space to move around the graph
+- **Reset to Star Shape**: Click this button to restore the original layout
+
+### Node Interactions
+- **Hover**: Hover over any node to see its connections highlighted
+- **Click**: Click any node to open its Wikipedia page in a new tab
+- **Drag**: Click and drag nodes to reposition them
+
+### Visual Legend
+- **Node Size**: Larger nodes have more connections
+- **Multi-colored Stars**: Nodes belonging to multiple categories
+- **Solid Arrows**: Direct connections
+- **Dashed Lines**: Indirect (2nd degree) connections
+
+## Categories & Relationships
+
+### Node Categories
+The graph includes these categories:
+- 🟡 **Religion** - Religious elements
+- 🟢 **Place** - Countries and regions
+- 🔴 **Tradition** - Christmas customs and practices
+- ⚪ **Commercialisation** - Modern commercial aspects
+- 🟣 **Symbol** - Christmas symbols
+- 🔵 **Person** - Historical figures
+- 🟠 **Food** - Traditional foods and beverages
+
+### Relationship Types
+The graph uses 6 simplified relationship types:
+- 🟢 **Originated In** - Geographic origins of traditions
+- 🟡 **Associated With** - Cultural associations and connections
+- 🟣 **Influenced** - Cultural influence and shaping
+- 🔴 **Derived From** - Evolution and derivation from earlier traditions
+- 🔵 **Created By** - Who created or authored something
+- 🟠 **Popularized** - How traditions spread and gained popularity
+
+
+## Technical Details
+
+### What's Included
+- All code is self-contained in one HTML file
+- Uses React 18 for the UI
+- Uses react-force-graph-2d library for visualization
+- No external dependencies to install
+- No internet connection required once the page loads (except for flag images and Wikipedia links)
+
+### File Size
+Approximately 50-60 KB - very lightweight!
+
+### No Data Collection
+This file runs entirely locally in your browser. No data is sent to any server, and no tracking is performed.
+
+## Troubleshooting
+
+### The file won't open
+- Make sure the file has a `.html` extension
+- Try right-clicking and selecting "Open with" → your browser
+
+### The graph appears blank
+- Wait a few seconds for the libraries to load
+- Try refreshing the page (F5 or Ctrl+R)
+- Make sure JavaScript is enabled in your browser
+
+### Flag images do not show
+- The flag images load from WordPress CDN (requires internet connection)
+- If offline, you'll see placeholder boxes instead
+
+### Performance issues
+- Close other browser tabs to free up memory
+- Try using Chrome or Firefox for best performance
+- Reduce the number of visible categories if the graph feels slow
+
+## Credits
+
+Created by Thomas Weissensteiner 2025

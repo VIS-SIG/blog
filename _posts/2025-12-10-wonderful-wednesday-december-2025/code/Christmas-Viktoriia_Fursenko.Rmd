@@ -1,0 +1,412 @@
+---
+title: "Christmas scene"
+author: "Viktoriia Fursenko"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE, include=FALSE}
+library(tidyverse) 
+```
+## The challenge
+
+Time for something different! Can you create a seasonally-themed image?
+
+It could be a winter scene or have a Christmas/Hanukkah theme
+Use the concept of layers (e.g. ggplot2) to build an image
+Can be static or animated
+Can use AI tools (e.g. Claude/ChatGPT) to develop code using a series of prompts
+
+First, we have to create a perfect winter background.
+
+## Snowflakes
+
+To start, we simulate a winter sky filled with snowflakes of various sizes.  
+The function below places N snowflakes randomly within a defined canvas, ensuring that no two snowflakes appear closer than a user-specified minimum distance d.
+
+```{r}
+generate_snowflakes <- function(N, d, xmin = 0, xmax = 1, ymin = 0, ymax = 1) {
+  pts <- data.frame(NA, nrow = N, ncol = 3)
+  count <- 0
+  i <- 0
+  
+  while (count < N && i < 5000) {
+    i <- i + 1
+    x <- runif(1, xmin, xmax)
+    y <- runif(1, ymin, ymax)
+    size <- round(runif(1, 3, 8))
+
+    if (count == 0) {
+      flag <- TRUE
+      }
+    
+    if (count != 0)  {
+      dists <- sqrt((pts[1:count, 1] - x)^2 + (pts[1:count, 2] - y)^2)
+      flag <- all(dists >= d)
+    }
+    
+    if (flag == TRUE) {
+      count <- count + 1
+      pts[count, ] <- c(x, y, size)
+    }
+  }
+  
+  colnames(pts) <- c("x", "y", "size")
+  return(pts)
+}
+
+snowflakes <- generate_snowflakes(
+  N = 300,
+  d = 25,        
+  xmin = 0, xmax = 450,
+  ymin = 0, ymax = 450
+)
+```
+
+## Bright winter sky
+
+Once the snowflake coordinates are generated, we place them onto a light blue background representing bright winter sky. Snowflakes are represented using the '*' (asterisk) character. 
+
+```{r}
+snowy_background <- ggplot(data = snowflakes) +
+  annotate("rect", xmin = 0, xmax = 450, ymin = 0, ymax = 450, fill = "lightskyblue", alpha = 0.8) +
+  geom_text(aes(x = x, y = y, label = '*'), color="white", size = snowflakes$size) +
+  theme_classic() +
+  theme(
+    line = element_blank(),
+    text = element_blank()
+  )
+
+snowy_background
+```
+
+## Distant fur trees
+
+To give the scene some depth, we add a row of distant fir trees.
+
+```{r}
+fur_tree <- function(xstart, length, colour) {
+  
+  pts <- data.frame(NA)
+  
+  x_coord <- c(xstart, (2*xstart+length)/2, xstart+length)
+  y_coord <- c(0, 2*sqrt(2)*length, 0)
+  pts <- data.frame(x_coord, y_coord, colour)
+
+  tree <- geom_polygon(data = pts, aes(x = x_coord, y = y_coord), fill = colour, alpha = 0.5)
+  
+  return(tree)
+}
+```
+
+Now we can add fur trees to the snowy background:
+
+```{r}
+snowy_background +
+  fur_tree(xstart = 0, length = 50, colour = "palegreen4") +
+  fur_tree(xstart = 20, length = 80, colour = "darkolivegreen") +
+  fur_tree(xstart = 50, length = 75, colour = "palegreen4") +
+  fur_tree(xstart = 100, length = 45, colour = "darkolivegreen") +
+  fur_tree(xstart = 120, length = 50, colour = "darkolivegreen") +
+  fur_tree(xstart = 150, length = 35, colour = "palegreen4") +
+  fur_tree(xstart = 170, length = 55, colour = "darkolivegreen") +
+  fur_tree(xstart = 200, length = 70, colour = "palegreen4") +
+  fur_tree(xstart = 250, length = 45, colour = "darkolivegreen") +
+  fur_tree(xstart = 280, length = 50, colour = "palegreen4") +
+  fur_tree(xstart = 300, length = 35, colour = "darkolivegreen") +
+  fur_tree(xstart = 320, length = 75, colour = "palegreen4") +
+  fur_tree(xstart = 330, length = 120, colour = "palegreen4") +
+  fur_tree(xstart = 350, length = 55, colour = "darkolivegreen") +
+  fur_tree(xstart = 375, length = 40, colour = "darkolivegreen") +
+  fur_tree(xstart = 390, length = 60, colour = "palegreen4") 
+```
+
+We remove a central section of trees to make space for the main Christmas tree.
+
+```{r}
+furry_snowy_background <- snowy_background +
+  fur_tree(xstart = 0, length = 50, colour = "palegreen4") +
+  fur_tree(xstart = 20, length = 80, colour = "darkolivegreen") +
+  fur_tree(xstart = 50, length = 75, colour = "palegreen4") +
+  fur_tree(xstart = 100, length = 45, colour = "darkolivegreen") +
+  fur_tree(xstart = 320, length = 75, colour = "palegreen4") +
+  fur_tree(xstart = 330, length = 120, colour = "palegreen4") +
+  fur_tree(xstart = 350, length = 55, colour = "darkolivegreen") +
+  fur_tree(xstart = 375, length = 40, colour = "darkolivegreen") +
+  fur_tree(xstart = 390, length = 60, colour = "palegreen4") 
+
+furry_snowy_background
+```
+
+## Christmas lights in the sky
+
+We overlay decorative lights - curved lines in festive colours.
+
+```{r warning=FALSE}
+library(ggnewscale)
+library(gganimate)
+
+lights <- function(shift = 0, coef, col1, col2, col3) {
+  
+  pts <- NA
+  x_coord <- c()
+  y_coord <- c()
+  colour <- c()
+  cl <- NA
+  
+  cl <- rep(c("r", "b", "y"), 150)
+  
+  for (i in 1:450) {
+    x_coord <- append(x_coord, i)
+    y_coord <- append(y_coord, 450-coef*abs(sin((shift + i)/36)))
+    
+    if (i %% 5 == 0) {
+      colour[i] <- cl [i]
+    }
+    else colour[i] <- "black"
+    
+    i = i + 1
+  }
+    
+  pts <- data.frame(x_coord, y_coord, colour)
+  
+  light <- list(
+    geom_line(data = pts, aes(x = x_coord, y = y_coord), colour = "grey2", linetype = "dotted"),
+    geom_point(data = pts[pts$colour != "black",], aes(x = x_coord, y = y_coord, colour = colour), size = 2, alpha = 0.2),
+    geom_point(data = pts[pts$colour != "black",], aes(x = x_coord, y = y_coord, colour = colour), size = 1.3, alpha = 0.45),
+    geom_point(data = pts[pts$colour != "black",], aes(x = x_coord, y = y_coord, colour = colour), size = 0.5),
+    scale_color_manual(values = c("y" = col1, "r" = col2, "b" = col3)),
+    new_scale_color(),
+    theme(legend.position = "none")
+    )
+  
+  return(light)
+}
+
+happy_background <- furry_snowy_background +
+  lights(shift = 0,  coef = 80, col1 = "yellow", col2 = "red", col3 = "blue") +
+  lights(shift = 50, coef = 60, col1 = "red", col2 = "yellow", col3 = "green4")
+
+happy_background
+```
+
+## Fractal centerpiece
+
+The main Christmas tree will be constructed as a geometric fractal built using an L-system and turtle graphics.  
+
+First, we have to define necessary functions to draw a fractal. I prompted ChatGPT to write an L-system generator and a function that turns the string into a "turtle" graphics coordinates. I further adapted and refined both functions, in order to create a fractal with the desired characteristics.
+
+More about L-system and turtle graphics could be found from this excellent 
+[lecture](https://www.inf.ed.ac.uk/teaching/courses/inf1/fp/2008/tutorials/Tutorial7.pdf).
+
+l_system() — expands an L-system string for n iterations:  
+
+```{r}
+l_system <- function(axiom, rules, iter = 3) {
+  current <- axiom
+  for (i in seq_len(iter)) {
+    chars <- strsplit(current, "")[[1]]
+    next_str <- paste0(sapply(chars, function(ch) rules[[ch]] %||% ch), collapse = "")
+    current <- next_str
+  }
+  current
+}
+
+`%||%` <- function(a, b) if (!is.null(a)) a else b
+
+```
+
+interpret_lsystem() — turns the string into turtle graphics coordinates:
+
+```{r}
+lsystem_to_df <- function(xstart, ystart, string, angle, step) {
+  angle_rad <- angle * pi/180
+  
+  # turtle state
+  x <- xstart; y <- ystart
+  dir <- 0     
+  
+  stack <- list()
+  
+  segs <- list()
+  idx <- 1
+  
+  chars <- strsplit(string, "")[[1]]
+  
+  for (ch in chars) {
+    if (ch == "A") {
+      x_new <- x + step * cos(dir)
+      y_new <- y + step * sin(dir)
+      segs[[idx]] <- data.frame(x = round(x), y = round(y), xend = round(x_new), yend = round(y_new))
+      idx <- idx + 1
+      x <- x_new; y <- y_new
+    } else if (ch == "+") {
+      dir <- dir + angle_rad
+    } else if (ch == "-") {
+      dir <- dir - angle_rad
+    } else if (ch == "[") {
+      stack <- append(stack, list(list(x = x, y = y, dir = dir)))
+    } else if (ch == "]") {
+      state <- stack[[length(stack)]]
+      stack <- stack[-length(stack)]
+      x <- state$x; y <- state$y; dir <- state$dir
+    }
+  }
+  
+  do.call(rbind, segs)
+}
+
+```
+
+Our Christmas tree will consists of four (perfect :)) Sierpinski triangles of different sizes stacked to form a silhouette of a tree.
+
+```{r}
+iters <- 8 
+rules <- list(
+  "A" = "B-A-B",
+  "B" = "A+B+A"
+)
+axiom <- "A"
+
+ls <- l_system(axiom, rules, iters)
+
+angle <- 60; step <- 2
+tri1 <- lsystem_to_df(xstart = 100, ystart = 0, string = ls, angle = angle, step = step)
+
+angle <- 60; step <- 1.5
+tri2 <- lsystem_to_df(xstart = 100+2^5, ystart = 2^6*sqrt(3), string = ls, angle = angle, step = step)
+
+angle <- 60; step <- 1.25
+tri3 <- lsystem_to_df(xstart = 100+3*2^4, ystart = 7*2^4*sqrt(3), string = ls, angle = angle, step = step)
+
+angle <- 60; step <- 1
+tri4 <- lsystem_to_df(xstart = 100+2^6, ystart = 19*2^3*sqrt(3), string = ls, angle = angle, step = step)
+
+sierpinski <- list(
+  geom_segment(data = tri1, aes(x = x, y = y, xend = xend, yend = yend), linewidth = 0.4, color = "#0C4F22")
+  ,geom_segment(data = tri2, aes(x = x, y = y, xend = xend, yend = yend), linewidth = 0.4, color = "#0C4F22")
+  ,geom_segment(data = tri3, aes(x = x, y = y, xend = xend, yend = yend), linewidth = 0.3, color = "#0C4F22")
+  ,geom_segment(data = tri4, aes(x = x, y = y, xend = xend, yend = yend), linewidth = 0.3, color = "#0C4F22")
+  )
+
+christmas_tree <- happy_background +
+  sierpinski
+christmas_tree
+```
+
+## Embelishments onto the Christmas tree
+
+### The lights on the main tree:
+
+```{r, warning=FALSE}
+lights2 <- function(x1, x2, y1, y2, colour) {
+  pts <- NA
+  
+  x_coord = c(x1, x2)
+  y_coord <- c(y1, y2)
+    
+  pts <- data.frame(x_coord, y_coord)
+  
+  lights <- list(
+    geom_curve(data = pts, aes(x = x1, xend = x2, y = y1, yend = y2), linetype = "solid", colour = "gray", linewidth = 0.5, alpha = 0.5),
+    geom_curve(data = pts, aes(x = x1, xend = x2, y = y1, yend = y2), linetype = "dotted", colour = colour, linewidth = 3, alpha = 0.7),
+    geom_curve(data = pts, aes(x = x1, xend = x2, y = y1, yend = y2), linetype = "dotted", colour = "yellow", linewidth = 1)
+  )
+  
+  return(lights)
+}
+
+happy_christmas_tree <- christmas_tree + 
+  lights2(x1 = 145, x2 = 300, y1 = 80,  y2 = 210, colour="deeppink") +
+  lights2(x1 = 165, x2 = 330, y1 = 180, y2 = 50,  colour="deeppink") +
+  lights2(x1 = 165, x2 = 290, y1 = 180, y2 = 240, colour="deeppink") +
+  lights2(x1 = 180, x2 = 290, y1 = 290, y2 = 240, colour="deeppink") +
+  lights2(x1 = 180, x2 = 270, y1 = 290, y2 = 310, colour="deeppink") +
+  lights2(x1 = 200, x2 = 270, y1 = 335, y2 = 310, colour="deeppink") +
+  lights2(x1 = 200, x2 = 245, y1 = 335, y2 = 355, colour="deeppink") 
+
+happy_christmas_tree
+```
+
+### Presents under the tree
+
+```{r, warning=FALSE}
+present <- function(x0, y0, w, h, colour_box, colour_bow)
+{
+  box <- NA
+  ribbon_v <- NA
+  ribbon_h <- NA
+  
+  box <- data.frame(x_coord = x0 + c(0, 0, w, w),
+                    y_coord = y0 + c(0, h, h, 0))
+  
+  # ribbon width = 10% of the height
+  ribbon_w <- w * 0.10
+  
+  ribbon_v <- data.frame(x_coord = x0 + c(w/2 - ribbon_w, w/2 - ribbon_w, w/2 + ribbon_w, w/2 + ribbon_w),
+                         y_coord = y0 + c(0, h, h, 0))
+  
+  ribbon_h <- data.frame(x_coord = x0 + c(0, 0, w, w),
+                         y_coord = y0 + c(h/2 - ribbon_w, h/2 + ribbon_w, h/2 + ribbon_w, h/2 - ribbon_w))
+  
+  bow_l <- data.frame(x_coord = x0 + c(0.5*w, 0.25*w, 0.15*w, 0.2*w),
+                      y_coord = y0 + c(h, 1.5*h, 1.2*h, h))
+  
+  bow_r <- data.frame(x_coord = x0 + c(0.5*w, 0.75*w, 0.85*w, 0.8*w),
+                      y_coord = y0 + c(h, 1.5*h, 1.2*h, h))
+  
+  gift <- list(
+    geom_polygon(data = box,        aes(x_coord, y_coord), fill = colour_box, color = "black"),
+    geom_polygon(data = ribbon_v,   aes(x_coord, y_coord), fill = colour_bow, color = "black"),
+    geom_polygon(data = ribbon_h,   aes(x_coord, y_coord), fill = colour_bow, color = "black"),
+    geom_polygon(data = bow_l,      aes(x_coord, y_coord), fill = colour_bow, color = "black"),
+    geom_polygon(data = bow_r,      aes(x_coord, y_coord), fill = colour_bow, color = "black")
+    )
+  
+  return(gift)
+}
+
+christmas_tree_with_gifts <- happy_christmas_tree +
+  present(x0 = 0,   y0 = 0, w = 50, h = 50, colour_box = "red",      colour_bow = "gold1") +
+  present(x0 = 50,  y0 = 0, w = 60, h = 60, colour_box = "green",    colour_bow = "cornsilk") +
+  present(x0 = 110, y0 = 0, w = 50, h = 50, colour_box = "skyblue",  colour_bow = "yellow2") +
+  present(x0 = 160, y0 = 0, w = 20, h = 20, colour_box = "red",      colour_bow = "darkgoldenrod1") +
+  present(x0 = 180, y0 = 0, w = 20, h = 20, colour_box = "white",    colour_bow = "blueviolet") +
+  present(x0 = 200, y0 = 0, w = 20, h = 20, colour_box = "chocolate1",   colour_bow = "firebrick1") +
+  present(x0 = 220, y0 = 0, w = 30, h = 30, colour_box = "brown1",       colour_bow = "cadetblue3") +
+  present(x0 = 250, y0 = 0, w = 50, h = 50, colour_box = "dodgerblue3",  colour_bow = "goldenrod") +
+  present(x0 = 300, y0 = 0, w = 60, h = 60, colour_box = "coral",      colour_bow = "aliceblue") +
+  present(x0 = 360, y0 = 0, w = 40, h = 40, colour_box = "red",      colour_bow = "blue") +
+  present(x0 = 400, y0 = 0, w = 50, h = 50, colour_box = "white",    colour_bow = "deeppink3") 
+
+christmas_tree_with_gifts
+```
+
+### Greetings:
+
+```{r, warning=FALSE}
+library(showtext)
+font_add_google("Pacifico", "pacifico")
+showtext_auto()
+
+greet <- function(size, x, y, col1, col2, alpha=1){
+  greeting <- list(
+    annotate("text", x = x, y = y, family = "pacifico", size = size, label = "Merry", colour = col1)
+    ,annotate("text", x = x, y = y-40, family = "pacifico", size = size, label = "Christmas", colour = col2)
+    ,annotate("text", x = x, y = y-80, family = "pacifico", size = size, label = "and a Happy", colour = col1)
+    ,annotate("text", x = x, y = y-120, family = "pacifico", size = size, label = "New Year!", colour = col2)
+  )
+}
+
+greetings <- christmas_tree_with_gifts +
+   greet(size=10, x = 79, y = 319, col1 = "white", col2 = "white", alpha = 0.8) +
+   greet(size=10, x = 80, y = 320, col1 = "darkgreen", col2 = "red2")
+
+greetings  
+```
+
+

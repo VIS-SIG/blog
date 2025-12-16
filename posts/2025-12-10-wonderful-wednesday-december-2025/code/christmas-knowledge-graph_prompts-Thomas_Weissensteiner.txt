@@ -1,0 +1,18 @@
+I used Claude.ai, Sonnet 4.5. to generate this graph. Claude's response is christmas-knowledge-graph_prototype.html.
+A lot of editing and tweaking eventually led to christmas-knowledge-graph_final.html. Because I overran the limits for an individual conversation, I had to restart the thread. I usually use this to ask Claude to check the code for any "clutter" that might have accumulated during previous iterations.
+
+# Initial prompt #
+
+I would like to generate an interactive knowledge graph. The theme is popular Christmas traditions around the world, their historical origins, relationships with each other, and other contemporary customs.
+Interactive features could include 
+* links to online information when the cursor hovers of a node
+* options to customise the graph: selecting node categories (persons, places, traditions, etc.), changing edge distance, etc.
+Please 
+* add suggestions for content and visualisation (bullet point list, minimal details)
+* sketch a strategy for implementation, including programming language(s) and packages best suited for the task, and a bullet-point outline of the essential tasks involved in building the knowledge graph
+
+# Prompt initiating the follow-up thread #
+
+I would like to generate an interactive knowledge graph. 
+[..., as above]
+Attached is a draft version. Please check the code for robustness and efficiency. Remove any parts that are obsolete and suggest improvements.

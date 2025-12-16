@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Traditions Knowledge Graph</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-force-graph-2d@1.25.4/dist/react-force-graph-2d.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #111827;
+            color: white;
+            overflow: hidden;
+        }
+        #root {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        .control-panel {
+            width: 320px;
+            background-color: #1f2937;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #374151;
+        }
+        .graph-container {
+            flex: 1;
+            position: relative;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #ef4444;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #9ca3af;
+            margin-bottom: 24px;
+        }
+        .section {
+            margin-bottom: 24px;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: #374151;
+            border: 1px solid #4b5563;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .checkbox-label:hover {
+            background-color: #374151;
+        }
+        .checkbox-label input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .category-name {
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: #374151;
+            outline: none;
+            border-radius: 3px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #3b82f6;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #3b82f6;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+        }
+        .slider-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .button-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        button {
+            flex: 1;
+            padding: 10px;
+            background-color: #374151;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #4b5563;
+        }
+        button.full-width {
+            width: 100%;
+        }
+        .legend {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #374151;
+        }
+        .legend-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .legend-text {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+        .stats {
+            margin-top: 16px;
+            padding: 12px;
+            background-color: #374151;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        .stat-value {
+            font-weight: 600;
+        }
+        .hover-info {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 320px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        .hover-info h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .hover-info .category-tag {
+            font-size: 12px;
+            color: #9ca3af;
+            text-transform: capitalize;
+            margin-bottom: 8px;
+        }
+        .hover-info p {
+            font-size: 14px;
+            color: #d1d5db;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        const { useState, useRef, useCallback, useEffect } = React;
+        const ForceGraph2D = window.ForceGraph2D;
+
+        const categoryColors = {
+            tradition: '#e74c3c',
+            place: '#27ae60',
+            person: '#3498db',
+            religious: '#9b59b6',
+            symbol: '#f39c12',
+            food: '#e67e22'
+        };
+
+        const graphData = {
+            nodes: [
+                // Traditions
+                { id: 'christmas-tree', name: 'Christmas Tree', category: 'tradition', description: 'Decorated evergreen tree tradition', url: 'https://en.wikipedia.org/wiki/Christmas_tree' },
+                { id: 'gift-giving', name: 'Gift Giving', category: 'tradition', description: 'Exchange of presents', url: 'https://en.wikipedia.org/wiki/Christmas_gift' },
+                { id: 'caroling', name: 'Caroling', category: 'tradition', description: 'Singing Christmas songs door-to-door', url: 'https://en.wikipedia.org/wiki/Christmas_carol' },
+                { id: 'advent-calendar', name: 'Advent Calendar', category: 'tradition', description: 'Countdown to Christmas', url: 'https://en.wikipedia.org/wiki/Advent_calendar' },
+                { id: 'nativity-scene', name: 'Nativity Scene', category: 'tradition', description: 'Display of Jesus birth', url: 'https://en.wikipedia.org/wiki/Nativity_scene' },
+                { id: 'yule-log', name: 'Yule Log', category: 'tradition', description: 'Burning of large log', url: 'https://en.wikipedia.org/wiki/Yule_log' },
+                { id: 'santa-visits', name: 'Santa Claus Visits', category: 'tradition', description: 'Santa bringing gifts on Christmas Eve', url: 'https://en.wikipedia.org/wiki/Santa_Claus' },
+                { id: 'stockings', name: 'Christmas Stockings', category: 'tradition', description: 'Hanging stockings for gifts', url: 'https://en.wikipedia.org/wiki/Christmas_stocking' },
+                { id: 'mistletoe', name: 'Mistletoe Kissing', category: 'tradition', description: 'Kissing under mistletoe', url: 'https://en.wikipedia.org/wiki/Mistletoe' },
+                { id: 'christmas-cards', name: 'Christmas Cards', category: 'tradition', description: 'Sending greeting cards', url: 'https://en.wikipedia.org/wiki/Christmas_card' },
+                
+                // Places
+                { id: 'germany', name: 'Germany', category: 'place', description: 'Origin of many Christmas traditions', url: 'https://en.wikipedia.org/wiki/Christmas_in_Germany' },
+                { id: 'england', name: 'England', category: 'place', description: 'Victorian Christmas traditions', url: 'https://en.wikipedia.org/wiki/Christmas_in_England' },
+                { id: 'netherlands', name: 'Netherlands', category: 'place', description: 'Sinterklaas tradition', url: 'https://en.wikipedia.org/wiki/Sinterklaas' },
+                { id: 'scandinavia', name: 'Scandinavia', category: 'place', description: 'Nordic Yule traditions', url: 'https://en.wikipedia.org/wiki/Yule' },
+                { id: 'italy', name: 'Italy', category: 'place', description: 'Nativity scene origin', url: 'https://en.wikipedia.org/wiki/Christmas_in_Italy' },
+                { id: 'usa', name: 'United States', category: 'place', description: 'Modern commercialized Christmas', url: 'https://en.wikipedia.org/wiki/Christmas_in_the_United_States' },
+                
+                // People
+                { id: 'st-nicholas', name: 'St. Nicholas', category: 'person', description: '4th century bishop, basis for Santa', url: 'https://en.wikipedia.org/wiki/Saint_Nicholas' },
+                { id: 'martin-luther', name: 'Martin Luther', category: 'person', description: 'Popularized Christmas tree', url: 'https://en.wikipedia.org/wiki/Martin_Luther' },
+                { id: 'queen-victoria', name: 'Queen Victoria', category: 'person', description: 'Popularized Christmas tree in England', url: 'https://en.wikipedia.org/wiki/Queen_Victoria' },
+                { id: 'charles-dickens', name: 'Charles Dickens', category: 'person', description: 'Wrote A Christmas Carol', url: 'https://en.wikipedia.org/wiki/Charles_Dickens' },
+                { id: 'clement-moore', name: 'Clement Clarke Moore', category: 'person', description: 'Wrote A Visit from St. Nicholas', url: 'https://en.wikipedia.org/wiki/Clement_Clarke_Moore' },
+                { id: 'francis-assisi', name: 'Francis of Assisi', category: 'person', description: 'Created first nativity scene', url: 'https://en.wikipedia.org/wiki/Francis_of_Assisi' },
+                
+                // Religious/Historical
+                { id: 'saturnalia', name: 'Saturnalia', category: 'religious', description: 'Ancient Roman winter festival', url: 'https://en.wikipedia.org/wiki/Saturnalia' },
+                { id: 'winter-solstice', name: 'Winter Solstice', category: 'religious', description: 'Pagan celebration of shortest day', url: 'https://en.wikipedia.org/wiki/Winter_solstice' },
+                { id: 'christianity', name: 'Christianity', category: 'religious', description: 'Religious foundation', url: 'https://en.wikipedia.org/wiki/Christmas' },
+                { id: 'paganism', name: 'Paganism', category: 'religious', description: 'Pre-Christian traditions', url: 'https://en.wikipedia.org/wiki/Paganism' },
+                
+                // Symbols
+                { id: 'holly', name: 'Holly', category: 'symbol', description: 'Evergreen plant symbol', url: 'https://en.wikipedia.org/wiki/Holly' },
+                { id: 'candy-cane', name: 'Candy Cane', category: 'symbol', description: 'Striped peppermint stick', url: 'https://en.wikipedia.org/wiki/Candy_cane' },
+                { id: 'wreaths', name: 'Wreaths', category: 'symbol', description: 'Circular evergreen decoration', url: 'https://en.wikipedia.org/wiki/Wreath' },
+                
+                // Foods
+                { id: 'gingerbread', name: 'Gingerbread', category: 'food', description: 'Spiced cookie tradition', url: 'https://en.wikipedia.org/wiki/Gingerbread' },
+                { id: 'mince-pies', name: 'Mince Pies', category: 'food', description: 'British sweet pastry', url: 'https://en.wikipedia.org/wiki/Mince_pie' },
+                { id: 'christmas-pudding', name: 'Christmas Pudding', category: 'food', description: 'British steamed dessert', url: 'https://en.wikipedia.org/wiki/Christmas_pudding' },
+                { id: 'stollen', name: 'Stollen', category: 'food', description: 'German fruit bread', url: 'https://en.wikipedia.org/wiki/Stollen' }
+            ],
+            links: [
+                // Christmas Tree connections
+                { source: 'christmas-tree', target: 'germany', relationship: 'originated in' },
+                { source: 'christmas-tree', target: 'martin-luther', relationship: 'popularized by' },
+                { source: 'christmas-tree', target: 'queen-victoria', relationship: 'popularized by' },
+                { source: 'christmas-tree', target: 'paganism', relationship: 'influenced by' },
+                { source: 'christmas-tree', target: 'winter-solstice', relationship: 'derived from' },
+                
+                // Santa/St. Nicholas connections
+                { source: 'santa-visits', target: 'st-nicholas', relationship: 'based on' },
+                { source: 'st-nicholas', target: 'netherlands', relationship: 'venerated in' },
+                { source: 'santa-visits', target: 'usa', relationship: 'popularized in' },
+                { source: 'santa-visits', target: 'clement-moore', relationship: 'shaped by' },
+                { source: 'stockings', target: 'st-nicholas', relationship: 'legend from' },
+                
+                // Gift giving connections
+                { source: 'gift-giving', target: 'saturnalia', relationship: 'influenced by' },
+                { source: 'gift-giving', target: 'st-nicholas', relationship: 'inspired by' },
+                { source: 'gift-giving', target: 'christianity', relationship: 'religious significance' },
+                
+                // Victorian traditions
+                { source: 'christmas-cards', target: 'england', relationship: 'originated in' },
+                { source: 'christmas-cards', target: 'queen-victoria', relationship: 'popularized during' },
+                { source: 'caroling', target: 'england', relationship: 'revived in' },
+                { source: 'caroling', target: 'charles-dickens', relationship: 'romanticized by' },
+                
+                // Food connections
+                { source: 'gingerbread', target: 'germany', relationship: 'originated in' },
+                { source: 'stollen', target: 'germany', relationship: 'traditional in' },
+                { source: 'mince-pies', target: 'england', relationship: 'traditional in' },
+                { source: 'christmas-pudding', target: 'england', relationship: 'traditional in' },
+                
+                // Nativity connections
+                { source: 'nativity-scene', target: 'francis-assisi', relationship: 'created by' },
+                { source: 'nativity-scene', target: 'italy', relationship: 'originated in' },
+                { source: 'nativity-scene', target: 'christianity', relationship: 'represents' },
+                
+                // Yule/Pagan connections
+                { source: 'yule-log', target: 'scandinavia', relationship: 'originated in' },
+                { source: 'yule-log', target: 'paganism', relationship: 'derived from' },
+                { source: 'yule-log', target: 'winter-solstice', relationship: 'celebrates' },
+                
+                // Symbol connections
+                { source: 'holly', target: 'paganism', relationship: 'used in' },
+                { source: 'holly', target: 'christianity', relationship: 'adopted by' },
+                { source: 'mistletoe', target: 'paganism', relationship: 'sacred in' },
+                { source: 'mistletoe', target: 'scandinavia', relationship: 'tradition from' },
+                { source: 'wreaths', target: 'paganism', relationship: 'derived from' },
+                { source: 'candy-cane', target: 'germany', relationship: 'possibly from' },
+                
+                // Advent calendar
+                { source: 'advent-calendar', target: 'germany', relationship: 'originated in' },
+                { source: 'advent-calendar', target: 'christianity', relationship: 'counts down to' },
+                
+                // Cross-influences
+                { source: 'saturnalia', target: 'christianity', relationship: 'influenced' },
+                { source: 'winter-solstice', target: 'saturnalia', relationship: 'coincides with' }
+            ]
+        };
+
+        function ChristmasKnowledgeGraph() {
+            const graphRef = useRef();
+            const [searchTerm, setSearchTerm] = useState('');
+            const [selectedCategories, setSelectedCategories] = useState({
+                tradition: true,
+                place: true,
+                person: true,
+                religious: true,
+                symbol: true,
+                food: true
+            });
+            const [linkDistance, setLinkDistance] = useState(100);
+            const [highlightNodes, setHighlightNodes] = useState(new Set());
+            const [highlightLinks, setHighlightLinks] = useState(new Set());
+            const [hoverNode, setHoverNode] = useState(null);
+
+            const getFilteredData = useCallback(() => {
+                const filteredNodes = graphData.nodes.filter(node => {
+                    const categoryMatch = selectedCategories[node.category];
+                    const searchMatch = searchTerm === '' || 
+                        node.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        node.description.toLowerCase().includes(searchTerm.toLowerCase());
+                    return categoryMatch && searchMatch;
+                });
+
+                const nodeIds = new Set(filteredNodes.map(n => n.id));
+                const filteredLinks = graphData.links.filter(link => 
+                    nodeIds.has(link.source.id || link.source) && 
+                    nodeIds.has(link.target.id || link.target)
+                );
+
+                return { nodes: filteredNodes, links: filteredLinks };
+            }, [selectedCategories, searchTerm]);
+
+            const toggleCategory = (category) => {
+                setSelectedCategories(prev => ({
+                    ...prev,
+                    [category]: !prev[category]
+                }));
+            };
+
+            const handleNodeHover = (node) => {
+                setHoverNode(node);
+                if (node) {
+                    const neighbors = new Set();
+                    const links = new Set();
+                    graphData.links.forEach(link => {
+                        const source = link.source.id || link.source;
+                        const target = link.target.id || link.target;
+                        if (source === node.id) {
+                            neighbors.add(target);
+                            links.add(link);
+                        }
+                        if (target === node.id) {
+                            neighbors.add(source);
+                            links.add(link);
+                        }
+                    });
+                    neighbors.add(node.id);
+                    setHighlightNodes(neighbors);
+                    setHighlightLinks(links);
+                } else {
+                    setHighlightNodes(new Set());
+                    setHighlightLinks(new Set());
+                }
+            };
+
+            const handleNodeClick = (node) => {
+                if (node.url) {
+                    window.open(node.url, '_blank');
+                }
+            };
+
+            const filteredData = getFilteredData();
+
+            return React.createElement('div', { className: 'control-panel' },
+                React.createElement('h1', null, '🎄 Christmas Traditions'),
+                React.createElement('p', { className: 'subtitle' }, 'Interactive Knowledge Graph'),
+                
+                React.createElement('div', { className: 'section' },
+                    React.createElement('div', { className: 'section-title' }, '🔍 Search'),
+                    React.createElement('input', {
+                        type: 'text',
+                        value: searchTerm,
+                        onChange: (e) => setSearchTerm(e.target.value),
+                        placeholder: 'Search traditions...'
+                    })
+                ),
+
+                React.createElement('div', { className: 'section' },
+                    React.createElement('div', { className: 'section-title' }, '🎨 Categories'),
+                    React.createElement('div', { className: 'checkbox-group' },
+                        Object.entries(categoryColors).map(([category, color]) =>
+                            React.createElement('label', { 
+                                key: category, 
+                                className: 'checkbox-label'
+                            },
+                                React.createElement('input', {
+                                    type: 'checkbox',
+                                    checked: selectedCategories[category],
+                                    onChange: () => toggleCategory(category)
+                                }),
+                                React.createElement('span', { 
+                                    className: 'color-dot',
+                                    style: { backgroundColor: color }
+                                }),
+                                React.createElement('span', { className: 'category-name' }, category)
+                            )
+                        )
+                    )
+                ),
+
+                React.createElement('div', { className: 'section' },
+                    React.createElement('label', { className: 'slider-label' }, 
+                        `Link Distance: ${linkDistance}`
+                    ),
+                    React.createElement('input', {
+                        type: 'range',
+                        min: '50',
+                        max: '300',
+                        value: linkDistance,
+                        onChange: (e) => setLinkDistance(Number(e.target.value))
+                    })
+                ),
+
+                React.createElement('div', { className: 'section' },
+                    React.createElement('div', { className: 'section-title' }, '⚙️ Graph Controls'),
+                    React.createElement('div', { className: 'button-group' },
+                        React.createElement('button', {
+                            onClick: () => graphRef.current?.zoomIn()
+                        }, 'Zoom In'),
+                        React.createElement('button', {
+                            onClick: () => graphRef.current?.zoomOut()
+                        }, 'Zoom Out')
+                    ),
+                    React.createElement('button', {
+                        className: 'full-width',
+                        onClick: () => graphRef.current?.zoomToFit(400)
+                    }, 'Fit to Screen')
+                ),
+
+                React.createElement('div', { className: 'legend' },
+                    React.createElement('div', { className: 'legend-title' }, 'Legend'),
+                    React.createElement('p', { className: 'legend-text' }, 
+                        'Click nodes to visit Wikipedia'
+                    ),
+                    React.createElement('p', { className: 'legend-text' }, 
+                        'Hover to see connections'
+                    )
+                ),
+
+                React.createElement('div', { className: 'stats' },
+                    React.createElement('div', { className: 'stat-row' },
+                        React.createElement('span', null, 'Nodes:'),
+                        React.createElement('span', { className: 'stat-value' }, filteredData.nodes.length)
+                    ),
+                    React.createElement('div', { className: 'stat-row' },
+                        React.createElement('span', null, 'Connections:'),
+                        React.createElement('span', { className: 'stat-value' }, filteredData.links.length)
+                    )
+                )
+            );
+        }
+
+        function App() {
+            const graphRef = useRef();
+            const [searchTerm, setSearchTerm] = useState('');
+            const [selectedCategories, setSelectedCategories] = useState({
+                tradition: true,
+                place: true,
+                person: true,
+                religious: true,
+                symbol: true,
+                food: true
+            });
+            const [linkDistance, setLinkDistance] = useState(100);
+            const [highlightNodes, setHighlightNodes] = useState(new Set());
+            const [highlightLinks, setHighlightLinks] = useState(new Set());
+            const [hoverNode, setHoverNode] = useState(null);
+
+            const getFilteredData = useCallback(() => {
+                const filteredNodes = graphData.nodes.filter(node => {
+                    const categoryMatch = selectedCategories[node.category];
+                    const searchMatch = searchTerm === '' || 
+                        node.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        node.description.toLowerCase().includes(searchTerm.toLowerCase());
+                    return categoryMatch && searchMatch;
+                });
+
+                const nodeIds = new Set(filteredNodes.map(n => n.id));
+                const filteredLinks = graphData.links.filter(link => 
+                    nodeIds.has(link.source.id || link.source) && 
+                    nodeIds.has(link.target.id || link.target)
+                );
+
+                return { nodes: filteredNodes, links: filteredLinks };
+            }, [selectedCategories, searchTerm]);
+
+            const toggleCategory = (category) => {
+                setSelectedCategories(prev => ({
+                    ...prev,
+                    [category]: !prev[category]
+                }));
+            };
+
+            const handleNodeHover = (node) => {
+                setHoverNode(node);
+                if (node) {
+                    const neighbors = new Set();
+                    const links = new Set();
+                    graphData.links.forEach(link => {
+                        const source = link.source.id || link.source;
+                        const target = link.target.id || link.target;
+                        if (source === node.id) {
+                            neighbors.add(target);
+                            links.add(link);
+                        }
+                        if (target === node.id) {
+                            neighbors.add(source);
+                            links.add(link);
+                        }
+                    });
+                    neighbors.add(node.id);
+                    setHighlightNodes(neighbors);
+                    setHighlightLinks(links);
+                } else {
+                    setHighlightNodes(new Set());
+                    setHighlightLinks(new Set());
+                }
+            };
+
+            const handleNodeClick = (node) => {
+                if (node.url) {
+                    window.open(node.url, '_blank');
+                }
+            };
+
+            const filteredData = getFilteredData();
+
+            return React.createElement('div', { style: { display: 'flex', width: '100vw', height: '100vh' } },
+                // Control Panel
+                React.createElement('div', { className: 'control-panel' },
+                    React.createElement('h1', null, '🎄 Christmas Traditions'),
+                    React.createElement('p', { className: 'subtitle' }, 'Interactive Knowledge Graph'),
+                    
+                    React.createElement('div', { className: 'section' },
+                        React.createElement('div', { className: 'section-title' }, '🔍 Search'),
+                        React.createElement('input', {
+                            type: 'text',
+                            value: searchTerm,
+                            onChange: (e) => setSearchTerm(e.target.value),
+                            placeholder: 'Search traditions...'
+                        })
+                    ),
+
+                    React.createElement('div', { className: 'section' },
+                        React.createElement('div', { className: 'section-title' }, '🎨 Categories'),
+                        React.createElement('div', { className: 'checkbox-group' },
+                            Object.entries(categoryColors).map(([category, color]) =>
+                                React.createElement('label', { 
+                                    key: category, 
+                                    className: 'checkbox-label'
+                                },
+                                    React.createElement('input', {
+                                        type: 'checkbox',
+                                        checked: selectedCategories[category],
+                                        onChange: () => toggleCategory(category)
+                                    }),
+                                    React.createElement('span', { 
+                                        className: 'color-dot',
+                                        style: { backgroundColor: color }
+                                    }),
+                                    React.createElement('span', { className: 'category-name' }, category)
+                                )
+                            )
+                        )
+                    ),
+
+                    React.createElement('div', { className: 'section' },
+                        React.createElement('label', { className: 'slider-label' }, 
+                            `Link Distance: ${linkDistance}`
+                        ),
+                        React.createElement('input', {
+                            type: 'range',
+                            min: '50',
+                            max: '300',
+                            value: linkDistance,
+                            onChange: (e) => setLinkDistance(Number(e.target.value))
+                        })
+                    ),
+
+                    React.createElement('div', { className: 'section' },
+                        React.createElement('div', { className: 'section-title' }, '⚙️ Graph Controls'),
+                        React.createElement('div', { className: 'button-group' },
+                            React.createElement('button', {
+                                onClick: () => graphRef.current?.zoomIn()
+                            }, 'Zoom In'),
+                            React.createElement('button', {
+                                onClick: () => graphRef.current?.zoomOut()
+                            }, 'Zoom Out')
+                        ),
+                        React.createElement('button', {
+                            className: 'full-width',
+                            onClick: () => graphRef.current?.zoomToFit(400)
+                        }, 'Fit to Screen')
+                    ),
+
+                    React.createElement('div', { className: 'legend' },
+                        React.createElement('div', { className: 'legend-title' }, 'Legend'),
+                        React.createElement('p', { className: 'legend-text' }, 
+                            'Click nodes to visit Wikipedia'
+                        ),
+                        React.createElement('p', { className: 'legend-text' }, 
+                            'Hover to see connections'
+                        )
+                    ),
+
+                    React.createElement('div', { className: 'stats' },
+                        React.createElement('div', { className: 'stat-row' },
+                            React.createElement('span', null, 'Nodes:'),
+                            React.createElement('span', { className: 'stat-value' }, filteredData.nodes.length)
+                        ),
+                        React.createElement('div', { className: 'stat-row' },
+                            React.createElement('span', null, 'Connections:'),
+                            React.createElement('span', { className: 'stat-value' }, filteredData.links.length)
+                        )
+                    )
+                ),
+
+                // Graph Container
+                React.createElement('div', { className: 'graph-container' },
+                    React.createElement(ForceGraph2D, {
+                        ref: graphRef,
+                        graphData: filteredData,
+                        nodeLabel: node => `
+                            <div style="background: rgba(0,0,0,0.9); padding: 8px; border-radius: 4px; max-width: 200px;">
+                                <strong style="color: ${categoryColors[node.category]}">${node.name}</strong>
+                                <br/>
+                                <span style="font-size: 12px; color: #ccc;">${node.description}</span>
+                                <br/>
+                                <span style="font-size: 11px; color: #999;">Click to learn more</span>
+                            </div>
+                        `,
+                        nodeCanvasObject: (node, ctx, globalScale) => {
+                            const label = node.name;
+                            const fontSize = 12/globalScale;
+                            ctx.font = `${fontSize}px Sans-Serif`;
+                            
+                            const isHighlighted = highlightNodes.has(node.id);
+                            const nodeSize = isHighlighted ? 6 : 4;
+                            
+                            ctx.fillStyle = categoryColors[node.category];
+                            ctx.beginPath();
+                            ctx.arc(node.x, node.y, nodeSize, 0, 2 * Math.PI);
+                            ctx.fill();
+                            
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillStyle = isHighlighted ? '#ffffff' : '#cccccc';
+                            ctx.fillText(label, node.x, node.y + nodeSize + fontSize);
+                            
+                            if (isHighlighted) {
+                                ctx.strokeStyle = categoryColors[node.category];
+                                ctx.lineWidth = 2/globalScale;
+                                ctx.beginPath();
+                                ctx.arc(node.x, node.y, nodeSize + 2, 0, 2 * Math.PI);
+                                ctx.stroke();
+                            }
+                        },
+                        linkColor: link => {
+                            const isHighlighted = highlightLinks.has(link);
+                            return isHighlighted ? '#ffffff' : 'rgba(150,150,150,0.3)';
+                        },
+                        linkWidth: link => highlightLinks.has(link) ? 2 : 1,
+                        linkDirectionalParticles: link => highlightLinks.has(link) ? 2 : 0,
+                        linkDirectionalParticleWidth: 2,
+                        d3VelocityDecay: 0.3,
+                        d3AlphaDecay: 0.02,
+                        linkDistance: linkDistance,
+                        onNodeHover: handleNodeHover,
+                        onNodeClick: handleNodeClick,
+                        backgroundColor: '#111827',
+                        cooldownTicks: 100,
+                        onEngineStop: () => graphRef.current?.zoomToFit(400, 50),
+                        width: window.innerWidth - 320,
+                        height: window.innerHeight
+                    }),
+                    
+                    hoverNode && React.createElement('div', { className: 'hover-info' },
+                        React.createElement('h3', { style: { color: categoryColors[hoverNode.category] } }, 
+                            hoverNode.name
+                        ),
+                        React.createElement('p', { className: 'category-tag' }, hoverNode.category),
+                        React.createElement('p', null, hoverNode.description)
+                    )
+                )
+            );
+        }
+
+        ReactDOM.render(React.createElement(App), document.getElementById('root'));
+    </script>
+</body>
+</html>
