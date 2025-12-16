@@ -21,10 +21,15 @@ This is a standalone HTML file that runs entirely in your web browser
 ## Browser Compatibility
 
 The graph works best in modern browsers:
+
 - ✅ Google Chrome (recommended)
+
 - ✅ Mozilla Firefox
+
 - ✅ Microsoft Edge
+
 - ✅ Safari
+
 - ✅ Opera
 
 ## Features
@@ -53,21 +58,35 @@ The graph works best in modern browsers:
 
 ### Node Categories
 The graph includes these categories:
+
 - 🟡 **Religion** - Religious elements
+
 - 🟢 **Place** - Countries and regions
+
 - 🔴 **Tradition** - Christmas customs and practices
+
 - ⚪ **Commercialisation** - Modern commercial aspects
+
 - 🟣 **Symbol** - Christmas symbols
+
 - 🔵 **Person** - Historical figures
+
 - 🟠 **Food** - Traditional foods and beverages
+
 
 ### Relationship Types
 The graph uses 6 simplified relationship types:
+
 - 🟢 **Originated In** - Geographic origins of traditions
+
 - 🟡 **Associated With** - Cultural associations and connections
+
 - 🟣 **Influenced** - Cultural influence and shaping
+
 - 🔴 **Derived From** - Evolution and derivation from earlier traditions
+
 - 🔵 **Created By** - Who created or authored something
+
 - 🟠 **Popularized** - How traditions spread and gained popularity
 
 

@@ -88,6 +88,8 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 [interactive version](https://thomas-weissensteiner.github.io/github.io/CKG.html)
 
+[usage instructions](README_christmas-knowledge-graph_improved-Thomas_Weissensteiner.html)
+
 [link to prompt](#example8 code)
 
 <a id="example9"></a>
