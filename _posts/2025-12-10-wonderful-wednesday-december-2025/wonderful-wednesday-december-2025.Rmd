@@ -15,7 +15,8 @@ preview: ./images/snowman.gif
 output:
   distill::distill_article:
     self_contained: false
-
+    toc: true
+ 
 ---
 
 
@@ -38,45 +39,97 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 
 <a id="example1"></a>
 
-### Step by step to a snowman
+### Gestalt Principle #1: Proximity
 
-![](./images/snowman00.png)  
+<div class "layout-chunk" data-layout="l-body side">
+<img align="right" src="images/snowman00.png" width="50%">
+<i>“Elements that are close together are perceived as being related.”</i>
+<br><br>
+Mapping variables to X and Y dimensions in a scatter plot provide insights into related groups of data points. </div>
 
 [link to code](#example1 code)
 
 <a id="example2"></a>
 
-![](./images/snowman01.png)  
+### Gestalt Principle #2: Similarity
+
+<div class "layout-chunk" data-layout="l-body side">
+<img align="right" src="images/snowman01.png" width="50%">
+<i>“Elements that share visual characteristics like colour, size, or shape are perceived as belonging to the same group.”</i>
+<br><br>
+The data are grouped into categories, with each group mapped to a different shape/colour. 
+<br><br>
+The three points appearing close together belong to the same group, separated from the other groups.
+</div>
 
 [link to code](#example2 code)
 
 <a id="example3"></a>
 
-![](./images/snowman02.png)  
+### Gestalt Principle #3: Enclosure 
+
+<div class "layout-chunk" data-layout="l-body side">
+<img align="right" src="images/snowman02.png" width="50%">
+<i>“Elements that are enclosed within a boundary, such as a border or a shaded region, are perceived as a group.”</i>
+<br><br>
+The graph is annotated to emphasis the two groups by use of enclosure.
+
+</div>
 
 [link to code](#example3 code)
 
 <a id="example4"></a>
 
-![](./images/snowman03.png)  
+<div class "layout-chunk" data-layout="l-body side">
+<img align="right" src="images/snowman03.png" width="50%">
+Additional data points are added from a  fourth group, mapped to a white colour aesthetic. These data appear to have a random pattern.
+
+</div>
 
 [link to code](#example4 code)
 
 <a id="example5"></a>
 
-![](./images/snowman04.png)  
+### Gestalt Principle #4: Figure–Ground
+
+<div class "layout-chunk" data-layout="l-body side">
+<img align="right" src="images/snowman04.png" width="50%">
+<i>“The mind distinguishes between objects in the foreground (figure) and the background (ground).”</i>
+<br><br>
+Filling the circular enclosures separates the original data points from the unstructured data.
+
+</div>
 
 [link to code](#example5 code)
 
 <a id="example6"></a>
 
-![](./images/snowman05.gif)  
+### Gestalt Principle #5 : Common Fate
+
+<div class "layout-chunk" data-layout="l-body side">
+<img align="right" src="images/snowman05.gif" width="50%">
+<i>“Elements that move or change together are perceived as related.”</i>
+<br><br>
+Data mapped to white symbols form a time series, and animation is used to show evolution over time.
+
+</div>
+
 
 [link to code](#example6 code)
 
 <a id="example7"></a>
 
-![](./images/snowman06.gif)  
+### Gestalt Principle #6: Prägnanz 
+
+<div class "layout-chunk" data-layout="l-body side">
+<img align="right" src="images/snowman06.gif" width="50%">
+Prägnanz is a German word that means “pithiness” or “concise and meaningful”.
+<br><br>
+We can apply this principle by removing unnecessary graph elements.
+<br><br>
+We also add a title with a clear message!
+
+</div>
 
 [link to code](#example7 code)
 
@@ -188,7 +241,7 @@ A recording of the session can be found [here](https://psiweb.org/vod/item/psi-v
 I (Thomas) used Claude.ai, Sonnet 4.5. to generate this graph. Claude's response is [christmas-knowledge-graph_prototype.html](christmas-knowledge-graph_prototype-Thomas_Weissensteiner.html).
 A lot of editing and tweaking eventually led to [christmas-knowledge-graph_improved.html](christmas-knowledge-graph_improved-Thomas_Weissensteiner.html). Because I overran the limits for an individual conversation, I had to restart the thread. I usually use this to ask Claude to check the code for any "clutter" that might have accumulated during previous iterations.
 
-# Initial prompt #
+<b>Initial prompt</b>
 
 I would like to generate an interactive knowledge graph. The theme is popular Christmas traditions around the world, their historical origins, relationships with each other, and other contemporary customs.
 Interactive features could include 
@@ -198,7 +251,7 @@ Please
 * add suggestions for content and visualisation (bullet point list, minimal details)
 * sketch a strategy for implementation, including programming language(s) and packages best suited for the task, and a bullet-point outline of the essential tasks involved in building the knowledge graph
 
-# Prompt initiating the follow-up thread #
+<b>Prompt initiating the follow-up thread</b>
 
 I would like to generate an interactive knowledge graph. 
 [..., as above]
