@@ -9,7 +9,7 @@ author:
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
 date: 01-14-2026
 categories:
-  - Interactive vuisualisation
+  - Interactive visualisation
   - Data explorer
   - Subgroups
   - Wonderful Wednesdays
