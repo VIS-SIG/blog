@@ -7,7 +7,7 @@ description: |
 author:
   - name: PSI VIS SIG
     url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
-date: 01-14-2026
+date: 02-11-2026
 categories:
   - Wonderful Wednesdays
 base_url: https://vis-sig.github.io/blog

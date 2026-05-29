@@ -7,7 +7,17 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 14 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesday February 2026 (71)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026</link>
+      <description>Exercise in Pregnancy</description>
+      <category>Wonderful Wednesdays</category>
+      <guid>https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026</guid>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026/./images/saccone_exercise_ppd.png" medium="image" type="image/png" width="3500" height="2528"/>
+    </item>
     <item>
       <title>Wonderful Wednesday January 2026 (70)</title>
       <dc:creator>PSI VIS SIG</dc:creator>
@@ -22,16 +32,6 @@ Presenting the data explorer to look at distributions, trends and subgroups</des
       <guid>https://graphicsprinciples.github.io/posts/2026-01-14-wonderful-wednesday-january-2026</guid>
       <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
       <media:content url="https://graphicsprinciples.github.io/posts/2026-01-14-wonderful-wednesday-january-2026/./images/STEPPcomparison_diagWindow30_new.png" medium="image" type="image/png" width="1089" height="544"/>
-    </item>
-    <item>
-      <title>Wonderful Wednesday February 2026 (71)</title>
-      <dc:creator>PSI VIS SIG</dc:creator>
-      <link>https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026</link>
-      <description>Exercise in Pregnancy</description>
-      <category>Wonderful Wednesdays</category>
-      <guid>https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026</guid>
-      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
-      <media:content url="https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026/./images/saccone_exercise_ppd.png" medium="image" type="image/png" width="3500" height="2528"/>
     </item>
     <item>
       <title>Wonderful Wednesday December 2025 (69)</title>
