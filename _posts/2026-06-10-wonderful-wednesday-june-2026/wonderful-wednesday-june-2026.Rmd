@@ -22,8 +22,7 @@ output:
 ---
 
 
-# Exercise in Pregnancy
-
+# Fraud in Clinical Trials
 
 ## The background
 
@@ -36,7 +35,7 @@ Explore the data using data visualisation and discover which site contains fabri
 Use one or more data visualisations to provide convincing evidence to influence the study team to conduct further investigation
 
 A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2026/2026-05-13/).  
-A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-75-fraud-in-clinical-trials). 
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-75--fraud-in-clinical-trials). 
 
 ## Visualisation
 
