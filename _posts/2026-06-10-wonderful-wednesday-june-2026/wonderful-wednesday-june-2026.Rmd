@@ -1,0 +1,53 @@
+---
+title: "Wonderful Wednesday June 2026 (75)"
+description: |
+  Fraud in Clinical Trials
+  
+  
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 06-10-2026
+categories:
+  - Wonderful Wednesdays
+  - fraud
+  - heatmap
+base_url: https://vis-sig.github.io/blog
+preview: ./images/heatmap.png
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+ 
+---
+
+
+# Exercise in Pregnancy
+
+
+## The background
+
+Clinical trial fraud involving fabricated patients is a well-documented problem in research integrity. Statistical methods, including data visualisation, can be a first line of detection, flagging sites for deeper investigation. A simulated dataset is provided for a randomised, controlled multi-centre study studying an active treatment versus placebo in blood pressure reduction. One site contains data that is fraudulent.
+
+## The challenge
+
+Explore the data using data visualisation and discover which site contains fabricated data
+
+Use one or more data visualisations to provide convincing evidence to influence the study team to conduct further investigation
+
+A description of the challenge can also be found [here](https://vis-sig.github.io/Wonderful-Wednesdays/data/2026/2026-05-13/).  
+A recording of the session can be found [here](https://psiweb.org/vod/item/psi-vissig-wonderful-wednesday-75-fraud-in-clinical-trials). 
+
+## Visualisation
+
+See the different reports created from:
+
+* [Viktoriia](./Fraud_Detection-Victoriia.html)
+* [Rhys](./Fraud_Detection-Rhys.html)
+* [Zara](./Fraud_Detection-Zara.html)
+
+
+
+
+
+

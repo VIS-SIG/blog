@@ -7,7 +7,19 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesday June 2026 (75)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2026-06-10-wonderful-wednesday-june-2026</link>
+      <description>Fraud in Clinical Trials</description>
+      <category>Wonderful Wednesdays</category>
+      <category>fraud</category>
+      <category>heatmap</category>
+      <guid>https://graphicsprinciples.github.io/posts/2026-06-10-wonderful-wednesday-june-2026</guid>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2026-06-10-wonderful-wednesday-june-2026/./images/heatmap.png" medium="image" type="image/png" width="1015" height="580"/>
+    </item>
     <item>
       <title>Wonderful Wednesday February 2026 (71)</title>
       <dc:creator>PSI VIS SIG</dc:creator>
@@ -15,7 +27,7 @@
       <description>Exercise in Pregnancy</description>
       <category>Wonderful Wednesdays</category>
       <guid>https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026</guid>
-      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
       <media:content url="https://graphicsprinciples.github.io/posts/2026-02-11-wonderful-wednesday-february-2026/./images/saccone_exercise_ppd.png" medium="image" type="image/png" width="3500" height="2528"/>
     </item>
     <item>
