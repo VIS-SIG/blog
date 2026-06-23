@@ -1,0 +1,90 @@
+---
+title: "Wonderful Wednesday March 2026 (72)"
+description: |
+  Treatment Attributes
+  
+  
+author:
+  - name: PSI VIS SIG
+    url: https://www.psiweb.org/sigs-special-interest-groups/visualisation
+date: 03-11-2026
+categories:
+  - Wonderful Wednesdays
+  - Treatment Attributes
+  - Benefit-Risk
+  - heatmap
+base_url: https://vis-sig.github.io/blog
+preview: ./images/radar_chart.png
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+ 
+---
+
+
+# Treatment Attributes
+
+
+## The background
+
+The current challenge considers a hypothetical measure, the “Complete Disease Index” (CDI). The measure consists of five domains, each scored on a visual analogue scale from 0-100 (0=worst possible outcome, 100=best possible outcome). The simulated data reflects a trial where 500 participants, randomized at random to one of five treatment arms, score each CDI domain at Baseline and two follow-up visits (after 6 and 12 months).
+
+## The challenge
+
+The challenge is to compare the relative performance of the treatments across the individual domains and overall, considering how this might change depending on the importance that subjects place on each domain.
+
+## Visualisations
+
+<a id="example1"></a>
+
+### Example 1: Radar Chart
+
+![](./images/radar_chart.png)  
+
+<a id="example2"></a>
+
+### Example 2: Heatmaps by Domain
+
+![](./images/domain_heatmaps.png)
+
+<a id="example3"></a>
+
+### Example 3: Mean Change Heatmaps
+
+![](./images/chg_heatmaps.png)
+
+<a id="example4"></a>
+
+### Example 4: Weighted Heatmap
+
+![](./images/weighted_heatmap.png)
+
+<a id="example5"></a>
+
+### Example 5: Benefit-Risk Trade-Off
+
+![](./images/br_plot.png)
+
+<a id="example6"></a>
+
+### Example 6: Dashboard
+
+![](./images/dashboard.png)
+
+[link to code](#example6 code)
+
+
+## Code
+
+<a id="example6 code"></a>
+
+### Code for Dashboard
+
+```{r, echo = TRUE, eval=FALSE, code = readLines("./code/RWA_WWW_March2026.R")}
+
+```
+
+[Back to blog](#example1)
+
+
