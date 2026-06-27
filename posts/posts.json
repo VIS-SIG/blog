@@ -23,6 +23,30 @@
     "preview_height": 580
   },
   {
+    "path": "posts/2026-05-13-wonderful-wednesday-may-2026/",
+    "title": "Wonderful Wednesday May 2026 (74)",
+    "description": "Glycemic Control",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2026-05-13",
+    "categories": [
+      "Wonderful Wednesdays",
+      "Improvement",
+      "Lollipop",
+      "Infographic"
+    ],
+    "contents": "\r\n\r\nContents\r\nGlycemic Control\r\nThe background\r\nThe challenge\r\nVisualisations\r\nExample 1: First Draft\r\nExample 2: Polished Lollipop Plot\r\nExample 3: Treatment Timeline\r\nExample 4: Infographic\r\nExample 5: Timeline Difference\r\n\r\nCode\r\nCode for Example 1\r\n\r\n\r\n\r\nGlycemic Control\r\nThe background\r\nType 2 diabetes (T2D) is a growing health challenge in China, where many patients struggle to manage their blood sugar and weight effectively. This study looked at the long-term health and cost benefits of achieving three treatment goals: blood sugar control, weight loss, and avoiding low blood sugar episodes. Using a UK Prospective Diabetes Study Outcomes Model Version 2 (UKPDS OM2) based on patient data from a clinical trial recruiting predominantly Chinese adults with T2D, researchers found that patients who met these goals for several years had fewer diabetes-related complications, lived longer, and had better quality of life. They also saved money on healthcare costs—up to ¥53,234 per person over 30 years. The longer patients maintained these goals, the greater the benefits. These findings support the importance of achieving and maintaining treatment targets to improve health outcomes and reduce costs for people with T2D in China.\r\nThe publication is available via Taylor and Francis.\r\nThe challenge\r\nThe challenge is to identify alternative design choices for the plot below to convey the main conclusion from the study results. Or to create a new plot.\r\n\r\nVisualisations\r\n\r\nExample 1: First Draft\r\n\r\nlink to code\r\n\r\nExample 2: Polished Lollipop Plot\r\n\r\n\r\nExample 3: Treatment Timeline\r\n\r\n\r\nExample 4: Infographic\r\n\r\n\r\nExample 5: Timeline Difference\r\n\r\nCode\r\n\r\nCode for Example 1\r\n\r\n\r\nlibrary(ggplot2)\r\nlibrary(ggtext)\r\nlibrary(scales)\r\n\r\n# ggplot2 default colours\r\ndefault_cols <- hue_pal()(2)\r\n\r\n# Fix y-axis range (preserved)\r\ny_limits <- c(0, 1)\r\ny_range  <- diff(y_limits)\r\n\r\n# Position lollipops at ~40% and ~60% of y-range\r\ny_short <- y_limits[1] + 0.60 * y_range\r\ny_long  <- y_limits[1] + 0.40 * y_range\r\n\r\ndf <- data.frame(\r\n  group = factor(c(\"Failing\", \"Sustaining\"),\r\n                 levels = c(\"Failing\", \"Sustaining\")),\r\n  y     = c(y_short, y_long),\r\n  time  = c(2, 11)\r\n)\r\n\r\n# Arrow position\r\narrow_y <- mean(df$y)\r\n\r\np <- ggplot(df, aes(x = time, y = y, colour = group)) +\r\n  \r\n  # Lollipop stems\r\n  geom_segment(\r\n    aes(x = 0, xend = time, yend = y),\r\n    linewidth = 2\r\n  ) +\r\n  \r\n  # Lollipop heads\r\n  geom_point(size = 10) +\r\n  \r\n  # Vertical reference line at time = 0\r\n  geom_vline(\r\n    xintercept = 0,\r\n    linetype = \"dashed\",\r\n    linewidth = 2\r\n  ) +\r\n  \r\n  # Arrow between lollipops\r\n  annotate(\r\n    \"segment\",\r\n    x = 2, xend = 11,\r\n    y = arrow_y, yend = arrow_y,\r\n    linewidth = 2,\r\n    arrow = arrow(length = unit(0.35, \"cm\"))\r\n  ) +\r\n  \r\n  # Arrow label\r\n  annotate(\r\n    \"label\",\r\n    x = 6.5,\r\n    y = arrow_y,\r\n    label = \"+9 years\",\r\n    size = 10,\r\n    fontface = \"bold\",\r\n    fill = \"white\",\r\n    linewidth = 0\r\n  ) +\r\n  \r\n  # Numeric labels at lollipop ends\r\n  annotate(\r\n    \"text\",\r\n    x = 2,\r\n    y = y_short + 0.05,\r\n    label = \"2\",\r\n    colour = default_cols[1],\r\n    size = 10,\r\n    fontface = \"bold\"\r\n  ) +\r\n  annotate(\r\n    \"text\",\r\n    x = 11,\r\n    y = y_long - 0.05,\r\n    label = \"11\",\r\n    colour = default_cols[2],\r\n    size = 10,\r\n    fontface = \"bold\"\r\n  ) +\r\n  \r\n  # Scales\r\n  scale_y_continuous(breaks = NULL, limits = y_limits) +\r\n  scale_colour_manual(values = default_cols) +\r\n  scale_x_continuous(expand = expansion(mult = c(0.02, 0.05))) +\r\n  \r\n  # Labels\r\n  labs(\r\n    x = \"Time To Diabetic Treatment Intensification (Years)\",\r\n    y = NULL,\r\n    title = paste0(\r\n      \"Patients <span style='color:\", default_cols[2], \"'>\",\r\n      \"sustaining composite treatment targets\",\r\n      \"<\/span> delayed diabetic treatment intensification <br> by an average of \",\r\n      \"9 years compared with \",\r\n      \"<span style='color:\", default_cols[1], \"'>\",\r\n      \"those failing to do so\",\r\n      \"<\/span>\"\r\n    )\r\n  ) +\r\n  \r\n  # Theme\r\n  theme_minimal(base_size = 32) +\r\n  theme(\r\n    axis.line.x  = element_line(colour = \"black\", linewidth = 2),\r\n    axis.text.x  = element_blank(),\r\n    axis.ticks.x = element_blank(),\r\n    panel.grid   = element_blank(),\r\n    plot.title   = element_markdown(size = 32, lineheight = 1.4),\r\n    legend.position = \"none\"\r\n  )\r\n\r\nprint(p)\r\n\r\n\r\nBack to blog\r\n\r\n\r\n\r\n",
+    "preview": "posts/2026-05-13-wonderful-wednesday-may-2026/./images/timeline_diff.png",
+    "last_modified": "2026-06-27T15:58:31+01:00",
+    "input_file": "wonderful-wednesday-may-2026.knit.md",
+    "preview_width": 1146,
+    "preview_height": 615
+  },
+  {
     "path": "posts/2026-04-08-wonderful-wednesday-april-2026/",
     "title": "Wonderful Wednesday April 2026 (73)",
     "description": "Make Better Choices",
