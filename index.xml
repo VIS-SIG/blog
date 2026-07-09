@@ -7,7 +7,20 @@
     <description>The blog of the PSI Visualisation SIG
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Wonderful Wednesday July 2026 (76)</title>
+      <dc:creator>PSI VIS SIG</dc:creator>
+      <link>https://graphicsprinciples.github.io/posts/2026-07-08-wonderful-wednesday-july-2026</link>
+      <description>Pharmacokinetics (PK)</description>
+      <category>Wonderful Wednesdays</category>
+      <category>Interactive visualisation</category>
+      <category>Longitudinal data</category>
+      <category>Pharmacokinetics</category>
+      <guid>https://graphicsprinciples.github.io/posts/2026-07-08-wonderful-wednesday-july-2026</guid>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://graphicsprinciples.github.io/posts/2026-07-08-wonderful-wednesday-july-2026/./images/log_fan.png" medium="image" type="image/png" width="557" height="360"/>
+    </item>
     <item>
       <title>Wonderful Wednesday June 2026 (75)</title>
       <dc:creator>PSI VIS SIG</dc:creator>
@@ -30,7 +43,7 @@
       <category>Lollipop</category>
       <category>Infographic</category>
       <guid>https://graphicsprinciples.github.io/posts/2026-05-13-wonderful-wednesday-may-2026</guid>
-      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
       <media:content url="https://graphicsprinciples.github.io/posts/2026-05-13-wonderful-wednesday-may-2026/./images/timeline_diff.png" medium="image" type="image/png" width="1146" height="615"/>
     </item>
     <item>
