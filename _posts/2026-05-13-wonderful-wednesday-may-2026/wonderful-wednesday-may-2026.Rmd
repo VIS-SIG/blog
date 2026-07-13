@@ -54,11 +54,15 @@ The challenge is to identify alternative design choices for the plot below to co
 
 ![](./images/lollipop_polished.png)
 
+[link to code](#example2 code)
+
 <a id="example3"></a>
 
 ### Example 3: Treatment Timeline
 
 ![](./images/trt_timeline.png)
+
+[link to code](#example3 code)
 
 <a id="example4"></a>
 
@@ -79,6 +83,22 @@ The challenge is to identify alternative design choices for the plot below to co
 ### Code for Example 1
 
 ```{r, echo = TRUE, eval=FALSE, code = readLines("./code/RWA WWW May 2026.R")}
+
+```
+
+<a id="example2 code"></a>
+
+### Code for Example 2
+
+```{r, echo = TRUE, eval=FALSE, code = readLines("./code/WW 2026-05 lollipop.R")}
+
+```
+
+<a id="example3 code"></a>
+
+### Code for Example 3
+
+```{r, echo = TRUE, eval=FALSE, code = readLines("./code/WW 2026-05 treatment_timeline.R")}
 
 ```
 

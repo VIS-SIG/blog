@@ -125,7 +125,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["code/RWA WWW May 2026.R","images/firstdraft.png","images/infographic.png","images/lollipop_polished.png","images/pubplot.png","images/timeline_diff.png","images/trt_timeline.png","wonderful-wednesday-may-2026_files/anchor-4.2.2/anchor.min.js","wonderful-wednesday-may-2026_files/bowser-1.9.3/bowser.min.js","wonderful-wednesday-may-2026_files/distill-2.2.21/template.v2.js","wonderful-wednesday-may-2026_files/header-attrs-2.31/header-attrs.js","wonderful-wednesday-may-2026_files/jquery-3.6.0/jquery-3.6.0.js","wonderful-wednesday-may-2026_files/jquery-3.6.0/jquery-3.6.0.min.js","wonderful-wednesday-may-2026_files/jquery-3.6.0/jquery-3.6.0.min.map","wonderful-wednesday-may-2026_files/popper-2.6.0/popper.min.js","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy.css","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesday-may-2026_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["code/RWA WWW May 2026.R","code/WW 2026-05 lollipop.R","code/WW 2026-05 treatment_timeline.R","images/firstdraft.png","images/infographic.png","images/lollipop_polished.png","images/pubplot.png","images/timeline_diff.png","images/trt_timeline.png","wonderful-wednesday-may-2026_files/anchor-4.2.2/anchor.min.js","wonderful-wednesday-may-2026_files/bowser-1.9.3/bowser.min.js","wonderful-wednesday-may-2026_files/distill-2.2.21/template.v2.js","wonderful-wednesday-may-2026_files/header-attrs-2.31/header-attrs.js","wonderful-wednesday-may-2026_files/jquery-3.6.0/jquery-3.6.0.js","wonderful-wednesday-may-2026_files/jquery-3.6.0/jquery-3.6.0.min.js","wonderful-wednesday-may-2026_files/jquery-3.6.0/jquery-3.6.0.min.map","wonderful-wednesday-may-2026_files/popper-2.6.0/popper.min.js","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy.css","wonderful-wednesday-may-2026_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesday-may-2026_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1577,6 +1577,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#code" id="toc-code">Code</a>
 <ul>
 <li><a href="#code-for-example-1" id="toc-code-for-example-1">Code for Example 1</a></li>
+<li><a href="#code-for-example-2" id="toc-code-for-example-2">Code for Example 2</a></li>
+<li><a href="#code-for-example-3" id="toc-code-for-example-3">Code for Example 3</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1597,9 +1599,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><a id="example2"></a></p>
 <h3 id="example-2-polished-lollipop-plot">Example 2: Polished Lollipop Plot</h3>
 <p><img src="images/lollipop_polished.png" /></p>
+<p><a href="#example2%20code">link to code</a></p>
 <p><a id="example3"></a></p>
 <h3 id="example-3-treatment-timeline">Example 3: Treatment Timeline</h3>
 <p><img src="images/trt_timeline.png" /></p>
+<p><a href="#example3%20code">link to code</a></p>
 <p><a id="example4"></a></p>
 <h3 id="example-4-infographic">Example 4: Infographic</h3>
 <p><img src="images/infographic.png" /></p>
@@ -1727,6 +1731,348 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='op'>)</span></span>
 <span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p><a id="example2 code"></a></p>
+<h3 id="code-for-example-2">Code for Example 2</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ── Data ──────────────────────────────────────────────────────────────────────</span></span>
+<span><span class='va'>lollipop</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tribble.html'>tribble</a></span><span class='op'>(</span></span>
+<span>  <span class='op'>~</span><span class='va'>group</span>,       <span class='op'>~</span><span class='va'>years_first_line</span>,</span>
+<span>  <span class='st'>"Achieved CTT"</span>,   <span class='fl'>11</span>,</span>
+<span>  <span class='st'>"Failed CTT"</span>,      <span class='fl'>2</span></span>
+<span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed CTT"</span>, <span class='st'>"Achieved CTT"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ── Colours ───────────────────────────────────────────────────────────────────</span></span>
+<span><span class='va'>col_achieved</span> <span class='op'>&lt;-</span> <span class='st'>"#1D9E75"</span>   <span class='co'># teal</span></span>
+<span><span class='va'>col_failed</span>   <span class='op'>&lt;-</span> <span class='st'>"#A32D2D"</span>   <span class='co'># red</span></span>
+<span></span>
+<span><span class='co'># ── Plot ──────────────────────────────────────────────────────────────────────</span></span>
+<span><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>lollipop</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>years_first_line</span>, y <span class='op'>=</span> <span class='va'>group</span>, colour <span class='op'>=</span> <span class='va'>group</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span></span>
+<span>  <span class='co'># Reference line at x = 0</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept <span class='op'>=</span> <span class='fl'>0</span>, colour <span class='op'>=</span> <span class='st'>"grey80"</span>, linewidth <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span></span>
+<span>  <span class='co'># Lollipop stems</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span><span class='op'>(</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span>, xend <span class='op'>=</span> <span class='va'>years_first_line</span>, yend <span class='op'>=</span> <span class='va'>group</span><span class='op'>)</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>1.2</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span></span>
+<span>  <span class='co'># Lollipop heads</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span></span>
+<span>  <span class='co'># Value labels inside the heads</span></span>
+<span>  <span class='co'># geom_text(</span></span>
+<span>  <span class='co'>#   aes(label = paste0(years_first_line, " yrs")),</span></span>
+<span>  <span class='co'>#   colour = "white", size = 2.8, fontface = "bold"</span></span>
+<span>  <span class='co'># ) +</span></span>
+<span></span>
+<span>  <span class='co'># 9-year delay annotation</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"segment"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='fl'>2</span>, xend <span class='op'>=</span> <span class='fl'>11</span>, y <span class='op'>=</span> <span class='fl'>1.5</span>, yend <span class='op'>=</span> <span class='fl'>1.5</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"grey40"</span>, linewidth <span class='op'>=</span> <span class='fl'>0.6</span>,</span>
+<span>    arrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/arrow.html'>arrow</a></span><span class='op'>(</span>ends <span class='op'>=</span> <span class='st'>"both"</span>, length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"pt"</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"closed"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"text"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='fl'>6.5</span>, y <span class='op'>=</span> <span class='fl'>1.62</span>,</span>
+<span>    label <span class='op'>=</span> <span class='st'>"9-year delay"</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3</span>, colour <span class='op'>=</span> <span class='st'>"grey30"</span>, fontface <span class='op'>=</span> <span class='st'>"italic"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span></span>
+<span>  <span class='co'># ── Scales ──────────────────────────────────────────────────────────────────</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Achieved CTT"</span> <span class='op'>=</span> <span class='va'>col_achieved</span>, <span class='st'>"Failed CTT"</span> <span class='op'>=</span> <span class='va'>col_failed</span><span class='op'>)</span>,</span>
+<span>    guide  <span class='op'>=</span> <span class='st'>"none"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    name   <span class='op'>=</span> <span class='st'>"Years on first-line therapy before treatment intensification"</span>,</span>
+<span>    limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>14</span><span class='op'>)</span>,</span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>14</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_y_discrete</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span></span>
+<span>  <span class='co'># labs(</span></span>
+<span>  <span class='co'>#   caption = "Intensification triggered at HbA1c ≥6.5% (CTT 1 base case).\nAchieved group: HbA1c ≤6.5%, weight reduction ≥10%, no hypoglycaemia.\nFirst-line therapy preferred: lower complication risk, no hypoglycaemia, no weight gain."</span></span>
+<span>  <span class='co'># ) +</span></span>
+<span></span>
+<span>  <span class='co'># ── Theme ───────────────────────────────────────────────────────────────────</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    panel.background   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"white"</span>, colour <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>,</span>
+<span>    plot.background    <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"white"</span>, colour <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>colour <span class='op'>=</span> <span class='st'>"grey92"</span>, linewidth <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span>,</span>
+<span>    axis.text.y        <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>11</span>, face <span class='op'>=</span> <span class='st'>"bold"</span>, colour <span class='op'>=</span> <span class='st'>"grey20"</span><span class='op'>)</span>,</span>
+<span>    axis.title.x       <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span>, colour <span class='op'>=</span> <span class='st'>"grey30"</span>,</span>
+<span>                                      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    plot.caption       <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>8</span>, colour <span class='op'>=</span> <span class='st'>"grey50"</span>,</span>
+<span>                                      lineheight <span class='op'>=</span> <span class='fl'>1.4</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    plot.margin        <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span><span class='fl'>16</span>, <span class='fl'>20</span>, <span class='fl'>10</span>, <span class='fl'>12</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ── Save ──────────────────────────────────────────────────────────────────────</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span></span>
+<span>  <span class='st'>"lollipop.png"</span>,</span>
+<span>  plot   <span class='op'>=</span> <span class='va'>p</span>,</span>
+<span>  width  <span class='op'>=</span> <span class='fl'>8</span>,</span>
+<span>  height <span class='op'>=</span> <span class='fl'>3.2</span>,</span>
+<span>  dpi    <span class='op'>=</span> <span class='fl'>200</span>,</span>
+<span>  bg     <span class='op'>=</span> <span class='st'>"white"</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"Saved to treatment_timeline.png"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p><a id="example3 code"></a></p>
+<h3 id="code-for-example-3">Code for Example 3</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://wilkelab.org/ggtext/'>ggtext</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ── Data ──────────────────────────────────────────────────────────────────────</span></span>
+<span><span class='co'># Each row is one segment of a patient group's treatment timeline</span></span>
+<span><span class='va'>segments</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tribble.html'>tribble</a></span><span class='op'>(</span></span>
+<span>  <span class='op'>~</span><span class='va'>group</span>,      <span class='op'>~</span><span class='va'>treatment</span>,          <span class='op'>~</span><span class='va'>xmin</span>, <span class='op'>~</span><span class='va'>xmax</span>,</span>
+<span>  <span class='st'>"Achieved"</span>,  <span class='st'>"First-line"</span>,            <span class='fl'>0</span>,    <span class='fl'>11</span>,</span>
+<span>  <span class='st'>"Achieved"</span>,  <span class='st'>"Basal-bolus insulin"</span>,  <span class='fl'>11</span>,    <span class='fl'>30</span>,</span>
+<span>  <span class='st'>"Failed"</span>,    <span class='st'>"First-line"</span>,            <span class='fl'>0</span>,     <span class='fl'>2</span>,</span>
+<span>  <span class='st'>"Failed"</span>,    <span class='st'>"Basal-bolus insulin"</span>,   <span class='fl'>2</span>,    <span class='fl'>30</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Labels centred on each segment</span></span>
+<span><span class='va'>seg_labels</span> <span class='op'>&lt;-</span> <span class='va'>segments</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    xmid  <span class='op'>=</span> <span class='op'>(</span><span class='va'>xmin</span> <span class='op'>+</span> <span class='va'>xmax</span><span class='op'>)</span> <span class='op'>/</span> <span class='fl'>2</span>,</span>
+<span>    label <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case-and-replace-when.html'>case_when</a></span><span class='op'>(</span></span>
+<span>      <span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"First-line"</span> <span class='op'>&amp;</span> <span class='va'>group</span> <span class='op'>==</span> <span class='st'>"Achieved"</span> <span class='op'>~</span> <span class='st'>"First-line therapy · 11 years"</span>,</span>
+<span>      <span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"First-line"</span> <span class='op'>&amp;</span> <span class='va'>group</span> <span class='op'>==</span> <span class='st'>"Failed"</span>   <span class='op'>~</span> <span class='st'>"2 yrs"</span>,</span>
+<span>      <span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"Basal-bolus insulin"</span> <span class='op'>&amp;</span> <span class='va'>group</span> <span class='op'>==</span> <span class='st'>"Achieved"</span> <span class='op'>~</span> <span class='st'>"Basal-bolus insulin · 19 years"</span>,</span>
+<span>      <span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"Basal-bolus insulin"</span> <span class='op'>&amp;</span> <span class='va'>group</span> <span class='op'>==</span> <span class='st'>"Failed"</span>   <span class='op'>~</span> <span class='st'>"Basal-bolus insulin · 28 years"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    <span class='co'># suppress label when bar is too narrow to fit</span></span>
+<span>    show_label <span class='op'>=</span> <span class='op'>!</span><span class='op'>(</span><span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"First-line"</span> <span class='op'>&amp;</span> <span class='va'>group</span> <span class='op'>==</span> <span class='st'>"Failed"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Intensification markers (vertical lines + points)</span></span>
+<span><span class='va'>markers</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tribble.html'>tribble</a></span><span class='op'>(</span></span>
+<span>  <span class='op'>~</span><span class='va'>group</span>,      <span class='op'>~</span><span class='va'>x</span>,</span>
+<span>  <span class='st'>"Achieved"</span>,  <span class='fl'>11</span>,</span>
+<span>  <span class='st'>"Failed"</span>,     <span class='fl'>2</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># 9-year delay annotation (drawn between yr 2 and yr 11)</span></span>
+<span><span class='va'>delay_y</span> <span class='op'>&lt;-</span> <span class='fl'>1.55</span>   <span class='co'># sits between the two rows</span></span>
+<span></span>
+<span><span class='co'># Zone shading rectangles (drawn behind everything)</span></span>
+<span><span class='va'>zones</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tribble.html'>tribble</a></span><span class='op'>(</span></span>
+<span>  <span class='op'>~</span><span class='va'>xmin</span>, <span class='op'>~</span><span class='va'>xmax</span>, <span class='op'>~</span><span class='va'>fill_col</span>, <span class='op'>~</span><span class='va'>zone_label</span>,       <span class='op'>~</span><span class='va'>sublabel</span>,</span>
+<span>  <span class='fl'>0</span>,    <span class='fl'>11</span>,  <span class='st'>"#EAF3DE"</span>, <span class='st'>"Preferred treatment zone"</span>,</span>
+<span>  <span class='st'>"Better glycaemic control · lower complication risk"</span>,</span>
+<span>  <span class='fl'>11</span>,    <span class='fl'>30</span>,  <span class='st'>"#FCEBEB"</span>, <span class='st'>"Treatment intensification zone"</span>,</span>
+<span>  <span class='st'>"Increased hypoglycaemia · weight gain · higher costs"</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ── Colours ───────────────────────────────────────────────────────────────────</span></span>
+<span><span class='va'>col_first</span>   <span class='op'>&lt;-</span> <span class='st'>"#1D9E75"</span>   <span class='co'># teal-400 — first-line bars</span></span>
+<span><span class='va'>col_bolus</span>   <span class='op'>&lt;-</span> <span class='st'>"#F09595"</span>   <span class='co'># red-200  — basal-bolus bars</span></span>
+<span><span class='va'>col_bolus_b</span> <span class='op'>&lt;-</span> <span class='st'>"#A32D2D"</span>   <span class='co'># red-700  — border + markers</span></span>
+<span><span class='va'>col_delay</span>   <span class='op'>&lt;-</span> <span class='st'>"#3B6D11"</span>   <span class='co'># green-600 — delay annotation</span></span>
+<span></span>
+<span><span class='co'># ── Plot ──────────────────────────────────────────────────────────────────────</span></span>
+<span><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 1. Background zone shading</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_rect</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>zones</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>xmin <span class='op'>=</span> <span class='va'>xmin</span>, xmax <span class='op'>=</span> <span class='va'>xmax</span>, fill <span class='op'>=</span> <span class='va'>zone_label</span><span class='op'>)</span>,</span>
+<span>    ymin <span class='op'>=</span> <span class='fl'>0.6</span>, ymax <span class='op'>=</span> <span class='fl'>2.4</span>, alpha <span class='op'>=</span> <span class='fl'>0.55</span>, inherit.aes <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 2. Zone header text (top of chart)</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>zones</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>(</span><span class='va'>xmin</span> <span class='op'>+</span> <span class='va'>xmax</span><span class='op'>)</span> <span class='op'>/</span> <span class='fl'>2</span>, label <span class='op'>=</span> <span class='va'>zone_label</span><span class='op'>)</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>2.28</span>,</span>
+<span>    color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>zones</span><span class='op'>$</span><span class='va'>fill_col</span> <span class='op'>==</span> <span class='st'>"#EAF3DE"</span>, <span class='st'>"#3B6D11"</span>, <span class='st'>"#A32D2D"</span><span class='op'>)</span>,</span>
+<span>    fontface <span class='op'>=</span> <span class='st'>"bold"</span>, size <span class='op'>=</span> <span class='fl'>3.1</span>, vjust <span class='op'>=</span> <span class='fl'>0</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>zones</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>(</span><span class='va'>xmin</span> <span class='op'>+</span> <span class='va'>xmax</span><span class='op'>)</span> <span class='op'>/</span> <span class='fl'>2</span>, label <span class='op'>=</span> <span class='va'>sublabel</span><span class='op'>)</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>2.15</span>,</span>
+<span>    color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>zones</span><span class='op'>$</span><span class='va'>fill_col</span> <span class='op'>==</span> <span class='st'>"#EAF3DE"</span>, <span class='st'>"#3B6D11"</span>, <span class='st'>"#A32D2D"</span><span class='op'>)</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>2.6</span>, vjust <span class='op'>=</span> <span class='fl'>0</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 3. Dashed vertical divider at year 11</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept <span class='op'>=</span> <span class='fl'>11</span>, linetype <span class='op'>=</span> <span class='st'>"dashed"</span>,</span>
+<span>             color <span class='op'>=</span> <span class='va'>col_bolus_b</span>, linewidth <span class='op'>=</span> <span class='fl'>0.5</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 4. Treatment bars</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_rect</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>segments</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      xmin <span class='op'>=</span> <span class='va'>xmin</span> <span class='op'>+</span> <span class='fl'>0.05</span>, xmax <span class='op'>=</span> <span class='va'>xmax</span> <span class='op'>-</span> <span class='fl'>0.05</span>,</span>
+<span>      ymin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>0.22</span>,</span>
+<span>      ymax <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>0.22</span>,</span>
+<span>      fill <span class='op'>=</span> <span class='va'>treatment</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    color <span class='op'>=</span> <span class='cn'>NA</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"First-line"</span>                     <span class='op'>=</span> <span class='va'>col_first</span>,</span>
+<span>      <span class='st'>"Basal-bolus insulin"</span>            <span class='op'>=</span> <span class='va'>col_bolus</span>,</span>
+<span>      <span class='st'>"Preferred treatment zone"</span>       <span class='op'>=</span> <span class='st'>"#EAF3DE"</span>,</span>
+<span>      <span class='st'>"Treatment intensification zone"</span> <span class='op'>=</span> <span class='st'>"#FCEBEB"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"First-line"</span>, <span class='st'>"Basal-bolus insulin"</span><span class='op'>)</span>,</span>
+<span>    name   <span class='op'>=</span> <span class='cn'>NULL</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># dashed border on basal-bolus bars only</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_tile.html'>geom_rect</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>segments</span>, <span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"Basal-bolus insulin"</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      xmin <span class='op'>=</span> <span class='va'>xmin</span> <span class='op'>+</span> <span class='fl'>0.05</span>, xmax <span class='op'>=</span> <span class='va'>xmax</span> <span class='op'>-</span> <span class='fl'>0.05</span>,</span>
+<span>      ymin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>0.22</span>,</span>
+<span>      ymax <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>0.22</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='cn'>NA</span>, color <span class='op'>=</span> <span class='va'>col_bolus_b</span>, linewidth <span class='op'>=</span> <span class='fl'>0.35</span>, linetype <span class='op'>=</span> <span class='st'>"dashed"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 5. Bar labels</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>seg_labels</span>, <span class='va'>show_label</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      x     <span class='op'>=</span> <span class='va'>xmid</span>,</span>
+<span>      y     <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>      label <span class='op'>=</span> <span class='va'>label</span>,</span>
+<span>      color <span class='op'>=</span> <span class='va'>treatment</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3</span>, fontface <span class='op'>=</span> <span class='st'>"bold"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'># "2 yrs" label above the narrow Failed first-line bar</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"text"</span>, x <span class='op'>=</span> <span class='fl'>1</span>, y <span class='op'>=</span> <span class='fl'>1.32</span>, label <span class='op'>=</span> <span class='st'>"2 yrs"</span>,</span>
+<span>           size <span class='op'>=</span> <span class='fl'>2.8</span>, fontface <span class='op'>=</span> <span class='st'>"bold"</span>, color <span class='op'>=</span> <span class='st'>"#085041"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"First-line"</span> <span class='op'>=</span> <span class='st'>"#E1F5EE"</span>, <span class='st'>"Basal-bolus insulin"</span> <span class='op'>=</span> <span class='st'>"#791F1F"</span><span class='op'>)</span>,</span>
+<span>    guide  <span class='op'>=</span> <span class='st'>"none"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 6. Intensification markers (point + vertical line)</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_segment.html'>geom_segment</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>markers</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      x    <span class='op'>=</span> <span class='va'>x</span>, xend <span class='op'>=</span> <span class='va'>x</span>,</span>
+<span>      y    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>0.32</span>,</span>
+<span>      yend <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>0.32</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    color <span class='op'>=</span> <span class='va'>col_bolus_b</span>, linewidth <span class='op'>=</span> <span class='fl'>1.2</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>markers</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      x <span class='op'>=</span> <span class='va'>x</span>,</span>
+<span>      y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>group</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed"</span>, <span class='st'>"Achieved"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    shape <span class='op'>=</span> <span class='fl'>21</span>, fill <span class='op'>=</span> <span class='va'>col_bolus_b</span>, color <span class='op'>=</span> <span class='st'>"white"</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3.5</span>, stroke <span class='op'>=</span> <span class='fl'>1.2</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 7. 9-year delay annotation</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"segment"</span>,</span>
+<span>           x <span class='op'>=</span> <span class='fl'>2</span>, xend <span class='op'>=</span> <span class='fl'>11</span>, y <span class='op'>=</span> <span class='va'>delay_y</span>, yend <span class='op'>=</span> <span class='va'>delay_y</span>,</span>
+<span>           color <span class='op'>=</span> <span class='va'>col_delay</span>, linewidth <span class='op'>=</span> <span class='fl'>0.8</span>,</span>
+<span>           arrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/arrow.html'>arrow</a></span><span class='op'>(</span>ends <span class='op'>=</span> <span class='st'>"both"</span>, length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='st'>"pt"</span><span class='op'>)</span>,</span>
+<span>                         type <span class='op'>=</span> <span class='st'>"closed"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"segment"</span>,</span>
+<span>           x <span class='op'>=</span> <span class='fl'>2</span>,  xend <span class='op'>=</span> <span class='fl'>2</span>,</span>
+<span>           y <span class='op'>=</span> <span class='va'>delay_y</span> <span class='op'>-</span> <span class='fl'>0.04</span>, yend <span class='op'>=</span> <span class='va'>delay_y</span> <span class='op'>+</span> <span class='fl'>0.04</span>,</span>
+<span>           color <span class='op'>=</span> <span class='va'>col_delay</span>, linewidth <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"segment"</span>,</span>
+<span>           x <span class='op'>=</span> <span class='fl'>11</span>, xend <span class='op'>=</span> <span class='fl'>11</span>,</span>
+<span>           y <span class='op'>=</span> <span class='va'>delay_y</span> <span class='op'>-</span> <span class='fl'>0.04</span>, yend <span class='op'>=</span> <span class='va'>delay_y</span> <span class='op'>+</span> <span class='fl'>0.04</span>,</span>
+<span>           color <span class='op'>=</span> <span class='va'>col_delay</span>, linewidth <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"label"</span>,</span>
+<span>           x <span class='op'>=</span> <span class='fl'>6.5</span>, y <span class='op'>=</span> <span class='va'>delay_y</span>,</span>
+<span>           label <span class='op'>=</span> <span class='st'>"9-year delay"</span>,</span>
+<span>           size <span class='op'>=</span> <span class='fl'>2.8</span>, fontface <span class='op'>=</span> <span class='st'>"bold"</span>,</span>
+<span>           color <span class='op'>=</span> <span class='st'>"#27500A"</span>, fill <span class='op'>=</span> <span class='st'>"#EAF3DE"</span>,</span>
+<span>           linewidth <span class='op'>=</span> <span class='fl'>0.3</span>, label.r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>8</span>, <span class='st'>"pt"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 8. Axes + scales</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>30</span>, <span class='fl'>5</span><span class='op'>)</span>,</span>
+<span>    limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>0.5</span>, <span class='fl'>30</span><span class='op'>)</span>,</span>
+<span>    expand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>,</span>
+<span>    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Failed CTT"</span>, <span class='st'>"Achieved CTT"</span><span class='op'>)</span>,</span>
+<span>    limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.55</span>, <span class='fl'>2.45</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title   <span class='op'>=</span> <span class='st'>"Achievement of Composite Treatment Targets (CTT) in predominantly Chinese&lt;br&gt;T2D patients Extends the &lt;span style='color:#3B6D11'&gt;Preferred First-Line Treatment&lt;/span&gt; by 9 Years"</span>,</span>
+<span>    x       <span class='op'>=</span> <span class='st'>"Year of simulation (30-year horizon)"</span>,</span>
+<span>    y       <span class='op'>=</span> <span class='cn'>NULL</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span>  </span>
+<span>  <span class='co'># 9. Legend</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span></span>
+<span>    fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span></span>
+<span>      override.aes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='va'>col_bolus_b</span><span class='op'>)</span>,</span>
+<span>                          linetype <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"solid"</span>, <span class='st'>"dashed"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>      keywidth <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>1.2</span>, <span class='st'>"cm"</span><span class='op'>)</span>, keyheight <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0.4</span>, <span class='st'>"cm"</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='co'># 10. Theme</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>11</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    panel.background   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"white"</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>,</span>
+<span>    plot.background    <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"white"</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"grey90"</span>, linewidth <span class='op'>=</span> <span class='fl'>0.4</span>,</span>
+<span>                                      linetype <span class='op'>=</span> <span class='st'>"dashed"</span><span class='op'>)</span>,</span>
+<span>    axis.text.y        <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span>, face <span class='op'>=</span> <span class='st'>"bold"</span>,</span>
+<span>                                      color <span class='op'>=</span> <span class='st'>"grey30"</span>, hjust <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>,</span>
+<span>    axis.title.x       <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    legend.position    <span class='op'>=</span> <span class='st'>"none"</span>,</span>
+<span>    legend.text        <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span>,</span>
+<span>    plot.title         <span class='op'>=</span> <span class='fu'><a href='https://wilkelab.org/ggtext/reference/element_markdown.html'>element_markdown</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>11</span>, face <span class='op'>=</span> <span class='st'>"bold"</span>, colour <span class='op'>=</span> <span class='st'>"grey20"</span>,</span>
+<span>                                          lineheight <span class='op'>=</span> <span class='fl'>1.3</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>b <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>                                          hjust <span class='op'>=</span> <span class='fl'>0.5</span>, box.colour <span class='op'>=</span> <span class='st'>"black"</span>,</span>
+<span>                                          padding <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span><span class='fl'>6</span>, <span class='fl'>8</span>, <span class='fl'>6</span>, <span class='fl'>8</span><span class='op'>)</span>,</span>
+<span>                                          r <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='st'>"pt"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    plot.caption       <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>7.5</span>, color <span class='op'>=</span> <span class='st'>"grey50"</span>,</span>
+<span>                                      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    plot.margin        <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span><span class='fl'>12</span>, <span class='fl'>16</span>, <span class='fl'>8</span>, <span class='fl'>8</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ── Save ──────────────────────────────────────────────────────────────────────</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span></span>
+<span>  <span class='st'>"treatment_timeline.png"</span>,</span>
+<span>  plot   <span class='op'>=</span> <span class='va'>p</span>,</span>
+<span>  width  <span class='op'>=</span> <span class='fl'>10</span>,</span>
+<span>  height <span class='op'>=</span> <span class='fl'>4.2</span>,</span>
+<span>  dpi    <span class='op'>=</span> <span class='fl'>200</span>,</span>
+<span>  bg     <span class='op'>=</span> <span class='st'>"white"</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"Saved to treatment_timeline.png"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <p><a href="#example1">Back to blog</a></p>
