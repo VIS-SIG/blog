@@ -125,7 +125,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["code/RWA_WWW_April2026.R","images/dashboard.png","images/line_anim.gif","images/lineplot_grid.png","images/lineplot_sidebyside.png","images/publication1.png","images/publication2.png","images/scatter_anim.gif","wonderful-wednesday-april-2026_files/anchor-4.2.2/anchor.min.js","wonderful-wednesday-april-2026_files/bowser-1.9.3/bowser.min.js","wonderful-wednesday-april-2026_files/distill-2.2.21/template.v2.js","wonderful-wednesday-april-2026_files/header-attrs-2.31/header-attrs.js","wonderful-wednesday-april-2026_files/jquery-3.6.0/jquery-3.6.0.js","wonderful-wednesday-april-2026_files/jquery-3.6.0/jquery-3.6.0.min.js","wonderful-wednesday-april-2026_files/jquery-3.6.0/jquery-3.6.0.min.map","wonderful-wednesday-april-2026_files/popper-2.6.0/popper.min.js","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy.css","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesday-april-2026_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["code/RWA_WWW_April2026.R","code/WW 2026-04 anim.R","code/WW 2026-04.R","images/dashboard.png","images/line_anim.gif","images/lineplot_grid.png","images/lineplot_sidebyside.png","images/publication1.png","images/publication2.png","images/scatter_anim.gif","wonderful-wednesday-april-2026_files/anchor-4.2.2/anchor.min.js","wonderful-wednesday-april-2026_files/bowser-1.9.3/bowser.min.js","wonderful-wednesday-april-2026_files/distill-2.2.21/template.v2.js","wonderful-wednesday-april-2026_files/header-attrs-2.31/header-attrs.js","wonderful-wednesday-april-2026_files/jquery-3.6.0/jquery-3.6.0.js","wonderful-wednesday-april-2026_files/jquery-3.6.0/jquery-3.6.0.min.js","wonderful-wednesday-april-2026_files/jquery-3.6.0/jquery-3.6.0.min.map","wonderful-wednesday-april-2026_files/popper-2.6.0/popper.min.js","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy.css","wonderful-wednesday-april-2026_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesday-april-2026_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1580,6 +1580,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#code" id="toc-code">Code</a>
 <ul>
 <li><a href="#code-for-example-1" id="toc-code-for-example-1">Code for Example 1</a></li>
+<li><a href="#code-for-example-2" id="toc-code-for-example-2">Code for Example 2</a></li>
+<li><a href="#code-for-example-4" id="toc-code-for-example-4">Code for Example 4</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1604,12 +1606,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><a id="example2"></a></p>
 <h3 id="example-2-static-lineplots-2">Example 2: Static Lineplots (2)</h3>
 <p><img src="images/lineplot_sidebyside.png" /></p>
+<p><a href="#example2%20code">link to code</a></p>
 <p><a id="example3"></a></p>
 <h3 id="example-3-dashboard">Example 3: Dashboard</h3>
 <p><img src="images/dashboard.png" /></p>
 <p><a id="example4"></a></p>
 <h3 id="example-4-animated-lineplot">Example 4: Animated Lineplot</h3>
 <p><img src="images/line_anim.gif" /></p>
+<p><a href="#example4%20code">link to code</a></p>
 <p><a id="example5"></a></p>
 <h3 id="example-5-animated-scatter-plot">Example 5: Animated Scatter Plot</h3>
 <p><img src="images/scatter_anim.gif" /></p>
@@ -1799,7 +1803,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>p_sleep_abs</span> <span class='op'>&lt;-</span> <span class='va'>p_sleep_upper</span> <span class='op'>/</span> <span class='va'>p_sleep_lower</span> <span class='op'>+</span></span>
-<span>  <span class='fu'>plot_layout</span><span class='op'>(</span>heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_layout.html'>plot_layout</a></span><span class='op'>(</span>heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'># ----------------------------</span></span>
 <span><span class='co'># 4. SLEEP — CHANGE (KEEP x‑ticks)</span></span>
@@ -1833,7 +1837,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='op'>(</span><span class='va'>p_stress_abs</span> <span class='op'>|</span> <span class='va'>p_stress_chg</span><span class='op'>)</span> <span class='op'>/</span></span>
 <span>    <span class='op'>(</span><span class='va'>p_sleep_abs</span>  <span class='op'>|</span> <span class='va'>p_sleep_chg</span><span class='op'>)</span></span>
 <span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'>plot_annotation</span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://patchwork.data-imaginist.com/reference/plot_annotation.html'>plot_annotation</a></span><span class='op'>(</span></span>
 <span>    title <span class='op'>=</span> <span class='va'>overall_title</span>,</span>
 <span>    theme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
 <span>      plot.title <span class='op'>=</span> <span class='fu'>ggtext</span><span class='fu'>::</span><span class='fu'><a href='https://wilkelab.org/ggtext/reference/element_markdown.html'>element_markdown</a></span><span class='op'>(</span></span>
@@ -1846,6 +1850,141 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>final_plot</span></span></code></pre>
+</div>
+</div>
+<p><a id="example2 code"></a></p>
+<h3 id="code-for-example-2">Code for Example 2</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># ---- Load libraries ----</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ---- Load data ----</span></span>
+<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"simulated_MBC2_data.csv"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ---- Summarize data by arm and time ----</span></span>
+<span><span class='va'>summary_data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>arm</span>, <span class='va'>time</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span></span>
+<span>    mean_stress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>stress</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>    se_stress   <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>stress</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    mean_sleep  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>sleep</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>    se_sleep    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>sleep</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    .groups <span class='op'>=</span> <span class='st'>"drop"</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># ---- Reshape for faceted plotting ----</span></span>
+<span><span class='va'>summary_long</span> <span class='op'>&lt;-</span> <span class='va'>summary_data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span></span>
+<span>    cols <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>starts_with</a></span><span class='op'>(</span><span class='st'>"mean"</span><span class='op'>)</span>,</span>
+<span>    names_to <span class='op'>=</span> <span class='st'>"outcome"</span>,</span>
+<span>    values_to <span class='op'>=</span> <span class='st'>"mean"</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    outcome <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>outcome</span>,</span>
+<span>                     mean_stress <span class='op'>=</span> <span class='st'>"Stress"</span>,</span>
+<span>                     mean_sleep  <span class='op'>=</span> <span class='st'>"Sleep"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>y_limits</span> <span class='op'>&lt;-</span> <span class='va'>summary_long</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>outcome</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>max_y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>mean</span> <span class='op'>+</span> <span class='fl'>1.5</span><span class='op'>*</span><span class='va'>se_stress</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>, .groups <span class='op'>=</span> <span class='st'>"drop"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Simplest approach: use the overall maximum to keep same scale</span></span>
+<span><span class='va'>overall_max</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>y_limits</span><span class='op'>$</span><span class='va'>max_y</span><span class='op'>)</span></span>
+<span><span class='co'># ---- Faceted plot for Stress and Sleep ----</span></span>
+<span><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>summary_long</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>time</span>, y <span class='op'>=</span> <span class='va'>mean</span>, group <span class='op'>=</span> <span class='va'>arm</span>, colour <span class='op'>=</span> <span class='va'>arm</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1.2</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span> <span class='va'>outcome</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title  <span class='op'>=</span> <span class='st'>"Study Outcomes Over Time by Arm"</span>,</span>
+<span>    x      <span class='op'>=</span> <span class='st'>"Time (months)"</span>,</span>
+<span>    y      <span class='op'>=</span> <span class='st'>"Mean Value"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Study Arm"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>expand <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/expansion.html'>expansion</a></span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.05</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='va'>overall_max</span><span class='op'>)</span>, expand <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/expansion.html'>expansion</a></span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.05</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    panel.background   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"white"</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>,  <span class='co'># faint gray panel background</span></span>
+<span>    strip.background   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"white"</span>, color <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>,  <span class='co'># faint gray facet label background</span></span>
+<span>    axis.title         <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>22</span><span class='op'>)</span>,</span>
+<span>    axis.text          <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>,</span>
+<span>    legend.title       <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>,</span>
+<span>    legend.text        <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>18</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"gray85"</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor   <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"gray90"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='va'>p</span>, filename <span class='op'>=</span> <span class='st'>"WW2020604a.png"</span>, width <span class='op'>=</span> <span class='fl'>16</span>, height <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p><a id="example4 code"></a></p>
+<h3 id="code-for-example-4">Code for Example 4</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://gganimate.com'>gganimate</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-rust.r-universe.dev/gifski'>gifski</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/thomasp85/transformr'>transformr</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Load data</span></span>
+<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"simulated_MBC2_data.csv"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Summarize by arm and time</span></span>
+<span><span class='va'>summary_data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>arm</span>, <span class='va'>time</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span></span>
+<span>    mean_stress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>stress</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>    se_stress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>stress</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    mean_sleep <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>sleep</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,</span>
+<span>    se_sleep <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>sleep</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>    .groups <span class='op'>=</span> <span class='st'>"drop"</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Pivot to long format for faceting and animation</span></span>
+<span><span class='va'>summary_long</span> <span class='op'>&lt;-</span> <span class='va'>summary_data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span></span>
+<span>    cols <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>starts_with</a></span><span class='op'>(</span><span class='st'>"mean"</span><span class='op'>)</span>,</span>
+<span>    names_to <span class='op'>=</span> <span class='st'>"outcome"</span>,</span>
+<span>    values_to <span class='op'>=</span> <span class='st'>"mean"</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    outcome <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>outcome</span>,</span>
+<span>                     mean_stress <span class='op'>=</span> <span class='st'>"Stress"</span>,</span>
+<span>                     mean_sleep <span class='op'>=</span> <span class='st'>"Sleep"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Base plot</span></span>
+<span><span class='va'>p_anim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>summary_long</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>time</span>, y <span class='op'>=</span> <span class='va'>mean</span>, colour <span class='op'>=</span> <span class='va'>arm</span>, group <span class='op'>=</span> <span class='va'>arm</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>outcome</span><span class='op'>==</span><span class='st'>"Stress"</span>, <span class='va'>se_stress</span>, <span class='va'>se_sleep</span><span class='op'>)</span>,</span>
+<span>                    ymax <span class='op'>=</span> <span class='va'>mean</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>outcome</span><span class='op'>==</span><span class='st'>"Stress"</span>, <span class='va'>se_stress</span>, <span class='va'>se_sleep</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>                width <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span> <span class='va'>outcome</span>, scales <span class='op'>=</span> <span class='st'>"free_y"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Sleep/Stress"</span> <span class='op'>=</span> <span class='st'>"#1b9e77"</span>,</span>
+<span>                                <span class='st'>"Diet/Activity"</span> <span class='op'>=</span> <span class='st'>"#d95f02"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Study Outcomes Over Time"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Time"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Mean value"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Study Arm"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span>base_size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>18</span><span class='op'>)</span>,</span>
+<span>    axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span>,</span>
+<span>    legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    legend.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'># Animation</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/transition_reveal.html'>transition_reveal</a></span><span class='op'>(</span><span class='va'>time</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/ease_aes.html'>ease_aes</a></span><span class='op'>(</span><span class='st'>'linear'</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Animate</span></span>
+<span><span class='fu'><a href='https://gganimate.com/reference/animate.html'>animate</a></span><span class='op'>(</span><span class='va'>p_anim</span>, nframes <span class='op'>=</span> <span class='fl'>100</span>, fps <span class='op'>=</span> <span class='fl'>10</span>, width <span class='op'>=</span> <span class='fl'>800</span>, height <span class='op'>=</span> <span class='fl'>600</span>, renderer <span class='op'>=</span> <span class='fu'><a href='https://gganimate.com/reference/renderers.html'>gifski_renderer</a></span><span class='op'>(</span><span class='st'>"animated_plot.gif"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <p><a href="#example1">Back to blog</a></p>

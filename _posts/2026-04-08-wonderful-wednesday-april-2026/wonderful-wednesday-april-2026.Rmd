@@ -59,6 +59,8 @@ The challenge is to find or create a better or more suitable plot than the ones 
 
 ![](./images/lineplot_sidebyside.png)
 
+[link to code](#example2 code)
+
 <a id="example3"></a>
 
 ### Example 3: Dashboard
@@ -70,6 +72,8 @@ The challenge is to find or create a better or more suitable plot than the ones 
 ### Example 4: Animated Lineplot
 
 ![](./images/line_anim.gif)
+
+[link to code](#example4 code)
 
 <a id="example5"></a>
 
@@ -84,6 +88,22 @@ The challenge is to find or create a better or more suitable plot than the ones 
 ### Code for Example 1
 
 ```{r, echo = TRUE, eval=FALSE, code = readLines("./code/RWA_WWW_April2026.R")}
+
+```
+
+<a id="example2 code"></a>
+
+### Code for Example 2
+
+```{r, echo = TRUE, eval=FALSE, code = readLines("./code/WW 2026-04.R")}
+
+```
+
+<a id="example4 code"></a>
+
+### Code for Example 4
+
+```{r, echo = TRUE, eval=FALSE, code = readLines("./code/WW 2026-04 anim.R")}
 
 ```
 
