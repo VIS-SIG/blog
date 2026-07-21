@@ -34,7 +34,7 @@ This month's challenge used a simulated pharmacokinetic (PK) dataset. Each of 50
 The challenge was to use data visualisation to characterise the PK behaviour of the drug. There was no correct answer, but it was suggested that participants could explore individual PK profiles, summary trends, variability between subjects, or something else...
 
 ## Visualisations
-Two submissions were received for the challenge, both containing interactivity. Hence, they are best explored via the HTML files.
+Note: Submissions 1 and 2 both contain interactivity. Hence, they are best explored via the HTML files.
 
 <a id="example1"></a>
 
@@ -55,6 +55,14 @@ View the HTML file: [Connected Interactive Plots](./interactive_pk_visualisation
 View the HTML file: [Scroll Storytelling](./pk_scroll_story.html)
 
 [link to code](#example2 code) 
+
+### Submission 3: Heatmap
+
+![](./images/heatmap.png) 
+
+### Submission 4: Population Profile
+
+![](./images/Population PK profile.png) 
 
 ## Code
 
