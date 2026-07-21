@@ -58,7 +58,7 @@ View the HTML file: [Scroll Storytelling](./pk_scroll_story.html)
 
 ### Submission 3: Heatmap
 
-![](./images/heatmap.png) 
+![](./images/Heatmap.png) 
 
 ### Submission 4: Population Profile
 
