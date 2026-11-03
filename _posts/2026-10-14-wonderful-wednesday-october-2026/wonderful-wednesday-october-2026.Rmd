@@ -92,6 +92,11 @@ Produce a visualisation from a tipping point analysis: What is the minimum vacci
 
 [link to code](#example4 code)
 
+### Submission 3, All Challenges
+
+![](./images/App.png)  
+
+Submission 3 is an interactive app that addresses all of the challenges as you work through it. Visit and explore the app [here](https://mallettstats.shinyapps.io/VaccineSafety/).
 
 ## Code
 
