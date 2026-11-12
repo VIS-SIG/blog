@@ -1,5 +1,28 @@
 [
   {
+    "path": "posts/2026-11-11-wonderful-wednesday-november-2026/",
+    "title": "Wonderful Wednesday November 2026 (79)",
+    "description": "Prurigo Nodularis",
+    "author": [
+      {
+        "name": "PSI VIS SIG",
+        "url": "https://www.psiweb.org/sigs-special-interest-groups/visualisation"
+      }
+    ],
+    "date": "2026-11-11",
+    "categories": [
+      "Wonderful Wednesdays",
+      "Improvement",
+      "Longitudinal data"
+    ],
+    "contents": "\r\n\r\nContents\r\nPrurigo Nodularis\r\nBackground\r\nChallenge\r\nVisualisations\r\nRebuild of the original visualisation\r\nSimplify by combining plots\r\nEliminate clutter - add clarity\r\nEliminate clutter - focus attention\r\nColour shading\r\nEliminate clutter - clarity and focus\r\nInformation\r\nAdditional details (Final submission)\r\n\r\nCode\r\nCode for final submission\r\n\r\n\r\n\r\nPrurigo Nodularis\r\nBackground\r\nIn the recent publication “Vixarelimab in Patients With Prurigo Nodularis: A Randomized Clinical Trial” (DOI: 10.1001/jamadermatol.2025.4950) the study results were presented using the following plot:\r\nFigure 2. Least-Squares Means of Percentage Change From Baseline in Weekly Mean Worst Itch Numeric Rating Scale during the Double-Blind (DB) Period and Open-Label Extension Period\r\n\r\nFootnote: Patients who received placebo in the DB period received vixarelimab, 360 mg, subcutaneously once every 2 weeks during the open-label extension period. Error bars indicate 95% CIs.\r\nImportance: Prurigo nodularis (PN) is a chronic inflammatory skin disease characterized by severe pruritus and nodule formation, significantly affecting patients’ quality of life. There is an unmet need for effective therapies to address both symptoms and disease progression.\r\nChallenge\r\nObserve the plot and evaluate the design decisions made. Check what graphical principles can be used to improve the plot. Ask yourself: What is the main message? And how can this be visually supported?\r\nVisualisations\r\nOne submission was received for this challenge. During the webinar, step-by-step improvements moving from the original visualisation to the final submission were presented and discussed. Each step is presented below, along with notes on what is changed each time.\r\n\r\nRebuild of the original visualisation\r\nThe original visualisation is recreated using simulated data\r\n\r\n\r\nSimplify by combining plots\r\nReduce cognitive load\r\n\r\n\r\nEliminate clutter - add clarity\r\nShaded bands instead of error bars\r\n\r\n\r\nEliminate clutter - focus attention\r\nRemove markers except for Week 16\r\nWhite outline\r\n\r\n\r\nColour shading\r\nReduce cognitive load\r\nPlacebo in grey\r\nDoses in shades of blue\r\nGrey line at Week 16\r\nArea shading\r\n\r\n\r\nEliminate clutter - clarity and focus\r\nOpen-label lines thinner and slightly greyed\r\nFewer x-axis tick marks\r\nGrid lines removed\r\n\r\n\r\nInformation\r\nTitle, footnotes and area labels\r\n\r\n\r\nAdditional details (Final submission)\r\nTable with additional information\r\n\r\nlink to code\r\nCode\r\n\r\nCode for final submission\r\nCode will be added soon\r\nBack to blog\r\n\r\n\r\n\r\n",
+    "preview": "posts/2026-11-11-wonderful-wednesday-november-2026/./images/Final.png",
+    "last_modified": "2026-11-12T12:27:40+00:00",
+    "input_file": "wonderful-wednesday-november-2026.knit.md",
+    "preview_width": 511,
+    "preview_height": 408
+  },
+  {
     "path": "posts/2026-10-14-wonderful-wednesday-october-2026/",
     "title": "Wonderful Wednesday October 2026 (78)",
     "description": "Vaccine Safety",
