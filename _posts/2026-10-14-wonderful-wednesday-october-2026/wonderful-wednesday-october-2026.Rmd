@@ -15,7 +15,7 @@ categories:
   - Data journalism
   - Vaccines
 base_url: https://vis-sig.github.io/blog
-preview: ./images/BarChart.png
+preview: ./images/Challenge_1_Newspaper.png
 output:
   distill::distill_article:
     self_contained: false
@@ -91,6 +91,9 @@ Produce a visualisation from a tipping point analysis: What is the minimum vacci
 ![](./images/Challenge_3_R.png)  
 
 [link to code](#example4 code)
+
+
+<a id="example5"></a>
 
 ### Submission 3, All Challenges
 
