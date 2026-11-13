@@ -125,7 +125,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["images/Final.png","images/Improve1.png","images/Improve2.png","images/Improve3.png","images/Improve4.png","images/Improve5.png","images/Improve6.png","images/Original.png","images/Rebuild.png","wonderful-wednesday-november-2026_files/anchor-4.2.2/anchor.min.js","wonderful-wednesday-november-2026_files/bowser-1.9.3/bowser.min.js","wonderful-wednesday-november-2026_files/distill-2.2.21/template.v2.js","wonderful-wednesday-november-2026_files/header-attrs-2.31/header-attrs.js","wonderful-wednesday-november-2026_files/jquery-3.6.0/jquery-3.6.0.js","wonderful-wednesday-november-2026_files/jquery-3.6.0/jquery-3.6.0.min.js","wonderful-wednesday-november-2026_files/jquery-3.6.0/jquery-3.6.0.min.map","wonderful-wednesday-november-2026_files/popper-2.6.0/popper.min.js","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy.css","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesday-november-2026_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["code/Wonderful_Wednesday_Nov_extended.R","images/Final.png","images/Improve1.png","images/Improve2.png","images/Improve3.png","images/Improve4.png","images/Improve5.png","images/Improve6.png","images/Original.png","images/Rebuild.png","wonderful-wednesday-november-2026_files/anchor-4.2.2/anchor.min.js","wonderful-wednesday-november-2026_files/bowser-1.9.3/bowser.min.js","wonderful-wednesday-november-2026_files/distill-2.2.21/template.v2.js","wonderful-wednesday-november-2026_files/header-attrs-2.31/header-attrs.js","wonderful-wednesday-november-2026_files/jquery-3.6.0/jquery-3.6.0.js","wonderful-wednesday-november-2026_files/jquery-3.6.0/jquery-3.6.0.min.js","wonderful-wednesday-november-2026_files/jquery-3.6.0/jquery-3.6.0.min.map","wonderful-wednesday-november-2026_files/popper-2.6.0/popper.min.js","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy-bundle.umd.min.js","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy-light-border.css","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy.css","wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy.umd.min.js","wonderful-wednesday-november-2026_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1576,10 +1576,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#information" id="toc-information">Information</a></li>
 <li><a href="#additional-details-final-submission" id="toc-additional-details-final-submission">Additional details (Final submission)</a></li>
 </ul></li>
-<li><a href="#code" id="toc-code">Code</a>
-<ul>
-<li><a href="#code-for-final-submission" id="toc-code-for-final-submission">Code for final submission</a></li>
-</ul></li>
+<li><a href="#code" id="toc-code">Code</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -1653,8 +1650,977 @@ Footnote: Patients who received placebo in the DB period received vixarelimab, 3
 <p><a href="#example8%20code">link to code</a></p>
 <h2 id="code">Code</h2>
 <p><a id="example8 code"></a></p>
-<h3 id="code-for-final-submission">Code for final submission</h3>
-<p>Code will be added soon</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># libraries</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://wilkelab.org/cowplot/'>cowplot</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>gridExtra</span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span><span class='co'>#import</span></span>
+<span><span class='co'># study_data &lt;- read.excel("simulated_study_data.xlsx)</span></span>
+<span></span>
+<span><span class='co'>#### rebuild original plot (1) ####</span></span>
+<span></span>
+<span><span class='va'>p1_a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Week</span> <span class='op'>&lt;=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      ymin <span class='op'>=</span> <span class='va'>Low</span>,</span>
+<span>      ymax <span class='op'>=</span> <span class='va'>High</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    width <span class='op'>=</span> <span class='fl'>0.25</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>0.4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>linewidth <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>4</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#081820"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#EA4928"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#284A52"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#54B1F9"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>16</span>, <span class='fl'>1</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.85</span>, <span class='fl'>0.81</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      fill <span class='op'>=</span> <span class='st'>"white"</span>,</span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.box.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    </span>
+<span>    <span class='co'># X-Gridlines entfernen</span></span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_cartesian.html'>coord_cartesian</a></span><span class='op'>(</span></span>
+<span>    ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>60</span>, <span class='fl'>20</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p1_a</span></span>
+<span></span>
+<span><span class='va'>p1_b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Week</span> <span class='op'>&gt;=</span> <span class='fl'>18</span><span class='op'>)</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      ymin <span class='op'>=</span> <span class='va'>Low</span>,</span>
+<span>      ymax <span class='op'>=</span> <span class='va'>High</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    width <span class='op'>=</span> <span class='fl'>0.25</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>0.4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>linewidth <span class='op'>=</span> <span class='fl'>1</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>4</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#081820"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#EA4928"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#284A52"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#54B1F9"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>18</span>, <span class='fl'>52</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"none"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    <span class='co'># X-Gridlines entfernen</span></span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>p1_b</span></span>
+<span></span>
+<span><span class='va'>p1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://wilkelab.org/cowplot/reference/plot_grid.html'>plot_grid</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>p1_a</span>,</span>
+<span>  <span class='va'>p1_b</span>,</span>
+<span>  ncol <span class='op'>=</span> <span class='fl'>1</span>,</span>
+<span>  align <span class='op'>=</span> <span class='st'>"v"</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p1</span></span>
+<span><span class='co'>#### merge to one plot (2) ####</span></span>
+<span></span>
+<span><span class='va'>p2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span></span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>      ymin <span class='op'>=</span> <span class='va'>Low</span>,</span>
+<span>      ymax <span class='op'>=</span> <span class='va'>High</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    width <span class='op'>=</span> <span class='fl'>0.25</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>0.4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>linewidth <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>4</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#081820"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#EA4928"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#284A52"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#54B1F9"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>52</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.85</span>, <span class='fl'>0.85</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      fill <span class='op'>=</span> <span class='st'>"white"</span>,</span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.box.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    </span>
+<span>    <span class='co'># X-Gridlines entfernen</span></span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p2</span></span>
+<span></span>
+<span></span>
+<span><span class='co'>#### error bands instead of error bars (3) ####</span></span>
+<span></span>
+<span><span class='va'>p3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'># geom_errorbar(</span></span>
+<span>  <span class='co'>#   aes(</span></span>
+<span>  <span class='co'>#     ymin = Low,</span></span>
+<span>  <span class='co'>#     ymax = High</span></span>
+<span>  <span class='co'>#   ),</span></span>
+<span>  <span class='co'>#   width = 0.25,</span></span>
+<span>  <span class='co'>#   linewidth = 0.4</span></span>
+<span>  <span class='co'># ) +</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>study_data</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>Low</span>, ymax <span class='op'>=</span> <span class='va'>High</span>, fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.15</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>linewidth <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>4</span>, show.legend <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#081820"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#EA4928"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#284A52"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#54B1F9"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#081820"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#EA4928"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#284A52"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#54B1F9"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>52</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.85</span>, <span class='fl'>0.85</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      fill <span class='op'>=</span> <span class='st'>"white"</span>,</span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.box.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    </span>
+<span>    <span class='co'># X-Gridlines entfernen</span></span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p3</span></span>
+<span></span>
+<span></span>
+<span><span class='co'>#### remove symbols except week 16 (4) ####</span></span>
+<span></span>
+<span><span class='va'>p4</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>study_data</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>Low</span>, ymax <span class='op'>=</span> <span class='va'>High</span>, fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.15</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>linewidth <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'># geom_point(aes(shape = Arm), size = 4, show.legend = FALSE) +</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#081820"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#EA4928"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#284A52"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#54B1F9"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#081820"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#EA4928"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#284A52"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#54B1F9"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>52</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    shape <span class='op'>=</span> <span class='fl'>21</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>    stroke <span class='op'>=</span><span class='fl'>1.2</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#FFF"</span>, </span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.85</span>, <span class='fl'>0.85</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      fill <span class='op'>=</span> <span class='st'>"white"</span>,</span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.box.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    </span>
+<span>    <span class='co'># X-Gridlines entfernen</span></span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p4</span></span>
+<span></span>
+<span></span>
+<span><span class='co'>#### change colors add light grey background color (5) ####</span></span>
+<span></span>
+<span><span class='va'>p5</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span></span>
+<span>    xintercept <span class='op'>=</span> <span class='fl'>16</span>, </span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#B1B1B1"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span></span>
+<span>    yintercept <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#C5C5C5"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"rect"</span>,</span>
+<span>    xmin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, xmax <span class='op'>=</span> <span class='fl'>16</span>,</span>
+<span>    ymin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, ymax <span class='op'>=</span> <span class='cn'>Inf</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"#F6F6F6"</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.5</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>study_data</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>Low</span>, ymax <span class='op'>=</span> <span class='va'>High</span>, fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.15</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>linewidth <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'># geom_point(aes(shape = Arm), size = 4, show.legend = FALSE) +</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>52</span>, <span class='fl'>2</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    shape <span class='op'>=</span> <span class='fl'>21</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>    stroke <span class='op'>=</span><span class='fl'>1.2</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#FFF"</span>, </span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.85</span>, <span class='fl'>0.85</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      fill <span class='op'>=</span> <span class='st'>"white"</span>,</span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.box.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_rect</a></span><span class='op'>(</span></span>
+<span>      colour <span class='op'>=</span> <span class='st'>"black"</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    </span>
+<span>    <span class='co'># X-Gridlines entfernen</span></span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p5</span></span>
+<span></span>
+<span><span class='co'>#### Change line width until week 16, change font sizes, change axis breaks, remove legend box (6) ####</span></span>
+<span></span>
+<span><span class='va'>p6</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span></span>
+<span>    xintercept <span class='op'>=</span> <span class='fl'>16</span>, </span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#B1B1B1"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span></span>
+<span>    yintercept <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#C5C5C5"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"rect"</span>,</span>
+<span>    xmin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, xmax <span class='op'>=</span> <span class='fl'>16</span>,</span>
+<span>    ymin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, ymax <span class='op'>=</span> <span class='cn'>Inf</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"#F6F6F6"</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.5</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>study_data</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>Low</span>, ymax <span class='op'>=</span> <span class='va'>High</span>, fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.15</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>&lt;=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>Week</span>, <span class='va'>Mean</span><span class='op'>)</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>1.2</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>&gt;=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>Week</span>, <span class='va'>Mean</span><span class='op'>)</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>0.8</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'># geom_point(aes(shape = Arm), size = 4, show.legend = FALSE) +</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>52</span>, <span class='fl'>4</span><span class='op'>)</span>,</span>
+<span>    labels <span class='op'>=</span> \<span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>==</span> <span class='fl'>0</span>, <span class='st'>"Baseline"</span>, <span class='va'>x</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    shape <span class='op'>=</span> <span class='fl'>21</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>    stroke <span class='op'>=</span><span class='fl'>1.2</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#FFF"</span>, </span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span></span>
+<span>      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>b <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    plot.caption <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span></span>
+<span>      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>      size <span class='op'>=</span> <span class='fl'>12</span>,</span>
+<span>      hjust <span class='op'>=</span> <span class='fl'>0</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.6</span>, <span class='fl'>0.75</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>, </span>
+<span>    legend.key <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    legend.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p6</span></span>
+<span></span>
+<span><span class='co'>#### Add title, labels, footnote (7) ####</span></span>
+<span></span>
+<span><span class='va'>p7</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span>,</span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span></span>
+<span>    xintercept <span class='op'>=</span> <span class='fl'>16</span>, </span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#B1B1B1"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span></span>
+<span>    yintercept <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#C5C5C5"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"rect"</span>,</span>
+<span>    xmin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, xmax <span class='op'>=</span> <span class='fl'>16</span>,</span>
+<span>    ymin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, ymax <span class='op'>=</span> <span class='cn'>Inf</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"#F6F6F6"</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.5</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>study_data</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>Low</span>, ymax <span class='op'>=</span> <span class='va'>High</span>, fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.15</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>&lt;=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>Week</span>, <span class='va'>Mean</span><span class='op'>)</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>1.2</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>&gt;=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>Week</span>, <span class='va'>Mean</span><span class='op'>)</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>0.8</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'># geom_point(aes(shape = Arm), size = 4, show.legend = FALSE) +</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>52</span>, <span class='fl'>4</span><span class='op'>)</span>,</span>
+<span>    labels <span class='op'>=</span> \<span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>==</span> <span class='fl'>0</span>, <span class='st'>"Baseline"</span>, <span class='va'>x</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    shape <span class='op'>=</span> <span class='fl'>21</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>    stroke <span class='op'>=</span><span class='fl'>1.2</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#FFF"</span>, </span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from Baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span></span>
+<span>    expand <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/expansion.html'>expansion</a></span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.15</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span></span>
+<span>      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>b <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    plot.caption <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span></span>
+<span>      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>      size <span class='op'>=</span> <span class='fl'>12</span>,</span>
+<span>      hjust <span class='op'>=</span> <span class='fl'>0</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.6</span>, <span class='fl'>0.75</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>, </span>
+<span>    legend.key <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    legend.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_shape_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='fl'>15</span>,  <span class='co'># Quadrat</span></span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='fl'>16</span>,  <span class='co'># Kreis</span></span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='fl'>17</span>,  <span class='co'># Dreieck</span></span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='fl'>18</span>   <span class='co'># Diamant</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span><span class='op'>+</span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label <span class='op'>=</span> <span class='st'>"DB period"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>10</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"#F6F6F6"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label<span class='op'>=</span><span class='st'>"Subcutaneously every 4 weeks"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>5</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    fill<span class='op'>=</span><span class='st'>"#F6F6F6"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label<span class='op'>=</span><span class='st'>"Open-label extension period"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='fl'>17</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>10</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    fill<span class='op'>=</span><span class='st'>"#FFF"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label<span class='op'>=</span><span class='st'>"All participants: Vixarelimab, 360 mg, subcutaneously every 2 weeks"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='fl'>17</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>5</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    fill<span class='op'>=</span><span class='st'>"#FFF"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> </span>
+<span>      <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Figure 2. Least-Squares Means of Percentage Change From Baseline in Weekly Mean Worst Itch"</span>,</span>
+<span>            <span class='st'>"Numeric Rating Scale during the Double-Blind (DB) Period and Open-Label Extension Period"</span>,</span>
+<span>            sep <span class='op'>=</span> <span class='st'>"\n"</span></span>
+<span>      <span class='op'>)</span>,</span>
+<span>    caption <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Vixarelimab and placebo were administered subcutaneously every 4 weeks during the DB period. During the open−label"</span>,</span>
+<span>      <span class='st'>"extension period, all participants received vixarelimab, 360 mg, subcutaneously every 2 weeks."</span>,</span>
+<span>      <span class='st'>"Shaded areas indicate 95% CIs."</span>, sep <span class='op'>=</span> <span class='st'>"\n"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>p7</span></span>
+<span></span>
+<span><span class='co'>#### Add Table to Legend (8) ####</span></span>
+<span><span class='va'>p8</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>study_data</span>, </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='va'>Week</span>,</span>
+<span>    y <span class='op'>=</span> <span class='va'>Mean</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='va'>Arm</span>,</span>
+<span>    group <span class='op'>=</span> <span class='va'>Arm</span>, </span>
+<span>    fill <span class='op'>=</span> <span class='va'>Arm</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span></span>
+<span>    xintercept <span class='op'>=</span> <span class='fl'>16</span>, </span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#B1B1B1"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span></span>
+<span>    yintercept <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#C5C5C5"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"rect"</span>,</span>
+<span>    xmin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, xmax <span class='op'>=</span> <span class='fl'>16</span>,</span>
+<span>    ymin <span class='op'>=</span> <span class='op'>-</span><span class='cn'>Inf</span>, ymax <span class='op'>=</span> <span class='cn'>Inf</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"#F6F6F6"</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='va'>study_data</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin <span class='op'>=</span> <span class='va'>Low</span>, ymax <span class='op'>=</span> <span class='va'>High</span><span class='op'>)</span>,</span>
+<span>    alpha <span class='op'>=</span> <span class='fl'>0.15</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    show.legend <span class='op'>=</span> <span class='cn'>FALSE</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>&lt;=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>Week</span>, <span class='va'>Mean</span><span class='op'>)</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>1.2</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>&gt;=</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>Week</span>, <span class='va'>Mean</span><span class='op'>)</span>,</span>
+<span>    linewidth <span class='op'>=</span> <span class='fl'>0.8</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span></span>
+<span>    data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span><span class='op'>(</span><span class='va'>study_data</span>, <span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>Arm</span><span class='op'>)</span>,</span>
+<span>    shape <span class='op'>=</span> <span class='fl'>21</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>    stroke <span class='op'>=</span><span class='fl'>1.2</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"#FFF"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'>#colors</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_colour_manual</a></span><span class='op'>(</span></span>
+<span>    name <span class='op'>=</span> <span class='st'>"Week 16"</span>,</span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    name <span class='op'>=</span> <span class='st'>"Week 16"</span>,</span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Placebo"</span> <span class='op'>=</span> <span class='st'>"#8E8E8E"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 120 mg"</span>   <span class='op'>=</span> <span class='st'>"#5498E2"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 360 mg"</span>   <span class='op'>=</span> <span class='st'>"#187AC7"</span>,</span>
+<span>      <span class='st'>"Vixarelimab, 540 mg"</span>   <span class='op'>=</span> <span class='st'>"#2A5B92"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span></span>
+<span>    colour <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span></span>
+<span>      override.aes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>        shape <span class='op'>=</span> <span class='fl'>21</span>,</span>
+<span>        fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span> <span class='st'>"#8E8E8E"</span>,<span class='st'>"#5498E2"</span>,<span class='st'>"#187AC7"</span>,<span class='st'>"#2A5B92"</span><span class='op'>)</span>,</span>
+<span>        size <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span>        stroke <span class='op'>=</span> <span class='fl'>0.8</span></span>
+<span>      <span class='op'>)</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span></span>
+<span>    expand <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/expansion.html'>expansion</a></span><span class='op'>(</span>mult <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.15</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span></span>
+<span>    breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>52</span>, <span class='fl'>4</span><span class='op'>)</span>,</span>
+<span>    labels <span class='op'>=</span> \<span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>==</span> <span class='fl'>0</span>, <span class='st'>"Baseline"</span>, <span class='va'>x</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'>#labels/footnote/header</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Study Week"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Change from baseline, %"</span>,</span>
+<span>    colour <span class='op'>=</span> <span class='st'>"Treatment"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label <span class='op'>=</span> <span class='st'>"DB period"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>10</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"#F6F6F6"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label<span class='op'>=</span><span class='st'>"Subcutaneously every 4 weeks"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>5</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    fill<span class='op'>=</span><span class='st'>"#F6F6F6"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label<span class='op'>=</span><span class='st'>"Open-label extension period"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='fl'>17</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>10</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    fill<span class='op'>=</span><span class='st'>"#FFF"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_label</a></span><span class='op'>(</span></span>
+<span>    label<span class='op'>=</span><span class='st'>"All participants: Vixarelimab, 360 mg, subcutaneously every 2 weeks"</span>, </span>
+<span>    x <span class='op'>=</span> <span class='fl'>17</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>5</span>,</span>
+<span>    label.size <span class='op'>=</span> <span class='fl'>0.35</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"#000"</span>,</span>
+<span>    border.color <span class='op'>=</span> <span class='cn'>NA</span>,</span>
+<span>    fill<span class='op'>=</span><span class='st'>"#FFF"</span>,</span>
+<span>    hjust <span class='op'>=</span> <span class='fl'>0</span>,</span>
+<span>    size <span class='op'>=</span> <span class='fl'>4</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> </span>
+<span>      <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Figure 2. Least-Squares Means of Percentage Change From Baseline in Weekly Mean Worst Itch"</span>,</span>
+<span>            <span class='st'>"Numeric Rating Scale during the Double-Blind (DB) Period and Open-Label Extension Period"</span>,</span>
+<span>            sep <span class='op'>=</span> <span class='st'>"\n"</span></span>
+<span>      <span class='op'>)</span>,</span>
+<span>    caption <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span></span>
+<span>      <span class='st'>"Vixarelimab and placebo were administered subcutaneously every 4 weeks during the DB period. During the open−label"</span>,</span>
+<span>      <span class='st'>"extension period, all participants received vixarelimab, 360 mg, subcutaneously every 2 weeks."</span>,</span>
+<span>      <span class='st'>"Shaded areas indicate 95% CIs."</span>, sep <span class='op'>=</span> <span class='st'>"\n"</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='co'>#theme</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span></span>
+<span>      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>b <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    plot.caption <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span></span>
+<span>      margin <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span><span class='op'>(</span>t <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>      size <span class='op'>=</span> <span class='fl'>12</span>,</span>
+<span>      hjust <span class='op'>=</span> <span class='fl'>0</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    legend.position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.6</span>, <span class='fl'>0.75</span><span class='op'>)</span>,</span>
+<span>    legend.background <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>, </span>
+<span>    legend.key <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    legend.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.major.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>    panel.grid.minor.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>p8</span></span>
+<span></span>
+<span><span class='va'>tab_dat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
+<span>  n <span class='op'>=</span> <span class='va'>study_data</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>,</span>
+<span>  LS_Mean <span class='op'>=</span> <span class='va'>study_data</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>Mean</span><span class='op'>)</span><span class='op'>|&gt;</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>,</span>
+<span>  SE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"("</span>,<span class='va'>study_data</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Week</span> <span class='op'>==</span> <span class='fl'>16</span><span class='op'>)</span> <span class='op'>|&gt;</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>SE</span><span class='op'>)</span> <span class='op'>|&gt;</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>,<span class='st'>")"</span><span class='op'>)</span></span>
+<span><span class='op'>)</span> <span class='op'>|&gt;</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tab_dat</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"n"</span>, <span class='st'>"LS Mean"</span>, <span class='st'>"  (SE), %"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>tab_grob</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/gridExtra/man/tableGrob.html'>tableGrob</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>tab_dat</span>,</span>
+<span>  rows <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
+<span>  theme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/gridExtra/man/tableGrob.html'>ttheme_minimal</a></span><span class='op'>(</span></span>
+<span>    core <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      fg_params <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>fontsize <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,</span>
+<span>      padding <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span>, <span class='st'>"mm"</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    colhead <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      fg_params <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>        fontsize <span class='op'>=</span> <span class='fl'>12</span>,</span>
+<span>        fontface <span class='op'>=</span> <span class='st'>"bold"</span></span>
+<span>      <span class='op'>)</span>,</span>
+<span>      padding <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span>, <span class='st'>"mm"</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>tab_grob</span><span class='op'>$</span><span class='va'>heights</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1.2</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>tab_grob</span><span class='op'>)</span><span class='op'>)</span>, <span class='st'>"lines"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>table_plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://wilkelab.org/cowplot/reference/ggdraw.html'>ggdraw</a></span><span class='op'>(</span><span class='va'>tab_grob</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://wilkelab.org/cowplot/reference/ggdraw.html'>ggdraw</a></span><span class='op'>(</span><span class='va'>p8</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://wilkelab.org/cowplot/reference/draw_plot.html'>draw_plot</a></span><span class='op'>(</span></span>
+<span>    <span class='va'>table_plot</span>,</span>
+<span>    x <span class='op'>=</span> <span class='fl'>0.71</span>,</span>
+<span>    y <span class='op'>=</span> <span class='fl'>0.55</span>,</span>
+<span>    width <span class='op'>=</span> <span class='fl'>0.22</span>,</span>
+<span>    height <span class='op'>=</span> <span class='fl'>0.35</span></span>
+<span>  <span class='op'>)</span></span></code></pre>
+</div>
+</div>
 <p><a href="#example1">Back to blog</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

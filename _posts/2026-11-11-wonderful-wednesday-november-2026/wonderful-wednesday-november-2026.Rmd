@@ -109,7 +109,8 @@ One submission was received for this challenge. During the webinar, step-by-step
 
 <a id="example8 code"></a>
 
-### Code for final submission
-Code will be added soon
+```{r, echo = TRUE, eval=FALSE, code = readLines("./code/Wonderful_Wednesday_Nov_extended.R")}
+
+```
 
 [Back to blog](#example1)
