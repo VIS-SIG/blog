@@ -20,9 +20,8 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -104,8 +103,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="Prurigo Nodularis"/>
   <meta property="og:image" content="https://vis-sig.github.io/blog/./images/Final.png"/>
-  <meta property="og:image:width" content="511"/>
-  <meta property="og:image:height" content="408"/>
+  <meta property="og:image:width" content="1938"/>
+  <meta property="og:image:height" content="1550"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
@@ -113,8 +112,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta property="twitter:title" content="Wonderful Wednesday November 2026 (79)"/>
   <meta property="twitter:description" content="Prurigo Nodularis"/>
   <meta property="twitter:image" content="https://vis-sig.github.io/blog/./images/Final.png"/>
-  <meta property="twitter:image:width" content="511"/>
-  <meta property="twitter:image:height" content="408"/>
+  <meta property="twitter:image:width" content="1938"/>
+  <meta property="twitter:image:height" content="1550"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
@@ -1507,7 +1506,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="wonderful-wednesday-november-2026_files/header-attrs-2.31/header-attrs.js"></script>
+  <script src="wonderful-wednesday-november-2026_files/header-attrs-2.29/header-attrs.js"></script>
   <script src="wonderful-wednesday-november-2026_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="wonderful-wednesday-november-2026_files/popper-2.6.0/popper.min.js"></script>
   <link href="wonderful-wednesday-november-2026_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1528,7 +1527,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Wonderful Wednesday November 2026 (79)","description":"Prurigo Nodularis","authors":[{"author":"PSI VIS SIG","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2026-11-11T00:00:00.000+00:00","citationText":"SIG, 2026"}
+{"title":"Wonderful Wednesday November 2026 (79)","description":"Prurigo Nodularis","authors":[{"author":"PSI VIS SIG","authorURL":"https://www.psiweb.org/sigs-special-interest-groups/visualisation","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2026-11-11T00:00:00.000+01:00","citationText":"SIG, 2026"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1783,7 +1782,7 @@ Footnote: Patients who received placebo in the DB period received vixarelimab, 3
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>p1_b</span></span>
 <span></span>
-<span><span class='va'>p1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://wilkelab.org/cowplot/reference/plot_grid.html'>plot_grid</a></span><span class='op'>(</span></span>
+<span><span class='va'>p1</span> <span class='op'>&lt;-</span> <span class='fu'>plot_grid</span><span class='op'>(</span></span>
 <span>  <span class='va'>p1_a</span>,</span>
 <span>  <span class='va'>p1_b</span>,</span>
 <span>  ncol <span class='op'>=</span> <span class='fl'>1</span>,</span>
@@ -2609,10 +2608,10 @@ Footnote: Patients who received placebo in the DB period received vixarelimab, 3
 <span></span>
 <span><span class='va'>tab_grob</span><span class='op'>$</span><span class='va'>heights</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1.2</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>tab_grob</span><span class='op'>)</span><span class='op'>)</span>, <span class='st'>"lines"</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>table_plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://wilkelab.org/cowplot/reference/ggdraw.html'>ggdraw</a></span><span class='op'>(</span><span class='va'>tab_grob</span><span class='op'>)</span></span>
+<span><span class='va'>table_plot</span> <span class='op'>&lt;-</span> <span class='fu'>ggdraw</span><span class='op'>(</span><span class='va'>tab_grob</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'><a href='https://wilkelab.org/cowplot/reference/ggdraw.html'>ggdraw</a></span><span class='op'>(</span><span class='va'>p8</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://wilkelab.org/cowplot/reference/draw_plot.html'>draw_plot</a></span><span class='op'>(</span></span>
+<span><span class='fu'>ggdraw</span><span class='op'>(</span><span class='va'>p8</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'>draw_plot</span><span class='op'>(</span></span>
 <span>    <span class='va'>table_plot</span>,</span>
 <span>    x <span class='op'>=</span> <span class='fl'>0.71</span>,</span>
 <span>    y <span class='op'>=</span> <span class='fl'>0.55</span>,</span>
